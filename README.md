@@ -14,8 +14,8 @@ this project ain't doin' shit yet.
 wo      mostly discord, discussion at zbw.
 wann    
 technology
-    SQL Database
-    
+    SQL 
+
 
 
 ## Additional Information
