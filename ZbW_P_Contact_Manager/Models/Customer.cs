@@ -1,8 +1,8 @@
-﻿using Interface;
+﻿using Struct;
 
 namespace Model
 {
-    public class Customer(ICustomer customer) : ICustomer
+    public class Customer(CustomerDetails customer)
     {
         public string CompanyName { get; set; } = customer.CompanyName;
         public char CompanyType { get; set; } = customer.CompanyType;

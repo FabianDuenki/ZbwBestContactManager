@@ -1,8 +1,8 @@
-﻿using Interface;
+﻿using Struct;
 
 namespace Model
 {
-    public class Person(IPerson person) : IPerson
+    public class Person(PersonDetails person)
     {
         public string Salutation { get; set; } = person.Salutation;
         public string FirstName { get; set; } = person.FirstName;

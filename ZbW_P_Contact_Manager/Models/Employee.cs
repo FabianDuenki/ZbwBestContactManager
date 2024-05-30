@@ -1,8 +1,8 @@
-﻿using Interface;
+﻿using Struct;
 
 namespace Model
 {
-    public class Employee(IEmployee employee) : IEmployee
+    public class Employee(EmployeeDetails employee)
     {
         public Guid EmployeeNumber { get; set; } = employee.EmployeeNumber;
         public string Departement { get; set; } = employee.Departement;
