@@ -44,7 +44,9 @@ namespace Controller
             {
                 File.WriteAllText(fileName, CreateCsvHeader());
             }
-            File.AppendAllText(fileName, PersonToString(person));
+
+            AppendFile(fileName, person);
+
             return new Person(person);
         }
         public static Person ReadPerson(PersonDetails person)
@@ -57,8 +59,34 @@ namespace Controller
         }
         public static bool DeletePerson(PersonDetails person)
         {
-            
+            string fileName = person.GetType().Name + ".csv";
+
+            string[] fileContent = File.ReadAllLines(fileName);
+
+            foreach(string line in fileContent)
+            {
+                if (line.Contains(person.FirstName) && line.Contains(person.LastName))
+                {
+                    fileContent = fileContent.Where(val => val != line).ToArray();
+                    File.WriteAllLines(fileName, fileContent);
+                    return true;
+                }
+            }
             return true;
+        }
+        private static void AppendFile(string fileName, PersonDetails person)
+        {
+            try
+            {
+                File.AppendAllText(fileName, PersonToString(person));
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("ALTER, schlüss das fucking file im Excel");
+                Thread.Sleep(5000);
+                AppendFile(fileName, person);
+            }
+            return;
         }
         private static string CreateCsvHeader()
         {
