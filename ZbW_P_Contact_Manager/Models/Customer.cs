@@ -1,11 +1,11 @@
-﻿using Struct;
+﻿using Interface;
 
 namespace Model
 {
-    public class Customer(CustomerDetails customer)
+    public class Customer : ICustomer
     {
-        public string CompanyName { get; set; } = customer.CompanyName;
-        public char CompanyType { get; set; } = customer.CompanyType;
-        public string CompanyContact { get; set; } = customer.CompanyContact;
+        public string? CompanyName { get; set; }
+        public char? CompanyType { get; set; }
+        public string? CompanyContact { get; set; }
     }
 }
