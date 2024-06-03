@@ -8,7 +8,7 @@ namespace Model
         public string FirstName { get; set; } = person.FirstName;
         public string LastName { get; set; } = person.LastName;
         public DateTime DateOfBirth { get; set; } = person.DateOfBirth;
-        public bool Gender { get; set; } = person.Gender;
+        public string Gender { get; set; } = person.Gender;
         public string Title { get; set; } = person.Title;
         public string? SocialSecurityNumber { get; set; } = person.SocialSecurityNumber;
         public string? PhoneNumberPrivate { get; set; } = person.PhoneNumberPrivate;
