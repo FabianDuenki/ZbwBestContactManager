@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    public class Person() : IPerson
+    public class Person : IPerson
     {
         public string? Salutation { get; set; }
         public string? FirstName { get; set; }
