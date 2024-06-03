@@ -1,4 +1,4 @@
-namespace ZbW_P_Contact_Manager
+namespace View
 {
     internal static class Program
     {

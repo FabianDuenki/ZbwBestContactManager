@@ -1,4 +1,4 @@
-namespace ZbW_P_Contact_Manager
+namespace View
 {
     public partial class Form1 : Form
     {
