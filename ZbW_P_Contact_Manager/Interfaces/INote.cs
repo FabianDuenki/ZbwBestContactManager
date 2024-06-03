@@ -2,18 +2,18 @@
 {
     public interface INote
     {
-        public Guid? Id { get; set; }
+        Guid? Id { get; set; }
 
-        public string? Comment { get; set; }
+        string? Comment { get; set; }
 
-        public long? PersonId { get; set; }
+        long? PersonId { get; set; }
 
-        public DateTime? CreatedAt { get; set; }
+        DateTime? CreatedAt { get; set; }
 
-        public string? CreatedBy { get; set; }
+        string? CreatedBy { get; set; }
 
-        public DateTime? UpdatedAt { get; set; }
+        DateTime? UpdatedAt { get; set; }
 
-        public string? UpdatedBy { get; set; }
+        string? UpdatedBy { get; set; }
     }
 }
