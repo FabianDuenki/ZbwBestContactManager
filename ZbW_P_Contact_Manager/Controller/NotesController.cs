@@ -31,18 +31,28 @@ namespace Controller
             if (note != null)
             {
                 note.Comment = newComment;
-                note.CreatedBy = updatedBy;
-                note.CreatedAt = DateTime.Now;
+                note.UpdatedBy = updatedBy;
+                note.UpdatedAt = DateTime.Now;
             }
         }
 
-        public void DeleteNotes(long personId)
+        public void DeleteAllNotes(long personId)
         {
             var persNotes = notes.FindAll(n => n.PersonId == personId);
 
             foreach (var note in persNotes)
             {
                 notes.Remove(note);
+            }
+        }
+
+        public void DeleteNote(long personId, Guid noteId)
+        {
+            var persNote = notes.Find(n => n.PersonId == personId && n.Id == noteId);
+
+            if(persNote != null)
+            {
+                notes.Remove(persNote);
             }
         }
 
