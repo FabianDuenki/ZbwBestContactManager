@@ -6,6 +6,8 @@ namespace Controller
     {
         List<Note> notes = new List<Note>();
 
+        public NotesController() { }
+
         public NotesController(List<Note> notes)
         {
             this.notes = notes;
@@ -15,7 +17,7 @@ namespace Controller
         {
             var note = new Note()
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 Comment = comment,
                 PersonId = personId,
                 CreatedBy = createdBy,
