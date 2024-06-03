@@ -1,15 +1,15 @@
-﻿using Struct;
+﻿using Interface;
 
 namespace Model
 {
-    public class Employee(EmployeeDetails employee)
+    public class Employee : IEmployee
     {
-        public Guid EmployeeNumber { get; set; } = employee.EmployeeNumber;
-        public string Departement { get; set; } = employee.Departement;
-        public DateTime StartDate { get; set; } = employee.StartDate;
-        public DateTime EndDate { get; set; } = employee.EndDate;
-        public int Employment { get; set; } = employee.Employment;
-        public string Role { get; set; } = employee.Role;
-        public int CadreLevel { get; set; } = employee.CadreLevel;
+        public Guid? EmployeeNumber { get; set; }
+        public string? Departement { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
+        public int? Employment { get; set; }
+        public string? Role { get; set; }
+        public int? CadreLevel { get; set; }
     }
 }
