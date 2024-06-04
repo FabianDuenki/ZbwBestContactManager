@@ -95,7 +95,7 @@ namespace Controller
             return
                 string.Join(",", person.GetType()
                     .GetProperties()
-                    .Select(propertyInfo => propertyInfo.GetValue(person))) +
+                    .Select(propertyInfo => $"\"{propertyInfo.GetValue(person)}\"")) +
                     Environment.NewLine;
         }
         private static Person LineToPerson(string line)
