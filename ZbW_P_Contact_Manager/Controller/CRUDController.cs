@@ -1,13 +1,4 @@
 ﻿using Model;
-using Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Reflection.Metadata;
-using External;
-using Microsoft.VisualBasic.FileIO;
 
 namespace Controller
 {
@@ -15,8 +6,7 @@ namespace Controller
     {
         public static Person CreatePerson(Person person)
         {
-            var exporter = new Exporter<Person>(person);
-            string fileName = person.GetType().Name + ".csv";
+            string fileName = GetFileName(person);
 
             if (string.IsNullOrEmpty(person.Salutation))
             {
@@ -38,18 +28,31 @@ namespace Controller
                 throw new ArgumentException($"'{nameof(person.Gender)}' cannot be null or empty.", nameof(person.Gender));
             }
 
-            if (!File.Exists(fileName))
+            if (!File.Exists(fileName) || File.ReadAllText(fileName) == "")
             {
-                File.WriteAllText(fileName, CsvHeader());
+                File.WriteAllText(fileName, CsvHeader(person));
             }
 
-            AppendFile(fileName, person);
+            File.AppendAllText(fileName, PersonToCsvString(person));
 
             return person;
         }
         public static Person ReadPerson(Person person)
         {
-            return person;
+            if (person.FirstName == null || person.LastName == null)
+            {
+                throw new ArgumentException("Please Enter the lastname and firstname of the person to be deleted");
+            }
+            string fileName = GetFileName(person);
+            string[] fileContent = File.ReadAllLines(fileName);
+            foreach (string line in fileContent)
+            {
+                if (line.Contains(person.FirstName) && line.Contains(person.LastName))
+                {
+                    return LineToPerson(line);
+                }
+            }
+            throw new ArgumentException("Person not found");
         }
         public static Person UpdatePerson(Person person)
         {
@@ -57,13 +60,11 @@ namespace Controller
         }
         public static bool DeletePerson(Person person)
         {
-            if(person.FirstName == null || person.LastName == null)
+            if (person.FirstName == null || person.LastName == null)
             {
-                throw new ArgumentException("Please Enter the lastname and firstname of the person to be deleted");
+                throw new ArgumentException("Please Enter the lastname and firstname of the person");
             }
-
-            string fileName = person.GetType().Name + ".csv";
-
+            string fileName = GetFileName(person);
             string[] fileContent = File.ReadAllLines(fileName);
 
             foreach(string line in fileContent)
@@ -77,61 +78,60 @@ namespace Controller
             }
             return true;
         }
-        private static void AppendFile(string fileName, Person person)
+        private static string GetFileName(Person person)
         {
-            try
-            {
-                File.AppendAllText(fileName, PersonToCsvString(person));
-            }
-            catch (IOException)
-            {
-                Console.WriteLine("ALTER, schlüss das fucking file im Excel");
-                Thread.Sleep(500);
-                AppendFile(fileName, person);
-            }
-            return;
+            return person.GetType().Name + ".csv";
         }
-        private static string CsvHeader()
+        private static string CsvHeader(Person person)
         {
-            return 
-                "\"Salutation\"," +
-                "\"FirstName\"," +
-                "\"LastName\"," +
-                "\"DateOfBirth\"," +
-                "\"Gender\"," +
-                "\"Title\"," +
-                "\"SocialSecurityNumber\"," +
-                "\"PhoneNumberPrivate\"," +
-                "\"PhoneNumberMobile\"," +
-                "\"PhoneNumberBusiness\"," +
-                "\"Email\"," +
-                "\"Status\"," +
-                "\"Nationality\"," +
-                "\"Street\"," +
-                "\"StreetNumber\"," +
-                "\"ZipCode\"," +
-                "\"Place\"," + Environment.NewLine;
+            return
+                string.Join(",", person.GetType()
+                .GetProperties()
+                .Select(propertyInfo => $"\"{propertyInfo.Name}\"")) +
+                Environment.NewLine;
         }
         private static string PersonToCsvString(Person person)
         {
             return
-                person.Salutation + "," +
-                person.FirstName + "," +
-                person.LastName + "," +
-                person.DateOfBirth + "," +
-                person.Gender + "," +
-                person.Title + "," +
-                person.SocialSecurityNumber + "," +
-                person.PhoneNumberPrivate + "," +
-                person.PhoneNumberMobile + "," +
-                person.PhoneNumberBusiness + "," +
-                person.Email + "," +
-                person.Status + "," +
-                person.Nationality + "," +
-                person.Street + "," +
-                person.StreetNumber + "," +
-                person.ZipCode + "," +
-                person.Place + Environment.NewLine;
+                string.Join(",", person.GetType()
+                    .GetProperties()
+                    .Select(propertyInfo => propertyInfo.GetValue(person))) +
+                    Environment.NewLine;
+        }
+        private static Person LineToPerson(string line)
+        {
+            Person person = new Person();
+            List<string> personData = new List<string>();
+            int i = 0;
+            foreach (string property in line.Split(','))
+            {
+                personData.Add(property.Trim('"'));
+            }
+            person.Salutation = personData[0];
+            person.FirstName = personData[1];
+            person.LastName = personData[2];
+            person.DateOfBirth = Convert.ToDateTime(personData[3]);
+            person.Gender = personData[4];
+            person.Title = personData[5];
+            person.SocialSecurityNumber = personData[6];
+            person.PhoneNumberPrivate = personData[7];
+            person.PhoneNumberMobile = personData[8];
+            person.PhoneNumberBusiness = personData[9];
+            person.Email = personData[10];
+            if (personData[11] == "True")
+                person.Status = true;
+            else
+                person.Status = false;
+            person.Nationality = personData[12];
+            person.Street = personData[13];
+            person.StreetNumber = personData[14];
+            if(personData[15] == "")
+                person.ZipCode = 0;
+            else 
+                person.ZipCode = Convert.ToInt32(personData[15]);
+            person.Place = personData[16];
+
+            return person;
         }
     }
 }
