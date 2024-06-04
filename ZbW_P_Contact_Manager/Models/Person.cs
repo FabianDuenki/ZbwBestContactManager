@@ -1,25 +1,25 @@
-﻿using Struct;
+﻿using Interface;
 
 namespace Model
 {
-    public class Person(PersonDetails person)
+    public class Person : IPerson
     {
-        public string Salutation { get; set; } = person.Salutation;
-        public string FirstName { get; set; } = person.FirstName;
-        public string LastName { get; set; } = person.LastName;
-        public DateTime DateOfBirth { get; set; } = person.DateOfBirth;
-        public string Gender { get; set; } = person.Gender;
-        public string Title { get; set; } = person.Title;
-        public string? SocialSecurityNumber { get; set; } = person.SocialSecurityNumber;
-        public string? PhoneNumberPrivate { get; set; } = person.PhoneNumberPrivate;
-        public string? PhoneNumberMobile { get; set; } = person.PhoneNumberMobile;
-        public string? PhoneNumberBusiness { get; set; } = person.PhoneNumberBusiness;
-        public string? Email { get; set; } = person.Email;
-        public bool? Status { get; set; } = person.Status;
-        public string? Nationality { get; set; } = person.Nationality;
-        public string? Street { get; set; } = person.Street;
-        public string? StreetNumber { get; set; } = person.StreetNumber;
-        public int? ZipCode { get; set; } = person.ZipCode;
-        public string? Place { get; set; } = person.Place;
+        public string? Salutation { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public bool? Gender { get; set; }
+        public string? Title { get; set; }
+        public string? SocialSecurityNumber { get; set; }
+        public string? PhoneNumberPrivate { get; set; }
+        public string? PhoneNumberMobile { get; set; }
+        public string? PhoneNumberBusiness { get; set; }
+        public string? Email { get; set; }
+        public bool? Status { get; set; }
+        public string? Nationality { get; set; }
+        public string? Street { get; set; }
+        public string? StreetNumber { get; set; }
+        public int? ZipCode { get; set; }
+        public string? Place { get; set; }
     }
 }

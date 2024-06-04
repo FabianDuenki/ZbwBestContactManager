@@ -1,10 +1,10 @@
-﻿using Struct;
+﻿using Interface;
 
 namespace Model
 {
-    public class Trainee(TraineeDetails trainee)
+    public class Trainee : ITrainee
     {
-        public int TraineeYears { get; set; } = trainee.TraineeYears;
-        public int ActualTraineeYear { get; set; } = trainee.ActualTraineeYear;
+        public int? TraineeYears { get; set; }
+        public int? ActualTraineeYear { get; set; }
     }
 }
