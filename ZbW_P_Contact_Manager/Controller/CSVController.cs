@@ -1,78 +1,126 @@
 ﻿using External;
+using Model;
 using Model.Operation;
+using Model.Typing;
+using System.Reflection;
 using System.Text;
 
 namespace Controller
 {
-    public class CSVController<T> where T : class
+    public class CSVController
     {
-        private T[]? Instances { get; set; }
-        private T? Instance { get; set; }
+        public object[]? Instances { get; set; }
+        public object? Instance { get; set; }
 
-        public enum Format
-        {
-            CSV
-        }
+        public CSVController() { }
 
-        public CSVController(T? instance)
+        public CSVController(object instance)
         {
             Instance = instance;
         }
 
-        public CSVController(T[]? instances)
+        public CSVController(object[] instances)
         {
             Instances = instances;
         }
 
-        public FormatStatus Export(Format type)
+        public FormatStatus Export(FileFormat type)
         {
-            if (Instances is not null) return MultipleExport(type, Instances);
-            if (Instance is not null) return SingleExport(type, Instance);
+            if (Instances != null) return MultipleExport(type, Instances);
+            if (Instance != null) return SingleExport(type, Instance);
             return FormatStatus.Error;
         }
 
-        public FormatStatus Import(Format type, string content)
+        public object[] Import(FileFormat type, ModelType model, string csvString)
         {
-            return FormatStatus.Error;
+            string[] lines = csvString.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
+            string[] header = lines.First().Split(',', StringSplitOptions.None);
+            string[] content = lines.Skip(1).ToArray();
+            return content.Select(line => ImportModel(model, header, line.Split(','))).ToArray();
         }
 
-        public FormatStatus MultipleImport(Format type, string content)
+        private object ImportModel(ModelType modelType, string[] header, string[] values)
         {
-            return FormatStatus.Error;
+            object model = GetModelByType(modelType);
+            PropertyInfo[] properties = model.GetType().GetProperties();
+            int propertyIndex = 0;
+            Array.ForEach(properties, property => property.SetValue(model, ConvertStringToType(values[propertyIndex++], property.PropertyType)));
+            return model;
         }
 
-        private FormatStatus SingleExport(Format type, T instance)
+        private object? ConvertStringToType(string value, Type type)
+        {
+            if (value.Length <= 0) return null;
+
+            Type? nullableType = Nullable.GetUnderlyingType(type);
+
+            if (nullableType == typeof(int))
+            {
+                return int.Parse(value);
+            }
+            else if (nullableType == typeof(bool))
+            {
+                return bool.Parse(value);
+            }
+            else if (nullableType == typeof(char))
+            {
+                return char.Parse(value);
+            }
+            else if (nullableType == typeof(Guid))
+            {
+                return Guid.Parse(value);
+            } 
+            else if (nullableType == typeof(System.DateTime))
+            {
+                return DateTime.Parse(value);
+            }
+
+            return value;
+        }
+
+        private object GetModelByType(ModelType modelType)
+        {
+            return modelType switch
+            {
+                ModelType.Person => new Person(),
+                ModelType.Employee => new Employee(),
+                ModelType.Trainee => new Trainee(),
+                ModelType.Customer or _ => new Customer(),
+            };
+        }
+
+        private FormatStatus SingleExport(FileFormat type, object instance)
         {
             return SaveFileByType(type, string.Join(",", instance.GetType()
                 .GetProperties()
                 .Select(propertyInfo => propertyInfo.Name)) + $"\n{GetFormattedData(type, instance)}");
         }
 
-        private FormatStatus MultipleExport(Format type, T[] instances)
+        private FormatStatus MultipleExport(FileFormat type, object[] instances)
         {
             return SaveFileByType(type, GetFormattedHeaders(type, instances.First()) + "\n" + string.Join("\n", instances
                 .Select(instance => GetFormattedData(type, instance))));
         }
 
-        private string GetFormattedData(Format type, T instance)
+        private string GetFormattedData(FileFormat type, object instance)
         {
             return type switch
             {
-                Format.CSV or _ => string.Join(",", instance.GetType()
+                FileFormat.CSV or _ => string.Join(",", instance.GetType()
                     .GetProperties()
                     .Select(propertyInfo => propertyInfo.GetValue(instance))),
             };
         }
 
-        private string GetFormattedHeaders(Format type, T instance)
+        private string GetFormattedHeaders(FileFormat type, object instance)
         {
             return type switch
             {
-                Format.CSV or _ => string.Join(",", instance.GetType().GetProperties().Select(propertyInfo => propertyInfo.Name))
+                FileFormat.CSV or _ => string.Join(",", instance.GetType().GetProperties().Select(propertyInfo => propertyInfo.Name))
             };
         }
 
-        private FormatStatus SaveFileByType(Format type, string content)
+        private FormatStatus SaveFileByType(FileFormat type, string content)
         {
             string fileName = $"{new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds()}.{type.ToString().ToLower()}";
             string filePath = Path.Combine(SystemFolders.GetPath(SystemFolders.Folder.Downloads), fileName);
