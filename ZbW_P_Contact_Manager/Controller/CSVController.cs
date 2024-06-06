@@ -43,8 +43,7 @@ namespace Controller
         {
             object model = GetModelByType(modelType);
             PropertyInfo[] properties = model.GetType().GetProperties();
-            int propertyIndex = 0;
-            Array.ForEach(properties, property => property.SetValue(model, ConvertStringToType(values[propertyIndex++], property.PropertyType)));
+            Array.ForEach(properties, property => property.SetValue(model, ConvertStringToType(values[Array.IndexOf(header, property.Name)], property.PropertyType)));
             return model;
         }
 
