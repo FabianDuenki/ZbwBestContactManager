@@ -1,4 +1,6 @@
 ﻿using Model;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms.VisualStyles;
 
 namespace Controller
 {
@@ -33,16 +35,13 @@ namespace Controller
                 File.WriteAllText(fileName, CsvHeader(person));
             }
 
-            File.AppendAllText(fileName, PersonToCsvString(person));
+            File.AppendAllText(fileName, PersonToCsvString(person) + Environment.NewLine);
 
             return person;
         }
         public static Person ReadPerson(Person person)
         {
-            if (person.FirstName == null || person.LastName == null)
-            {
-                throw new ArgumentException("Please Enter the lastname and firstname of the person to be deleted");
-            }
+            IsPersonValid(person);
             string fileName = GetFileName(person);
             string[] fileContent = File.ReadAllLines(fileName);
             foreach (string line in fileContent)
@@ -54,16 +53,26 @@ namespace Controller
             }
             throw new ArgumentException("Person not found");
         }
-        public static Person UpdatePerson(Person person)
+        public static bool UpdatePerson(Person personOld, Person personNew)
         {
-            return person;
+            IsPersonValid(personNew);
+            string fileName = GetFileName(personOld);
+            string[] fileContent = File.ReadAllLines(fileName);
+
+            for(int i = 0;i < fileContent.Length; i++)
+            {
+                if (fileContent[i].Contains(personOld.FirstName) && fileContent[i].Contains(personOld.LastName))
+                {
+                    fileContent[i] = PersonToCsvString(personNew);
+                    File.WriteAllLines(fileName, fileContent);
+                    return true;
+                }
+            }
+            return false;
         }
         public static bool DeletePerson(Person person)
         {
-            if (person.FirstName == null || person.LastName == null)
-            {
-                throw new ArgumentException("Please Enter the lastname and firstname of the person");
-            }
+            IsPersonValid(person);
             string fileName = GetFileName(person);
             string[] fileContent = File.ReadAllLines(fileName);
 
@@ -95,8 +104,7 @@ namespace Controller
             return
                 string.Join(",", person.GetType()
                     .GetProperties()
-                    .Select(propertyInfo => $"\"{propertyInfo.GetValue(person)}\"")) +
-                    Environment.NewLine;
+                    .Select(propertyInfo => $"\"{propertyInfo.GetValue(person)}\""));
         }
         private static Person LineToPerson(string line)
         {
@@ -132,6 +140,15 @@ namespace Controller
             person.Place = personData[16];
 
             return person;
+        }
+        private static void IsPersonValid(Person person)
+        {
+            if(string.IsNullOrEmpty(person.FirstName) 
+            || string.IsNullOrEmpty(person.LastName))
+            {
+                throw new ArgumentException("Please Enter the lastname and firstname of the person to be deleted");
+            }
+            return;
         }
     }
 }
