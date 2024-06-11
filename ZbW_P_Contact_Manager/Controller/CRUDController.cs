@@ -1,11 +1,21 @@
 ﻿using Model;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms.VisualStyles;
+using Model.Detail;
+using Model.Typing;
+using System.Reflection;
 
 namespace Controller
 {
-    internal class CRUDController
+    internal class CRUDController : ModelController
     {
+        public static object CreateUser(ModelType modelType, UserDetails userDetails)
+        {
+            object model = GetModelByType(modelType);
+            PropertyInfo[] modelProperties = model.GetType().GetProperties();
+            PropertyInfo[] userProperties = userDetails.GetType().GetProperties().Where(property => property.GetValue(userDetails) != null).ToArray();
+            Array.ForEach(userProperties, property => model.GetType().GetProperty(property.Name)!.SetValue(model, property.GetValue(userDetails)));
+            return model;
+        }
+
         public static Person CreatePerson(Person person)
         {
             string fileName = GetFileName(person);

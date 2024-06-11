@@ -1,5 +1,4 @@
 ﻿using External;
-using Model;
 using Model.Operation;
 using Model.Typing;
 using System.Reflection;
@@ -7,7 +6,7 @@ using System.Text;
 
 namespace Controller
 {
-    public class CSVController
+    public class CSVController : ModelController
     {
         public object[]? Instances { get; set; }
         public object? Instance { get; set; }
@@ -75,17 +74,6 @@ namespace Controller
             }
 
             return value;
-        }
-
-        private object GetModelByType(ModelType modelType)
-        {
-            return modelType switch
-            {
-                ModelType.Person => new Person(),
-                ModelType.Employee => new Employee(),
-                ModelType.Trainee => new Trainee(),
-                ModelType.Customer or _ => new Customer(),
-            };
         }
 
         private FormatStatus SingleExport(FileFormat type, object instance)
