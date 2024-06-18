@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    public class Customer : ICustomer
+    public class Customer : Person, ICustomer
     {
         public string? CompanyName { get; set; }
         public char? CompanyType { get; set; }

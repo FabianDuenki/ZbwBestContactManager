@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    public class Trainee : ITrainee
+    public class Trainee : Employee, ITrainee
     {
         public int? TraineeYears { get; set; }
         public int? ActualTraineeYear { get; set; }

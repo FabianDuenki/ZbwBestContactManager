@@ -4,6 +4,7 @@ namespace Model.Detail
 {
     public struct UserDetails : IPerson, ICustomer, IEmployee, ITrainee
     {
+        public Guid Id { get; set; }
         public string? Salutation { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }

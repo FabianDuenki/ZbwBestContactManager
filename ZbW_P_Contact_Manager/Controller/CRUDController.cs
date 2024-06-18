@@ -125,6 +125,7 @@ namespace Controller
             {
                 personData.Add(property.Trim('"'));
             }
+            person.Id = Guid.NewGuid();
             person.Salutation = personData[0];
             person.FirstName = personData[1];
             person.LastName = personData[2];
