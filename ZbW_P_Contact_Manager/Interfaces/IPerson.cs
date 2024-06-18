@@ -6,7 +6,7 @@
         string? FirstName { get; set; }
         string? LastName { get; set; }
         DateTime? DateOfBirth { get; set; }
-        bool? Gender { get; set; }
+        string? Gender { get; set; }
         string? Title { get; set; }
         string? SocialSecurityNumber { get; set; }
         string? PhoneNumberPrivate { get; set; }
