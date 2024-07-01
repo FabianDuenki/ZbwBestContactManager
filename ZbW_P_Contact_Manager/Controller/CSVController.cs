@@ -1,4 +1,6 @@
 ﻿using External;
+using Microsoft.VisualBasic.ApplicationServices;
+using Model.Detail;
 using Model.Operation;
 using Model.Typing;
 using System.Reflection;
@@ -137,6 +139,103 @@ namespace Controller
                 return FileStatus.Success;
             }
             catch { return FileStatus.Error; }
+        }
+
+
+
+        public bool AddUser(ModelType modelType, object user)
+        {
+            string csvUser = ConvertUserToCsvString(user);
+            string filePath = GetPathByModelType(modelType);
+
+            if (!Path.Exists(filePath))
+            {
+                CreateFile(filePath, user);
+            }
+            File.AppendAllText(filePath, Environment.NewLine);
+            File.AppendAllText(filePath, csvUser);
+
+            return true;
+
+        }
+        public string GetPathByModelType(ModelType modelType)
+        {
+            string fileName = $"{modelType.ToString()}.csv";
+            return $"{Environment.CurrentDirectory}\\{fileName}";
+        }
+        public string ConvertUserToCsvString(object user)
+        {
+            string csvString = null;
+            foreach(PropertyInfo property in user.GetType().GetProperties())
+            {
+                csvString += $"{property.GetValue(user)},";
+            }
+            return csvString;
+        }
+        public bool CreateFile(string filePath, object user)
+        {
+            string csvHeader = null;
+
+            foreach (PropertyInfo property in user.GetType().GetProperties())
+            {
+                csvHeader += $"{property.Name},";
+            }
+
+            File.AppendAllText(filePath, csvHeader);
+
+            return true;
+        }
+
+        public List<UserDetails> ReadUsers(ModelType modelType)
+        {
+            string filePath = GetPathByModelType(modelType);
+            List<UserDetails> users = new List<UserDetails>();
+
+            if (!Path.Exists(filePath))
+            {
+                return new List<UserDetails>();
+            }
+            string[] csvLines = File.ReadAllLines(filePath);
+
+            users = ConvertCsvStringToUsers(modelType, csvLines);
+
+
+            return users;
+        }
+        public List<UserDetails> ConvertCsvStringToUsers(ModelType modelType, string[] csvLines)
+        {
+            List<UserDetails> users = new List<UserDetails>();
+
+            string[] csvHeader = (csvLines.First()).Split(',');
+            string[] csvUsers = csvLines.Skip(0).ToArray();
+
+            foreach (string csvUser in csvUsers)
+            {
+                UserDetails user = new UserDetails();
+                string[] csvUserValues = csvUser.Split(',');
+
+                foreach(string property in csvHeader)
+                {
+                    user
+                    .GetType()
+                    .GetProperty(property)
+                    .SetValue(user, csvUserValues[Array.IndexOf(csvHeader, property)]);
+                }
+                users.Add(user);
+            }
+            return users;
+        }
+        public bool UpdateUser(ModelType modelType, UserDetails oldUser, UserDetails newUser)
+        {
+            string filePath = GetPathByModelType(modelType);
+
+            return false;
+        }
+        public bool DeleteUser(ModelType modelType, UserDetails user)
+        {
+            string filePath = GetPathByModelType(modelType);
+
+            return false;
         }
     }
 }
