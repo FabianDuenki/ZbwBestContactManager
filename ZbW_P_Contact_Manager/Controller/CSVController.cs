@@ -3,6 +3,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Model.Detail;
 using Model.Operation;
 using Model.Typing;
+using System.Collections;
 using System.Reflection;
 using System.Text;
 
@@ -32,7 +33,7 @@ namespace Controller
             return FormatStatus.Error;
         }
 
-        public object[] Import(FileFormat type, ModelType model, string csvString)
+        public object[] Import(ModelType model, string csvString)
         {
             string[] lines = csvString.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
             string[] header = lines.First().Split(',', StringSplitOptions.None);
@@ -165,7 +166,7 @@ namespace Controller
         }
         public string ConvertUserToCsvString(object user)
         {
-            string csvString = null;
+            string csvString = string.Empty;
             foreach(PropertyInfo property in user.GetType().GetProperties())
             {
                 csvString += $"{property.GetValue(user)},";
@@ -174,7 +175,7 @@ namespace Controller
         }
         public bool CreateFile(string filePath, object user)
         {
-            string csvHeader = null;
+            string csvHeader = string.Empty;
 
             foreach (PropertyInfo property in user.GetType().GetProperties())
             {
@@ -199,7 +200,6 @@ namespace Controller
 
             users = ConvertCsvStringToUsers(modelType, csvLines);
 
-
             return users;
         }
         public List<UserDetails> ConvertCsvStringToUsers(ModelType modelType, string[] csvLines)
@@ -213,9 +213,12 @@ namespace Controller
             {
                 UserDetails user = new UserDetails();
                 string[] csvUserValues = csvUser.Split(',');
+                Hashtable userProperties = new Hashtable();
 
                 foreach(string property in csvHeader)
                 {
+                    userProperties.Add(property, csvUserValues[Array.IndexOf(csvHeader, property)]);
+
                     user
                     .GetType()
                     .GetProperty(property)
