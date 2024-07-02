@@ -1,4 +1,5 @@
 ﻿using Model;
+using Services;
 
 namespace Controller
 {
@@ -13,7 +14,7 @@ namespace Controller
             this.notes = notes;
         }
 
-        public void CreateNote(long personId, string comment, string createdBy)
+        public void CreateNote(Guid personId, string comment, string createdBy)
         {
             var note = new Note()
             {
@@ -21,12 +22,16 @@ namespace Controller
                 Comment = comment,
                 PersonId = personId,
                 CreatedBy = createdBy,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.Now,
+                UpdatedBy = createdBy,
+                UpdatedAt = DateTime.Now,
             };
             notes.Add(note);
+
+            SaveNote(note);
         }
 
-        public void UpdateNote(long personId, Guid noteId, string newComment, string updatedBy)
+        public void UpdateNote(Guid personId, Guid noteId, string newComment, string updatedBy)
         {
             var note = notes.Find(n => n.PersonId == personId && n.Id == noteId);
 
@@ -38,7 +43,7 @@ namespace Controller
             }
         }
 
-        public void DeleteAllNotes(long personId)
+        public void DeleteAllNotes(Guid personId)
         {
             var persNotes = notes.FindAll(n => n.PersonId == personId);
 
@@ -48,7 +53,7 @@ namespace Controller
             }
         }
 
-        public void DeleteNote(long personId, Guid noteId)
+        public void DeleteNote(Guid personId, Guid noteId)
         {
             var persNote = notes.Find(n => n.PersonId == personId && n.Id == noteId);
 
@@ -58,9 +63,59 @@ namespace Controller
             }
         }
 
-        public List<Note> LoadNotes(long personId)
+        public List<Note> LoadNotes(Guid personId)
         {
+            // TODO: get notes from csv
             return notes.FindAll(n => n.PersonId == personId);
+        }
+
+        public Note LoadNote(Guid noteId)
+        {
+            return notes.First(n => n.Id == noteId);
+        }
+
+        public void SaveNote(Note note)
+        {
+            var fileName = GetFileName(note);
+
+            if (!File.Exists(fileName) || File.ReadAllText(fileName) == "")
+            {
+                File.WriteAllText(fileName, CsvHeader(note));
+            }
+
+            File.AppendAllText(fileName, NoteToCsvString(note) + Environment.NewLine);
+
+
+            Exporter<Note> exporter = new Exporter<Note>(new Note[] { note });
+            exporter.Export(Exporter<Note>.ExportType.CSV);
+        }
+
+        public void SaveNotes(List<Note> notes)
+        {
+            Exporter<Note> exporter = new Exporter<Note>(notes.ToArray());
+            exporter.Export(Exporter<Note>.ExportType.CSV);
+        }
+
+        private string GetFileName(Note note)
+        {
+            return note.GetType().Name + ".csv";
+        }
+
+        private string NoteToCsvString(Note note)
+        {
+            return
+                string.Join(",", note.GetType()
+                    .GetProperties()
+                    .Select(propertyInfo => $"\"{propertyInfo.GetValue(note)}\""));
+        }
+
+        private string CsvHeader(Note note)
+        {
+            return
+                string.Join(",", note.GetType()
+                .GetProperties()
+                .Select(propertyInfo => $"\"{propertyInfo.Name}\"")) +
+                Environment.NewLine;
         }
     }
 }

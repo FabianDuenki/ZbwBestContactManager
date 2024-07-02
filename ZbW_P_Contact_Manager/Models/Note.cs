@@ -4,11 +4,11 @@ namespace Model
 {
     public class Note : INote
     {
-        public Guid? Id { get; set; }
+        public Guid Id { get; set; }
 
         public string? Comment { get; set; } = string.Empty;
 
-        public long? PersonId { get; set; }
+        public Guid? PersonId { get; set; }
 
         public DateTime? CreatedAt { get; set; }
                
