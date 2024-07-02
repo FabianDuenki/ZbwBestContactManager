@@ -4,6 +4,7 @@ namespace Model
 {
     public class Person : IPerson
     {
+        public Guid Id { get; set; }
         public string? Salutation { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
@@ -21,5 +22,6 @@ namespace Model
         public string? StreetNumber { get; set; }
         public int? ZipCode { get; set; }
         public string? Place { get; set; }
+        public List<Note>? Notes { get; set; }
     }
 }

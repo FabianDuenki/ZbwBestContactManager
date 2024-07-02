@@ -1,7 +1,10 @@
-﻿namespace Interface
+﻿using Model;
+
+namespace Interface
 {
     public interface IPerson
     {
+        Guid Id { get; set; }
         string? Salutation { get; set; }
         string? FirstName { get; set; }
         string? LastName { get; set; }
@@ -19,5 +22,6 @@
         string? StreetNumber { get; set; }
         int? ZipCode { get; set; }
         string? Place { get; set; }
+        List<Note>? Notes { get; set; }
     }
 }
