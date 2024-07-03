@@ -53,25 +53,23 @@ namespace Controller
         {
             if (value.Length <= 0) return null;
 
-            Type? nullableType = Nullable.GetUnderlyingType(type);
-
-            if (nullableType == typeof(int))
+            if (type == typeof(int))
             {
                 return int.Parse(value);
             }
-            else if (nullableType == typeof(bool))
+            else if (type == typeof(bool))
             {
                 return bool.Parse(value);
             }
-            else if (nullableType == typeof(char))
+            else if (type == typeof(char))
             {
                 return char.Parse(value);
             }
-            else if (nullableType == typeof(Guid))
+            else if (type == typeof(Guid))
             {
                 return Guid.Parse(value);
             } 
-            else if (nullableType == typeof(System.DateTime))
+            else if (type == typeof(System.DateTime))
             {
                 return DateTime.Parse(value);
             }
@@ -142,8 +140,6 @@ namespace Controller
             catch { return FileStatus.Error; }
         }
 
-
-
         public bool AddUser(ModelType modelType, object user)
         {
             string csvUser = ConvertUserToCsvString(user);
@@ -159,11 +155,13 @@ namespace Controller
             return true;
 
         }
+
         public string GetPathByModelType(ModelType modelType)
         {
             string fileName = $"{modelType.ToString()}.csv";
             return $"{Environment.CurrentDirectory}\\{fileName}";
         }
+
         public string ConvertUserToCsvString(object user)
         {
             string csvString = string.Empty;
@@ -173,6 +171,7 @@ namespace Controller
             }
             return csvString;
         }
+
         public bool CreateFile(string filePath, object user)
         {
             string csvHeader = string.Empty;
@@ -207,7 +206,7 @@ namespace Controller
             List<UserDetails> users = new List<UserDetails>();
 
             string[] csvHeader = (csvLines.First()).Split(',');
-            string[] csvUsers = csvLines.Skip(0).ToArray();
+            string[] csvUsers = csvLines.Skip(1).ToArray();
 
             foreach (string csvUser in csvUsers)
             {
@@ -217,12 +216,17 @@ namespace Controller
 
                 foreach(string property in csvHeader)
                 {
+                    if(string.IsNullOrEmpty(property) && user.GetType().GetProperty(property) != null) continue;
                     userProperties.Add(property, csvUserValues[Array.IndexOf(csvHeader, property)]);
-
+                    // no clue why there's a dereference here
+                    Type? type = user.GetType().GetProperty(property).PropertyType;
+                    string value = csvUserValues[Array.IndexOf(csvHeader, property)];
+                    object typedValue = ConvertStringToType(value, type);
+                    // somehow the typedValue isn't properly saved in user.
                     user
-                    .GetType()
-                    .GetProperty(property)
-                    .SetValue(user, csvUserValues[Array.IndexOf(csvHeader, property)]);
+                        .GetType()
+                        .GetProperty(property)
+                        .SetValue(user, typedValue);
                 }
                 users.Add(user);
             }
