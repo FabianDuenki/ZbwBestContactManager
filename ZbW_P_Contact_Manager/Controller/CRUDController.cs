@@ -39,11 +39,11 @@ namespace Controller
             return csvController.AddUser(modelType, user);
         }
 
-        public List<UserDetails> Read(ModelType modelType, Guid userId)
+        public List<dynamic> Read(ModelType modelType, Guid userId)
         {
             // I'm not happy with the types used, as we always work with "UserDetails" objects, instead of our models
-            List<UserDetails> allUsers = this.Read(modelType);
-            List<UserDetails> users = new List<UserDetails>();
+            List<dynamic> allUsers = this.Read(modelType);
+            List<dynamic> users = new List<dynamic>();
 
             foreach (var user in allUsers)
             {
@@ -54,7 +54,7 @@ namespace Controller
             }
             return users;
         }
-        public List<UserDetails> Read(ModelType modelType)
+        public List<dynamic> Read(ModelType modelType)
         {
             CSVController csvController = new CSVController();
 
@@ -64,19 +64,32 @@ namespace Controller
         public bool Update(ModelType modelType, Guid userId, UserDetails updatedUserProperties)
         {
             updatedUserProperties.Id = userId;
-            UserDetails user = this.Read(modelType, userId).First();
+
+            object currentUser = Read(modelType, userId).First();
+            object updatedUser = CreateUserObject(modelType, updatedUserProperties);
+
+            foreach(PropertyInfo property in updatedUser.GetType().GetProperties())
+            {
+                if (property.GetValue(updatedUser) == null)
+                {
+                    updatedUser
+                    .GetType()
+                    .GetProperty(property.Name)!
+                    .SetValue(updatedUser, property
+                        .GetValue(currentUser));
+                }
+            }
             CSVController csvController = new CSVController();
 
             // expecting csvController.UpdateUser to return true if the user was successfully updated from user to updatedUserProperties.
-            return csvController.UpdateUser(modelType, user, updatedUserProperties);
+            return csvController.UpdateUser(modelType, userId, updatedUser);
         }
-        public bool Delete(ModelType modelType, Guid userid)
+        public bool Delete(ModelType modelType, Guid userId)
         {
-            UserDetails user = this.Read(modelType, userid).First();
             CSVController csvController = new CSVController();
 
             // expecting csvController.DeleteUser to return true if the user was successfully deleted.
-            return csvController.DeleteUser(modelType, user);
+            return csvController.DeleteUser(modelType, userId);
         }
     }
 }

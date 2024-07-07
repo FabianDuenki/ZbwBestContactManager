@@ -1,5 +1,6 @@
 ﻿using External;
 using Microsoft.VisualBasic.ApplicationServices;
+using Model;
 using Model.Detail;
 using Model.Operation;
 using Model.Typing;
@@ -180,69 +181,110 @@ namespace Controller
             {
                 csvHeader += $"{property.Name},";
             }
-
+            csvHeader = csvHeader.Remove(csvHeader.LastIndexOf(','));
             File.AppendAllText(filePath, csvHeader);
 
             return true;
         }
 
-        public List<UserDetails> ReadUsers(ModelType modelType)
+        public List<dynamic> ReadUsers(ModelType modelType)
         {
             string filePath = GetPathByModelType(modelType);
-            List<UserDetails> users = new List<UserDetails>();
 
             if (!Path.Exists(filePath))
             {
-                return new List<UserDetails>();
+                return new List<dynamic>();
             }
-            string[] csvLines = File.ReadAllLines(filePath);
+            string[] csvLines = File.ReadAllLines(filePath); 
 
-            users = ConvertCsvStringToUsers(modelType, csvLines);
-
-            return users;
+            return ConvertCsvStringToUsers(modelType, csvLines);
         }
-        public List<UserDetails> ConvertCsvStringToUsers(ModelType modelType, string[] csvLines)
+        public List<dynamic> ConvertCsvStringToUsers(ModelType modelType, string[] csvLines)
         {
-            List<UserDetails> users = new List<UserDetails>();
+            List<dynamic> users = new List<dynamic>();
 
-            string[] csvHeader = (csvLines.First()).Split(',');
+            string[] csvHeaders = (csvLines.First()).Split(',');
             string[] csvUsers = csvLines.Skip(1).ToArray();
 
             foreach (string csvUser in csvUsers)
             {
-                UserDetails user = new UserDetails();
+                //object user = new UserDetails();
+                //string[] csvUserValues = csvUser.Split(',');
+                //Hashtable userProperties = new Hashtable();
+
+                //foreach(string property in csvHeaders)
+                //{
+                //    if(string.IsNullOrEmpty(property) && user.GetType().GetProperty(property) != null) continue;
+                //    userProperties.Add(property, csvUserValues[Array.IndexOf(csvHeaders, property)]);
+                //    // no clue why there's a dereference here
+                //    Type? type = user.GetType().GetProperty(property).PropertyType;
+                //    string value = csvUserValues[Array.IndexOf(csvHeaders, property)];
+                //    object typedValue = ConvertStringToType(value, type);
+                //    // somehow the typedValue isn't properly saved in user.
+                //    user
+                //        .GetType()
+                //        .GetProperty(property)
+                //        .SetValue(user, typedValue);
+                //}
+
                 string[] csvUserValues = csvUser.Split(',');
                 Hashtable userProperties = new Hashtable();
 
-                foreach(string property in csvHeader)
+                foreach (string property in csvHeaders)
                 {
-                    if(string.IsNullOrEmpty(property) && user.GetType().GetProperty(property) != null) continue;
-                    userProperties.Add(property, csvUserValues[Array.IndexOf(csvHeader, property)]);
-                    // no clue why there's a dereference here
-                    Type? type = user.GetType().GetProperty(property).PropertyType;
-                    string value = csvUserValues[Array.IndexOf(csvHeader, property)];
-                    object typedValue = ConvertStringToType(value, type);
-                    // somehow the typedValue isn't properly saved in user.
-                    user
-                        .GetType()
-                        .GetProperty(property)
-                        .SetValue(user, typedValue);
+                    userProperties.Add(property, csvUserValues[Array.IndexOf(csvHeaders, property)]);
                 }
+                dynamic user = GetModelByType(modelType);
+                user = user.GetInstanceFromHashtable(userProperties);
+
+
                 users.Add(user);
             }
             return users;
         }
-        public bool UpdateUser(ModelType modelType, UserDetails oldUser, UserDetails newUser)
+        public bool UpdateUser(ModelType modelType, Guid userId, object newUser)
         {
+            bool userChanged = false;
             string filePath = GetPathByModelType(modelType);
+            List<dynamic> users = ReadUsers(modelType);
 
-            return false;
+            File.Delete(filePath);
+
+            foreach (dynamic user in users)
+            {
+                if (user.Id == userId)
+                {
+                    AddUser(modelType, newUser);
+                    userChanged = true;
+                }
+                else
+                {
+                    AddUser(modelType, user);
+                }
+            }
+
+            return userChanged;
         }
-        public bool DeleteUser(ModelType modelType, UserDetails user)
+        public bool DeleteUser(ModelType modelType, Guid userId)
         {
+            bool userDeleted = false;
             string filePath = GetPathByModelType(modelType);
+            List<dynamic> users = ReadUsers(modelType);
 
-            return false;
+            File.Delete(filePath);
+
+            foreach (dynamic user in users)
+            {
+                if (user.Id == userId)
+                {
+                    userDeleted = true;
+                }
+                else
+                {
+                    AddUser(modelType, user);
+                }
+            }
+            return userDeleted;
         }
     }
 }
