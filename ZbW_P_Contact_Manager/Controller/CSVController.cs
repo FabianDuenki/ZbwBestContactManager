@@ -208,25 +208,6 @@ namespace Controller
 
             foreach (string csvUser in csvUsers)
             {
-                //object user = new UserDetails();
-                //string[] csvUserValues = csvUser.Split(',');
-                //Hashtable userProperties = new Hashtable();
-
-                //foreach(string property in csvHeaders)
-                //{
-                //    if(string.IsNullOrEmpty(property) && user.GetType().GetProperty(property) != null) continue;
-                //    userProperties.Add(property, csvUserValues[Array.IndexOf(csvHeaders, property)]);
-                //    // no clue why there's a dereference here
-                //    Type? type = user.GetType().GetProperty(property).PropertyType;
-                //    string value = csvUserValues[Array.IndexOf(csvHeaders, property)];
-                //    object typedValue = ConvertStringToType(value, type);
-                //    // somehow the typedValue isn't properly saved in user.
-                //    user
-                //        .GetType()
-                //        .GetProperty(property)
-                //        .SetValue(user, typedValue);
-                //}
-
                 string[] csvUserValues = csvUser.Split(',');
                 Hashtable userProperties = new Hashtable();
 

@@ -34,14 +34,11 @@ namespace Controller
             object user = CreateUserObject(modelType, userDetails);
             CSVController csvController = new CSVController();
 
-            // expecting csvController.AddUser to return true if the user was successfully created.
-            // the function should iterate through the properties of the user object and write them to a csv file and handle the file creation if it does not exist.
             return csvController.AddUser(modelType, user);
         }
 
         public List<dynamic> Read(ModelType modelType, Guid userId)
         {
-            // I'm not happy with the types used, as we always work with "UserDetails" objects, instead of our models
             List<dynamic> allUsers = this.Read(modelType);
             List<dynamic> users = new List<dynamic>();
 
@@ -58,7 +55,6 @@ namespace Controller
         {
             CSVController csvController = new CSVController();
 
-            // expecting csvController.ReadUser to return a list of users of type in modelType as UserDetails objects.
             return csvController.ReadUsers(modelType);
         }
         public bool Update(ModelType modelType, Guid userId, UserDetails updatedUserProperties)
@@ -81,14 +77,12 @@ namespace Controller
             }
             CSVController csvController = new CSVController();
 
-            // expecting csvController.UpdateUser to return true if the user was successfully updated from user to updatedUserProperties.
             return csvController.UpdateUser(modelType, userId, updatedUser);
         }
         public bool Delete(ModelType modelType, Guid userId)
         {
             CSVController csvController = new CSVController();
 
-            // expecting csvController.DeleteUser to return true if the user was successfully deleted.
             return csvController.DeleteUser(modelType, userId);
         }
     }
