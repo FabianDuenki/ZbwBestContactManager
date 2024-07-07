@@ -1,4 +1,6 @@
 ﻿using Interface;
+using System.Collections;
+using System.Reflection;
 
 namespace Model
 {
@@ -22,5 +24,20 @@ namespace Model
         public string? StreetNumber { get; set; }
         public int? ZipCode { get; set; }
         public string? Place { get; set; }
+
+        /// <summary>
+        /// Converts a Hashtable to an object containing the same keys and values
+        /// </summary>
+        /// <param name="hashtable">Hashtable containing model information</param>
+        /// <returns>A new object with the properties set</returns>
+        public object GetInstanceFromHashtable(Hashtable hashtable)
+        {
+            object instance = Activator.CreateInstance(GetType())!;
+            foreach (DictionaryEntry entry in hashtable)
+            {
+                instance.GetType().GetProperty(entry.Key.ToString()!)!.SetValue(instance, entry.Value!.ToString());
+            }
+            return instance;
+        }
     }
 }
