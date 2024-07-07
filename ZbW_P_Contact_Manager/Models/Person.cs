@@ -1,5 +1,6 @@
 ﻿using Interface;
 using System.Collections;
+using System.ComponentModel;
 using System.Reflection;
 
 namespace Model
@@ -35,7 +36,9 @@ namespace Model
             object instance = Activator.CreateInstance(GetType())!;
             foreach (DictionaryEntry entry in hashtable)
             {
-                instance.GetType().GetProperty(entry.Key.ToString()!)!.SetValue(instance, entry.Value!.ToString());
+                PropertyInfo property = instance.GetType().GetProperty(entry.Key.ToString()!)!;
+                object convertedValue = TypeDescriptor.GetConverter(property.PropertyType).ConvertFrom(entry.Value!)!;
+                property.SetValue(instance, convertedValue);
             }
             return instance;
         }
