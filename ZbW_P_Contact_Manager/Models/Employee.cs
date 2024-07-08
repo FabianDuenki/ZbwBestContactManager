@@ -2,7 +2,7 @@
 
 namespace Model
 {
-    public class Employee : IEmployee
+    public class Employee : Person, IEmployee
     {
         public Guid? EmployeeNumber { get; set; }
         public string? Departement { get; set; }

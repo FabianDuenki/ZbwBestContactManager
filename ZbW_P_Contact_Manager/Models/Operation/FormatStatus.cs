@@ -1,6 +1,6 @@
 ﻿namespace Model.Operation
 {
-    public enum ExportStatus
+    public enum FormatStatus
     {
         Success,
         Error
