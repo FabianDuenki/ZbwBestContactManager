@@ -6,7 +6,7 @@
 
         string? Comment { get; set; }
 
-        Guid? PersonId { get; set; }
+        Guid PersonId { get; set; }
 
         DateTime? CreatedAt { get; set; }
 

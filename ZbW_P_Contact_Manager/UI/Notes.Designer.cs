@@ -32,13 +32,14 @@
             TxtBoxComment = new TextBox();
             FlowLayoutPanel = new FlowLayoutPanel();
             PanelTop = new Panel();
+            BtnEditComment = new Button();
             BtnSave = new Button();
             PanelBottom = new Panel();
+            BtnEdit = new Button();
+            BtnDelete = new Button();
             ListViewHistory = new ListView();
             BtnClose = new Button();
             LblNotesHistory = new Label();
-            BtnDelete = new Button();
-            BtnEdit = new Button();
             FlowLayoutPanel.SuspendLayout();
             PanelTop.SuspendLayout();
             PanelBottom.SuspendLayout();
@@ -75,6 +76,7 @@
             // 
             // PanelTop
             // 
+            PanelTop.Controls.Add(BtnEditComment);
             PanelTop.Controls.Add(LblNoteTitle);
             PanelTop.Controls.Add(BtnSave);
             PanelTop.Controls.Add(TxtBoxComment);
@@ -83,6 +85,16 @@
             PanelTop.Name = "PanelTop";
             PanelTop.Size = new Size(821, 197);
             PanelTop.TabIndex = 27;
+            // 
+            // BtnEditCommand
+            // 
+            BtnEditComment.Location = new Point(690, 150);
+            BtnEditComment.Name = "BtnEditCommand";
+            BtnEditComment.Size = new Size(75, 28);
+            BtnEditComment.TabIndex = 11;
+            BtnEditComment.Text = "Bearbeiten";
+            BtnEditComment.UseVisualStyleBackColor = true;
+            BtnEditComment.Click += BtnEditCommand_Click;
             // 
             // BtnSave
             // 
@@ -106,6 +118,26 @@
             PanelBottom.Name = "PanelBottom";
             PanelBottom.Size = new Size(818, 340);
             PanelBottom.TabIndex = 28;
+            // 
+            // BtnEdit
+            // 
+            BtnEdit.Image = Properties.Resources.Edit;
+            BtnEdit.Location = new Point(560, 300);
+            BtnEdit.Name = "BtnEdit";
+            BtnEdit.Size = new Size(30, 30);
+            BtnEdit.TabIndex = 30;
+            BtnEdit.UseVisualStyleBackColor = true;
+            BtnEdit.Click += BtnEdit_Click;
+            // 
+            // BtnDelete
+            // 
+            BtnDelete.Image = Properties.Resources.Delete;
+            BtnDelete.Location = new Point(596, 301);
+            BtnDelete.Name = "BtnDelete";
+            BtnDelete.Size = new Size(30, 29);
+            BtnDelete.TabIndex = 29;
+            BtnDelete.UseVisualStyleBackColor = true;
+            BtnDelete.Click += BtnDelete_Click;
             // 
             // ListViewHistory
             // 
@@ -141,26 +173,6 @@
             LblNotesHistory.TabIndex = 24;
             LblNotesHistory.Text = "Notizen";
             // 
-            // BtnDelete
-            // 
-            BtnDelete.Image = Properties.Resources.Delete;
-            BtnDelete.Location = new Point(596, 301);
-            BtnDelete.Name = "BtnDelete";
-            BtnDelete.Size = new Size(30, 29);
-            BtnDelete.TabIndex = 29;
-            BtnDelete.UseVisualStyleBackColor = true;
-            BtnDelete.Click += BtnDelete_Click;
-            // 
-            // BtnEdit
-            // 
-            BtnEdit.Image = Properties.Resources.Edit;
-            BtnEdit.Location = new Point(560, 300);
-            BtnEdit.Name = "BtnEdit";
-            BtnEdit.Size = new Size(30, 30);
-            BtnEdit.TabIndex = 30;
-            BtnEdit.UseVisualStyleBackColor = true;
-            BtnEdit.Click += BtnEdit_Click;
-            // 
             // Notes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -184,7 +196,6 @@
         #endregion
         private Label LblNoteTitle;
         private TextBox TxtBoxComment;
-        private Button CmdSave;
         private FlowLayoutPanel FlowLayoutPanel;
         private Label LblNotesHistory;
         private Panel PanelTop;
@@ -194,5 +205,6 @@
         private Button BtnClose;
         private Button BtnEdit;
         private Button BtnDelete;
+        private Button BtnEditComment;
     }
 }

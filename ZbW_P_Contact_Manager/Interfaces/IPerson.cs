@@ -22,6 +22,5 @@ namespace Interface
         string? StreetNumber { get; set; }
         int? ZipCode { get; set; }
         string? Place { get; set; }
-        List<Note>? Notes { get; set; }
     }
 }

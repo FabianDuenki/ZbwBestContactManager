@@ -1,28 +1,24 @@
 ﻿using Controller;
-using Model;
 
 namespace ZbW_P_Contact_Manager
 {
     public partial class Notes : Form
     {
-        Person _person;
-        NotesController _notesController;
+        Guid _personId;
+        NotesController _notesController = new NotesController();
 
-        public Notes(Person person)
+        public Notes(Guid personId)
         {
-            InitializeComponent();
-            
-            _person = person;
-            _notesController = new NotesController();
+            _personId = personId;
 
+            InitializeComponent();
             InitializeListView();
             LoadNotesInListView();
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            // TODO: get created by user from logged in user => missing right now
-            _notesController.CreateNote(_person.Id, TxtBoxComment.Text, "PersonXY");
+            _notesController.CreateNote(_personId, TxtBoxComment.Text, "PersonXY"); // TODO: get person name from logged in user => function yet missing
 
             LoadNotesInListView();
         }
@@ -36,6 +32,7 @@ namespace ZbW_P_Contact_Manager
         {
             ListViewHistory.Columns.Clear();
             ListViewHistory.Items.Clear();
+            BtnEditComment.Visible = false;
 
             var columnNames = new List<string>() { "Id", "Notiz", "Erstellt am", "Erstellt von" };
 
@@ -53,12 +50,12 @@ namespace ZbW_P_Contact_Manager
         public void LoadNotesInListView()
         {
             ListViewHistory.Items.Clear();
-            
-            var notes = _notesController.LoadNotes(_person.Id);
-            
+            TxtBoxComment.Clear();
+
+            var notes = _notesController.LoadNotes(_personId);
+
             foreach (var note in notes)
             {
-                // TODO: check nullable values
                 string[] row = { note.Id.ToString(), note.Comment, note.CreatedAt.ToString(), note.CreatedBy };
                 ListViewHistory.Items.Add(new ListViewItem(row));
             }
@@ -66,18 +63,39 @@ namespace ZbW_P_Contact_Manager
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            // TODO: do we need update functionality?
-            // if yes: new window for edits
-            // if not: remove notes model update fields
+            if (ListViewHistory.SelectedItems.Count == 1)
+            {
+                TxtBoxComment.Text = ListViewHistory.SelectedItems[0].SubItems[1].Text;
+                ChangeButtonStates(false, false, false, true);
+            }
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            var selectedItem = ListViewHistory.SelectedItems[0];
-            string id = selectedItem.SubItems[0].Text;
+            if(ListViewHistory.SelectedItems.Count == 1)
+            {
+                string noteId = ListViewHistory.SelectedItems[0].SubItems[0].Text;
+                _notesController.DeleteNote(_personId, Guid.Parse(noteId));
 
-            _notesController.DeleteNote(_person.Id, Guid.Parse(id));
+                LoadNotesInListView();
+            }
+        }
+
+        private void BtnEditCommand_Click(object sender, EventArgs e)
+        {
+            var noteId = ListViewHistory.SelectedItems[0].SubItems[0].Text;
+            _notesController.UpdateNote(_personId, Guid.Parse(noteId), TxtBoxComment.Text, "NewPersonXY"); // TODO: get logged in edit person
+
             LoadNotesInListView();
+            ChangeButtonStates(true, true, true, false);
+        }
+
+        private void ChangeButtonStates(bool btnSave, bool btnEdit, bool btnDelete, bool btnEditComment)
+        {
+            BtnSave.Visible = btnSave;
+            BtnEdit.Enabled = btnEdit;
+            BtnDelete.Enabled = btnDelete;
+            BtnEditComment.Visible = btnEditComment;
         }
     }
 }
