@@ -1,7 +1,4 @@
-﻿using Interface;
-using Microsoft.VisualBasic.ApplicationServices;
-using Model;
-using Model.Detail;
+﻿using Model.Detail;
 using Model.Typing;
 using System.Reflection;
 
