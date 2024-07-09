@@ -141,11 +141,10 @@ namespace Controller
             catch { return FileStatus.Error; }
         }
 
-        public bool AddUser(ModelType modelType, object user)
+        public bool AddUser(ModelType modelType, object user, string filePath = "")
         {
+            if(filePath == "") filePath = GetPathByModelType(modelType);
             string csvUser = ConvertUserToCsvString(user);
-            string filePath = GetPathByModelType(modelType);
-
             if (!Path.Exists(filePath))
             {
                 CreateFile(filePath, user);
@@ -154,7 +153,6 @@ namespace Controller
             File.AppendAllText(filePath, csvUser);
 
             return true;
-
         }
 
         public string GetPathByModelType(ModelType modelType)
