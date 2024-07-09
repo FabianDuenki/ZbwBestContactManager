@@ -11,13 +11,11 @@ namespace Controller
     {
         CSVController _csvController;
         ModelType _modelType;
-        string _filePath;
 
         public CRUDController(ModelType modelType)
         {
             _csvController = new CSVController();
             _modelType = modelType;
-            _filePath = _csvController.GetPathByModelType(_modelType);
         }
         public object CreateUserObject(UserDetails userDetails)
         {
