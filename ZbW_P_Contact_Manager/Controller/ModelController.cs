@@ -12,7 +12,8 @@ namespace Controller
                 ModelType.Person => new Person(),
                 ModelType.Employee => new Employee(),
                 ModelType.Trainee => new Trainee(),
-                ModelType.Customer or _ => new Customer()
+                ModelType.Note => new Note(),
+                ModelType.Customer or _ => new Customer(),
             };
         }
     }

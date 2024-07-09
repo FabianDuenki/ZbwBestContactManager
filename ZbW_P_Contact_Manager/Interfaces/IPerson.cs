@@ -1,4 +1,6 @@
-﻿namespace Interface
+﻿using Model;
+
+namespace Interface
 {
     public interface IPerson
     {

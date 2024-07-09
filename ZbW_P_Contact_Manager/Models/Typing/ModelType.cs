@@ -6,5 +6,6 @@
         Trainee,
         Customer,
         Employee,
+        Note
     }
 }

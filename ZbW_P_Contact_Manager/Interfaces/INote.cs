@@ -2,11 +2,11 @@
 {
     public interface INote
     {
-        Guid? Id { get; set; }
+        Guid Id { get; set; }
 
         string? Comment { get; set; }
 
-        long? PersonId { get; set; }
+        Guid PersonId { get; set; }
 
         DateTime? CreatedAt { get; set; }
 
