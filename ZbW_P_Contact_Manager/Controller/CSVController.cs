@@ -6,6 +6,7 @@ using Model.Operation;
 using Model.Typing;
 using System.Collections;
 using System.Reflection;
+using System.Reflection.PortableExecutable;
 using System.Text;
 
 namespace Controller
@@ -168,6 +169,7 @@ namespace Controller
             {
                 csvString += $"{property.GetValue(user)},";
             }
+            csvString = csvString.Remove(csvString.LastIndexOf(','));
             return csvString;
         }
 
@@ -185,9 +187,9 @@ namespace Controller
             return true;
         }
 
-        public List<dynamic> ReadUsers(ModelType modelType)
+        public List<dynamic> ReadUsers(ModelType modelType, string filePath = "")
         {
-            string filePath = GetPathByModelType(modelType);
+            if (filePath == "") filePath = GetPathByModelType(modelType);
 
             if (!Path.Exists(filePath))
             {
