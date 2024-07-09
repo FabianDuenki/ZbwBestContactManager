@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
+﻿using Interface;
+using Microsoft.VisualBasic.ApplicationServices;
 using Model;
 using Model.Detail;
 using Model.Typing;
@@ -8,10 +9,20 @@ namespace Controller
 {
     internal class CRUDController : ModelController
     {
-        public static object CreateUserObject(ModelType modelType, UserDetails userDetails)
+        CSVController _csvController;
+        ModelType _modelType;
+        string _filePath;
+
+        public CRUDController(ModelType modelType)
+        {
+            _csvController = new CSVController();
+            _modelType = modelType;
+            _filePath = _csvController.GetPathByModelType(_modelType);
+        }
+        public object CreateUserObject(UserDetails userDetails)
         {
             // user is a new object of type modelType.
-            object user = GetModelByType(modelType);
+            object user = GetModelByType(_modelType);
             // modelProperties is an array of each property of user.
             PropertyInfo[] modelProperties = user.GetType().GetProperties();
             // userProperties is an array of each property of userDetails that is not null.
@@ -28,18 +39,17 @@ namespace Controller
             }
             return user;
         }
-        public bool Create(ModelType modelType, UserDetails userDetails)
+        public bool Create(UserDetails userDetails)
         {
             userDetails.Id = Guid.NewGuid();
-            object user = CreateUserObject(modelType, userDetails);
-            CSVController csvController = new CSVController();
+            object user = CreateUserObject(userDetails);
 
-            return csvController.AddUser(modelType, user);
+            return _csvController.AddUser(_modelType, user);
         }
 
-        public List<dynamic> Read(ModelType modelType, Guid userId)
+        public List<dynamic> Read(Guid userId)
         {
-            List<dynamic> allUsers = this.Read(modelType);
+            List<dynamic> allUsers = this.Read();
             List<dynamic> users = new List<dynamic>();
 
             foreach (var user in allUsers)
@@ -51,18 +61,17 @@ namespace Controller
             }
             return users;
         }
-        public List<dynamic> Read(ModelType modelType)
+        public List<dynamic> Read()
         {
-            CSVController csvController = new CSVController();
 
-            return csvController.ReadUsers(modelType);
+            return _csvController.ReadUsers(_modelType);
         }
-        public bool Update(ModelType modelType, Guid userId, UserDetails updatedUserProperties)
+        public bool Update(Guid userId, UserDetails updatedUserProperties)
         {
             updatedUserProperties.Id = userId;
 
-            object currentUser = Read(modelType, userId).First();
-            object updatedUser = CreateUserObject(modelType, updatedUserProperties);
+            object currentUser = Read(userId).First();
+            object updatedUser = CreateUserObject(updatedUserProperties);
 
             foreach(PropertyInfo property in updatedUser.GetType().GetProperties())
             {
@@ -75,15 +84,12 @@ namespace Controller
                         .GetValue(currentUser));
                 }
             }
-            CSVController csvController = new CSVController();
 
-            return csvController.UpdateUser(modelType, userId, updatedUser);
+            return _csvController.UpdateUser(_modelType, userId, updatedUser);
         }
-        public bool Delete(ModelType modelType, Guid userId)
+        public bool Delete(Guid userId)
         {
-            CSVController csvController = new CSVController();
-
-            return csvController.DeleteUser(modelType, userId);
+            return _csvController.DeleteUser(_modelType, userId);
         }
     }
 }
