@@ -7,14 +7,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace ZbW_P_Contact_Manager.UI
 {
     public partial class Main : Form
     {
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+        private static extern IntPtr CreateRoundRectRgn
+            (
+            int nLeftRect,
+            int nTopRect,
+            int nRightRect,
+            int nBottomRect,
+            int nWidthEllipse,
+            int nHeightEllipse
+
+            );
+
         public Main()
         {
             InitializeComponent();
+            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
+            pnlNav.Height = BtnDashboard.Height;
+            pnlNav.Top = BtnDashboard.Top;
+            pnlNav.Left = BtnDashboard.Left;
+            BtnDashboard.BackColor = Color.FromArgb(46, 51, 73);
         }
 
         private void btnHome_Click_1(object sender, EventArgs e)
@@ -74,6 +94,24 @@ namespace ZbW_P_Contact_Manager.UI
             search1.Hide();
             importExport1.Hide();
             history1.Show();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnDashboard_Click(object sender, EventArgs e)
+        {
+            pnlNav.Height = BtnDashboard.Height;
+            pnlNav.Top = BtnDashboard.Top;
+            pnlNav.Left = BtnDashboard.Left;
+            BtnDashboard.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void btnAdministration_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
