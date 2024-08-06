@@ -1,107 +1,107 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ZbW_P_Contact_Manager.UI
 {
     public partial class frmAdministration : Form
     {
+        // Constructor for the Administration form
         public frmAdministration()
         {
             InitializeComponent();
-
-            pnlNavAdmin.Height = BtnCreateEmployee.Height;
-            pnlNavAdmin.Top = BtnCreateEmployee.Top;
-            pnlNavAdmin.Left = BtnCreateEmployee.Left;
-            BtnCreateEmployee.BackColor = Color.FromArgb(46, 51, 73);
+            SetInitialNavigationStyle(BtnCreateEmployee); // Set initial navigation style to the Create Employee button
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        // Method to set the initial navigation style for a button
+        private void SetInitialNavigationStyle(Button button)
         {
-
+            SetNavigationStyle(button); // Set the navigation style for the specified button
+            button.BackColor = Color.FromArgb(46, 51, 73); // Set the background color of the button
         }
 
+        // Method to set the navigation style for a selected button
+        private void SetNavigationStyle(Button button)
+        {
+            pnlNavAdmin.Height = button.Height; // Set the navigation panel height to button height
+            pnlNavAdmin.Top = button.Top; // Set the navigation panel top to button top
+            pnlNavAdmin.Left = button.Left; // Set the navigation panel left to button left
+            ResetButtonStyles(); // Reset styles of all buttons
+            button.BackColor = Color.FromArgb(46, 51, 73); // Set selected button color
+        }
+
+        // Method to reset styles of all navigation buttons
+        private void ResetButtonStyles()
+        {
+            BtnCreateEmployee.BackColor = Color.FromArgb(24, 30, 54);
+            btnEditEmployee.BackColor = Color.FromArgb(24, 30, 54);
+            btnCreateCustomer.BackColor = Color.FromArgb(24, 30, 54);
+            btnEditCustomer.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        // Method to load a form into the pnlAdminFormLoader panel and set the title
+        private void LoadForm(Form form, string title)
+        {
+            lblAdminlTitle.Text = title; // Set the title label text
+            pnlAdminFormLoader.Controls.Clear(); // Clear any existing controls
+            form.Dock = DockStyle.Fill; // Set form to fill the panel
+            form.TopLevel = false; // Set form as non-top-level
+            form.TopMost = true; // Set form as topmost
+            form.FormBorderStyle = FormBorderStyle.None; // Remove form border
+            pnlAdminFormLoader.Controls.Add(form); // Add form to the panel
+            form.Show(); // Show the form
+        }
+
+        // Event handler for Create Employee button click
         private void BtnCreateEmployee_Click(object sender, EventArgs e)
         {
-            pnlNavAdmin.Height = BtnCreateEmployee.Height;
-            pnlNavAdmin.Top = BtnCreateEmployee.Top;
-            pnlNavAdmin.Left = BtnCreateEmployee.Left;
-            BtnCreateEmployee.BackColor = Color.FromArgb(46, 51, 73);
-
-            lblAdminlTitle.Text = "Add Employee";
-            this.pnlAdminFormLoader.Controls.Clear();
-            frmCreateEmployee frmCreateEmployee_Vrb = new frmCreateEmployee() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmCreateEmployee_Vrb.FormBorderStyle = FormBorderStyle.None;
-            this.pnlAdminFormLoader.Controls.Add(frmCreateEmployee_Vrb);
-            frmCreateEmployee_Vrb.Show();
+            SetNavigationStyle(BtnCreateEmployee); // Set navigation style for Create Employee button
+            LoadForm(new frmCreateEmployee(), "Add Employee"); // Load the Create Employee form and set the title
         }
 
+        // Event handler for Edit Employee button click
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
-            pnlNavAdmin.Height = btnEditEmployee.Height;
-            pnlNavAdmin.Top = btnEditEmployee.Top;
-            btnEditEmployee.BackColor = Color.FromArgb(46, 51, 73);
-
-            lblAdminlTitle.Text = "Edit Employee";
-            this.pnlAdminFormLoader.Controls.Clear();
-            frmEditEmployee frmCreateEmployee_Vrb = new frmEditEmployee() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmCreateEmployee_Vrb.FormBorderStyle = FormBorderStyle.None;
-            this.pnlAdminFormLoader.Controls.Add(frmCreateEmployee_Vrb);
-            frmCreateEmployee_Vrb.Show();
+            SetNavigationStyle(btnEditEmployee); // Set navigation style for Edit Employee button
+            LoadForm(new frmEditEmployee(), "Edit Employee"); // Load the Edit Employee form and set the title
         }
 
+        // Event handler for Create Customer button click
         private void btnCreateCustomer_Click(object sender, EventArgs e)
         {
-            pnlNavAdmin.Height = btnCreateCustomer.Height;
-            pnlNavAdmin.Top = btnCreateCustomer.Top;
-            btnCreateCustomer.BackColor = Color.FromArgb(46, 51, 73);
-
-            lblAdminlTitle.Text = "Add Customer";
-            this.pnlAdminFormLoader.Controls.Clear();
-            frmCreateCustomer frmCreateEmployee_Vrb = new frmCreateCustomer() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmCreateEmployee_Vrb.FormBorderStyle = FormBorderStyle.None;
-            this.pnlAdminFormLoader.Controls.Add(frmCreateEmployee_Vrb);
-            frmCreateEmployee_Vrb.Show();
+            SetNavigationStyle(btnCreateCustomer); // Set navigation style for Create Customer button
+            LoadForm(new frmCreateCustomer(), "Add Customer"); // Load the Create Customer form and set the title
         }
 
+        // Event handler for Edit Customer button click
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
-            pnlNavAdmin.Height = btnEditCustomer.Height;
-            pnlNavAdmin.Top = btnEditCustomer.Top;
-            btnEditCustomer.BackColor = Color.FromArgb(46, 51, 73);
-
-            lblAdminlTitle.Text = "Edit Customer";
-            this.pnlAdminFormLoader.Controls.Clear();
-            frmEditCustomer frmCreateEmployee_Vrb = new frmEditCustomer() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            frmCreateEmployee_Vrb.FormBorderStyle = FormBorderStyle.None;
-            this.pnlAdminFormLoader.Controls.Add(frmCreateEmployee_Vrb);
-            frmCreateEmployee_Vrb.Show();
+            SetNavigationStyle(btnEditCustomer); // Set navigation style for Edit Customer button
+            LoadForm(new frmEditCustomer(), "Edit Customer"); // Load the Edit Customer form and set the title
         }
 
+        // Event handler for Create Employee button leave
         private void BtnCreateEmployee_Leave(object sender, EventArgs e)
         {
-            BtnCreateEmployee.BackColor = Color.FromArgb(24, 0, 54);
+            BtnCreateEmployee.BackColor = Color.FromArgb(24, 30, 54); // Reset the background color of the Create Employee button
         }
 
+        // Event handler for Edit Employee button leave
         private void btnEditEmployee_Leave(object sender, EventArgs e)
         {
-            btnEditEmployee.BackColor = Color.FromArgb(24, 0, 54);
+            btnEditEmployee.BackColor = Color.FromArgb(24, 30, 54); // Reset the background color of the Edit Employee button
         }
 
+        // Event handler for Create Customer button leave
         private void btnCreateCustomer_Leave(object sender, EventArgs e)
         {
-            btnCreateCustomer.BackColor = Color.FromArgb(24, 0, 54);
+            btnCreateCustomer.BackColor = Color.FromArgb(24, 30, 54); // Reset the background color of the Create Customer button
         }
 
+        // Event handler for Edit Customer button leave
         private void btnEditCustomer_Leave(object sender, EventArgs e)
         {
-            btnEditCustomer.BackColor = Color.FromArgb(24, 0, 54);
+            btnEditCustomer.BackColor = Color.FromArgb(24, 30, 54); // Reset the background color of the Edit Customer button
         }
     }
 }

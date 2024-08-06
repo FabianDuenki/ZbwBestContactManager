@@ -88,13 +88,14 @@
             btnSettings.Image = Properties.Resources.settings;
             btnSettings.Location = new Point(0, 535);
             btnSettings.Name = "btnSettings";
+            btnSettings.RightToLeft = RightToLeft.No;
             btnSettings.Size = new Size(186, 42);
             btnSettings.TabIndex = 14;
             btnSettings.Text = "Settings";
+            btnSettings.TextAlign = ContentAlignment.MiddleLeft;
             btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSettings.UseVisualStyleBackColor = true;
             btnSettings.Click += btnSettings_Click;
-            btnSettings.Leave += btnSettings_Leave;
             // 
             // btnHistory
             // 
@@ -106,13 +107,14 @@
             btnHistory.Image = Properties.Resources.bookmark_book;
             btnHistory.Location = new Point(0, 354);
             btnHistory.Name = "btnHistory";
+            btnHistory.RightToLeft = RightToLeft.No;
             btnHistory.Size = new Size(186, 42);
             btnHistory.TabIndex = 13;
             btnHistory.Text = "History       ";
+            btnHistory.TextAlign = ContentAlignment.MiddleLeft;
             btnHistory.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnHistory.UseVisualStyleBackColor = true;
             btnHistory.Click += btnHistory_Click;
-            btnHistory.Leave += btnHistory_Leave;
             // 
             // btnImportExport
             // 
@@ -124,13 +126,14 @@
             btnImportExport.Image = Properties.Resources.import;
             btnImportExport.Location = new Point(0, 312);
             btnImportExport.Name = "btnImportExport";
+            btnImportExport.RightToLeft = RightToLeft.No;
             btnImportExport.Size = new Size(186, 42);
             btnImportExport.TabIndex = 12;
             btnImportExport.Text = "Import/Export";
+            btnImportExport.TextAlign = ContentAlignment.MiddleLeft;
             btnImportExport.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnImportExport.UseVisualStyleBackColor = true;
             btnImportExport.Click += btnImportExport_Click;
-            btnImportExport.Leave += btnImportExport_Leave;
             // 
             // btnSearch
             // 
@@ -142,13 +145,14 @@
             btnSearch.Image = Properties.Resources.doc_magnifying_glass;
             btnSearch.Location = new Point(0, 270);
             btnSearch.Name = "btnSearch";
+            btnSearch.RightToLeft = RightToLeft.No;
             btnSearch.Size = new Size(186, 42);
             btnSearch.TabIndex = 11;
             btnSearch.Text = "Search";
+            btnSearch.TextAlign = ContentAlignment.MiddleLeft;
             btnSearch.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
-            btnSearch.Leave += btnSearch_Leave;
             // 
             // btnCustomerContact
             // 
@@ -160,13 +164,14 @@
             btnCustomerContact.Image = Properties.Resources.open_book;
             btnCustomerContact.Location = new Point(0, 228);
             btnCustomerContact.Name = "btnCustomerContact";
+            btnCustomerContact.RightToLeft = RightToLeft.No;
             btnCustomerContact.Size = new Size(186, 42);
             btnCustomerContact.TabIndex = 10;
             btnCustomerContact.Text = "CustomerContact";
+            btnCustomerContact.TextAlign = ContentAlignment.MiddleLeft;
             btnCustomerContact.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCustomerContact.UseVisualStyleBackColor = true;
             btnCustomerContact.Click += btnCustomerContact_Click;
-            btnCustomerContact.Leave += btnCustomerContact_Leave;
             // 
             // btnAdministration
             // 
@@ -178,13 +183,14 @@
             btnAdministration.Image = Properties.Resources.calendar;
             btnAdministration.Location = new Point(0, 186);
             btnAdministration.Name = "btnAdministration";
+            btnAdministration.RightToLeft = RightToLeft.No;
             btnAdministration.Size = new Size(186, 42);
             btnAdministration.TabIndex = 9;
             btnAdministration.Text = "Administration";
+            btnAdministration.TextAlign = ContentAlignment.MiddleLeft;
             btnAdministration.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAdministration.UseVisualStyleBackColor = true;
             btnAdministration.Click += btnAdministration_Click;
-            btnAdministration.Leave += btnAdministration_Leave;
             // 
             // BtnDashboard
             // 
@@ -196,13 +202,14 @@
             BtnDashboard.Image = Properties.Resources.home;
             BtnDashboard.Location = new Point(0, 144);
             BtnDashboard.Name = "BtnDashboard";
+            BtnDashboard.RightToLeft = RightToLeft.No;
             BtnDashboard.Size = new Size(186, 42);
             BtnDashboard.TabIndex = 8;
             BtnDashboard.Text = "Dashboard";
+            BtnDashboard.TextAlign = ContentAlignment.MiddleLeft;
             BtnDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnDashboard.UseVisualStyleBackColor = true;
             BtnDashboard.Click += BtnDashboard_Click;
-            BtnDashboard.Leave += BtnDashboard_Leave;
             // 
             // panel2
             // 
@@ -266,7 +273,6 @@
             PnlFormLoader.Name = "PnlFormLoader";
             PnlFormLoader.Size = new Size(765, 477);
             PnlFormLoader.TabIndex = 3;
-            PnlFormLoader.Paint += PnlFormLoader_Paint;
             // 
             // button1
             // 

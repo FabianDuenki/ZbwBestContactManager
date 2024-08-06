@@ -60,9 +60,10 @@
             label4.ForeColor = Color.White;
             label4.Location = new Point(75, 46);
             label4.Name = "label4";
-            label4.Size = new Size(89, 25);
+            label4.Size = new Size(46, 25);
             label4.TabIndex = 0;
-            label4.Text = "Earnings";
+            label4.Text = "Test";
+            label4.Click += label4_Click;
             // 
             // frmDashboard
             // 
@@ -73,7 +74,7 @@
             Controls.Add(panel4);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmDashboard";
-            Text = "frmDashboard";
+            Text = " ";
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ResumeLayout(false);

@@ -205,8 +205,6 @@
             txtEmail.Size = new Size(219, 21);
             txtEmail.TabIndex = 58;
             txtEmail.Tag = "Email";
-            txtEmail.KeyPress += new KeyPressEventHandler(this.EmailTextBox_KeyPress);
-            txtEmail.TextChanged += new EventHandler(this.EmailTextBox_TextChanged);
             // 
             // txtPhoneNumberBusiness
             // 

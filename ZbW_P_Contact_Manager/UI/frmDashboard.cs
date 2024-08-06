@@ -16,5 +16,10 @@ namespace ZbW_P_Contact_Manager.UI
         {
             InitializeComponent();
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

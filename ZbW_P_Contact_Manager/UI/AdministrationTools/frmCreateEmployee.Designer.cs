@@ -167,8 +167,6 @@
             txtEmail.Size = new Size(219, 21);
             txtEmail.TabIndex = 34;
             txtEmail.Tag = "Email";
-            txtEmail.KeyPress += new KeyPressEventHandler(this.EmailTextBox_KeyPress);
-            txtEmail.TextChanged += new EventHandler(this.EmailTextBox_TextChanged);
             // 
             // txtStreet
             // 
@@ -437,7 +435,6 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "frmCreateEmployee";
             Text = "Input Format Example";
-            Load += frmCreateEmployee_Load;
             ((System.ComponentModel.ISupportInitialize)txtCadreLevel).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -7,140 +7,79 @@ namespace ZbW_P_Contact_Manager.UI
 {
     public partial class frmCreateCustomer : Form
     {
+        // Constructor for the Create Customer form
         public frmCreateCustomer()
         {
-            InitializeComponent();
+            InitializeComponent(); // Initialize the form components
         }
 
+        // Event handler for key press event on Social Security Number text box
         private void txtSocialSecurityNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Allow only digits, the dot character, and control characters (like backspace)
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar);
         }
 
+        // Event handler for text changed event on Social Security Number text box
         private void txtSocialSecurityNumber_TextChanged(object sender, EventArgs e)
         {
-            ValidateSocialSecurityNumber();
+            // Validate the input format of the Social Security Number
+            ValidateInput(txtSocialSecurityNumber, @"^\d{3}\.\d{4}\.\d{4}\.\d{2}$");
         }
 
-        private void ValidateSocialSecurityNumber()
-        {
-            // Regular expression to match the required format
-            string pattern = @"^\d{3}\.\d{4}\.\d{4}\.\d{2}$";
-            Regex regex = new Regex(pattern);
-
-            // Validate the input format
-            if (!regex.IsMatch(txtSocialSecurityNumber.Text))
-            {
-                txtSocialSecurityNumber.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                txtSocialSecurityNumber.BackColor = System.Drawing.Color.White;
-            }
-        }
-
+        // Event handler for key press event on Phone Number text box
         private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Allow only digits, control characters (like backspace), and '+' character for international numbers
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '+')
-            {
-                e.Handled = true;
-            }
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '+';
         }
 
+        // Event handler for text changed event on Phone Number text box
         private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
         {
-            ValidatePhoneNumber(sender as TextBox);
+            // Validate the input format of the phone number
+            ValidateInput(sender as TextBox, @"^\+?\d{0,15}$");
         }
 
-        private void ValidatePhoneNumber(TextBox textBox)
-        {
-            // Regular expression to match phone numbers (basic format, can be adjusted)
-            string pattern = @"^\+?\d{0,15}$";
-            Regex regex = new Regex(pattern);
-
-            // Validate the input format
-            if (!regex.IsMatch(textBox.Text))
-            {
-                textBox.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                textBox.BackColor = System.Drawing.Color.White;
-            }
-        }
-
-        private void EmailTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allow all characters for email input, we'll validate on TextChanged
-        }
-
+        // Event handler for text changed event on Email text box
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
-            ValidateEmail(sender as TextBox);
+            // Validate the input format of the email address
+            ValidateInput(sender as TextBox, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
         }
 
-        private void ValidateEmail(TextBox textBox)
-        {
-            // Regular expression to match email addresses
-            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            Regex regex = new Regex(pattern);
-
-            // Validate the input format
-            if (!regex.IsMatch(textBox.Text))
-            {
-                textBox.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                textBox.BackColor = System.Drawing.Color.White;
-            }
-        }
-
+        // Event handler for key press event on Number text box
         private void NumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Allow only digits and control characters (like backspace)
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
+        // Event handler for text changed event on Number text box
         private void NumberTextBox_TextChanged(object sender, EventArgs e)
         {
-            ValidateNumber(sender as TextBox);
+            // Validate the input format of the number
+            ValidateInput(sender as TextBox, @"^\d+$");
         }
 
-        private void ValidateNumber(TextBox textBox)
+        // General method to validate input against a regular expression pattern
+        private void ValidateInput(TextBox textBox, string pattern)
         {
-            // Regular expression to match only numbers
-            string pattern = @"^\d+$";
+            // Create a regex object with the provided pattern
             Regex regex = new Regex(pattern);
 
-            // Validate the input format
-            if (!regex.IsMatch(textBox.Text))
-            {
-                textBox.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                textBox.BackColor = System.Drawing.Color.White;
-            }
+            // Validate the input format and set the background color based on the validation result
+            textBox.BackColor = regex.IsMatch(textBox.Text) ? Color.White : Color.Red;
         }
 
+        // Method to set the style of a DateTimePicker control
         private void SetDatePickerStyle(DateTimePicker dateTimePicker)
         {
+            // Set the calendar background color
             dateTimePicker.CalendarMonthBackground = Color.FromArgb(74, 79, 99);
+
+            // Set the calendar foreground color
             dateTimePicker.CalendarForeColor = SystemColors.ScrollBar;
-        }
-
-        private void frmCreateEmployee_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
