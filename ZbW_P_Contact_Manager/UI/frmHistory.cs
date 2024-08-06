@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace ZbW_P_Contact_Manager.UI
 {
-    public partial class CustomerContact : UserControl
+    public partial class frmHistory : Form
     {
-        public CustomerContact()
+        public frmHistory()
         {
             InitializeComponent();
         }
+
     }
 }

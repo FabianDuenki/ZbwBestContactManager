@@ -1,13 +1,13 @@
 ﻿namespace ZbW_P_Contact_Manager.UI
 {
-    partial class Search
+    partial class frmEditCustomer
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,38 +20,28 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
             SuspendLayout();
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(35, 25);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 0;
-            textBox1.Text = "Search";
-            // 
-            // Search
+            // frmEditCustomer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(textBox1);
-            Name = "Search";
-            Size = new Size(891, 539);
+            BackColor = Color.FromArgb(25, 51, 73);
+            ClientSize = new Size(547, 435);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "frmEditCustomer";
+            Text = "frmEditCustomer";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private TextBox textBox1;
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ZbW_P_Contact_Manager.UI
 {
-    public partial class ImportExport : UserControl
+    public partial class frmCreateCustomer : Form
     {
-        public ImportExport()
+        public frmCreateCustomer()
         {
             InitializeComponent();
         }

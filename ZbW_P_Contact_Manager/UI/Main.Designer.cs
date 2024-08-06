@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            history1 = new History();
-            importExport1 = new ImportExport();
-            search1 = new Search();
-            customerContact1 = new CustomerContact();
-            administration1 = new Administration();
-            home1 = new Home();
             panel1 = new Panel();
             pnlNav = new Panel();
             btnSettings = new Button();
@@ -47,52 +41,16 @@
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
+            panel3 = new Panel();
+            PnlFormLoader = new Panel();
+            button1 = new Button();
+            textBox1 = new TextBox();
+            lblTitle = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
-            // 
-            // history1
-            // 
-            history1.Location = new Point(267, 80);
-            history1.Name = "history1";
-            history1.Size = new Size(648, 450);
-            history1.TabIndex = 2;
-            // 
-            // importExport1
-            // 
-            importExport1.Location = new Point(291, 80);
-            importExport1.Name = "importExport1";
-            importExport1.Size = new Size(648, 450);
-            importExport1.TabIndex = 3;
-            // 
-            // search1
-            // 
-            search1.Location = new Point(312, 106);
-            search1.Name = "search1";
-            search1.Size = new Size(648, 450);
-            search1.TabIndex = 4;
-            // 
-            // customerContact1
-            // 
-            customerContact1.Location = new Point(312, 106);
-            customerContact1.Name = "customerContact1";
-            customerContact1.Size = new Size(648, 450);
-            customerContact1.TabIndex = 5;
-            // 
-            // administration1
-            // 
-            administration1.Location = new Point(371, 115);
-            administration1.Name = "administration1";
-            administration1.Size = new Size(648, 450);
-            administration1.TabIndex = 6;
-            // 
-            // home1
-            // 
-            home1.Location = new Point(192, 12);
-            home1.Name = "home1";
-            home1.Size = new Size(648, 450);
-            home1.TabIndex = 7;
             // 
             // panel1
             // 
@@ -132,9 +90,11 @@
             btnSettings.Name = "btnSettings";
             btnSettings.Size = new Size(186, 42);
             btnSettings.TabIndex = 14;
-            btnSettings.Text = "Dashboard";
+            btnSettings.Text = "Settings";
             btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSettings.UseVisualStyleBackColor = true;
+            btnSettings.Click += btnSettings_Click;
+            btnSettings.Leave += btnSettings_Leave;
             // 
             // btnHistory
             // 
@@ -151,6 +111,8 @@
             btnHistory.Text = "History       ";
             btnHistory.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnHistory.UseVisualStyleBackColor = true;
+            btnHistory.Click += btnHistory_Click;
+            btnHistory.Leave += btnHistory_Leave;
             // 
             // btnImportExport
             // 
@@ -167,6 +129,8 @@
             btnImportExport.Text = "Import/Export";
             btnImportExport.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnImportExport.UseVisualStyleBackColor = true;
+            btnImportExport.Click += btnImportExport_Click;
+            btnImportExport.Leave += btnImportExport_Leave;
             // 
             // btnSearch
             // 
@@ -183,6 +147,8 @@
             btnSearch.Text = "Search";
             btnSearch.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
+            btnSearch.Leave += btnSearch_Leave;
             // 
             // btnCustomerContact
             // 
@@ -199,6 +165,8 @@
             btnCustomerContact.Text = "CustomerContact";
             btnCustomerContact.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCustomerContact.UseVisualStyleBackColor = true;
+            btnCustomerContact.Click += btnCustomerContact_Click;
+            btnCustomerContact.Leave += btnCustomerContact_Leave;
             // 
             // btnAdministration
             // 
@@ -215,7 +183,8 @@
             btnAdministration.Text = "Administration";
             btnAdministration.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAdministration.UseVisualStyleBackColor = true;
-            btnAdministration.Click += btnAdministration_Click_1;
+            btnAdministration.Click += btnAdministration_Click;
+            btnAdministration.Leave += btnAdministration_Leave;
             // 
             // BtnDashboard
             // 
@@ -233,6 +202,7 @@
             BtnDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnDashboard.UseVisualStyleBackColor = true;
             BtnDashboard.Click += BtnDashboard_Click;
+            BtnDashboard.Leave += BtnDashboard_Leave;
             // 
             // panel2
             // 
@@ -277,18 +247,69 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // panel3
+            // 
+            panel3.Controls.Add(PnlFormLoader);
+            panel3.Controls.Add(button1);
+            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(lblTitle);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(186, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(765, 577);
+            panel3.TabIndex = 2;
+            // 
+            // PnlFormLoader
+            // 
+            PnlFormLoader.Dock = DockStyle.Bottom;
+            PnlFormLoader.Location = new Point(0, 100);
+            PnlFormLoader.Name = "PnlFormLoader";
+            PnlFormLoader.Size = new Size(765, 477);
+            PnlFormLoader.TabIndex = 3;
+            PnlFormLoader.Paint += PnlFormLoader_Paint;
+            // 
+            // button1
+            // 
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(728, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(25, 25);
+            button1.TabIndex = 2;
+            button1.Text = "X";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.FromArgb(74, 79, 99);
+            textBox1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.ForeColor = SystemColors.ScrollBar;
+            textBox1.Location = new Point(413, 18);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(292, 31);
+            textBox1.TabIndex = 1;
+            textBox1.Text = "Search for something...";
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Microsoft Sans Serif", 21F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.Location = new Point(19, 34);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(162, 32);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Dashboard";
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(951, 577);
-            Controls.Add(home1);
-            Controls.Add(administration1);
-            Controls.Add(customerContact1);
-            Controls.Add(search1);
-            Controls.Add(importExport1);
-            Controls.Add(history1);
+            Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Main";
@@ -299,16 +320,12 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-        private History history1;
-        private ImportExport importExport1;
-        private Search search1;
-        private CustomerContact customerContact1;
-        private Administration administration1;
-        private Home home1;
         private Panel panel1;
         private Panel panel2;
         private PictureBox pictureBox1;
@@ -322,5 +339,10 @@
         private Button btnAdministration;
         private Panel pnlNav;
         private Button btnSettings;
+        private Panel panel3;
+        private Label lblTitle;
+        private Button button1;
+        private TextBox textBox1;
+        private Panel PnlFormLoader;
     }
 }
