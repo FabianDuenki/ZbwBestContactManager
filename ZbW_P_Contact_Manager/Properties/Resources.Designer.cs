@@ -83,6 +83,16 @@ namespace ZbW_P_Contact_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap database_export {
+            get {
+                object obj = ResourceManager.GetObject("database-export", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap doc_magnifying_glass {
             get {
                 object obj = ResourceManager.GetObject("doc-magnifying-glass", resourceCulture);
@@ -96,6 +106,16 @@ namespace ZbW_P_Contact_Manager.Properties {
         internal static System.Drawing.Bitmap doc_magnifying_glass_in {
             get {
                 object obj = ResourceManager.GetObject("doc-magnifying-glass-in", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download {
+            get {
+                object obj = ResourceManager.GetObject("download", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

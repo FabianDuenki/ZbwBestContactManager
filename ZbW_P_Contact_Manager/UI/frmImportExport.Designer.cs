@@ -28,31 +28,104 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmImportExport));
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            btnImportEmployee = new Button();
+            btnImportCustomer = new Button();
+            btnExportEmployee = new Button();
+            btnExportCustomer = new Button();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.import;
-            pictureBox1.Location = new Point(226, 142);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(281, 242);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(243, 92);
+            label1.ForeColor = Color.FromArgb(0, 126, 249);
+            label1.Location = new Point(89, 35);
             label1.Name = "label1";
-            label1.Size = new Size(184, 37);
+            label1.Size = new Size(221, 37);
             label1.TabIndex = 2;
-            label1.Text = "Import/Export";
+            label1.Text = "Import Employee";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 20F);
+            label2.ForeColor = Color.FromArgb(0, 126, 249);
+            label2.Location = new Point(435, 35);
+            label2.Name = "label2";
+            label2.Size = new Size(217, 37);
+            label2.TabIndex = 4;
+            label2.Text = "Export Employee";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 20F);
+            label3.ForeColor = Color.FromArgb(0, 126, 249);
+            label3.Location = new Point(89, 232);
+            label3.Name = "label3";
+            label3.Size = new Size(218, 37);
+            label3.TabIndex = 5;
+            label3.Text = "Import Customer";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 20F);
+            label4.ForeColor = Color.FromArgb(0, 126, 249);
+            label4.Location = new Point(435, 232);
+            label4.Name = "label4";
+            label4.Size = new Size(214, 37);
+            label4.TabIndex = 6;
+            label4.Text = "Export Customer";
+            // 
+            // btnImportEmployee
+            // 
+            btnImportEmployee.BackColor = Color.FromArgb(24, 30, 54);
+            btnImportEmployee.FlatStyle = FlatStyle.Flat;
+            btnImportEmployee.Image = Properties.Resources.import;
+            btnImportEmployee.Location = new Point(89, 75);
+            btnImportEmployee.Name = "btnImportEmployee";
+            btnImportEmployee.Size = new Size(211, 138);
+            btnImportEmployee.TabIndex = 12;
+            btnImportEmployee.UseVisualStyleBackColor = false;
+            // 
+            // btnImportCustomer
+            // 
+            btnImportCustomer.BackColor = Color.FromArgb(24, 30, 54);
+            btnImportCustomer.FlatStyle = FlatStyle.Flat;
+            btnImportCustomer.Image = Properties.Resources.import;
+            btnImportCustomer.Location = new Point(89, 272);
+            btnImportCustomer.Name = "btnImportCustomer";
+            btnImportCustomer.Size = new Size(211, 138);
+            btnImportCustomer.TabIndex = 13;
+            btnImportCustomer.UseVisualStyleBackColor = false;
+            // 
+            // btnExportEmployee
+            // 
+            btnExportEmployee.BackColor = Color.FromArgb(24, 30, 54);
+            btnExportEmployee.FlatStyle = FlatStyle.Flat;
+            btnExportEmployee.Image = Properties.Resources.database_export;
+            btnExportEmployee.Location = new Point(435, 75);
+            btnExportEmployee.Name = "btnExportEmployee";
+            btnExportEmployee.Size = new Size(211, 138);
+            btnExportEmployee.TabIndex = 14;
+            btnExportEmployee.UseVisualStyleBackColor = false;
+            // 
+            // btnExportCustomer
+            // 
+            btnExportCustomer.BackColor = Color.FromArgb(24, 30, 54);
+            btnExportCustomer.FlatStyle = FlatStyle.Flat;
+            btnExportCustomer.Image = Properties.Resources.database_export;
+            btnExportCustomer.Location = new Point(435, 272);
+            btnExportCustomer.Name = "btnExportCustomer";
+            btnExportCustomer.Size = new Size(211, 138);
+            btnExportCustomer.TabIndex = 15;
+            btnExportCustomer.UseVisualStyleBackColor = false;
             // 
             // frmImportExport
             // 
@@ -60,19 +133,30 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
             ClientSize = new Size(733, 477);
-            Controls.Add(pictureBox1);
+            Controls.Add(btnExportCustomer);
+            Controls.Add(btnExportEmployee);
+            Controls.Add(btnImportCustomer);
+            Controls.Add(btnImportEmployee);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmImportExport";
             Text = "frmImportExport";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
         private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Button btnImportEmployee;
+        private Button btnImportCustomer;
+        private Button btnExportEmployee;
+        private Button btnExportCustomer;
     }
 }

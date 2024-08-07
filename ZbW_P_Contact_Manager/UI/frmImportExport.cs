@@ -16,5 +16,25 @@ namespace ZbW_P_Contact_Manager.UI
         {
             InitializeComponent();
         }
+
+        private void btnImportEmployee_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExportEmployee_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnImportCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExportCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
