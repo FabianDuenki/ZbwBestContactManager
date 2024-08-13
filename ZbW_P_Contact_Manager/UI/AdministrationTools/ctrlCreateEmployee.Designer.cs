@@ -1,6 +1,6 @@
-﻿namespace ZbW_P_Contact_Manager.UI
+﻿namespace ZbW_P_Contact_Manager.UI.AdministrationTools
 {
-    partial class Search
+    partial class ctrlCreateEmployee
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,30 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            SuspendLayout();
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(35, 25);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 0;
-            textBox1.Text = "Search";
-            // 
-            // Search
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(textBox1);
-            Name = "Search";
-            Size = new Size(891, 539);
-            ResumeLayout(false);
-            PerformLayout();
+            components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         }
 
         #endregion
-
-        private TextBox textBox1;
     }
 }

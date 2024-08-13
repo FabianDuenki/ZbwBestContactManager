@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ZbW_P_Contact_Manager.UI
+namespace ZbW_P_Contact_Manager.UI.AdministrationTools
 {
-    public partial class UserControl1 : UserControl
+    public partial class ctrlCreateEmployee : UserControl
     {
-        public UserControl1()
+        public ctrlCreateEmployee()
         {
             InitializeComponent();
         }

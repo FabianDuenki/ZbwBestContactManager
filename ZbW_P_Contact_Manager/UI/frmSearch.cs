@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ZbW_P_Contact_Manager.UI
 {
-    public partial class Search : UserControl
+    public partial class frmSearch : Form
     {
-        public Search()
+        public frmSearch()
         {
             InitializeComponent();
         }
