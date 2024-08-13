@@ -51,16 +51,18 @@
             panel1.Controls.Add(BtnCreateEmployee);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(6, 6, 6, 6);
             panel1.Name = "panel1";
-            panel1.Size = new Size(186, 477);
+            panel1.Size = new Size(345, 1018);
             panel1.TabIndex = 2;
             // 
             // pnlNavAdmin
             // 
             pnlNavAdmin.BackColor = Color.FromArgb(0, 126, 249);
-            pnlNavAdmin.Location = new Point(0, 155);
+            pnlNavAdmin.Location = new Point(0, 331);
+            pnlNavAdmin.Margin = new Padding(6, 6, 6, 6);
             pnlNavAdmin.Name = "pnlNavAdmin";
-            pnlNavAdmin.Size = new Size(3, 100);
+            pnlNavAdmin.Size = new Size(6, 213);
             pnlNavAdmin.TabIndex = 16;
             // 
             // btnEditCustomer
@@ -70,9 +72,11 @@
             btnEditCustomer.FlatStyle = FlatStyle.Flat;
             btnEditCustomer.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditCustomer.ForeColor = Color.FromArgb(0, 126, 249);
-            btnEditCustomer.Location = new Point(0, 126);
+            btnEditCustomer.Image = Properties.Resources.Edit;
+            btnEditCustomer.Location = new Point(0, 270);
+            btnEditCustomer.Margin = new Padding(6, 6, 6, 6);
             btnEditCustomer.Name = "btnEditCustomer";
-            btnEditCustomer.Size = new Size(186, 42);
+            btnEditCustomer.Size = new Size(345, 90);
             btnEditCustomer.TabIndex = 12;
             btnEditCustomer.Text = "Edit Customer";
             btnEditCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -87,9 +91,11 @@
             btnCreateCustomer.FlatStyle = FlatStyle.Flat;
             btnCreateCustomer.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCreateCustomer.ForeColor = Color.FromArgb(0, 126, 249);
-            btnCreateCustomer.Location = new Point(0, 84);
+            btnCreateCustomer.Image = Properties.Resources.add;
+            btnCreateCustomer.Location = new Point(0, 180);
+            btnCreateCustomer.Margin = new Padding(6, 6, 6, 6);
             btnCreateCustomer.Name = "btnCreateCustomer";
-            btnCreateCustomer.Size = new Size(186, 42);
+            btnCreateCustomer.Size = new Size(345, 90);
             btnCreateCustomer.TabIndex = 11;
             btnCreateCustomer.Text = "Add Customer";
             btnCreateCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -104,9 +110,11 @@
             btnEditEmployee.FlatStyle = FlatStyle.Flat;
             btnEditEmployee.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditEmployee.ForeColor = Color.FromArgb(0, 126, 249);
-            btnEditEmployee.Location = new Point(0, 42);
+            btnEditEmployee.Image = Properties.Resources.Edit;
+            btnEditEmployee.Location = new Point(0, 90);
+            btnEditEmployee.Margin = new Padding(6, 6, 6, 6);
             btnEditEmployee.Name = "btnEditEmployee";
-            btnEditEmployee.Size = new Size(186, 42);
+            btnEditEmployee.Size = new Size(345, 90);
             btnEditEmployee.TabIndex = 10;
             btnEditEmployee.Text = "Edit Employee";
             btnEditEmployee.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -121,9 +129,11 @@
             BtnCreateEmployee.FlatStyle = FlatStyle.Flat;
             BtnCreateEmployee.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnCreateEmployee.ForeColor = Color.FromArgb(0, 126, 249);
+            BtnCreateEmployee.Image = Properties.Resources.add;
             BtnCreateEmployee.Location = new Point(0, 0);
+            BtnCreateEmployee.Margin = new Padding(6, 6, 6, 6);
             BtnCreateEmployee.Name = "BtnCreateEmployee";
-            BtnCreateEmployee.Size = new Size(186, 42);
+            BtnCreateEmployee.Size = new Size(345, 90);
             BtnCreateEmployee.TabIndex = 9;
             BtnCreateEmployee.Text = "Add Employee";
             BtnCreateEmployee.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -134,18 +144,20 @@
             // pnlAdminFormLoader
             // 
             pnlAdminFormLoader.Dock = DockStyle.Fill;
-            pnlAdminFormLoader.Location = new Point(186, 42);
+            pnlAdminFormLoader.Location = new Point(345, 90);
+            pnlAdminFormLoader.Margin = new Padding(6, 6, 6, 6);
             pnlAdminFormLoader.Name = "pnlAdminFormLoader";
-            pnlAdminFormLoader.Size = new Size(547, 435);
+            pnlAdminFormLoader.Size = new Size(1016, 928);
             pnlAdminFormLoader.TabIndex = 3;
             // 
             // lblAdminlTitle
             // 
             lblAdminlTitle.AutoSize = true;
             lblAdminlTitle.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold);
-            lblAdminlTitle.Location = new Point(6, 9);
+            lblAdminlTitle.Location = new Point(11, 19);
+            lblAdminlTitle.Margin = new Padding(6, 0, 6, 0);
             lblAdminlTitle.Name = "lblAdminlTitle";
-            lblAdminlTitle.Size = new Size(190, 24);
+            lblAdminlTitle.Size = new Size(366, 44);
             lblAdminlTitle.TabIndex = 1;
             lblAdminlTitle.Text = "Administration Tool";
             // 
@@ -153,21 +165,23 @@
             // 
             panel2.Controls.Add(lblAdminlTitle);
             panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(186, 0);
+            panel2.Location = new Point(345, 0);
+            panel2.Margin = new Padding(6, 6, 6, 6);
             panel2.Name = "panel2";
-            panel2.Size = new Size(547, 42);
+            panel2.Size = new Size(1016, 90);
             panel2.TabIndex = 4;
             // 
             // frmAdministration
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(733, 477);
+            ClientSize = new Size(1361, 1018);
             Controls.Add(pnlAdminFormLoader);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(6, 6, 6, 6);
             Name = "frmAdministration";
             Text = "frmAdministration";
             panel1.ResumeLayout(false);
