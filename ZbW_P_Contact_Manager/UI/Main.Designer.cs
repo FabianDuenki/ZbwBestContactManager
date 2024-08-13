@@ -85,7 +85,6 @@
             btnSettings.FlatStyle = FlatStyle.Flat;
             btnSettings.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSettings.ForeColor = Color.FromArgb(0, 126, 249);
-            btnSettings.Image = Properties.Resources.settings;
             btnSettings.Location = new Point(0, 535);
             btnSettings.Name = "btnSettings";
             btnSettings.RightToLeft = RightToLeft.No;
@@ -104,7 +103,6 @@
             btnHistory.FlatStyle = FlatStyle.Flat;
             btnHistory.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHistory.ForeColor = Color.FromArgb(0, 126, 249);
-            btnHistory.Image = Properties.Resources.bookmark_book;
             btnHistory.Location = new Point(0, 354);
             btnHistory.Name = "btnHistory";
             btnHistory.RightToLeft = RightToLeft.No;
@@ -123,7 +121,6 @@
             btnImportExport.FlatStyle = FlatStyle.Flat;
             btnImportExport.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnImportExport.ForeColor = Color.FromArgb(0, 126, 249);
-            btnImportExport.Image = Properties.Resources.import;
             btnImportExport.Location = new Point(0, 312);
             btnImportExport.Name = "btnImportExport";
             btnImportExport.RightToLeft = RightToLeft.No;
@@ -142,7 +139,6 @@
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.FromArgb(0, 126, 249);
-            btnSearch.Image = Properties.Resources.doc_magnifying_glass;
             btnSearch.Location = new Point(0, 270);
             btnSearch.Name = "btnSearch";
             btnSearch.RightToLeft = RightToLeft.No;
@@ -161,7 +157,6 @@
             btnCustomerContact.FlatStyle = FlatStyle.Flat;
             btnCustomerContact.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCustomerContact.ForeColor = Color.FromArgb(0, 126, 249);
-            btnCustomerContact.Image = Properties.Resources.open_book;
             btnCustomerContact.Location = new Point(0, 228);
             btnCustomerContact.Name = "btnCustomerContact";
             btnCustomerContact.RightToLeft = RightToLeft.No;
@@ -180,7 +175,6 @@
             btnAdministration.FlatStyle = FlatStyle.Flat;
             btnAdministration.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdministration.ForeColor = Color.FromArgb(0, 126, 249);
-            btnAdministration.Image = Properties.Resources.calendar;
             btnAdministration.Location = new Point(0, 186);
             btnAdministration.Name = "btnAdministration";
             btnAdministration.RightToLeft = RightToLeft.No;
@@ -199,7 +193,6 @@
             BtnDashboard.FlatStyle = FlatStyle.Flat;
             BtnDashboard.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnDashboard.ForeColor = Color.FromArgb(0, 126, 249);
-            BtnDashboard.Image = Properties.Resources.home;
             BtnDashboard.Location = new Point(0, 144);
             BtnDashboard.Name = "BtnDashboard";
             BtnDashboard.RightToLeft = RightToLeft.No;
@@ -246,7 +239,6 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.ProfileIcon_png;
             pictureBox1.Location = new Point(60, 22);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(63, 63);

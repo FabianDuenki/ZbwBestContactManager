@@ -35,7 +35,6 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.doc_magnifying_glass;
             pictureBox1.Location = new Point(226, 142);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(281, 242);

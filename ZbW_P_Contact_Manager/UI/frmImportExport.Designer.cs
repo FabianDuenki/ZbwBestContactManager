@@ -87,7 +87,6 @@
             // 
             btnImportEmployee.BackColor = Color.FromArgb(24, 30, 54);
             btnImportEmployee.FlatStyle = FlatStyle.Flat;
-            btnImportEmployee.Image = Properties.Resources.import;
             btnImportEmployee.Location = new Point(89, 75);
             btnImportEmployee.Name = "btnImportEmployee";
             btnImportEmployee.Size = new Size(211, 138);
@@ -98,7 +97,6 @@
             // 
             btnImportCustomer.BackColor = Color.FromArgb(24, 30, 54);
             btnImportCustomer.FlatStyle = FlatStyle.Flat;
-            btnImportCustomer.Image = Properties.Resources.import;
             btnImportCustomer.Location = new Point(89, 272);
             btnImportCustomer.Name = "btnImportCustomer";
             btnImportCustomer.Size = new Size(211, 138);
@@ -109,7 +107,6 @@
             // 
             btnExportEmployee.BackColor = Color.FromArgb(24, 30, 54);
             btnExportEmployee.FlatStyle = FlatStyle.Flat;
-            btnExportEmployee.Image = Properties.Resources.database_export;
             btnExportEmployee.Location = new Point(435, 75);
             btnExportEmployee.Name = "btnExportEmployee";
             btnExportEmployee.Size = new Size(211, 138);
@@ -120,7 +117,6 @@
             // 
             btnExportCustomer.BackColor = Color.FromArgb(24, 30, 54);
             btnExportCustomer.FlatStyle = FlatStyle.Flat;
-            btnExportCustomer.Image = Properties.Resources.database_export;
             btnExportCustomer.Location = new Point(435, 272);
             btnExportCustomer.Name = "btnExportCustomer";
             btnExportCustomer.Size = new Size(211, 138);

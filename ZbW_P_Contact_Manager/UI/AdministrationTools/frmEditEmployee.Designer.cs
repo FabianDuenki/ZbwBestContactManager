@@ -74,7 +74,6 @@
             // 
             // employeeDetailsBindingSource
             // 
-            employeeDetailsBindingSource.DataSource = typeof(Struct.EmployeeDetails);
             // 
             // personBindingSource
             // 
