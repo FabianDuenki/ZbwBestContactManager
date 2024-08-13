@@ -1,6 +1,3 @@
-using Controller;
-using Model;
-using ZbW_P_Contact_Manager;
 using ZbW_P_Contact_Manager.UI;
 
 namespace View

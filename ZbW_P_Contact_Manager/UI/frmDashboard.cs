@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ZbW_P_Contact_Manager.UI
 {
-    public partial class ImportExport : UserControl
+    public partial class frmDashboard : Form
     {
-        public ImportExport()
+        public frmDashboard()
         {
             InitializeComponent();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

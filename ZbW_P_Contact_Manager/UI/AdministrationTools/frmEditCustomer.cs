@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace ZbW_P_Contact_Manager.UI
 {
-    public partial class Home : UserControl
+    public partial class frmEditCustomer : Form
     {
-        public Home()
+        public frmEditCustomer()
         {
             InitializeComponent();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

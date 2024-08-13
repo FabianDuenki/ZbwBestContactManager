@@ -29,168 +29,326 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            btnHome = new Button();
+            pnlNav = new Panel();
+            btnSettings = new Button();
             btnHistory = new Button();
             btnImportExport = new Button();
             btnSearch = new Button();
             btnCustomerContact = new Button();
             btnAdministration = new Button();
-            history1 = new History();
-            importExport1 = new ImportExport();
-            search1 = new Search();
-            customerContact1 = new CustomerContact();
-            administration1 = new Administration();
-            home1 = new Home();
+            BtnDashboard = new Button();
+            panel2 = new Panel();
+            label2 = new Label();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            panel3 = new Panel();
+            PnlFormLoader = new Panel();
+            button1 = new Button();
+            textBox1 = new TextBox();
+            lblTitle = new Label();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.Controls.Add(btnHome);
+            panel1.BackColor = Color.FromArgb(24, 30, 54);
+            panel1.Controls.Add(pnlNav);
+            panel1.Controls.Add(btnSettings);
             panel1.Controls.Add(btnHistory);
             panel1.Controls.Add(btnImportExport);
             panel1.Controls.Add(btnSearch);
             panel1.Controls.Add(btnCustomerContact);
             panel1.Controls.Add(btnAdministration);
+            panel1.Controls.Add(BtnDashboard);
+            panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(151, 450);
+            panel1.Size = new Size(186, 577);
             panel1.TabIndex = 1;
             // 
-            // btnHome
+            // pnlNav
             // 
-            btnHome.Location = new Point(3, 7);
-            btnHome.Name = "btnHome";
-            btnHome.Size = new Size(145, 36);
-            btnHome.TabIndex = 6;
-            btnHome.Text = "Home";
-            btnHome.UseVisualStyleBackColor = true;
-            btnHome.Click += btnHome_Click_1;
+            pnlNav.BackColor = Color.FromArgb(0, 126, 249);
+            pnlNav.Location = new Point(0, 193);
+            pnlNav.Name = "pnlNav";
+            pnlNav.Size = new Size(3, 100);
+            pnlNav.TabIndex = 15;
+            // 
+            // btnSettings
+            // 
+            btnSettings.Dock = DockStyle.Bottom;
+            btnSettings.FlatAppearance.BorderSize = 0;
+            btnSettings.FlatStyle = FlatStyle.Flat;
+            btnSettings.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSettings.ForeColor = Color.FromArgb(0, 126, 249);
+            btnSettings.Image = Properties.Resources.settings;
+            btnSettings.Location = new Point(0, 535);
+            btnSettings.Name = "btnSettings";
+            btnSettings.RightToLeft = RightToLeft.No;
+            btnSettings.Size = new Size(186, 42);
+            btnSettings.TabIndex = 14;
+            btnSettings.Text = "Settings";
+            btnSettings.TextAlign = ContentAlignment.MiddleLeft;
+            btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSettings.UseVisualStyleBackColor = true;
+            btnSettings.Click += btnSettings_Click;
             // 
             // btnHistory
             // 
-            btnHistory.Location = new Point(3, 217);
+            btnHistory.Dock = DockStyle.Top;
+            btnHistory.FlatAppearance.BorderSize = 0;
+            btnHistory.FlatStyle = FlatStyle.Flat;
+            btnHistory.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHistory.ForeColor = Color.FromArgb(0, 126, 249);
+            btnHistory.Image = Properties.Resources.bookmark_book;
+            btnHistory.Location = new Point(0, 354);
             btnHistory.Name = "btnHistory";
-            btnHistory.Size = new Size(145, 36);
-            btnHistory.TabIndex = 5;
-            btnHistory.Text = "History";
+            btnHistory.RightToLeft = RightToLeft.No;
+            btnHistory.Size = new Size(186, 42);
+            btnHistory.TabIndex = 13;
+            btnHistory.Text = "History       ";
+            btnHistory.TextAlign = ContentAlignment.MiddleLeft;
+            btnHistory.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnHistory.UseVisualStyleBackColor = true;
             btnHistory.Click += btnHistory_Click;
             // 
             // btnImportExport
             // 
-            btnImportExport.Location = new Point(3, 175);
+            btnImportExport.Dock = DockStyle.Top;
+            btnImportExport.FlatAppearance.BorderSize = 0;
+            btnImportExport.FlatStyle = FlatStyle.Flat;
+            btnImportExport.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnImportExport.ForeColor = Color.FromArgb(0, 126, 249);
+            btnImportExport.Image = Properties.Resources.import;
+            btnImportExport.Location = new Point(0, 312);
             btnImportExport.Name = "btnImportExport";
-            btnImportExport.Size = new Size(145, 36);
-            btnImportExport.TabIndex = 4;
+            btnImportExport.RightToLeft = RightToLeft.No;
+            btnImportExport.Size = new Size(186, 42);
+            btnImportExport.TabIndex = 12;
             btnImportExport.Text = "Import/Export";
+            btnImportExport.TextAlign = ContentAlignment.MiddleLeft;
+            btnImportExport.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnImportExport.UseVisualStyleBackColor = true;
             btnImportExport.Click += btnImportExport_Click;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(3, 133);
+            btnSearch.Dock = DockStyle.Top;
+            btnSearch.FlatAppearance.BorderSize = 0;
+            btnSearch.FlatStyle = FlatStyle.Flat;
+            btnSearch.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSearch.ForeColor = Color.FromArgb(0, 126, 249);
+            btnSearch.Image = Properties.Resources.doc_magnifying_glass;
+            btnSearch.Location = new Point(0, 270);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(145, 36);
-            btnSearch.TabIndex = 3;
+            btnSearch.RightToLeft = RightToLeft.No;
+            btnSearch.Size = new Size(186, 42);
+            btnSearch.TabIndex = 11;
             btnSearch.Text = "Search";
+            btnSearch.TextAlign = ContentAlignment.MiddleLeft;
+            btnSearch.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
             // 
             // btnCustomerContact
             // 
-            btnCustomerContact.Location = new Point(3, 91);
+            btnCustomerContact.Dock = DockStyle.Top;
+            btnCustomerContact.FlatAppearance.BorderSize = 0;
+            btnCustomerContact.FlatStyle = FlatStyle.Flat;
+            btnCustomerContact.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCustomerContact.ForeColor = Color.FromArgb(0, 126, 249);
+            btnCustomerContact.Image = Properties.Resources.open_book;
+            btnCustomerContact.Location = new Point(0, 228);
             btnCustomerContact.Name = "btnCustomerContact";
-            btnCustomerContact.Size = new Size(145, 36);
-            btnCustomerContact.TabIndex = 2;
+            btnCustomerContact.RightToLeft = RightToLeft.No;
+            btnCustomerContact.Size = new Size(186, 42);
+            btnCustomerContact.TabIndex = 10;
             btnCustomerContact.Text = "CustomerContact";
+            btnCustomerContact.TextAlign = ContentAlignment.MiddleLeft;
+            btnCustomerContact.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCustomerContact.UseVisualStyleBackColor = true;
             btnCustomerContact.Click += btnCustomerContact_Click;
             // 
             // btnAdministration
             // 
-            btnAdministration.Location = new Point(3, 49);
+            btnAdministration.Dock = DockStyle.Top;
+            btnAdministration.FlatAppearance.BorderSize = 0;
+            btnAdministration.FlatStyle = FlatStyle.Flat;
+            btnAdministration.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdministration.ForeColor = Color.FromArgb(0, 126, 249);
+            btnAdministration.Image = Properties.Resources.calendar;
+            btnAdministration.Location = new Point(0, 186);
             btnAdministration.Name = "btnAdministration";
-            btnAdministration.Size = new Size(145, 36);
-            btnAdministration.TabIndex = 1;
+            btnAdministration.RightToLeft = RightToLeft.No;
+            btnAdministration.Size = new Size(186, 42);
+            btnAdministration.TabIndex = 9;
             btnAdministration.Text = "Administration";
+            btnAdministration.TextAlign = ContentAlignment.MiddleLeft;
+            btnAdministration.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAdministration.UseVisualStyleBackColor = true;
             btnAdministration.Click += btnAdministration_Click;
             // 
-            // history1
+            // BtnDashboard
             // 
-            history1.Location = new Point(152, 0);
-            history1.Name = "history1";
-            history1.Size = new Size(648, 450);
-            history1.TabIndex = 2;
+            BtnDashboard.Dock = DockStyle.Top;
+            BtnDashboard.FlatAppearance.BorderSize = 0;
+            BtnDashboard.FlatStyle = FlatStyle.Flat;
+            BtnDashboard.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnDashboard.ForeColor = Color.FromArgb(0, 126, 249);
+            BtnDashboard.Image = Properties.Resources.home;
+            BtnDashboard.Location = new Point(0, 144);
+            BtnDashboard.Name = "BtnDashboard";
+            BtnDashboard.RightToLeft = RightToLeft.No;
+            BtnDashboard.Size = new Size(186, 42);
+            BtnDashboard.TabIndex = 8;
+            BtnDashboard.Text = "Dashboard";
+            BtnDashboard.TextAlign = ContentAlignment.MiddleLeft;
+            BtnDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BtnDashboard.UseVisualStyleBackColor = true;
+            BtnDashboard.Click += BtnDashboard_Click;
             // 
-            // importExport1
+            // panel2
             // 
-            importExport1.Location = new Point(152, 0);
-            importExport1.Name = "importExport1";
-            importExport1.Size = new Size(648, 450);
-            importExport1.TabIndex = 3;
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(pictureBox1);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(186, 144);
+            panel2.TabIndex = 7;
             // 
-            // search1
+            // label2
             // 
-            search1.Location = new Point(152, 0);
-            search1.Name = "search1";
-            search1.Size = new Size(648, 450);
-            search1.TabIndex = 4;
+            label2.AutoSize = true;
+            label2.Font = new Font("Verdana", 6.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(158, 161, 176);
+            label2.Location = new Point(39, 118);
+            label2.Name = "label2";
+            label2.Size = new Size(108, 12);
+            label2.TabIndex = 2;
+            label2.Text = "Some User Text here";
             // 
-            // customerContact1
+            // label1
             // 
-            customerContact1.Location = new Point(152, 0);
-            customerContact1.Name = "customerContact1";
-            customerContact1.Size = new Size(648, 450);
-            customerContact1.TabIndex = 5;
+            label1.AutoSize = true;
+            label1.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(0, 126, 249);
+            label1.Location = new Point(48, 97);
+            label1.Name = "label1";
+            label1.Size = new Size(86, 16);
+            label1.TabIndex = 1;
+            label1.Text = "User Name";
             // 
-            // administration1
+            // pictureBox1
             // 
-            administration1.Location = new Point(152, 0);
-            administration1.Name = "administration1";
-            administration1.Size = new Size(648, 450);
-            administration1.TabIndex = 6;
+            pictureBox1.Image = Properties.Resources.ProfileIcon_png;
+            pictureBox1.Location = new Point(60, 22);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(63, 63);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
-            // home1
+            // panel3
             // 
-            home1.Location = new Point(152, 0);
-            home1.Name = "home1";
-            home1.Size = new Size(648, 450);
-            home1.TabIndex = 7;
+            panel3.Controls.Add(PnlFormLoader);
+            panel3.Controls.Add(button1);
+            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(lblTitle);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(186, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(765, 577);
+            panel3.TabIndex = 2;
+            // 
+            // PnlFormLoader
+            // 
+            PnlFormLoader.Dock = DockStyle.Bottom;
+            PnlFormLoader.Location = new Point(0, 100);
+            PnlFormLoader.Name = "PnlFormLoader";
+            PnlFormLoader.Size = new Size(765, 477);
+            PnlFormLoader.TabIndex = 3;
+            // 
+            // button1
+            // 
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(728, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(25, 25);
+            button1.TabIndex = 2;
+            button1.Text = "X";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.FromArgb(74, 79, 99);
+            textBox1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.ForeColor = SystemColors.ScrollBar;
+            textBox1.Location = new Point(413, 18);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Search for something...";
+            textBox1.Size = new Size(292, 31);
+            textBox1.TabIndex = 1;
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Microsoft Sans Serif", 21F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.Location = new Point(19, 34);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(162, 32);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Dashboard";
             // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(home1);
-            Controls.Add(administration1);
-            Controls.Add(customerContact1);
-            Controls.Add(search1);
-            Controls.Add(importExport1);
-            Controls.Add(history1);
+            BackColor = Color.FromArgb(46, 51, 73);
+            ClientSize = new Size(951, 577);
+            Controls.Add(panel3);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Main";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Home";
+            Load += Main_Load;
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
         private Panel panel1;
+        private Panel panel2;
+        private PictureBox pictureBox1;
+        private Label label2;
+        private Label label1;
+        private Button BtnDashboard;
+        private Button btnHistory;
         private Button btnImportExport;
         private Button btnSearch;
         private Button btnCustomerContact;
         private Button btnAdministration;
-        private Button btnHistory;
-        private History history1;
-        private ImportExport importExport1;
-        private Search search1;
-        private CustomerContact customerContact1;
-        private Administration administration1;
-        private Home home1;
-        private Button btnHome;
+        private Panel pnlNav;
+        private Button btnSettings;
+        private Panel panel3;
+        private Label lblTitle;
+        private Button button1;
+        private TextBox textBox1;
+        private Panel PnlFormLoader;
     }
 }
