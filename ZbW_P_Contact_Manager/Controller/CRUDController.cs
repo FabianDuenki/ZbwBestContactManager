@@ -1,4 +1,5 @@
-﻿using Model.Detail;
+﻿using Model;
+using Model.Detail;
 using Model.Typing;
 using System.Reflection;
 
@@ -7,84 +8,45 @@ namespace Controller
     internal class CRUDController : ModelController
     {
         CSVController _csvController;
-        ModelType _modelType;
 
-        public CRUDController(ModelType modelType)
+        public CRUDController()
         {
             _csvController = new CSVController();
-            _modelType = modelType;
         }
-        public object CreateUserObject(UserDetails userDetails)
+        public bool Create(Person user)
         {
-            // user is a new object of type modelType.
-            object user = GetModelByType(_modelType);
-            // modelProperties is an array of each property of user.
-            PropertyInfo[] modelProperties = user.GetType().GetProperties();
-            // userProperties is an array of each property of userDetails that is not null.
-            PropertyInfo[] userProperties = userDetails.GetType().GetProperties().Where(property => property.GetValue(userDetails) != null).ToArray();
-            // For each property in userProperties, set the value of the property in user to the value of the property in userDetails.
-            foreach (PropertyInfo userProperty in userProperties)
+            // check if mandatory fields are filled
+            return _csvController.AddUser(user);
+        }
+
+        public List<Person> Read(Person searchUser)
+        {
+            List<Person> allUsers = this.Read(searchUser);
+
+            List<Person> users = new List<Person>();
+
+            foreach (Person user in allUsers)
             {
-                user
-                    .GetType()
-                    .GetProperty(userProperty.Name)!
-                    .SetValue(user, userProperty
-                        .GetValue(userDetails)
-                    );
-            }
-            return user;
-        }
-        public bool Create(UserDetails userDetails)
-        {
-            userDetails.Id = Guid.NewGuid();
-            object user = CreateUserObject(userDetails);
-
-            return _csvController.AddUser(_modelType, user);
-        }
-
-        public List<dynamic> Read(Guid userId)
-        {
-            List<dynamic> allUsers = this.Read();
-            List<dynamic> users = new List<dynamic>();
-
-            foreach (var user in allUsers)
-            {
-                if(user.Id == userId)
+                if(user.Contains(searchUser))
                 {
                     users.Add(user);
                 }
             }
             return users;
         }
-        public List<dynamic> Read()
+        public List<Person> Read(Type userType)
         {
-
-            return _csvController.ReadUsers(_modelType);
+            return _csvController.ReadUsers(userType);
         }
-        public bool Update(Guid userId, UserDetails updatedUserProperties)
+        public bool Update(Person oldUser, Person newUser)
         {
-            updatedUserProperties.Id = userId;
+            newUser.Id = oldUser.Id;
 
-            object currentUser = Read(userId).First();
-            object updatedUser = CreateUserObject(updatedUserProperties);
-
-            foreach(PropertyInfo property in updatedUser.GetType().GetProperties())
-            {
-                if (property.GetValue(updatedUser) == null)
-                {
-                    updatedUser
-                    .GetType()
-                    .GetProperty(property.Name)!
-                    .SetValue(updatedUser, property
-                        .GetValue(currentUser));
-                }
-            }
-
-            return _csvController.UpdateUser(_modelType, userId, updatedUser);
+            return _csvController.UpdateUser(oldUser, newUser);
         }
-        public bool Delete(Guid userId)
+        public bool Delete(Person user)
         {
-            return _csvController.DeleteUser(_modelType, userId);
+            return _csvController.DeleteUser(user);
         }
     }
 }

@@ -141,39 +141,28 @@ namespace Controller
             catch { return FileStatus.Error; }
         }
 
-        public bool AddUser(ModelType modelType, object user)
+        public bool AddUser(Person user)
         {
-            string csvUser = ConvertUserToCsvString(user);
-            string filePath = GetPathByModelType(modelType);
+            string filePath = GetPathByModelType(user.GetType());
 
             if (!Path.Exists(filePath))
             {
                 CreateFile(filePath, user);
             }
             File.AppendAllText(filePath, Environment.NewLine);
-            File.AppendAllText(filePath, csvUser);
+            File.AppendAllText(filePath, user.ToCsvString());
 
             return true;
 
         }
 
-        public string GetPathByModelType(ModelType modelType)
+        public string GetPathByModelType(Type userType)
         {
-            string fileName = $"{modelType.ToString()}.csv";
+            string fileName = $"{userType.ToString()}.csv";
             return $"{Environment.CurrentDirectory}\\{fileName}";
         }
 
-        public string ConvertUserToCsvString(object user)
-        {
-            string csvString = string.Empty;
-            foreach(PropertyInfo property in user.GetType().GetProperties())
-            {
-                csvString += $"{property.GetValue(user)},";
-            }
-            return csvString;
-        }
-
-        public bool CreateFile(string filePath, object user)
+        public bool CreateFile(string filePath, Person user)
         {
             string csvHeader = string.Empty;
 
@@ -181,19 +170,19 @@ namespace Controller
             {
                 csvHeader += $"{property.Name},";
             }
-            csvHeader = csvHeader.Remove(csvHeader.LastIndexOf(','));
+            csvHeader.Remove(csvHeader.LastIndexOf(','));
             File.AppendAllText(filePath, csvHeader);
 
             return true;
         }
 
-        public List<dynamic> ReadUsers(ModelType modelType)
+        public List<Person> ReadUsers(Type userType)
         {
-            string filePath = GetPathByModelType(modelType);
+            string filePath = GetPathByModelType(userType);
 
             if (!Path.Exists(filePath))
             {
-                return new List<dynamic>();
+                return new List<Person>();
             }
             string[] csvLines = File.ReadAllLines(filePath); 
 
