@@ -59,6 +59,7 @@
             btnCreateNewCustomer.TabIndex = 43;
             btnCreateNewCustomer.Text = "Create New Customer";
             btnCreateNewCustomer.UseVisualStyleBackColor = true;
+            btnCreateNewCustomer.Click += btnCreateNewCustomer_Click;
             // 
             // txtNationality
             // 
@@ -103,7 +104,6 @@
             txtDateOfBirth.TabIndex = 51;
             txtDateOfBirth.Tag = "Date Of Birth";
             txtDateOfBirth.Value = new DateTime(2024, 8, 7, 0, 0, 0, 0);
-            SetDatePickerStyle(this.txtDateOfBirth);
             // 
             // txtSex
             // 
@@ -162,8 +162,8 @@
             txtZipCode.Size = new Size(57, 21);
             txtZipCode.TabIndex = 61;
             txtZipCode.Tag = "ZipCode";
-            txtZipCode.KeyPress += new KeyPressEventHandler(this.NumberTextBox_KeyPress);
-            txtZipCode.TextChanged += new EventHandler(this.NumberTextBox_TextChanged);
+            txtZipCode.TextChanged += NumberTextBox_TextChanged;
+            txtZipCode.KeyPress += NumberTextBox_KeyPress;
             // 
             // txtStreetNumber
             // 
@@ -177,8 +177,8 @@
             txtStreetNumber.Size = new Size(89, 21);
             txtStreetNumber.TabIndex = 60;
             txtStreetNumber.Tag = "Street Number";
-            txtStreetNumber.KeyPress += new KeyPressEventHandler(this.NumberTextBox_KeyPress);
-            txtStreetNumber.TextChanged += new EventHandler(this.NumberTextBox_TextChanged);
+            txtStreetNumber.TextChanged += NumberTextBox_TextChanged;
+            txtStreetNumber.KeyPress += NumberTextBox_KeyPress;
             // 
             // txtStreet
             // 
@@ -218,8 +218,8 @@
             txtPhoneNumberBusiness.Size = new Size(147, 21);
             txtPhoneNumberBusiness.TabIndex = 57;
             txtPhoneNumberBusiness.Tag = "Phone Number Business ";
-            txtPhoneNumberBusiness.KeyPress += new KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
-            txtPhoneNumberBusiness.TextChanged += new EventHandler(this.PhoneNumberTextBox_TextChanged);
+            txtPhoneNumberBusiness.TextChanged += PhoneNumberTextBox_TextChanged;
+            txtPhoneNumberBusiness.KeyPress += PhoneNumberTextBox_KeyPress;
             // 
             // txtPhoneNumberMobile
             // 
@@ -233,8 +233,8 @@
             txtPhoneNumberMobile.Size = new Size(147, 21);
             txtPhoneNumberMobile.TabIndex = 56;
             txtPhoneNumberMobile.Tag = "Phone Number Mobile";
-            txtPhoneNumberMobile.KeyPress += new KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
-            txtPhoneNumberMobile.TextChanged += new EventHandler(this.PhoneNumberTextBox_TextChanged);
+            txtPhoneNumberMobile.TextChanged += PhoneNumberTextBox_TextChanged;
+            txtPhoneNumberMobile.KeyPress += PhoneNumberTextBox_KeyPress;
             // 
             // txtPhoneNumberPrivate
             // 
@@ -248,8 +248,8 @@
             txtPhoneNumberPrivate.Size = new Size(147, 21);
             txtPhoneNumberPrivate.TabIndex = 55;
             txtPhoneNumberPrivate.Tag = "Phone Number Private";
-            txtPhoneNumberPrivate.KeyPress += new KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
-            txtPhoneNumberPrivate.TextChanged += new EventHandler(this.PhoneNumberTextBox_TextChanged);
+            txtPhoneNumberPrivate.TextChanged += PhoneNumberTextBox_TextChanged;
+            txtPhoneNumberPrivate.KeyPress += PhoneNumberTextBox_KeyPress;
             // 
             // txtTitle
             // 
@@ -302,8 +302,8 @@
             txtSocialSecurityNumber.Size = new Size(159, 21);
             txtSocialSecurityNumber.TabIndex = 54;
             txtSocialSecurityNumber.Tag = "Social Security Number";
-            txtSocialSecurityNumber.KeyPress += new KeyPressEventHandler(this.txtSocialSecurityNumber_KeyPress);
-            txtSocialSecurityNumber.TextChanged += new EventHandler(this.txtSocialSecurityNumber_TextChanged);
+            txtSocialSecurityNumber.TextChanged += txtSocialSecurityNumber_TextChanged;
+            txtSocialSecurityNumber.KeyPress += txtSocialSecurityNumber_KeyPress;
             // 
             // txtCompanyName
             // 

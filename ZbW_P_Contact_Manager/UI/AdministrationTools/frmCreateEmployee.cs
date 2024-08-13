@@ -1,7 +1,6 @@
-﻿using System;
-using System.Drawing;
+﻿using Model;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
+using UI.Helpers;
 
 namespace ZbW_P_Contact_Manager.UI
 {
@@ -80,6 +79,39 @@ namespace ZbW_P_Contact_Manager.UI
 
             // Set the calendar foreground color
             dateTimePicker.CalendarForeColor = SystemColors.ScrollBar;
+        }
+
+
+         /// <summary>
+         /// Method to create a new Employee
+         /// </summary>
+         /// <param name="sender">Sender object</param>
+         /// <param name="e">Event arguments</param>
+        private void btnCreateNewEmployee_Click(object sender, EventArgs e)
+        {
+            Employee employee = new Employee
+            {
+                Salutation = txtSalutation.Text,
+                Title = txtTitle.Text,
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Nationality = txtNationality.Text,
+                SocialSecurityNumber = txtSocialSecurityNumber.Text,
+                Email = txtEmail.Text,
+                Street = txtStreet.Text,
+                StreetNumber = txtStreetNumber.Text,
+                ZipCode = Sanitizer.StringToInt(txtZipCode.Text),
+                Place = txtPlace.Text,
+                PhoneNumberPrivate = txtPhoneNumberPrivate.Text,
+                PhoneNumberMobile = txtPhoneNumberMobile.Text,
+                PhoneNumberBusiness = txtPhoneNumberBusiness.Text,
+                StartDate = DateTime.Parse(txtStartDate.Text),
+                EndDate = DateTime.Parse(txtEndDate.Text),
+                Employment = Sanitizer.StringToInt(txtEmployment.Text),
+                Departement = txtDepartment.Text,
+                Role = txtRole.Text,
+                CadreLevel = Sanitizer.StringToInt(txtCadreLevel.Text)
+            };
         }
     }
 }

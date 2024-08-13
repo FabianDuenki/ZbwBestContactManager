@@ -1,7 +1,6 @@
-﻿using System;
-using System.Drawing;
+﻿using Model;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
+using UI.Helpers;
 
 namespace ZbW_P_Contact_Manager.UI
 {
@@ -80,6 +79,35 @@ namespace ZbW_P_Contact_Manager.UI
 
             // Set the calendar foreground color
             dateTimePicker.CalendarForeColor = SystemColors.ScrollBar;
+        }
+
+        /// <summary>
+        /// Method to create a new Customer
+        /// </summary>
+        /// <param name="sender">Sender object</param>
+        /// <param name="e">Event arguments</param>
+        private void btnCreateNewCustomer_Click(object sender, EventArgs e)
+        {
+            Customer customer = new Customer
+            {
+                Salutation = txtSalutation.Text,
+                Title = txtTitle.Text,
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Nationality = txtNationality.Text,
+                SocialSecurityNumber = txtSocialSecurityNumber.Text,
+                Email = txtEmail.Text,
+                Street = txtStreet.Text,
+                StreetNumber = txtStreetNumber.Text,
+                ZipCode = Convert.ToInt32(txtZipCode.Text),
+                Place = txtPlace.Text,
+                PhoneNumberPrivate = txtPhoneNumberPrivate.Text,
+                PhoneNumberMobile = txtPhoneNumberMobile.Text,
+                PhoneNumberBusiness = txtPhoneNumberBusiness.Text,
+                CompanyName = txtCompanyName.Text,
+                CompanyType = Sanitizer.StringToChar(txtCompanyType.Text),
+                CompanyContact = txtCompanyContact.Text,
+            };
         }
     }
 }

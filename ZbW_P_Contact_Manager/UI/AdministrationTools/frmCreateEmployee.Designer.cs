@@ -107,8 +107,8 @@
             txtSocialSecurityNumber.Size = new Size(159, 21);
             txtSocialSecurityNumber.TabIndex = 30;
             txtSocialSecurityNumber.Tag = "Social Security Number";
-            txtSocialSecurityNumber.TextChanged += new EventHandler(this.txtSocialSecurityNumber_TextChanged);
-            txtSocialSecurityNumber.KeyPress += new KeyPressEventHandler(this.txtSocialSecurityNumber_KeyPress);
+            txtSocialSecurityNumber.TextChanged += txtSocialSecurityNumber_TextChanged;
+            txtSocialSecurityNumber.KeyPress += txtSocialSecurityNumber_KeyPress;
             // 
             // txtPhoneNumberPrivate
             // 
@@ -122,8 +122,8 @@
             txtPhoneNumberPrivate.Size = new Size(147, 21);
             txtPhoneNumberPrivate.TabIndex = 31;
             txtPhoneNumberPrivate.Tag = "Phone Number Private";
-            txtPhoneNumberPrivate.KeyPress += new KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
-            txtPhoneNumberPrivate.TextChanged += new EventHandler(this.PhoneNumberTextBox_TextChanged);
+            txtPhoneNumberPrivate.TextChanged += PhoneNumberTextBox_TextChanged;
+            txtPhoneNumberPrivate.KeyPress += PhoneNumberTextBox_KeyPress;
             // 
             // txtPhoneNumberMobile
             // 
@@ -137,8 +137,8 @@
             txtPhoneNumberMobile.Size = new Size(147, 21);
             txtPhoneNumberMobile.TabIndex = 32;
             txtPhoneNumberMobile.Tag = "Phone Number Mobile";
-            txtPhoneNumberMobile.KeyPress += new KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
-            txtPhoneNumberMobile.TextChanged += new EventHandler(this.PhoneNumberTextBox_TextChanged);
+            txtPhoneNumberMobile.TextChanged += PhoneNumberTextBox_TextChanged;
+            txtPhoneNumberMobile.KeyPress += PhoneNumberTextBox_KeyPress;
             // 
             // txtPhoneNumberBusiness
             // 
@@ -152,8 +152,8 @@
             txtPhoneNumberBusiness.Size = new Size(147, 21);
             txtPhoneNumberBusiness.TabIndex = 33;
             txtPhoneNumberBusiness.Tag = "Phone Number Business ";
-            txtPhoneNumberBusiness.KeyPress += new KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
-            txtPhoneNumberBusiness.TextChanged += new EventHandler(this.PhoneNumberTextBox_TextChanged);
+            txtPhoneNumberBusiness.TextChanged += PhoneNumberTextBox_TextChanged;
+            txtPhoneNumberBusiness.KeyPress += PhoneNumberTextBox_KeyPress;
             // 
             // txtEmail
             // 
@@ -193,8 +193,8 @@
             txtStreetNumber.Size = new Size(89, 21);
             txtStreetNumber.TabIndex = 36;
             txtStreetNumber.Tag = "Street Number";
-            txtStreetNumber.KeyPress += new KeyPressEventHandler(this.NumberTextBox_KeyPress);
-            txtStreetNumber.TextChanged += new EventHandler(this.NumberTextBox_TextChanged);
+            txtStreetNumber.TextChanged += NumberTextBox_TextChanged;
+            txtStreetNumber.KeyPress += NumberTextBox_KeyPress;
             // 
             // txtZipCode
             // 
@@ -208,8 +208,8 @@
             txtZipCode.Size = new Size(57, 21);
             txtZipCode.TabIndex = 37;
             txtZipCode.Tag = "ZipCode";
-            txtZipCode.KeyPress += new KeyPressEventHandler(this.NumberTextBox_KeyPress);
-            txtZipCode.TextChanged += new EventHandler(this.NumberTextBox_TextChanged);
+            txtZipCode.TextChanged += NumberTextBox_TextChanged;
+            txtZipCode.KeyPress += NumberTextBox_KeyPress;
             // 
             // txtPlace
             // 
@@ -233,6 +233,7 @@
             btnCreateNewEmployee.TabIndex = 100;
             btnCreateNewEmployee.Text = "Create New Employee";
             btnCreateNewEmployee.UseVisualStyleBackColor = true;
+            btnCreateNewEmployee.Click += btnCreateNewEmployee_Click;
             // 
             // txtSalutation
             // 
@@ -279,7 +280,6 @@
             txtDateOfBirth.TabIndex = 25;
             txtDateOfBirth.Tag = "Date Of Birth";
             txtDateOfBirth.Value = new DateTime(2024, 8, 7, 0, 0, 0, 0);
-            SetDatePickerStyle(this.txtDateOfBirth);
             // 
             // textBoxInput
             // 
@@ -331,7 +331,6 @@
             txtStartDate.TabIndex = 40;
             txtStartDate.Tag = "StartDate";
             txtStartDate.Value = new DateTime(2024, 8, 7, 0, 0, 0, 0);
-            SetDatePickerStyle(this.txtStartDate);
             // 
             // txtEndDate
             // 
@@ -346,7 +345,6 @@
             txtEndDate.TabIndex = 41;
             txtEndDate.Tag = "EndDate";
             txtEndDate.Value = new DateTime(2024, 8, 7, 0, 0, 0, 0);
-            SetDatePickerStyle(this.txtEndDate);
             // 
             // txtEmployment
             // 
