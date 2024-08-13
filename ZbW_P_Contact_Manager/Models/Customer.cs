@@ -1,8 +1,6 @@
-﻿using Interface;
-
-namespace Model
+﻿namespace Model
 {
-    public class Customer : Person, ICustomer
+    public class Customer : Person
     {
         public string? CompanyName { get; set; }
         public char? CompanyType { get; set; }

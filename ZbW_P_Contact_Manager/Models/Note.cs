@@ -1,11 +1,10 @@
-﻿using Interface;
-using System.Collections;
+﻿using System.Collections;
 using System.ComponentModel;
 using System.Reflection;
 
 namespace Model
 {
-    public class Note : INote
+    public class Note
     {
         public Guid Id { get; set; }
 

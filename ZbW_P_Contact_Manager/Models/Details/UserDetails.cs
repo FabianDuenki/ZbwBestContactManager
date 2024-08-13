@@ -1,8 +1,6 @@
-﻿using Interface;
-
-namespace Model.Detail
+﻿namespace Model.Detail
 {
-    public struct UserDetails : IPerson, ICustomer, IEmployee, ITrainee
+    public struct UserDetails
     {
         public Guid Id { get; set; }
         public string? Salutation { get; set; }

@@ -1,8 +1,6 @@
-﻿using Interface;
-
-namespace Model
+﻿namespace Model
 {
-    public class Employee : Person, IEmployee
+    public class Employee : Person
     {
         public Guid? EmployeeNumber { get; set; }
         public string? Departement { get; set; }
