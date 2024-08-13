@@ -1,11 +1,10 @@
-﻿using Interface;
-using System.Collections;
+﻿using System.Collections;
 using System.ComponentModel;
 using System.Reflection;
 
 namespace Model
 {
-    public class Person : IPerson
+    public class Person
     {
         public Guid Id { get; set; }
         public string? Salutation { get; set; }
