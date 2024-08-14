@@ -233,6 +233,7 @@
             btnCreateNewEmployee.TabIndex = 100;
             btnCreateNewEmployee.Text = "Create New Employee";
             btnCreateNewEmployee.UseVisualStyleBackColor = true;
+            btnCreateNewEmployee.Click += btnCreateNewEmployee_Click;
             // 
             // txtSalutation
             // 
@@ -290,13 +291,13 @@
             // txtStatus
             // 
             txtStatus.BackColor = Color.FromArgb(74, 79, 99);
-            txtStatus.FlatStyle = FlatStyle.Flat;
+            txtStatus.FlatStyle = FlatStyle.System;
             txtStatus.Font = new Font("Microsoft Sans Serif", 9F);
             txtStatus.ForeColor = SystemColors.ScrollBar;
             txtStatus.FormattingEnabled = true;
             txtStatus.Items.AddRange(new object[] { "active", "inactive" });
             txtStatus.Location = new Point(236, 56);
-            txtStatus.Margin = new Padding(6, 6, 6, 6);
+            txtStatus.Margin = new Padding(6);
             txtStatus.Name = "txtStatus";
             txtStatus.Size = new Size(221, 37);
             txtStatus.TabIndex = 26;
@@ -312,7 +313,7 @@
             txtNationality.FormattingEnabled = true;
             txtNationality.Items.AddRange(new object[] { "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "The Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Costa Rica", "Côte d’Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor (Timor-Leste)", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "The Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia, Federated States of", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar (Burma)", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "Sudan, South", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe" });
             txtNationality.Location = new Point(4, 56);
-            txtNationality.Margin = new Padding(6, 6, 6, 6);
+            txtNationality.Margin = new Padding(6);
             txtNationality.Name = "txtNationality";
             txtNationality.Size = new Size(221, 37);
             txtNationality.TabIndex = 27;
@@ -356,7 +357,7 @@
             txtEmployment.FormattingEnabled = true;
             txtEmployment.Items.AddRange(new object[] { "Full-time employment", "Part-time employment", "Apprenticeship", "Traineeship", "Internship", "Casual employment", "Employment on commission", "Contract employment", "Probation", "Seasonal employment", "Leased employment", "Contingent employment" });
             txtEmployment.Location = new Point(377, 467);
-            txtEmployment.Margin = new Padding(6, 6, 6, 6);
+            txtEmployment.Margin = new Padding(6);
             txtEmployment.Name = "txtEmployment";
             txtEmployment.Size = new Size(221, 37);
             txtEmployment.TabIndex = 43;
@@ -372,7 +373,7 @@
             txtDepartment.FormattingEnabled = true;
             txtDepartment.Items.AddRange(new object[] { "Human Resources", "IT", "Accounting and Finance", "Marketing", "Research and Development", "Production" });
             txtDepartment.Location = new Point(4, 529);
-            txtDepartment.Margin = new Padding(6, 6, 6, 6);
+            txtDepartment.Margin = new Padding(6);
             txtDepartment.Name = "txtDepartment";
             txtDepartment.Size = new Size(199, 37);
             txtDepartment.TabIndex = 43;
@@ -388,7 +389,7 @@
             txtRole.FormattingEnabled = true;
             txtRole.Items.AddRange(new object[] { "Chief Executive Officer", "Chief Operating Officer", "Chief Financial Officer", "Chief Marketing Officer", "Chief Technology Officer", "Executive Assistant", "President", "Vice President", "Product Manager", "Purchasing Manager", "Project Manager", "Finance Manager", "Marketing Manager", "Office Manager", "Regional Manager", "Human Resources Manager", "Quality Control/Safety Manager", "Sales Representative", "Customer Service Representative", "Administrative Assistant", "Business Analyst", "Marketing Specialist", "Human Resource Personnel", "Accountant", "IT Technician", "Production-Team" });
             txtRole.Location = new Point(217, 529);
-            txtRole.Margin = new Padding(6, 6, 6, 6);
+            txtRole.Margin = new Padding(6);
             txtRole.Name = "txtRole";
             txtRole.Size = new Size(199, 37);
             txtRole.TabIndex = 44;
@@ -398,7 +399,7 @@
             // txtCadreLevel
             // 
             txtCadreLevel.Location = new Point(431, 529);
-            txtCadreLevel.Margin = new Padding(6, 6, 6, 6);
+            txtCadreLevel.Margin = new Padding(6);
             txtCadreLevel.Name = "txtCadreLevel";
             txtCadreLevel.Size = new Size(223, 39);
             txtCadreLevel.TabIndex = 45;
@@ -437,6 +438,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(7, 6, 7, 6);
             Name = "frmCreateEmployee";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Input Format Example";
             ((System.ComponentModel.ISupportInitialize)txtCadreLevel).EndInit();
             ResumeLayout(false);

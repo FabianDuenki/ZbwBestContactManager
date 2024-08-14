@@ -60,7 +60,7 @@
             // 
             TxtBoxComment.BorderStyle = BorderStyle.None;
             TxtBoxComment.Location = new Point(85, 147);
-            TxtBoxComment.Margin = new Padding(6, 6, 6, 6);
+            TxtBoxComment.Margin = new Padding(6);
             TxtBoxComment.Multiline = true;
             TxtBoxComment.Name = "TxtBoxComment";
             TxtBoxComment.Size = new Size(1335, 160);
@@ -91,7 +91,7 @@
             // BtnEditComment
             // 
             BtnEditComment.Location = new Point(1281, 320);
-            BtnEditComment.Margin = new Padding(6, 6, 6, 6);
+            BtnEditComment.Margin = new Padding(6);
             BtnEditComment.Name = "BtnEditComment";
             BtnEditComment.Size = new Size(139, 60);
             BtnEditComment.TabIndex = 11;
@@ -102,7 +102,7 @@
             // BtnSave
             // 
             BtnSave.Location = new Point(1281, 320);
-            BtnSave.Margin = new Padding(6, 6, 6, 6);
+            BtnSave.Margin = new Padding(6);
             BtnSave.Name = "BtnSave";
             BtnSave.Size = new Size(139, 60);
             BtnSave.TabIndex = 10;
@@ -125,9 +125,9 @@
             // 
             // BtnEdit
             // 
-            BtnEdit.Image = Properties.Resources.Edit;
+            BtnEdit.Image = Properties.Resources.edit;
             BtnEdit.Location = new Point(1040, 640);
-            BtnEdit.Margin = new Padding(6, 6, 6, 6);
+            BtnEdit.Margin = new Padding(6);
             BtnEdit.Name = "BtnEdit";
             BtnEdit.Size = new Size(56, 64);
             BtnEdit.TabIndex = 30;
@@ -138,7 +138,7 @@
             // 
             BtnDelete.Image = Properties.Resources.trash_can;
             BtnDelete.Location = new Point(1107, 642);
-            BtnDelete.Margin = new Padding(6, 6, 6, 6);
+            BtnDelete.Margin = new Padding(6);
             BtnDelete.Name = "BtnDelete";
             BtnDelete.Size = new Size(56, 62);
             BtnDelete.TabIndex = 29;
@@ -162,7 +162,7 @@
             // BtnClose
             // 
             BtnClose.Location = new Point(1281, 640);
-            BtnClose.Margin = new Padding(6, 6, 6, 6);
+            BtnClose.Margin = new Padding(6);
             BtnClose.Name = "BtnClose";
             BtnClose.Size = new Size(139, 62);
             BtnClose.TabIndex = 28;
@@ -190,7 +190,7 @@
             ClientSize = new Size(1527, 1158);
             Controls.Add(FlowLayoutPanel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(6, 6, 6, 6);
+            Margin = new Padding(6);
             Name = "Notes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Notes";

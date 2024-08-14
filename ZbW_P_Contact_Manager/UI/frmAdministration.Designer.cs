@@ -35,15 +35,25 @@
             btnEditEmployee = new Button();
             BtnCreateEmployee = new Button();
             pnlAdminFormLoader = new Panel();
+            panel4 = new Panel();
+            listView1 = new ListView();
+            EmployeeNumber = new ColumnHeader();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            panel3 = new Panel();
+            btnAddEmployee = new Button();
             lblAdminlTitle = new Label();
             panel2 = new Panel();
             panel1.SuspendLayout();
+            pnlAdminFormLoader.SuspendLayout();
+            panel4.SuspendLayout();
+            panel3.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(24, 0, 54);
+            panel1.BackColor = Color.FromArgb(12, 6, 172);
             panel1.Controls.Add(pnlNavAdmin);
             panel1.Controls.Add(btnEditCustomer);
             panel1.Controls.Add(btnCreateCustomer);
@@ -51,7 +61,7 @@
             panel1.Controls.Add(BtnCreateEmployee);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(6, 6, 6, 6);
+            panel1.Margin = new Padding(6);
             panel1.Name = "panel1";
             panel1.Size = new Size(345, 1018);
             panel1.TabIndex = 2;
@@ -60,7 +70,7 @@
             // 
             pnlNavAdmin.BackColor = Color.FromArgb(0, 126, 249);
             pnlNavAdmin.Location = new Point(0, 331);
-            pnlNavAdmin.Margin = new Padding(6, 6, 6, 6);
+            pnlNavAdmin.Margin = new Padding(6);
             pnlNavAdmin.Name = "pnlNavAdmin";
             pnlNavAdmin.Size = new Size(6, 213);
             pnlNavAdmin.TabIndex = 16;
@@ -72,9 +82,9 @@
             btnEditCustomer.FlatStyle = FlatStyle.Flat;
             btnEditCustomer.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditCustomer.ForeColor = Color.FromArgb(0, 126, 249);
-            btnEditCustomer.Image = Properties.Resources.Edit;
+            btnEditCustomer.Image = Properties.Resources.edit;
             btnEditCustomer.Location = new Point(0, 270);
-            btnEditCustomer.Margin = new Padding(6, 6, 6, 6);
+            btnEditCustomer.Margin = new Padding(6);
             btnEditCustomer.Name = "btnEditCustomer";
             btnEditCustomer.Size = new Size(345, 90);
             btnEditCustomer.TabIndex = 12;
@@ -93,7 +103,7 @@
             btnCreateCustomer.ForeColor = Color.FromArgb(0, 126, 249);
             btnCreateCustomer.Image = Properties.Resources.add;
             btnCreateCustomer.Location = new Point(0, 180);
-            btnCreateCustomer.Margin = new Padding(6, 6, 6, 6);
+            btnCreateCustomer.Margin = new Padding(6);
             btnCreateCustomer.Name = "btnCreateCustomer";
             btnCreateCustomer.Size = new Size(345, 90);
             btnCreateCustomer.TabIndex = 11;
@@ -110,9 +120,9 @@
             btnEditEmployee.FlatStyle = FlatStyle.Flat;
             btnEditEmployee.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditEmployee.ForeColor = Color.FromArgb(0, 126, 249);
-            btnEditEmployee.Image = Properties.Resources.Edit;
+            btnEditEmployee.Image = Properties.Resources.edit;
             btnEditEmployee.Location = new Point(0, 90);
-            btnEditEmployee.Margin = new Padding(6, 6, 6, 6);
+            btnEditEmployee.Margin = new Padding(6);
             btnEditEmployee.Name = "btnEditEmployee";
             btnEditEmployee.Size = new Size(345, 90);
             btnEditEmployee.TabIndex = 10;
@@ -131,7 +141,7 @@
             BtnCreateEmployee.ForeColor = Color.FromArgb(0, 126, 249);
             BtnCreateEmployee.Image = Properties.Resources.add;
             BtnCreateEmployee.Location = new Point(0, 0);
-            BtnCreateEmployee.Margin = new Padding(6, 6, 6, 6);
+            BtnCreateEmployee.Margin = new Padding(6);
             BtnCreateEmployee.Name = "BtnCreateEmployee";
             BtnCreateEmployee.Size = new Size(345, 90);
             BtnCreateEmployee.TabIndex = 9;
@@ -143,12 +153,65 @@
             // 
             // pnlAdminFormLoader
             // 
+            pnlAdminFormLoader.Controls.Add(panel4);
+            pnlAdminFormLoader.Controls.Add(panel3);
             pnlAdminFormLoader.Dock = DockStyle.Fill;
             pnlAdminFormLoader.Location = new Point(345, 90);
-            pnlAdminFormLoader.Margin = new Padding(6, 6, 6, 6);
+            pnlAdminFormLoader.Margin = new Padding(6);
             pnlAdminFormLoader.Name = "pnlAdminFormLoader";
             pnlAdminFormLoader.Size = new Size(1016, 928);
             pnlAdminFormLoader.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(listView1);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(0, 141);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1016, 787);
+            panel4.TabIndex = 2;
+            // 
+            // listView1
+            // 
+            listView1.Columns.AddRange(new ColumnHeader[] { EmployeeNumber, columnHeader1, columnHeader2 });
+            listView1.Dock = DockStyle.Fill;
+            listView1.Location = new Point(0, 0);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(1016, 787);
+            listView1.TabIndex = 0;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // EmployeeNumber
+            // 
+            EmployeeNumber.Tag = "lstEmployeeNumber";
+            EmployeeNumber.Text = "Employee Number";
+            EmployeeNumber.Width = 200;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(41, 49, 51);
+            panel3.Controls.Add(btnAddEmployee);
+            panel3.Dock = DockStyle.Top;
+            panel3.ForeColor = Color.Transparent;
+            panel3.Location = new Point(0, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1016, 141);
+            panel3.TabIndex = 1;
+            // 
+            // btnAddEmployee
+            // 
+            btnAddEmployee.BackColor = Color.Transparent;
+            btnAddEmployee.FlatAppearance.BorderSize = 0;
+            btnAddEmployee.FlatStyle = FlatStyle.Flat;
+            btnAddEmployee.ForeColor = Color.Transparent;
+            btnAddEmployee.Image = Properties.Resources.add;
+            btnAddEmployee.Location = new Point(38, 41);
+            btnAddEmployee.Name = "btnAddEmployee";
+            btnAddEmployee.Size = new Size(60, 60);
+            btnAddEmployee.TabIndex = 0;
+            btnAddEmployee.UseVisualStyleBackColor = false;
+            btnAddEmployee.Click += btnAddEmployee_Click;
             // 
             // lblAdminlTitle
             // 
@@ -163,10 +226,11 @@
             // 
             // panel2
             // 
+            panel2.BackColor = Color.FromArgb(41, 49, 51);
             panel2.Controls.Add(lblAdminlTitle);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(345, 0);
-            panel2.Margin = new Padding(6, 6, 6, 6);
+            panel2.Margin = new Padding(6);
             panel2.Name = "panel2";
             panel2.Size = new Size(1016, 90);
             panel2.TabIndex = 4;
@@ -181,10 +245,13 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(6, 6, 6, 6);
+            Margin = new Padding(6);
             Name = "frmAdministration";
             Text = "frmAdministration";
             panel1.ResumeLayout(false);
+            pnlAdminFormLoader.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -200,5 +267,12 @@
         private Label lblAdminlTitle;
         private Panel panel2;
         private Panel pnlNavAdmin;
+        private Panel panel3;
+        private Button btnAddEmployee;
+        private Panel panel4;
+        private ListView listView1;
+        private ColumnHeader EmployeeNumber;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
     }
 }

@@ -54,7 +54,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(24, 30, 54);
+            panel1.BackColor = Color.FromArgb(0, 0, 77);
             panel1.Controls.Add(pnlNav);
             panel1.Controls.Add(btnSettings);
             panel1.Controls.Add(btnHistory);
@@ -86,7 +86,7 @@
             btnSettings.FlatAppearance.BorderSize = 0;
             btnSettings.FlatStyle = FlatStyle.Flat;
             btnSettings.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSettings.ForeColor = Color.FromArgb(0, 126, 249);
+            btnSettings.ForeColor = Color.FromArgb(167, 177, 255);
             btnSettings.Image = Properties.Resources.settings;
             btnSettings.Location = new Point(0, 1141);
             btnSettings.Margin = new Padding(6);
@@ -106,7 +106,7 @@
             btnHistory.FlatAppearance.BorderSize = 0;
             btnHistory.FlatStyle = FlatStyle.Flat;
             btnHistory.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHistory.ForeColor = Color.FromArgb(0, 126, 249);
+            btnHistory.ForeColor = Color.FromArgb(167, 177, 255);
             btnHistory.Image = Properties.Resources.history;
             btnHistory.Location = new Point(0, 757);
             btnHistory.Margin = new Padding(6);
@@ -126,7 +126,7 @@
             btnImportExport.FlatAppearance.BorderSize = 0;
             btnImportExport.FlatStyle = FlatStyle.Flat;
             btnImportExport.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnImportExport.ForeColor = Color.FromArgb(0, 126, 249);
+            btnImportExport.ForeColor = Color.FromArgb(167, 177, 255);
             btnImportExport.Image = Properties.Resources.import;
             btnImportExport.Location = new Point(0, 667);
             btnImportExport.Margin = new Padding(6);
@@ -146,7 +146,7 @@
             btnSearch.FlatAppearance.BorderSize = 0;
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSearch.ForeColor = Color.FromArgb(0, 126, 249);
+            btnSearch.ForeColor = Color.FromArgb(167, 177, 255);
             btnSearch.Image = Properties.Resources.search;
             btnSearch.Location = new Point(0, 577);
             btnSearch.Margin = new Padding(6);
@@ -166,7 +166,7 @@
             btnCustomerContact.FlatAppearance.BorderSize = 0;
             btnCustomerContact.FlatStyle = FlatStyle.Flat;
             btnCustomerContact.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCustomerContact.ForeColor = Color.FromArgb(0, 126, 249);
+            btnCustomerContact.ForeColor = Color.FromArgb(167, 177, 255);
             btnCustomerContact.Image = Properties.Resources.address_book;
             btnCustomerContact.Location = new Point(0, 487);
             btnCustomerContact.Margin = new Padding(6);
@@ -186,7 +186,7 @@
             btnAdministration.FlatAppearance.BorderSize = 0;
             btnAdministration.FlatStyle = FlatStyle.Flat;
             btnAdministration.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdministration.ForeColor = Color.FromArgb(0, 126, 249);
+            btnAdministration.ForeColor = Color.FromArgb(167, 177, 255);
             btnAdministration.Image = Properties.Resources.user_menu;
             btnAdministration.Location = new Point(0, 397);
             btnAdministration.Margin = new Padding(6);
@@ -206,7 +206,7 @@
             BtnDashboard.FlatAppearance.BorderSize = 0;
             BtnDashboard.FlatStyle = FlatStyle.Flat;
             BtnDashboard.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnDashboard.ForeColor = Color.FromArgb(0, 126, 249);
+            BtnDashboard.ForeColor = Color.FromArgb(167, 177, 255);
             BtnDashboard.Image = Properties.Resources.dashboard;
             BtnDashboard.Location = new Point(0, 307);
             BtnDashboard.Margin = new Padding(6);
@@ -236,7 +236,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Verdana", 6.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.FromArgb(158, 161, 176);
+            label2.ForeColor = Color.FromArgb(16, 7, 250);
             label2.Location = new Point(72, 252);
             label2.Margin = new Padding(6, 0, 6, 0);
             label2.Name = "label2";
@@ -248,7 +248,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Verdana", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(0, 126, 249);
+            label1.ForeColor = Color.FromArgb(167, 177, 255);
             label1.Location = new Point(87, 207);
             label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
@@ -269,6 +269,7 @@
             // 
             // panel3
             // 
+            panel3.BackColor = Color.FromArgb(29, 31, 33);
             panel3.Controls.Add(PnlFormLoader);
             panel3.Controls.Add(button1);
             panel3.Controls.Add(textBox1);

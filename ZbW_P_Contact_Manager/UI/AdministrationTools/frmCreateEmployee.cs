@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -7,6 +8,35 @@ namespace ZbW_P_Contact_Manager.UI
 {
     public partial class frmCreateEmployee : Form
     {
+        public string EmployeeStatus { get; private set; }
+        public string EmployeeSalutation { get; private set; }
+        public string EmployeeTitle { get; private set; }
+        public string EmployeeFirstName { get; private set; }
+        public string EmployeeLastName { get; private set; }
+
+        public string EmployeeGender { get; private set; }
+        public string EmployeeDateOfBirth { get; private set; }
+        public string EmployeeNationality { get; private set; }
+
+        public string EmployeeStreet { get; private set; }
+        public string EmployeeStreetNumber { get; private set; }
+        public string EmployeeZipCode { get; private set; }
+        public string EmployeePlace {  get; private set; }
+
+        public string EmployeeSocialSecurityNumber { get; private set; }
+        public string EmployeeEmail { get; private set; }
+
+        public string EmployeePhoneNumberPrivate { get; private set; }
+        public string EmployeePhoneNumberMobile { get; private set; }
+        public string EmployeePhoneNumberBusiness { get; private set; }
+
+        public string EmployeeDepartment { get; private set; }
+        public string EmployeeStartDate { get; private set; }
+        public string EmployeeEndDate { get; private set; }
+        public string EmployeeEmployment { get; private set; }
+        public string EmployeeRole { get; private set; }
+        public string EmployeeCadreLevel { get; private set; }
+
         // Constructor for the Create Employee form
         public frmCreateEmployee()
         {
@@ -80,6 +110,47 @@ namespace ZbW_P_Contact_Manager.UI
 
             // Set the calendar foreground color
             dateTimePicker.CalendarForeColor = SystemColors.ScrollBar;
+        }
+
+        private void btnCreateNewEmployee_Click(object sender, EventArgs e)
+        {
+            // Collect data from text boxes
+            EmployeeStatus = txtStatus.Text;
+            EmployeeSalutation = txtSalutation.Text;
+            EmployeeTitle = txtTitle.Text;
+            EmployeeFirstName = txtFirstName.Text;
+            EmployeeLastName = txtLastName.Text;
+
+            EmployeeGender = txtSex.Text;
+            EmployeeDateOfBirth = txtDateOfBirth.Text;
+            EmployeeNationality = txtNationality.Text;
+
+            EmployeeStreet = txtStreet.Text;
+            EmployeeStreetNumber = txtStreetNumber.Text;
+            EmployeeZipCode = txtZipCode.Text;
+            EmployeePlace = txtPlace.Text;
+
+            EmployeeSocialSecurityNumber = txtSocialSecurityNumber.Text;
+            EmployeeEmail = txtEmail.Text;
+
+            EmployeePhoneNumberPrivate = txtPhoneNumberPrivate.Text;
+            EmployeePhoneNumberMobile = txtPhoneNumberMobile.Text;
+            EmployeePhoneNumberBusiness = txtPhoneNumberBusiness.Text;
+
+            EmployeeDepartment = txtDepartment.Text;
+            EmployeeStartDate = txtStartDate.Text;
+            EmployeeEndDate = txtEndDate.Text;
+            EmployeeEmployment = txtEmployment.Text;
+            EmployeeRole = txtRole.Text;
+            EmployeeCadreLevel = txtCadreLevel.Text;
+
+            // Optionally validate the data here
+
+            // Set DialogResult to OK to indicate success
+            this.DialogResult = DialogResult.OK;
+
+            // Close the form
+            this.Close();
         }
     }
 }
