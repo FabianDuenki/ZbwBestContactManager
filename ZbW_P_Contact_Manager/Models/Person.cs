@@ -1,25 +1,45 @@
-﻿using Struct;
+﻿using System.Collections;
+using System.ComponentModel;
+using System.Reflection;
 
 namespace Model
 {
-    public class Person(PersonDetails person)
+    public class Person
     {
-        public string Salutation { get; set; } = person.Salutation;
-        public string FirstName { get; set; } = person.FirstName;
-        public string LastName { get; set; } = person.LastName;
-        public DateTime DateOfBirth { get; set; } = person.DateOfBirth;
-        public bool Gender { get; set; } = person.Gender;
-        public string Title { get; set; } = person.Title;
-        public string? SocialSecurityNumber { get; set; } = person.SocialSecurityNumber;
-        public string? PhoneNumberPrivate { get; set; } = person.PhoneNumberPrivate;
-        public string? PhoneNumberMobile { get; set; } = person.PhoneNumberMobile;
-        public string? PhoneNumberBusiness { get; set; } = person.PhoneNumberBusiness;
-        public string? Email { get; set; } = person.Email;
-        public bool? Status { get; set; } = person.Status;
-        public string? Nationality { get; set; } = person.Nationality;
-        public string? Street { get; set; } = person.Street;
-        public string? StreetNumber { get; set; } = person.StreetNumber;
-        public int? ZipCode { get; set; } = person.ZipCode;
-        public string? Place { get; set; } = person.Place;
+        public Guid Id { get; set; }
+        public string? Salutation { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public string? Gender { get; set; }
+        public string? Title { get; set; }
+        public string? SocialSecurityNumber { get; set; }
+        public string? PhoneNumberPrivate { get; set; }
+        public string? PhoneNumberMobile { get; set; }
+        public string? PhoneNumberBusiness { get; set; }
+        public string? Email { get; set; }
+        public bool? Status { get; set; }
+        public string? Nationality { get; set; }
+        public string? Street { get; set; }
+        public string? StreetNumber { get; set; }
+        public int? ZipCode { get; set; }
+        public string? Place { get; set; }
+
+        /// <summary>
+        /// Converts a Hashtable to an object containing the same keys and values
+        /// </summary>
+        /// <param name="hashtable">Hashtable containing model information</param>
+        /// <returns>A new object with the properties set</returns>
+        public object GetInstanceFromHashtable(Hashtable hashtable)
+        {
+            object instance = Activator.CreateInstance(GetType())!;
+            foreach (DictionaryEntry entry in hashtable)
+            {
+                PropertyInfo property = instance.GetType().GetProperty(entry.Key.ToString()!)!;
+                object convertedValue = TypeDescriptor.GetConverter(property.PropertyType).ConvertFrom(entry.Value!)!;
+                property.SetValue(instance, convertedValue);
+            }
+            return instance;
+        }
     }
 }

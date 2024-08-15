@@ -1,10 +1,8 @@
-﻿using Struct;
-
-namespace Model
+﻿namespace Model
 {
-    public class Trainee(TraineeDetails trainee)
+    public class Trainee : Employee
     {
-        public int TraineeYears { get; set; } = trainee.TraineeYears;
-        public int ActualTraineeYear { get; set; } = trainee.ActualTraineeYear;
+        public int? TraineeYears { get; set; }
+        public int? ActualTraineeYear { get; set; }
     }
 }
