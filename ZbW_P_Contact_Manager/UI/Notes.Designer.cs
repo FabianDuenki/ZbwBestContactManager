@@ -117,6 +117,7 @@
             PanelBottom.Controls.Add(ListViewHistory);
             PanelBottom.Controls.Add(BtnClose);
             PanelBottom.Controls.Add(LblNotesHistory);
+            PanelBottom.Dock = DockStyle.Bottom;
             PanelBottom.Location = new Point(6, 432);
             PanelBottom.Margin = new Padding(6, 4, 6, 4);
             PanelBottom.Name = "PanelBottom";

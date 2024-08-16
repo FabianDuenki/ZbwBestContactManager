@@ -435,7 +435,6 @@
             Controls.Add(txtLastName);
             Controls.Add(txtFirstName);
             Controls.Add(txtSocialSecurityNumber);
-            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(7, 6, 7, 6);
             Name = "frmCreateEmployee";
             StartPosition = FormStartPosition.CenterScreen;

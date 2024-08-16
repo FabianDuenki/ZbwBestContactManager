@@ -28,176 +28,259 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            pnlNavAdmin = new Panel();
-            btnEditCustomer = new Button();
-            btnCreateCustomer = new Button();
-            btnEditEmployee = new Button();
-            BtnCreateEmployee = new Button();
             pnlAdminFormLoader = new Panel();
             panel4 = new Panel();
             listView1 = new ListView();
-            EmployeeNumber = new ColumnHeader();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
+            lstStatus = new ColumnHeader();
+            lstEmployeeNumber = new ColumnHeader();
+            lstTitle = new ColumnHeader();
+            lstFirstName = new ColumnHeader();
+            lstLastName = new ColumnHeader();
+            lstGender = new ColumnHeader();
+            lstDateOfBirth = new ColumnHeader();
+            lstNationality = new ColumnHeader();
+            lstStreet = new ColumnHeader();
+            lstStreetNumber = new ColumnHeader();
+            lstZipCode = new ColumnHeader();
+            lstPlace = new ColumnHeader();
+            lstSocialSecurityNumber = new ColumnHeader();
+            lstEmail = new ColumnHeader();
+            lstPhoneNumberPrivate = new ColumnHeader();
+            lstPhoneNumberMobile = new ColumnHeader();
+            lstPhoneNumberBusiness = new ColumnHeader();
+            lstDepartement = new ColumnHeader();
+            lstStartDate = new ColumnHeader();
+            lstEndDate = new ColumnHeader();
+            lstEmployment = new ColumnHeader();
+            lstRole = new ColumnHeader();
+            lstCadreLevel = new ColumnHeader();
+            lstTraineeYears = new ColumnHeader();
+            lstActualTraineeYear = new ColumnHeader();
+            lstCompanyName = new ColumnHeader();
+            lstCompanyType = new ColumnHeader();
+            lstCompanyContact = new ColumnHeader();
             panel3 = new Panel();
+            btnRefresh = new Button();
+            btnFilter = new Button();
             btnAddEmployee = new Button();
             lblAdminlTitle = new Label();
             panel2 = new Panel();
-            panel1.SuspendLayout();
             pnlAdminFormLoader.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(12, 6, 172);
-            panel1.Controls.Add(pnlNavAdmin);
-            panel1.Controls.Add(btnEditCustomer);
-            panel1.Controls.Add(btnCreateCustomer);
-            panel1.Controls.Add(btnEditEmployee);
-            panel1.Controls.Add(BtnCreateEmployee);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(6);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(345, 1018);
-            panel1.TabIndex = 2;
-            // 
-            // pnlNavAdmin
-            // 
-            pnlNavAdmin.BackColor = Color.FromArgb(0, 126, 249);
-            pnlNavAdmin.Location = new Point(0, 331);
-            pnlNavAdmin.Margin = new Padding(6);
-            pnlNavAdmin.Name = "pnlNavAdmin";
-            pnlNavAdmin.Size = new Size(6, 213);
-            pnlNavAdmin.TabIndex = 16;
-            // 
-            // btnEditCustomer
-            // 
-            btnEditCustomer.Dock = DockStyle.Top;
-            btnEditCustomer.FlatAppearance.BorderSize = 0;
-            btnEditCustomer.FlatStyle = FlatStyle.Flat;
-            btnEditCustomer.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditCustomer.ForeColor = Color.FromArgb(0, 126, 249);
-            btnEditCustomer.Image = Properties.Resources.edit;
-            btnEditCustomer.Location = new Point(0, 270);
-            btnEditCustomer.Margin = new Padding(6);
-            btnEditCustomer.Name = "btnEditCustomer";
-            btnEditCustomer.Size = new Size(345, 90);
-            btnEditCustomer.TabIndex = 12;
-            btnEditCustomer.Text = "Edit Customer";
-            btnEditCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnEditCustomer.UseVisualStyleBackColor = true;
-            btnEditCustomer.Click += btnEditCustomer_Click;
-            btnEditCustomer.Leave += btnEditCustomer_Leave;
-            // 
-            // btnCreateCustomer
-            // 
-            btnCreateCustomer.Dock = DockStyle.Top;
-            btnCreateCustomer.FlatAppearance.BorderSize = 0;
-            btnCreateCustomer.FlatStyle = FlatStyle.Flat;
-            btnCreateCustomer.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCreateCustomer.ForeColor = Color.FromArgb(0, 126, 249);
-            btnCreateCustomer.Image = Properties.Resources.add;
-            btnCreateCustomer.Location = new Point(0, 180);
-            btnCreateCustomer.Margin = new Padding(6);
-            btnCreateCustomer.Name = "btnCreateCustomer";
-            btnCreateCustomer.Size = new Size(345, 90);
-            btnCreateCustomer.TabIndex = 11;
-            btnCreateCustomer.Text = "Add Customer";
-            btnCreateCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnCreateCustomer.UseVisualStyleBackColor = true;
-            btnCreateCustomer.Click += btnCreateCustomer_Click;
-            btnCreateCustomer.Leave += btnCreateCustomer_Leave;
-            // 
-            // btnEditEmployee
-            // 
-            btnEditEmployee.Dock = DockStyle.Top;
-            btnEditEmployee.FlatAppearance.BorderSize = 0;
-            btnEditEmployee.FlatStyle = FlatStyle.Flat;
-            btnEditEmployee.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditEmployee.ForeColor = Color.FromArgb(0, 126, 249);
-            btnEditEmployee.Image = Properties.Resources.edit;
-            btnEditEmployee.Location = new Point(0, 90);
-            btnEditEmployee.Margin = new Padding(6);
-            btnEditEmployee.Name = "btnEditEmployee";
-            btnEditEmployee.Size = new Size(345, 90);
-            btnEditEmployee.TabIndex = 10;
-            btnEditEmployee.Text = "Edit Employee";
-            btnEditEmployee.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnEditEmployee.UseVisualStyleBackColor = true;
-            btnEditEmployee.Click += btnEditEmployee_Click;
-            btnEditEmployee.Leave += btnEditEmployee_Leave;
-            // 
-            // BtnCreateEmployee
-            // 
-            BtnCreateEmployee.Dock = DockStyle.Top;
-            BtnCreateEmployee.FlatAppearance.BorderSize = 0;
-            BtnCreateEmployee.FlatStyle = FlatStyle.Flat;
-            BtnCreateEmployee.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            BtnCreateEmployee.ForeColor = Color.FromArgb(0, 126, 249);
-            BtnCreateEmployee.Image = Properties.Resources.add;
-            BtnCreateEmployee.Location = new Point(0, 0);
-            BtnCreateEmployee.Margin = new Padding(6);
-            BtnCreateEmployee.Name = "BtnCreateEmployee";
-            BtnCreateEmployee.Size = new Size(345, 90);
-            BtnCreateEmployee.TabIndex = 9;
-            BtnCreateEmployee.Text = "Add Employee";
-            BtnCreateEmployee.TextImageRelation = TextImageRelation.ImageBeforeText;
-            BtnCreateEmployee.UseVisualStyleBackColor = true;
-            BtnCreateEmployee.Click += BtnCreateEmployee_Click;
-            BtnCreateEmployee.Leave += BtnCreateEmployee_Leave;
-            // 
             // pnlAdminFormLoader
             // 
             pnlAdminFormLoader.Controls.Add(panel4);
             pnlAdminFormLoader.Controls.Add(panel3);
             pnlAdminFormLoader.Dock = DockStyle.Fill;
-            pnlAdminFormLoader.Location = new Point(345, 90);
+            pnlAdminFormLoader.Location = new Point(0, 90);
             pnlAdminFormLoader.Margin = new Padding(6);
             pnlAdminFormLoader.Name = "pnlAdminFormLoader";
-            pnlAdminFormLoader.Size = new Size(1016, 928);
+            pnlAdminFormLoader.Size = new Size(1361, 928);
             pnlAdminFormLoader.TabIndex = 3;
             // 
             // panel4
             // 
             panel4.Controls.Add(listView1);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(0, 141);
+            panel4.Location = new Point(0, 107);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1016, 787);
+            panel4.Size = new Size(1361, 821);
             panel4.TabIndex = 2;
             // 
             // listView1
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { EmployeeNumber, columnHeader1, columnHeader2 });
+            listView1.BackColor = Color.FromArgb(122, 148, 150);
+            listView1.Columns.AddRange(new ColumnHeader[] { lstStatus, lstEmployeeNumber, lstTitle, lstFirstName, lstLastName, lstGender, lstDateOfBirth, lstNationality, lstStreet, lstStreetNumber, lstZipCode, lstPlace, lstSocialSecurityNumber, lstEmail, lstPhoneNumberPrivate, lstPhoneNumberMobile, lstPhoneNumberBusiness, lstDepartement, lstStartDate, lstEndDate, lstEmployment, lstRole, lstCadreLevel, lstTraineeYears, lstActualTraineeYear, lstCompanyName, lstCompanyType, lstCompanyContact });
             listView1.Dock = DockStyle.Fill;
             listView1.Location = new Point(0, 0);
             listView1.Name = "listView1";
-            listView1.Size = new Size(1016, 787);
+            listView1.Size = new Size(1361, 821);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = System.Windows.Forms.View.Details;
             // 
-            // EmployeeNumber
+            // lstStatus
             // 
-            EmployeeNumber.Tag = "lstEmployeeNumber";
-            EmployeeNumber.Text = "Employee Number";
-            EmployeeNumber.Width = 200;
+            lstStatus.Text = "Status";
+            lstStatus.Width = 100;
+            // 
+            // lstEmployeeNumber
+            // 
+            lstEmployeeNumber.Text = "Employee Number";
+            lstEmployeeNumber.Width = 100;
+            // 
+            // lstTitle
+            // 
+            lstTitle.Text = "Title";
+            lstTitle.Width = 100;
+            // 
+            // lstFirstName
+            // 
+            lstFirstName.Text = "First Name";
+            lstFirstName.Width = 100;
+            // 
+            // lstLastName
+            // 
+            lstLastName.Text = "Last Name";
+            lstLastName.Width = 100;
+            // 
+            // lstGender
+            // 
+            lstGender.Text = "Gender";
+            lstGender.Width = 100;
+            // 
+            // lstDateOfBirth
+            // 
+            lstDateOfBirth.Text = "Date of Birth";
+            lstDateOfBirth.Width = 100;
+            // 
+            // lstNationality
+            // 
+            lstNationality.Text = "Nationality";
+            lstNationality.Width = 100;
+            // 
+            // lstStreet
+            // 
+            lstStreet.Text = "Street";
+            lstStreet.Width = 100;
+            // 
+            // lstStreetNumber
+            // 
+            lstStreetNumber.Text = "Street Number";
+            lstStreetNumber.Width = 100;
+            // 
+            // lstZipCode
+            // 
+            lstZipCode.Text = "lstZipCode";
+            lstZipCode.Width = 100;
+            // 
+            // lstPlace
+            // 
+            lstPlace.Text = "Place";
+            lstPlace.Width = 100;
+            // 
+            // lstSocialSecurityNumber
+            // 
+            lstSocialSecurityNumber.Text = "SocialSecurityNumber";
+            lstSocialSecurityNumber.Width = 100;
+            // 
+            // lstEmail
+            // 
+            lstEmail.Text = "Email";
+            lstEmail.Width = 100;
+            // 
+            // lstPhoneNumberPrivate
+            // 
+            lstPhoneNumberPrivate.Text = "Phone Number Private";
+            lstPhoneNumberPrivate.Width = 100;
+            // 
+            // lstPhoneNumberMobile
+            // 
+            lstPhoneNumberMobile.Text = "Phone Number Mobile";
+            lstPhoneNumberMobile.Width = 100;
+            // 
+            // lstPhoneNumberBusiness
+            // 
+            lstPhoneNumberBusiness.Text = "Phone Number Business";
+            lstPhoneNumberBusiness.Width = 100;
+            // 
+            // lstDepartement
+            // 
+            lstDepartement.Text = "Departement";
+            lstDepartement.Width = 100;
+            // 
+            // lstStartDate
+            // 
+            lstStartDate.Text = "StartDate";
+            lstStartDate.Width = 100;
+            // 
+            // lstEndDate
+            // 
+            lstEndDate.Text = "EndDate";
+            lstEndDate.Width = 100;
+            // 
+            // lstEmployment
+            // 
+            lstEmployment.Text = "Employment";
+            lstEmployment.Width = 100;
+            // 
+            // lstRole
+            // 
+            lstRole.Text = "Role";
+            lstRole.Width = 100;
+            // 
+            // lstCadreLevel
+            // 
+            lstCadreLevel.Text = "Cadre Level";
+            lstCadreLevel.Width = 100;
+            // 
+            // lstTraineeYears
+            // 
+            lstTraineeYears.Text = "TraineeYears";
+            lstTraineeYears.Width = 100;
+            // 
+            // lstActualTraineeYear
+            // 
+            lstActualTraineeYear.Text = "ActualTraineeYear";
+            lstActualTraineeYear.Width = 100;
+            // 
+            // lstCompanyName
+            // 
+            lstCompanyName.Text = "CompanyName";
+            lstCompanyName.Width = 100;
+            // 
+            // lstCompanyType
+            // 
+            lstCompanyType.Text = "Company Type";
+            lstCompanyType.Width = 100;
+            // 
+            // lstCompanyContact
+            // 
+            lstCompanyContact.Text = "Company Contact";
+            lstCompanyContact.Width = 100;
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(41, 49, 51);
+            panel3.Controls.Add(btnRefresh);
+            panel3.Controls.Add(btnFilter);
             panel3.Controls.Add(btnAddEmployee);
             panel3.Dock = DockStyle.Top;
             panel3.ForeColor = Color.Transparent;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1016, 141);
+            panel3.Size = new Size(1361, 107);
             panel3.TabIndex = 1;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = Color.Transparent;
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.ForeColor = Color.Transparent;
+            btnRefresh.Image = Properties.Resources.refresh;
+            btnRefresh.Location = new Point(778, 23);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(60, 60);
+            btnRefresh.TabIndex = 2;
+            btnRefresh.UseVisualStyleBackColor = false;
+            // 
+            // btnFilter
+            // 
+            btnFilter.BackColor = Color.Transparent;
+            btnFilter.FlatAppearance.BorderSize = 0;
+            btnFilter.FlatStyle = FlatStyle.Flat;
+            btnFilter.ForeColor = Color.Transparent;
+            btnFilter.Image = Properties.Resources.filter;
+            btnFilter.Location = new Point(650, 23);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(60, 60);
+            btnFilter.TabIndex = 1;
+            btnFilter.UseVisualStyleBackColor = false;
             // 
             // btnAddEmployee
             // 
@@ -206,7 +289,7 @@
             btnAddEmployee.FlatStyle = FlatStyle.Flat;
             btnAddEmployee.ForeColor = Color.Transparent;
             btnAddEmployee.Image = Properties.Resources.add;
-            btnAddEmployee.Location = new Point(38, 41);
+            btnAddEmployee.Location = new Point(21, 25);
             btnAddEmployee.Name = "btnAddEmployee";
             btnAddEmployee.Size = new Size(60, 60);
             btnAddEmployee.TabIndex = 0;
@@ -229,10 +312,10 @@
             panel2.BackColor = Color.FromArgb(41, 49, 51);
             panel2.Controls.Add(lblAdminlTitle);
             panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(345, 0);
+            panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(6);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1016, 90);
+            panel2.Size = new Size(1361, 90);
             panel2.TabIndex = 4;
             // 
             // frmAdministration
@@ -243,12 +326,10 @@
             ClientSize = new Size(1361, 1018);
             Controls.Add(pnlAdminFormLoader);
             Controls.Add(panel2);
-            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(6);
             Name = "frmAdministration";
             Text = "frmAdministration";
-            panel1.ResumeLayout(false);
             pnlAdminFormLoader.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel3.ResumeLayout(false);
@@ -258,21 +339,42 @@
         }
 
         #endregion
-        private Panel panel1;
-        private Button btnEditCustomer;
-        private Button btnCreateCustomer;
-        private Button btnEditEmployee;
-        private Button BtnCreateEmployee;
         private Panel pnlAdminFormLoader;
         private Label lblAdminlTitle;
         private Panel panel2;
-        private Panel pnlNavAdmin;
         private Panel panel3;
         private Button btnAddEmployee;
         private Panel panel4;
         private ListView listView1;
-        private ColumnHeader EmployeeNumber;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
+        private ColumnHeader lstStatus;
+        private ColumnHeader lstEmployeeNumber;
+        private ColumnHeader lstTitle;
+        private ColumnHeader lstFirstName;
+        private ColumnHeader lstLastName;
+        private ColumnHeader lstGender;
+        private ColumnHeader lstDateOfBirth;
+        private ColumnHeader lstNationality;
+        private ColumnHeader lstStreet;
+        private ColumnHeader lstStreetNumber;
+        private ColumnHeader lstZipCode;
+        private ColumnHeader lstPlace;
+        private ColumnHeader lstSocialSecurityNumber;
+        private ColumnHeader lstEmail;
+        private ColumnHeader lstPhoneNumberPrivate;
+        private ColumnHeader lstPhoneNumberMobile;
+        private ColumnHeader lstPhoneNumberBusiness;
+        private ColumnHeader lstDepartement;
+        private ColumnHeader lstStartDate;
+        private ColumnHeader lstEndDate;
+        private ColumnHeader lstEmployment;
+        private ColumnHeader lstRole;
+        private ColumnHeader lstCadreLevel;
+        private ColumnHeader lstTraineeYears;
+        private ColumnHeader lstActualTraineeYear;
+        private ColumnHeader lstCompanyName;
+        private ColumnHeader lstCompanyType;
+        private ColumnHeader lstCompanyContact;
+        private Button btnFilter;
+        private Button btnRefresh;
     }
 }

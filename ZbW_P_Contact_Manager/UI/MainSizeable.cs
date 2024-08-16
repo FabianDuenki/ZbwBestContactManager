@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller;
+using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -89,7 +90,9 @@ namespace ZbW_P_Contact_Manager.UI
         {
             SetNavigationStyle(btnCustomerContact); // Set navigation style for Customer Contact button
             lblTitle.Text = "Customer Contact Tool"; // Set the title label text
-            LoadForm(new frmCustomerContact()); // Load the customer contact form
+            Guid testuser = Guid.NewGuid();
+            LoadForm(new Notes(testuser));
+            //LoadForm(new frmCustomerContact()); // Load the customer contact form
         }
 
         // Event handler for Search button click
