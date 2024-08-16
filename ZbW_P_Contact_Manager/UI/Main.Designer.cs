@@ -42,14 +42,15 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
-            PnlFormLoader = new Panel();
+            pnlFormLoader = new Panel();
+            panel4 = new Panel();
             button1 = new Button();
-            textBox1 = new TextBox();
             lblTitle = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -108,7 +109,7 @@
             btnHistory.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHistory.ForeColor = Color.FromArgb(167, 177, 255);
             btnHistory.Image = Properties.Resources.history;
-            btnHistory.Location = new Point(0, 757);
+            btnHistory.Location = new Point(0, 750);
             btnHistory.Margin = new Padding(6);
             btnHistory.Name = "btnHistory";
             btnHistory.RightToLeft = RightToLeft.No;
@@ -128,7 +129,7 @@
             btnImportExport.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnImportExport.ForeColor = Color.FromArgb(167, 177, 255);
             btnImportExport.Image = Properties.Resources.import;
-            btnImportExport.Location = new Point(0, 667);
+            btnImportExport.Location = new Point(0, 660);
             btnImportExport.Margin = new Padding(6);
             btnImportExport.Name = "btnImportExport";
             btnImportExport.RightToLeft = RightToLeft.No;
@@ -148,7 +149,7 @@
             btnSearch.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.FromArgb(167, 177, 255);
             btnSearch.Image = Properties.Resources.search;
-            btnSearch.Location = new Point(0, 577);
+            btnSearch.Location = new Point(0, 570);
             btnSearch.Margin = new Padding(6);
             btnSearch.Name = "btnSearch";
             btnSearch.RightToLeft = RightToLeft.No;
@@ -168,7 +169,7 @@
             btnCustomerContact.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCustomerContact.ForeColor = Color.FromArgb(167, 177, 255);
             btnCustomerContact.Image = Properties.Resources.address_book;
-            btnCustomerContact.Location = new Point(0, 487);
+            btnCustomerContact.Location = new Point(0, 480);
             btnCustomerContact.Margin = new Padding(6);
             btnCustomerContact.Name = "btnCustomerContact";
             btnCustomerContact.RightToLeft = RightToLeft.No;
@@ -188,7 +189,7 @@
             btnAdministration.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdministration.ForeColor = Color.FromArgb(167, 177, 255);
             btnAdministration.Image = Properties.Resources.user_menu;
-            btnAdministration.Location = new Point(0, 397);
+            btnAdministration.Location = new Point(0, 390);
             btnAdministration.Margin = new Padding(6);
             btnAdministration.Name = "btnAdministration";
             btnAdministration.RightToLeft = RightToLeft.No;
@@ -208,7 +209,7 @@
             BtnDashboard.Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnDashboard.ForeColor = Color.FromArgb(167, 177, 255);
             BtnDashboard.Image = Properties.Resources.dashboard;
-            BtnDashboard.Location = new Point(0, 307);
+            BtnDashboard.Location = new Point(0, 300);
             BtnDashboard.Margin = new Padding(6);
             BtnDashboard.Name = "BtnDashboard";
             BtnDashboard.RightToLeft = RightToLeft.No;
@@ -229,7 +230,7 @@
             panel2.Location = new Point(0, 0);
             panel2.Margin = new Padding(6);
             panel2.Name = "panel2";
-            panel2.Size = new Size(345, 307);
+            panel2.Size = new Size(345, 300);
             panel2.TabIndex = 7;
             // 
             // label2
@@ -270,10 +271,8 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(29, 31, 33);
-            panel3.Controls.Add(PnlFormLoader);
-            panel3.Controls.Add(button1);
-            panel3.Controls.Add(textBox1);
-            panel3.Controls.Add(lblTitle);
+            panel3.Controls.Add(pnlFormLoader);
+            panel3.Controls.Add(panel4);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(345, 0);
             panel3.Margin = new Padding(6);
@@ -281,14 +280,23 @@
             panel3.Size = new Size(1421, 1231);
             panel3.TabIndex = 2;
             // 
-            // PnlFormLoader
+            // pnlFormLoader
             // 
-            PnlFormLoader.Dock = DockStyle.Bottom;
-            PnlFormLoader.Location = new Point(0, 213);
-            PnlFormLoader.Margin = new Padding(6);
-            PnlFormLoader.Name = "PnlFormLoader";
-            PnlFormLoader.Size = new Size(1421, 1018);
-            PnlFormLoader.TabIndex = 3;
+            pnlFormLoader.Dock = DockStyle.Fill;
+            pnlFormLoader.Location = new Point(0, 300);
+            pnlFormLoader.Name = "pnlFormLoader";
+            pnlFormLoader.Size = new Size(1421, 931);
+            pnlFormLoader.TabIndex = 5;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(button1);
+            panel4.Controls.Add(lblTitle);
+            panel4.Dock = DockStyle.Top;
+            panel4.Location = new Point(0, 0);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(1421, 300);
+            panel4.TabIndex = 4;
             // 
             // button1
             // 
@@ -300,32 +308,18 @@
             button1.Margin = new Padding(6);
             button1.Name = "button1";
             button1.Size = new Size(46, 53);
-            button1.TabIndex = 2;
+            button1.TabIndex = 3;
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = Color.FromArgb(74, 79, 99);
-            textBox1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = SystemColors.ScrollBar;
-            textBox1.Location = new Point(767, 38);
-            textBox1.Margin = new Padding(6);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Search for something...";
-            textBox1.Size = new Size(539, 62);
-            textBox1.TabIndex = 1;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Microsoft Sans Serif", 21F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(35, 73);
+            lblTitle.Location = new Point(31, 35);
             lblTitle.Margin = new Padding(6, 0, 6, 0);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(309, 64);
-            lblTitle.TabIndex = 0;
+            lblTitle.TabIndex = 1;
             lblTitle.Text = "Dashboard";
             // 
             // Main
@@ -336,7 +330,6 @@
             ClientSize = new Size(1766, 1231);
             Controls.Add(panel3);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(6);
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
@@ -347,7 +340,8 @@
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -366,9 +360,9 @@
         private Panel pnlNav;
         private Button btnSettings;
         private Panel panel3;
-        private Label lblTitle;
+        private Panel panel4;
+        private Panel pnlFormLoader;
         private Button button1;
-        private TextBox textBox1;
-        private Panel PnlFormLoader;
+        private Label lblTitle;
     }
 }

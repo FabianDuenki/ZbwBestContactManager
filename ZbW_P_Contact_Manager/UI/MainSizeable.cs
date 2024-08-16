@@ -5,31 +5,19 @@ using System.Windows.Forms;
 
 namespace ZbW_P_Contact_Manager.UI
 {
-    public partial class Main : Form
+    public partial class MainSizeable : Form
     {
-        // Importing CreateRoundRectRgn function from Gdi32.dll to create rounded rectangle regions for the form
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn(
-            int nLeftRect,
-            int nTopRect,
-            int nRightRect,
-            int nBottomRect,
-            int nWidthEllipse,
-            int nHeightEllipse);
-
         // Constructor for the Main form
-        public Main()
+        public MainSizeable()
         {
             InitializeComponent();
             ApplyInitialStyles(); // Apply initial styles to the form
             LoadDashboard(); // Load the dashboard form on startup
         }
-
         // Method to apply initial styles to the form
         private void ApplyInitialStyles()
         {
             // Set the form's region to a rounded rectangle
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             SetNavigationStyle(BtnDashboard); // Set initial navigation style to Dashboard button
         }
 
@@ -59,19 +47,19 @@ namespace ZbW_P_Contact_Manager.UI
             pnlNav.Top = button.Top; // Set the navigation panel top to button top
             pnlNav.Left = button.Left; // Set the navigation panel left to button left
             ResetButtonStyles(); // Reset styles of all buttons
-            button.BackColor = Color.FromArgb(46, 51, 73); // Set selected button color
+            button.BackColor = Color.FromArgb(12, 6, 172); // Set selected button color
         }
 
         // Method to reset styles of all navigation buttons
         private void ResetButtonStyles()
         {
-            BtnDashboard.BackColor = Color.FromArgb(24, 30, 54);
-            btnAdministration.BackColor = Color.FromArgb(24, 30, 54);
-            btnCustomerContact.BackColor = Color.FromArgb(24, 30, 54);
-            btnSearch.BackColor = Color.FromArgb(24, 30, 54);
-            btnImportExport.BackColor = Color.FromArgb(24, 30, 54);
-            btnHistory.BackColor = Color.FromArgb(24, 30, 54);
-            btnSettings.BackColor = Color.FromArgb(24, 30, 54);
+            BtnDashboard.BackColor = Color.FromArgb(0, 0, 77);
+            btnAdministration.BackColor = Color.FromArgb(0, 0, 77);
+            btnCustomerContact.BackColor = Color.FromArgb(0, 0, 77);
+            btnSearch.BackColor = Color.FromArgb(0, 0, 77);
+            btnImportExport.BackColor = Color.FromArgb(0, 0, 77);
+            btnHistory.BackColor = Color.FromArgb(0, 0, 77);
+            btnSettings.BackColor = Color.FromArgb(0, 0, 77);
         }
 
         // Event handler for form load event
@@ -141,5 +129,6 @@ namespace ZbW_P_Contact_Manager.UI
         {
             Application.Exit(); // Exit the application
         }
+
     }
 }
