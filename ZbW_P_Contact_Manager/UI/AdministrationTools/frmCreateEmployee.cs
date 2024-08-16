@@ -21,7 +21,7 @@ namespace ZbW_P_Contact_Manager.UI
         public string EmployeeStreet { get; private set; }
         public string EmployeeStreetNumber { get; private set; }
         public string EmployeeZipCode { get; private set; }
-        public string EmployeePlace {  get; private set; }
+        public string EmployeePlace { get; private set; }
 
         public string EmployeeSocialSecurityNumber { get; private set; }
         public string EmployeeEmail { get; private set; }
@@ -151,6 +151,16 @@ namespace ZbW_P_Contact_Manager.UI
 
             // Close the form
             this.Close();
+        }
+
+        private void txtLastName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -58,6 +58,7 @@
             // 
             // TxtBoxComment
             // 
+            TxtBoxComment.BackColor = Color.FromArgb(122, 148, 150);
             TxtBoxComment.BorderStyle = BorderStyle.None;
             TxtBoxComment.Location = new Point(85, 147);
             TxtBoxComment.Margin = new Padding(6);
@@ -68,6 +69,7 @@
             // 
             // FlowLayoutPanel
             // 
+            FlowLayoutPanel.BackColor = Color.FromArgb(41, 49, 51);
             FlowLayoutPanel.Controls.Add(PanelTop);
             FlowLayoutPanel.Controls.Add(PanelBottom);
             FlowLayoutPanel.Location = new Point(0, -2);
@@ -148,6 +150,7 @@
             // 
             // ListViewHistory
             // 
+            ListViewHistory.BackColor = Color.FromArgb(122, 148, 150);
             ListViewHistory.BorderStyle = BorderStyle.None;
             ListViewHistory.FullRowSelect = true;
             ListViewHistory.HeaderStyle = ColumnHeaderStyle.Nonclickable;

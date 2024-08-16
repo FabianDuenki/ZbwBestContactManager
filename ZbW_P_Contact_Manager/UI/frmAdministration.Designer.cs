@@ -106,142 +106,142 @@
             // lstStatus
             // 
             lstStatus.Text = "Status";
-            lstStatus.Width = 100;
+            lstStatus.Width = 150;
             // 
             // lstEmployeeNumber
             // 
             lstEmployeeNumber.Text = "Employee Number";
-            lstEmployeeNumber.Width = 100;
+            lstEmployeeNumber.Width = 150;
             // 
             // lstTitle
             // 
             lstTitle.Text = "Title";
-            lstTitle.Width = 100;
+            lstTitle.Width = 150;
             // 
             // lstFirstName
             // 
             lstFirstName.Text = "First Name";
-            lstFirstName.Width = 100;
+            lstFirstName.Width = 150;
             // 
             // lstLastName
             // 
             lstLastName.Text = "Last Name";
-            lstLastName.Width = 100;
+            lstLastName.Width = 150;
             // 
             // lstGender
             // 
             lstGender.Text = "Gender";
-            lstGender.Width = 100;
+            lstGender.Width = 150;
             // 
             // lstDateOfBirth
             // 
             lstDateOfBirth.Text = "Date of Birth";
-            lstDateOfBirth.Width = 100;
+            lstDateOfBirth.Width = 150;
             // 
             // lstNationality
             // 
             lstNationality.Text = "Nationality";
-            lstNationality.Width = 100;
+            lstNationality.Width = 150;
             // 
             // lstStreet
             // 
             lstStreet.Text = "Street";
-            lstStreet.Width = 100;
+            lstStreet.Width = 150;
             // 
             // lstStreetNumber
             // 
             lstStreetNumber.Text = "Street Number";
-            lstStreetNumber.Width = 100;
+            lstStreetNumber.Width = 150;
             // 
             // lstZipCode
             // 
             lstZipCode.Text = "lstZipCode";
-            lstZipCode.Width = 100;
+            lstZipCode.Width = 150;
             // 
             // lstPlace
             // 
             lstPlace.Text = "Place";
-            lstPlace.Width = 100;
+            lstPlace.Width = 150;
             // 
             // lstSocialSecurityNumber
             // 
             lstSocialSecurityNumber.Text = "SocialSecurityNumber";
-            lstSocialSecurityNumber.Width = 100;
+            lstSocialSecurityNumber.Width = 150;
             // 
             // lstEmail
             // 
             lstEmail.Text = "Email";
-            lstEmail.Width = 100;
+            lstEmail.Width = 150;
             // 
             // lstPhoneNumberPrivate
             // 
             lstPhoneNumberPrivate.Text = "Phone Number Private";
-            lstPhoneNumberPrivate.Width = 100;
+            lstPhoneNumberPrivate.Width = 150;
             // 
             // lstPhoneNumberMobile
             // 
             lstPhoneNumberMobile.Text = "Phone Number Mobile";
-            lstPhoneNumberMobile.Width = 100;
+            lstPhoneNumberMobile.Width = 150;
             // 
             // lstPhoneNumberBusiness
             // 
             lstPhoneNumberBusiness.Text = "Phone Number Business";
-            lstPhoneNumberBusiness.Width = 100;
+            lstPhoneNumberBusiness.Width = 150;
             // 
             // lstDepartement
             // 
             lstDepartement.Text = "Departement";
-            lstDepartement.Width = 100;
+            lstDepartement.Width = 150;
             // 
             // lstStartDate
             // 
             lstStartDate.Text = "StartDate";
-            lstStartDate.Width = 100;
+            lstStartDate.Width = 150;
             // 
             // lstEndDate
             // 
             lstEndDate.Text = "EndDate";
-            lstEndDate.Width = 100;
+            lstEndDate.Width = 150;
             // 
             // lstEmployment
             // 
             lstEmployment.Text = "Employment";
-            lstEmployment.Width = 100;
+            lstEmployment.Width = 150;
             // 
             // lstRole
             // 
             lstRole.Text = "Role";
-            lstRole.Width = 100;
+            lstRole.Width = 150;
             // 
             // lstCadreLevel
             // 
             lstCadreLevel.Text = "Cadre Level";
-            lstCadreLevel.Width = 100;
+            lstCadreLevel.Width = 150;
             // 
             // lstTraineeYears
             // 
             lstTraineeYears.Text = "TraineeYears";
-            lstTraineeYears.Width = 100;
+            lstTraineeYears.Width = 150;
             // 
             // lstActualTraineeYear
             // 
             lstActualTraineeYear.Text = "ActualTraineeYear";
-            lstActualTraineeYear.Width = 100;
+            lstActualTraineeYear.Width = 150;
             // 
             // lstCompanyName
             // 
             lstCompanyName.Text = "CompanyName";
-            lstCompanyName.Width = 100;
+            lstCompanyName.Width = 150;
             // 
             // lstCompanyType
             // 
             lstCompanyType.Text = "Company Type";
-            lstCompanyType.Width = 100;
+            lstCompanyType.Width = 150;
             // 
             // lstCompanyContact
             // 
             lstCompanyContact.Text = "Company Contact";
-            lstCompanyContact.Width = 100;
+            lstCompanyContact.Width = 150;
             // 
             // panel3
             // 
