@@ -6,17 +6,18 @@ namespace ZbW_P_Contact_Manager.UI
 {
     public partial class frmImportExport : Form
     {
-        private readonly CSVController csvController = new CSVController();
+        CSVController _csvController;
 
         public frmImportExport()
         {
             InitializeComponent();
+            _csvController = new CSVController();
         }
 
         private void btnImportEmployee_Click(object sender, EventArgs e)
         {
             string text = FileHandler.GetTextFromFilePath(FileHandler.GetFilePathFromPicker());
-            object[] employees = csvController.Import(ModelType.Employee, text);
+            object[] employees = _csvController.Import(ModelType.Employee, text);
         }
 
         private void btnExportEmployee_Click(object sender, EventArgs e)
@@ -27,7 +28,7 @@ namespace ZbW_P_Contact_Manager.UI
         private void btnImportCustomer_Click(object sender, EventArgs e)
         {
             string text = FileHandler.GetTextFromFilePath(FileHandler.GetFilePathFromPicker());
-            object[] customers = csvController.Import(ModelType.Customer, text);
+            object[] customers = _csvController.Import(ModelType.Customer, text);
         }
 
         private void btnExportCustomer_Click(object sender, EventArgs e)
