@@ -31,5 +31,27 @@ namespace Model
             }
             return instance;
         }
+        public string ToCsvHeader()
+        {
+            return
+                "Id," +
+                "Comment," +
+                "PersonId," +
+                "CreatedAt," +
+                "CreatedBy," +
+                "UpdatedAt," +
+                "UpdatedBy";
+        }
+        public string ToCsvString()
+        {
+            return
+                $"{this.Id.ToString()}," +
+                $"{this.Comment}," +
+                $"{this.PersonId.ToString()}," +
+                $"{this.CreatedAt.ToString()}," +
+                $"{this.CreatedBy}," +
+                $"{this.UpdatedAt.ToString()}," +
+                $"{this.UpdatedBy}";
+        }
     }
 }

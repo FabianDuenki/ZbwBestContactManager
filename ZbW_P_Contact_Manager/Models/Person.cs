@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.ComponentModel;
+using System.Data;
 using System.Reflection;
 
 namespace Model
@@ -40,6 +41,50 @@ namespace Model
                 property.SetValue(instance, convertedValue);
             }
             return instance;
+        }
+        public virtual string ToCsvString()
+        {
+            return
+                $"{this.Id.ToString()}," +
+                $"{this.Salutation}," +
+                $"{this.FirstName}," +
+                $"{this.LastName}," +
+                $"{this.DateOfBirth.ToString()}," +
+                $"{this.Gender}," +
+                $"{this.Title}," +
+                $"{this.SocialSecurityNumber}," +
+                $"{this.PhoneNumberPrivate}," +
+                $"{this.PhoneNumberMobile}," +
+                $"{this.PhoneNumberBusiness}," +
+                $"{this.Email}," +
+                $"{this.Status.ToString()}," +
+                $"{this.Nationality}," +
+                $"{this.Street}," +
+                $"{this.StreetNumber}," +
+                $"{this.ZipCode}," +
+                $"{this.Place}";
+        }
+        public virtual string ToCsvHeader()
+        {
+            return
+                "Id," +
+                "Salutation," +
+                "FirstName," +
+                "LastName," +
+                "DateOfBirth," +
+                "Gender," +
+                "Title," +
+                "SocialSecurityNumber," +
+                "PhoneNumberPrivate," +
+                "PhoneNumberMobile," +
+                "PhoneNumberBusiness," +
+                "Email," +
+                "Status," +
+                "Nationality," +
+                "Street," +
+                "StreetNumber," +
+                "ZipCode," +
+                "Place";
         }
     }
 }

@@ -9,5 +9,30 @@
         public int? Employment { get; set; }
         public string? Role { get; set; }
         public int? CadreLevel { get; set; }
+
+        public override string ToCsvString()
+        {
+            return base.ToCsvString() +
+                "," +
+                $"{this.EmployeeNumber.ToString()}," +
+                $"{this.Departement}," +
+                $"{this.StartDate.ToString()}," +
+                $"{this.EndDate.ToString()}," +
+                $"{this.Employment.ToString()}," +
+                $"{this.Role}," +
+                $"{this.CadreLevel.ToString()}";
+        }
+        public override string ToCsvHeader()
+        {
+            return base.ToCsvHeader() +
+                "," +
+                "EmployeeNumber," +
+                "Departement," +
+                "StartDate," +
+                "EndDate," +
+                "Employment," +
+                "Role," +
+                "CadreLevel";
+        }
     }
 }

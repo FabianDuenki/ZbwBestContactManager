@@ -27,11 +27,10 @@ namespace Controller
             Instances = instances;
         }
 
-        public FormatStatus Export(FileFormat type)
+        public void Export(FileFormat type)
         {
-            if (Instances != null) return MultipleExport(type, Instances);
-            if (Instance != null) return SingleExport(type, Instance);
-            return FormatStatus.Error;
+            if (Instances != null) MultipleExport(type, Instances);
+            if (Instance != null) SingleExport(type, Instance);
         }
 
         public object[] Import(ModelType model, string csvString)
@@ -78,16 +77,16 @@ namespace Controller
             return value;
         }
 
-        private FormatStatus SingleExport(FileFormat type, object instance)
+        private void SingleExport(FileFormat type, object instance)
         {
-            return SaveFileByType(type, string.Join(",", instance.GetType()
+            SaveFileByType(type, string.Join(",", instance.GetType()
                 .GetProperties()
                 .Select(propertyInfo => propertyInfo.Name)) + $"\n{GetFormattedData(type, instance)}");
         }
 
-        private FormatStatus MultipleExport(FileFormat type, object[] instances)
+        private void MultipleExport(FileFormat type, object[] instances)
         {
-            return SaveFileByType(type, GetFormattedHeaders(type, instances.First()) + "\n" + string.Join("\n", instances
+            SaveFileByType(type, GetFormattedHeaders(type, instances.First()) + "\n" + string.Join("\n", instances
                 .Select(instance => GetFormattedData(type, instance))));
         }
 
@@ -109,152 +108,144 @@ namespace Controller
             };
         }
 
-        private FormatStatus SaveFileByType(FileFormat type, string content)
+        private void SaveFileByType(FileFormat type, string content)
         {
             string fileName = $"{new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds()}.{type.ToString().ToLower()}";
             string filePath = Path.Combine(SystemFolders.GetPath(SystemFolders.Folder.Downloads), fileName);
-            return CreateFile(content, filePath) == FileStatus.Success ? FormatStatus.Success : FormatStatus.Error;
+            CreateFile(filePath, content);
         }
-
-        public FileStatus CreateFile(string content, string path)
+        public void CreateFile(string filePath, string csvHeader)
         {
-            try
-            {
-                using (FileStream fileStream = new FileStream(path, FileMode.Create))
-                {
-                    byte[] info = new UTF8Encoding(true).GetBytes(content);
-                    fileStream.Write(info, 0, info.Length);
-                }
-
-                return FileStatus.Success;
-            }
-            catch { return FileStatus.Error; }
+            File.AppendAllText(filePath, csvHeader);
         }
 
-        public FileStatus DeleteFile(string path)
+        public void DeleteFile(string path)
         {
-            try
-            {
-                File.Delete(path);
-                return FileStatus.Success;
-            }
-            catch { return FileStatus.Error; }
+            File.Delete(path);
         }
 
-        public bool AddUser(Person user)
+        public void AddUser(Person user)
         {
             string filePath = GetPathByModelType(user.GetType());
 
             if (!Path.Exists(filePath))
             {
-                CreateFile(filePath, user);
+                CreateFile(filePath, user.ToCsvHeader());
             }
+            AddLine(filePath, user.ToCsvString());
+        }
+
+        public void AddNote(Note note)
+        {
+            string filePath = GetPathByModelType(note.GetType());
+
+            if (!Path.Exists(filePath))
+            {
+                CreateFile(filePath, note.ToCsvHeader());
+            }
+            AddLine(filePath, note.ToCsvString());
+        }
+
+        public void AddLine(string filePath, string line)
+        {
             File.AppendAllText(filePath, Environment.NewLine);
-            File.AppendAllText(filePath, user.ToCsvString());
-
-            return true;
-
+            File.AppendAllText(filePath, line);
         }
 
         public string GetPathByModelType(Type userType)
         {
-            string fileName = $"{userType.ToString()}.csv";
+            string fileName = $"{userType.Name}.csv";
             return $"{Environment.CurrentDirectory}\\{fileName}";
         }
 
-        public bool CreateFile(string filePath, Person user)
+        public List<Person> ReadUsers(Type user)
         {
-            string csvHeader = string.Empty;
+            //string filePath = GetPathByModelType(user.GetType());
 
-            foreach (PropertyInfo property in user.GetType().GetProperties())
-            {
-                csvHeader += $"{property.Name},";
-            }
-            csvHeader.Remove(csvHeader.LastIndexOf(','));
-            File.AppendAllText(filePath, csvHeader);
+            //if (!Path.Exists(filePath))
+            //{
+            //    return new List<Person>();
+            //}
 
-            return true;
+            //return user.FromCsvString(File.ReadAllLines(filePath));
+            return new List<Person>();
         }
 
-        public List<Person> ReadUsers(Type userType)
+        public List<Note> ReadNotes(Guid personId)
         {
-            string filePath = GetPathByModelType(userType);
+            //Note note = new Note();
+            //string filePath = GetPathByModelType(note.GetType());
 
-            if (!Path.Exists(filePath))
-            {
-                return new List<Person>();
-            }
-            string[] csvLines = File.ReadAllLines(filePath); 
+            //if (!Path.Exists(filePath))
+            //{
+            //    return new List<Note>();
+            //}
 
-            return ConvertCsvStringToUsers(modelType, csvLines);
+            //return note.FromCsvString(File.ReadAllLines(filePath));
+            return new List<Note>();
         }
-        public List<dynamic> ConvertCsvStringToUsers(ModelType modelType, string[] csvLines)
+        //public List<dynamic> ConvertCsvStringToUsers(ModelType modelType, string[] csvLines)
+        //{
+        //    List<dynamic> users = new List<dynamic>();
+
+        //    string[] csvHeaders = (csvLines.First()).Split(',');
+        //    string[] csvUsers = csvLines.Skip(1).ToArray();
+
+        //    foreach (string csvUser in csvUsers)
+        //    {
+        //        string[] csvUserValues = csvUser.Split(',');
+        //        Hashtable userProperties = new Hashtable();
+
+        //        foreach (string property in csvHeaders)
+        //        {
+        //            userProperties.Add(property, csvUserValues[Array.IndexOf(csvHeaders, property)]);
+        //        }
+        //        dynamic user = GetModelByType(modelType);
+        //        user = user.GetInstanceFromHashtable(userProperties);
+
+
+        //        users.Add(user);
+        //    }
+        //    return users;
+        //}
+        public void UpdateUser(Person newUser)
         {
-            List<dynamic> users = new List<dynamic>();
+            //string filePath = GetPathByModelType(modelType);
+            //List<dynamic> users = ReadUsers(modelType);
 
-            string[] csvHeaders = (csvLines.First()).Split(',');
-            string[] csvUsers = csvLines.Skip(1).ToArray();
+            //File.Delete(filePath);
 
-            foreach (string csvUser in csvUsers)
-            {
-                string[] csvUserValues = csvUser.Split(',');
-                Hashtable userProperties = new Hashtable();
-
-                foreach (string property in csvHeaders)
-                {
-                    userProperties.Add(property, csvUserValues[Array.IndexOf(csvHeaders, property)]);
-                }
-                dynamic user = GetModelByType(modelType);
-                user = user.GetInstanceFromHashtable(userProperties);
-
-
-                users.Add(user);
-            }
-            return users;
+            //foreach (dynamic user in users)
+            //{
+            //    if (user.Id == userId)
+            //    {
+            //        AddUser(modelType, newUser);
+            //        userChanged = true;
+            //    }
+            //    else
+            //    {
+            //        AddUser(modelType, user);
+            //    }
+            //}
         }
-        public bool UpdateUser(ModelType modelType, Guid userId, object newUser)
+        public void DeleteUser(Person user)
         {
-            bool userChanged = false;
-            string filePath = GetPathByModelType(modelType);
-            List<dynamic> users = ReadUsers(modelType);
+            //string filePath = GetPathByModelType(modelType);
+            //List<dynamic> users = ReadUsers(modelType);
 
-            File.Delete(filePath);
+            //File.Delete(filePath);
 
-            foreach (dynamic user in users)
-            {
-                if (user.Id == userId)
-                {
-                    AddUser(modelType, newUser);
-                    userChanged = true;
-                }
-                else
-                {
-                    AddUser(modelType, user);
-                }
-            }
-
-            return userChanged;
-        }
-        public bool DeleteUser(ModelType modelType, Guid userId)
-        {
-            bool userDeleted = false;
-            string filePath = GetPathByModelType(modelType);
-            List<dynamic> users = ReadUsers(modelType);
-
-            File.Delete(filePath);
-
-            foreach (dynamic user in users)
-            {
-                if (user.Id == userId)
-                {
-                    userDeleted = true;
-                }
-                else
-                {
-                    AddUser(modelType, user);
-                }
-            }
-            return userDeleted;
+            //foreach (dynamic user in users)
+            //{
+            //    if (user.Id == userId)
+            //    {
+            //        userDeleted = true;
+            //    }
+            //    else
+            //    {
+            //        AddUser(modelType, user);
+            //    }
+            //}
         }
     }
 }

@@ -5,15 +5,11 @@ namespace Controller
 {
     public class NotesController
     {
-        CSVController _csvController;
-        ModelType _modelType;
-        string _filePath;
+        CRUDController _crudController;
         
         public NotesController()
         {
-            _csvController = new CSVController();
-            _modelType = ModelType.Note;
-            _filePath = _csvController.GetPathByModelType(_modelType);
+            _crudController = new();
         }
 
         public void CreateNote(Guid personId, string comment, string createdBy)
@@ -29,78 +25,65 @@ namespace Controller
                 UpdatedAt = DateTime.Now,
             };
 
-            SaveNote(note);
+            _crudController.Create(note);
         }
 
-        public void SaveNote(Note note)
+        public List<Note> LoadNotes(Guid personId)
         {
-            string csvUser = _csvController.ConvertUserToCsvString(note);
-            string filePath = _csvController.GetPathByModelType(_modelType);
+            //if (!Path.Exists(_filePath))
+            //{
+            //    return new List<Note>();
+            //}
+            //string[] csvLines = File.ReadAllLines(_filePath);
 
-            if (!Path.Exists(filePath))
-            {
-                _csvController.CreateFile(filePath, note);
-            }
-
-            File.AppendAllText(filePath, Environment.NewLine);
-            File.AppendAllText(filePath, csvUser);
-        }
-
-        public List<dynamic> LoadNotes(Guid personId)
-        {
-            if (!Path.Exists(_filePath))
-            {
-                return new List<dynamic>();
-            }
-            string[] csvLines = File.ReadAllLines(_filePath);
-
-            return _csvController.ConvertCsvStringToUsers(_modelType, csvLines);
+            //return _csvController.ConvertCsvStringToUsers(_modelType, csvLines);
+            return _crudController.Read(personId);
         }
 
         public void UpdateNote(Guid personId, Guid noteId, string newComment, string updatedBy)
         {
-            var notes = LoadNotes(personId);
-            var noteToUpdate = notes.First(n => n.PersonId == personId && n.Id == noteId);
+            //var notes = LoadNotes(personId);
+            //var noteToUpdate = notes.First(n => n.PersonId == personId && n.Id == noteId);
 
-            var newNote = new Note()
-            {
-                Id = noteId,
-                Comment = newComment,
-                CreatedAt = noteToUpdate.CreatedAt,
-                CreatedBy = noteToUpdate.CreatedBy,
-                UpdatedBy = updatedBy,
-                UpdatedAt = DateTime.Now,
-                PersonId = personId,
-            };
+            //var newNote = new Note()
+            //{
+            //    Id = noteId,
+            //    Comment = newComment,
+            //    CreatedAt = noteToUpdate.CreatedAt,
+            //    CreatedBy = noteToUpdate.CreatedBy,
+            //    UpdatedBy = updatedBy,
+            //    UpdatedAt = DateTime.Now,
+            //    PersonId = personId,
+            //};
 
-            File.Delete(_filePath);
+            //File.Delete(_filePath);
 
-            foreach (dynamic note in notes)
-            {
-                if (note.Id == noteId && note.PersonId == personId)
-                {
-                    SaveNote(newNote);
-                }
-                else
-                {
-                    SaveNote(note);
-                }
-            }
+            //foreach (dynamic note in notes)
+            //{
+            //    if (note.Id == noteId && note.PersonId == personId)
+            //    {
+            //        SaveNote(newNote);
+            //    }
+            //    else
+            //    {
+            //        SaveNote(note);
+            //    }
+            //}
         }
 
         public void DeleteNote(Guid personId, Guid noteId)
         {
-            var notes = LoadNotes(personId);
+            //var notes = LoadNotes(personId);
 
-            File.Delete(_filePath);
+            //File.Delete(_filePath);
 
-            foreach (dynamic note in notes)
-            {
-                if (!(note.Id == noteId && note.PersonId == personId))
-                {
-                    SaveNote(note);
-                }
-            }
+            //foreach (dynamic note in notes)
+            //{
+            //    if (!(note.Id == noteId && note.PersonId == personId))
+            //    {
+            //        SaveNote(note);
+            //    }
+            //}
         }
     }
 }

@@ -13,40 +13,50 @@ namespace Controller
         {
             _csvController = new CSVController();
         }
-        public bool Create(Person user)
+        public void Create(Person user)
         {
             // check if mandatory fields are filled
-            return _csvController.AddUser(user);
+            _csvController.AddUser(user);
+        }
+        public void Create(Note note)
+        {
+           _csvController.AddNote(note);
         }
 
         public List<Person> Read(Person searchUser)
         {
-            List<Person> allUsers = this.Read(searchUser);
+            List<Person> allUsers = this.Read(searchUser.GetType());
 
             List<Person> users = new List<Person>();
 
-            foreach (Person user in allUsers)
-            {
-                if(user.Contains(searchUser))
-                {
-                    users.Add(user);
-                }
-            }
+            //foreach (Person user in allUsers)
+            //{
+            //    if (user.Contains(searchUser))
+            //    {
+            //        users.Add(user);
+            //    }
+            //}
             return users;
         }
         public List<Person> Read(Type userType)
         {
             return _csvController.ReadUsers(userType);
         }
-        public bool Update(Person oldUser, Person newUser)
+        public List<Note> Read(Guid personId)
+        {
+            return _csvController.ReadNotes(personId);
+        }
+        public void Update(Person oldUser, Person newUser)
         {
             newUser.Id = oldUser.Id;
 
-            return _csvController.UpdateUser(oldUser, newUser);
+            // check if mandatory fields are filled
+
+            _csvController.UpdateUser(newUser);
         }
-        public bool Delete(Person user)
+        public void Delete(Person user)
         {
-            return _csvController.DeleteUser(user);
+            _csvController.DeleteUser(user);
         }
     }
 }
