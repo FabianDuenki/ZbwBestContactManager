@@ -44,9 +44,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F);
             label1.ForeColor = Color.FromArgb(0, 126, 249);
-            label1.Location = new Point(89, 35);
+            label1.Location = new Point(165, 75);
+            label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new Size(221, 37);
+            label1.Size = new Size(440, 72);
             label1.TabIndex = 2;
             label1.Text = "Import Employee";
             // 
@@ -55,9 +56,10 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 20F);
             label2.ForeColor = Color.FromArgb(0, 126, 249);
-            label2.Location = new Point(435, 35);
+            label2.Location = new Point(808, 75);
+            label2.Margin = new Padding(6, 0, 6, 0);
             label2.Name = "label2";
-            label2.Size = new Size(217, 37);
+            label2.Size = new Size(431, 72);
             label2.TabIndex = 4;
             label2.Text = "Export Employee";
             // 
@@ -66,9 +68,10 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 20F);
             label3.ForeColor = Color.FromArgb(0, 126, 249);
-            label3.Location = new Point(89, 232);
+            label3.Location = new Point(165, 495);
+            label3.Margin = new Padding(6, 0, 6, 0);
             label3.Name = "label3";
-            label3.Size = new Size(218, 37);
+            label3.Size = new Size(438, 72);
             label3.TabIndex = 5;
             label3.Text = "Import Customer";
             // 
@@ -77,9 +80,10 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 20F);
             label4.ForeColor = Color.FromArgb(0, 126, 249);
-            label4.Location = new Point(435, 232);
+            label4.Location = new Point(808, 495);
+            label4.Margin = new Padding(6, 0, 6, 0);
             label4.Name = "label4";
-            label4.Size = new Size(214, 37);
+            label4.Size = new Size(429, 72);
             label4.TabIndex = 6;
             label4.Text = "Export Customer";
             // 
@@ -87,9 +91,11 @@
             // 
             btnImportEmployee.BackColor = Color.FromArgb(24, 30, 54);
             btnImportEmployee.FlatStyle = FlatStyle.Flat;
-            btnImportEmployee.Location = new Point(89, 75);
+            btnImportEmployee.Image = Properties.Resources.import;
+            btnImportEmployee.Location = new Point(165, 160);
+            btnImportEmployee.Margin = new Padding(6, 6, 6, 6);
             btnImportEmployee.Name = "btnImportEmployee";
-            btnImportEmployee.Size = new Size(211, 138);
+            btnImportEmployee.Size = new Size(392, 294);
             btnImportEmployee.TabIndex = 12;
             btnImportEmployee.UseVisualStyleBackColor = false;
             btnImportEmployee.Click += btnImportEmployee_Click;
@@ -98,9 +104,11 @@
             // 
             btnImportCustomer.BackColor = Color.FromArgb(24, 30, 54);
             btnImportCustomer.FlatStyle = FlatStyle.Flat;
-            btnImportCustomer.Location = new Point(89, 272);
+            btnImportCustomer.Image = Properties.Resources.import;
+            btnImportCustomer.Location = new Point(165, 580);
+            btnImportCustomer.Margin = new Padding(6, 6, 6, 6);
             btnImportCustomer.Name = "btnImportCustomer";
-            btnImportCustomer.Size = new Size(211, 138);
+            btnImportCustomer.Size = new Size(392, 294);
             btnImportCustomer.TabIndex = 13;
             btnImportCustomer.UseVisualStyleBackColor = false;
             btnImportCustomer.Click += btnImportCustomer_Click;
@@ -109,9 +117,11 @@
             // 
             btnExportEmployee.BackColor = Color.FromArgb(24, 30, 54);
             btnExportEmployee.FlatStyle = FlatStyle.Flat;
-            btnExportEmployee.Location = new Point(435, 75);
+            btnExportEmployee.Image = Properties.Resources.export;
+            btnExportEmployee.Location = new Point(808, 160);
+            btnExportEmployee.Margin = new Padding(6, 6, 6, 6);
             btnExportEmployee.Name = "btnExportEmployee";
-            btnExportEmployee.Size = new Size(211, 138);
+            btnExportEmployee.Size = new Size(392, 294);
             btnExportEmployee.TabIndex = 14;
             btnExportEmployee.UseVisualStyleBackColor = false;
             // 
@@ -119,18 +129,20 @@
             // 
             btnExportCustomer.BackColor = Color.FromArgb(24, 30, 54);
             btnExportCustomer.FlatStyle = FlatStyle.Flat;
-            btnExportCustomer.Location = new Point(435, 272);
+            btnExportCustomer.Image = Properties.Resources.export;
+            btnExportCustomer.Location = new Point(808, 580);
+            btnExportCustomer.Margin = new Padding(6, 6, 6, 6);
             btnExportCustomer.Name = "btnExportCustomer";
-            btnExportCustomer.Size = new Size(211, 138);
+            btnExportCustomer.Size = new Size(392, 294);
             btnExportCustomer.TabIndex = 15;
             btnExportCustomer.UseVisualStyleBackColor = false;
             // 
             // frmImportExport
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(733, 477);
+            ClientSize = new Size(1361, 1018);
             Controls.Add(btnExportCustomer);
             Controls.Add(btnExportEmployee);
             Controls.Add(btnImportCustomer);
@@ -141,6 +153,7 @@
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(6, 6, 6, 6);
             Name = "frmImportExport";
             Text = "frmImportExport";
             ResumeLayout(false);
