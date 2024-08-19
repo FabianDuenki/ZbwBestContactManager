@@ -37,7 +37,7 @@
             // 
             pictureBox1.Image = Properties.Resources.search;
             pictureBox1.Location = new Point(420, 303);
-            pictureBox1.Margin = new Padding(6, 6, 6, 6);
+            pictureBox1.Margin = new Padding(6);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(522, 516);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -60,12 +60,12 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(46, 51, 73);
+            BackColor = Color.FromArgb(62, 73, 76);
             ClientSize = new Size(1361, 1018);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(6, 6, 6, 6);
+            Margin = new Padding(6);
             Name = "frmSearch";
             Text = "frmSearch";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

@@ -246,7 +246,7 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.FromArgb(41, 49, 51);
+            panel3.BackColor = Color.FromArgb(62, 73, 76);
             panel3.Controls.Add(btnCreateNewCustomer);
             panel3.Controls.Add(btnRefresh);
             panel3.Controls.Add(btnFilter);
@@ -262,7 +262,7 @@
             // 
             btnCreateNewCustomer.BackColor = Color.FromArgb(81, 102, 105);
             btnCreateNewCustomer.FlatAppearance.BorderSize = 0;
-            btnCreateNewCustomer.FlatStyle = FlatStyle.Flat;
+            btnCreateNewCustomer.FlatStyle = FlatStyle.Popup;
             btnCreateNewCustomer.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnCreateNewCustomer.ForeColor = Color.Transparent;
             btnCreateNewCustomer.Image = Properties.Resources.add;
@@ -307,7 +307,7 @@
             // 
             btnAddEmployee.BackColor = Color.FromArgb(81, 102, 105);
             btnAddEmployee.FlatAppearance.BorderSize = 0;
-            btnAddEmployee.FlatStyle = FlatStyle.Flat;
+            btnAddEmployee.FlatStyle = FlatStyle.Popup;
             btnAddEmployee.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnAddEmployee.ForeColor = Color.Transparent;
             btnAddEmployee.Image = Properties.Resources.add;
