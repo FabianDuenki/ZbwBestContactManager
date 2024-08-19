@@ -264,7 +264,7 @@
             btnCreateNewCustomer.FlatAppearance.BorderSize = 0;
             btnCreateNewCustomer.FlatStyle = FlatStyle.Popup;
             btnCreateNewCustomer.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnCreateNewCustomer.ForeColor = Color.Transparent;
+            btnCreateNewCustomer.ForeColor = Color.FromArgb(167, 177, 255);
             btnCreateNewCustomer.Image = Properties.Resources.add;
             btnCreateNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
             btnCreateNewCustomer.Location = new Point(370, 25);
@@ -309,7 +309,7 @@
             btnAddEmployee.FlatAppearance.BorderSize = 0;
             btnAddEmployee.FlatStyle = FlatStyle.Popup;
             btnAddEmployee.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnAddEmployee.ForeColor = Color.Transparent;
+            btnAddEmployee.ForeColor = Color.FromArgb(167, 177, 255);
             btnAddEmployee.Image = Properties.Resources.add;
             btnAddEmployee.ImageAlign = ContentAlignment.MiddleLeft;
             btnAddEmployee.Location = new Point(21, 25);
