@@ -45,7 +45,6 @@
             txtSex = new ComboBox();
             txtDateOfBirth = new DateTimePicker();
             textBoxInput = new TextBox();
-            txtStatus = new ComboBox();
             txtNationality = new ComboBox();
             txtStartDate = new DateTimePicker();
             txtEndDate = new DateTimePicker();
@@ -73,7 +72,16 @@
             lblDepartement = new Label();
             lblStartEndDate = new Label();
             lblEmploymentType = new Label();
+            lblTraineeYears = new Label();
+            numericUpDown1 = new NumericUpDown();
+            lblActualTraineeYear = new Label();
+            numericUpDown2 = new NumericUpDown();
+            ckbStatus = new CheckBox();
+            ckbTrainee = new CheckBox();
+            lblTrainee = new Label();
             ((System.ComponentModel.ISupportInitialize)txtCadreLevel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             SuspendLayout();
             // 
             // txtFirstName
@@ -249,7 +257,7 @@
             // btnCreateNewEmployee
             // 
             btnCreateNewEmployee.ForeColor = Color.Black;
-            btnCreateNewEmployee.Location = new Point(682, 1135);
+            btnCreateNewEmployee.Location = new Point(715, 1340);
             btnCreateNewEmployee.Margin = new Padding(7, 6, 7, 6);
             btnCreateNewEmployee.Name = "btnCreateNewEmployee";
             btnCreateNewEmployee.Size = new Size(305, 58);
@@ -310,22 +318,6 @@
             textBoxInput.Name = "textBoxInput";
             textBoxInput.Size = new Size(100, 39);
             textBoxInput.TabIndex = 0;
-            // 
-            // txtStatus
-            // 
-            txtStatus.BackColor = Color.FromArgb(227, 234, 234);
-            txtStatus.FlatStyle = FlatStyle.System;
-            txtStatus.Font = new Font("Microsoft Sans Serif", 9F);
-            txtStatus.ForeColor = Color.Black;
-            txtStatus.FormattingEnabled = true;
-            txtStatus.Items.AddRange(new object[] { "active", "inactive" });
-            txtStatus.Location = new Point(334, 20);
-            txtStatus.Margin = new Padding(6);
-            txtStatus.Name = "txtStatus";
-            txtStatus.Size = new Size(334, 37);
-            txtStatus.TabIndex = 10;
-            txtStatus.Tag = "Status";
-            txtStatus.Text = "Status";
             // 
             // txtNationality
             // 
@@ -599,12 +591,84 @@
             lblEmploymentType.TabIndex = 114;
             lblEmploymentType.Text = "Employment type:";
             // 
+            // lblTraineeYears
+            // 
+            lblTraineeYears.AutoSize = true;
+            lblTraineeYears.Location = new Point(32, 1199);
+            lblTraineeYears.Name = "lblTraineeYears";
+            lblTraineeYears.Size = new Size(157, 32);
+            lblTraineeYears.TabIndex = 120;
+            lblTraineeYears.Text = "Trainee Years:";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(334, 1197);
+            numericUpDown1.Margin = new Padding(6);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(334, 39);
+            numericUpDown1.TabIndex = 51;
+            numericUpDown1.Tag = "Cadre Level";
+            // 
+            // lblActualTraineeYear
+            // 
+            lblActualTraineeYear.AutoSize = true;
+            lblActualTraineeYear.Location = new Point(32, 1250);
+            lblActualTraineeYear.Name = "lblActualTraineeYear";
+            lblActualTraineeYear.Size = new Size(220, 32);
+            lblActualTraineeYear.TabIndex = 122;
+            lblActualTraineeYear.Text = "Actual Trainee Year:";
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(334, 1248);
+            numericUpDown2.Margin = new Padding(6);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(334, 39);
+            numericUpDown2.TabIndex = 52;
+            numericUpDown2.Tag = "Cadre Level";
+            // 
+            // ckbStatus
+            // 
+            ckbStatus.AutoSize = true;
+            ckbStatus.Location = new Point(334, 20);
+            ckbStatus.Name = "ckbStatus";
+            ckbStatus.Size = new Size(108, 36);
+            ckbStatus.TabIndex = 10;
+            ckbStatus.Text = "active";
+            ckbStatus.UseVisualStyleBackColor = true;
+            // 
+            // ckbTrainee
+            // 
+            ckbTrainee.AutoSize = true;
+            ckbTrainee.Location = new Point(334, 1149);
+            ckbTrainee.Name = "ckbTrainee";
+            ckbTrainee.Size = new Size(123, 36);
+            ckbTrainee.TabIndex = 50;
+            ckbTrainee.Text = "Trainee";
+            ckbTrainee.UseVisualStyleBackColor = true;
+            // 
+            // lblTrainee
+            // 
+            lblTrainee.AutoSize = true;
+            lblTrainee.Location = new Point(32, 1149);
+            lblTrainee.Name = "lblTrainee";
+            lblTrainee.Size = new Size(96, 32);
+            lblTrainee.TabIndex = 124;
+            lblTrainee.Text = "Trainee:";
+            // 
             // frmCreateEmployee
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 49, 51);
-            ClientSize = new Size(1041, 1234);
+            ClientSize = new Size(1068, 1463);
+            Controls.Add(ckbTrainee);
+            Controls.Add(lblTrainee);
+            Controls.Add(ckbStatus);
+            Controls.Add(lblActualTraineeYear);
+            Controls.Add(numericUpDown2);
+            Controls.Add(lblTraineeYears);
+            Controls.Add(numericUpDown1);
             Controls.Add(lblRole);
             Controls.Add(lblCadreLevel);
             Controls.Add(lblDepartement);
@@ -625,7 +689,6 @@
             Controls.Add(lblSalutation);
             Controls.Add(lblStatus);
             Controls.Add(txtStreet);
-            Controls.Add(txtStatus);
             Controls.Add(txtEndDate);
             Controls.Add(txtSalutation);
             Controls.Add(txtPhoneNumberBusiness);
@@ -655,6 +718,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Create New Employee";
             ((System.ComponentModel.ISupportInitialize)txtCadreLevel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -679,7 +744,6 @@
         private ComboBox txtSex;
         private DateTimePicker txtDateOfBirth;
         private System.Windows.Forms.TextBox textBoxInput;
-        private ComboBox txtStatus;
         private ComboBox txtNationality;
         private DateTimePicker txtStartDate;
         private DateTimePicker txtEndDate;
@@ -707,5 +771,12 @@
         private Label lblDepartement;
         private Label lblStartEndDate;
         private Label lblEmploymentType;
+        private Label lblTraineeYears;
+        private NumericUpDown numericUpDown1;
+        private Label lblActualTraineeYear;
+        private NumericUpDown numericUpDown2;
+        private CheckBox ckbStatus;
+        private CheckBox ckbTrainee;
+        private Label lblTrainee;
     }
 }

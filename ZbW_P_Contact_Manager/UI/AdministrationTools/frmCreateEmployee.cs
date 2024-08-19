@@ -115,7 +115,7 @@ namespace ZbW_P_Contact_Manager.UI
         private void btnCreateNewEmployee_Click(object sender, EventArgs e)
         {
             // Collect data from text boxes
-            EmployeeStatus = txtStatus.Text;
+            //EmployeeStatus = txtStatus.Text;
             EmployeeSalutation = txtSalutation.Text;
             EmployeeTitle = txtTitle.Text;
             EmployeeFirstName = txtFirstName.Text;
