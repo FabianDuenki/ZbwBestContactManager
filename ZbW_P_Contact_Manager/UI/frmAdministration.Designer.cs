@@ -60,12 +60,12 @@
             lstCompanyType = new ColumnHeader();
             lstCompanyContact = new ColumnHeader();
             panel3 = new Panel();
+            btnCreateNewCustomer = new Button();
             btnRefresh = new Button();
             btnFilter = new Button();
             btnAddEmployee = new Button();
             lblAdminlTitle = new Label();
             panel2 = new Panel();
-            btnCreateNewCustomer = new Button();
             pnlAdminFormLoader.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -258,6 +258,25 @@
             panel3.Size = new Size(1361, 107);
             panel3.TabIndex = 1;
             // 
+            // btnCreateNewCustomer
+            // 
+            btnCreateNewCustomer.BackColor = Color.FromArgb(81, 102, 105);
+            btnCreateNewCustomer.FlatAppearance.BorderSize = 0;
+            btnCreateNewCustomer.FlatStyle = FlatStyle.Flat;
+            btnCreateNewCustomer.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnCreateNewCustomer.ForeColor = Color.Transparent;
+            btnCreateNewCustomer.Image = Properties.Resources.add;
+            btnCreateNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCreateNewCustomer.Location = new Point(370, 25);
+            btnCreateNewCustomer.Name = "btnCreateNewCustomer";
+            btnCreateNewCustomer.Size = new Size(327, 58);
+            btnCreateNewCustomer.TabIndex = 3;
+            btnCreateNewCustomer.Text = "Create new Customer";
+            btnCreateNewCustomer.TextAlign = ContentAlignment.MiddleLeft;
+            btnCreateNewCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCreateNewCustomer.UseVisualStyleBackColor = false;
+            btnCreateNewCustomer.Click += btnCreateNewCustomer_Click;
+            // 
             // btnRefresh
             // 
             btnRefresh.BackColor = Color.Transparent;
@@ -324,25 +343,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1361, 90);
             panel2.TabIndex = 4;
-            // 
-            // btnCreateNewCustomer
-            // 
-            btnCreateNewCustomer.BackColor = Color.FromArgb(81, 102, 105);
-            btnCreateNewCustomer.FlatAppearance.BorderSize = 0;
-            btnCreateNewCustomer.FlatStyle = FlatStyle.Flat;
-            btnCreateNewCustomer.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnCreateNewCustomer.ForeColor = Color.Transparent;
-            btnCreateNewCustomer.Image = Properties.Resources.add;
-            btnCreateNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCreateNewCustomer.Location = new Point(361, 25);
-            btnCreateNewCustomer.Name = "btnCreateNewCustomer";
-            btnCreateNewCustomer.Size = new Size(327, 58);
-            btnCreateNewCustomer.TabIndex = 3;
-            btnCreateNewCustomer.Text = "Create new Customer";
-            btnCreateNewCustomer.TextAlign = ContentAlignment.MiddleLeft;
-            btnCreateNewCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnCreateNewCustomer.UseVisualStyleBackColor = false;
-            btnCreateNewCustomer.Click += btnCreateNewCustomer_Click;
             // 
             // frmAdministration
             // 

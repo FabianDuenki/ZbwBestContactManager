@@ -91,8 +91,11 @@ namespace ZbW_P_Contact_Manager.UI
             SetNavigationStyle(btnCustomerContact); // Set navigation style for Customer Contact button
             lblTitle.Text = "Customer Contact Tool"; // Set the title label text
             Guid testuser = Guid.NewGuid();
-            LoadForm(new Notes(testuser));
-            //LoadForm(new frmCustomerContact()); // Load the customer contact form
+            Notes Notes = new Notes(testuser);
+            if (Notes.ShowDialog() == DialogResult.OK)
+            {
+
+            }
         }
 
         // Event handler for Search button click

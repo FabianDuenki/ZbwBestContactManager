@@ -64,13 +64,16 @@
             txtCompanyName = new TextBox();
             txtCompanyType = new TextBox();
             txtCompanyContact = new TextBox();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            panel3 = new Panel();
             SuspendLayout();
             // 
             // btnCreateNewCustomer
             // 
             btnCreateNewCustomer.ForeColor = Color.Black;
             btnCreateNewCustomer.Location = new Point(759, 1171);
-            btnCreateNewCustomer.Margin = new Padding(6, 6, 6, 6);
+            btnCreateNewCustomer.Margin = new Padding(6);
             btnCreateNewCustomer.Name = "btnCreateNewCustomer";
             btnCreateNewCustomer.Size = new Size(262, 49);
             btnCreateNewCustomer.TabIndex = 43;
@@ -475,12 +478,39 @@
             txtCompanyContact.TabIndex = 163;
             txtCompanyContact.Tag = "Company Contact";
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(122, 148, 150);
+            panel1.Location = new Point(20, 381);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1000, 5);
+            panel1.TabIndex = 164;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(122, 148, 150);
+            panel2.Location = new Point(20, 606);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1000, 5);
+            panel2.TabIndex = 165;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(122, 148, 150);
+            panel3.Location = new Point(20, 878);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1000, 5);
+            panel3.TabIndex = 165;
+            // 
             // frmCreateCustomer
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 49, 51);
             ClientSize = new Size(1032, 1235);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(txtCompanyContact);
             Controls.Add(txtCompanyType);
             Controls.Add(txtCompanyName);
@@ -519,7 +549,7 @@
             Controls.Add(btnCreateNewCustomer);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Margin = new Padding(6, 6, 6, 6);
+            Margin = new Padding(6);
             Name = "frmCreateCustomer";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Create New Customer";
@@ -564,5 +594,8 @@
         private TextBox txtCompanyName;
         private TextBox txtCompanyType;
         private TextBox txtCompanyContact;
+        private Panel panel1;
+        private Panel panel2;
+        private Panel panel3;
     }
 }
