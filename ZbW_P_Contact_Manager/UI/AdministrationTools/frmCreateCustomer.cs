@@ -20,13 +20,6 @@ namespace ZbW_P_Contact_Manager.UI
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar);
         }
 
-        // Event handler for text changed event on Social Security Number text box
-        private void txtSocialSecurityNumber_TextChanged(object sender, EventArgs e)
-        {
-            // Validate the input format of the Social Security Number
-            ValidateInput(txtSocialSecurityNumber, @"^\d{3}\.\d{4}\.\d{4}\.\d{2}$");
-        }
-
         // Event handler for key press event on Phone Number text box
         private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
