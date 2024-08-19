@@ -425,45 +425,45 @@
             lblStatus.AutoSize = true;
             lblStatus.Location = new Point(32, 20);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(83, 32);
+            lblStatus.Size = new Size(93, 32);
             lblStatus.TabIndex = 31;
-            lblStatus.Text = "Status:";
+            lblStatus.Text = "Status*:";
             // 
             // lblSalutation
             // 
             lblSalutation.AutoSize = true;
             lblSalutation.Location = new Point(32, 65);
             lblSalutation.Name = "lblSalutation";
-            lblSalutation.Size = new Size(126, 32);
+            lblSalutation.Size = new Size(136, 32);
             lblSalutation.TabIndex = 101;
-            lblSalutation.Text = "Salutation:";
+            lblSalutation.Text = "Salutation*:";
             // 
             // lblSex
             // 
             lblSex.AutoSize = true;
             lblSex.Location = new Point(32, 259);
             lblSex.Name = "lblSex";
-            lblSex.Size = new Size(56, 32);
+            lblSex.Size = new Size(66, 32);
             lblSex.TabIndex = 102;
-            lblSex.Text = "Sex:";
+            lblSex.Text = "Sex*:";
             // 
             // lblLastName
             // 
             lblLastName.AutoSize = true;
             lblLastName.Location = new Point(32, 210);
             lblLastName.Name = "lblLastName";
-            lblLastName.Size = new Size(131, 32);
+            lblLastName.Size = new Size(141, 32);
             lblLastName.TabIndex = 103;
-            lblLastName.Text = "Last Name:";
+            lblLastName.Text = "Last Name*:";
             // 
             // lblFirstName
             // 
             lblFirstName.AutoSize = true;
             lblFirstName.Location = new Point(32, 163);
             lblFirstName.Name = "lblFirstName";
-            lblFirstName.Size = new Size(134, 32);
+            lblFirstName.Size = new Size(144, 32);
             lblFirstName.TabIndex = 104;
-            lblFirstName.Text = "First Name:";
+            lblFirstName.Text = "First Name*:";
             // 
             // lblTitle
             // 
@@ -479,45 +479,45 @@
             lblSocialSecurityNumber.AutoSize = true;
             lblSocialSecurityNumber.Location = new Point(32, 355);
             lblSocialSecurityNumber.Name = "lblSocialSecurityNumber";
-            lblSocialSecurityNumber.Size = new Size(268, 32);
+            lblSocialSecurityNumber.Size = new Size(278, 32);
             lblSocialSecurityNumber.TabIndex = 110;
-            lblSocialSecurityNumber.Text = "Social Security Number:";
+            lblSocialSecurityNumber.Text = "Social Security Number*:";
             // 
             // lblDateOfBirth
             // 
             lblDateOfBirth.AutoSize = true;
             lblDateOfBirth.Location = new Point(32, 402);
             lblDateOfBirth.Name = "lblDateOfBirth";
-            lblDateOfBirth.Size = new Size(155, 32);
+            lblDateOfBirth.Size = new Size(165, 32);
             lblDateOfBirth.TabIndex = 109;
-            lblDateOfBirth.Text = "Date of Birth:";
+            lblDateOfBirth.Text = "Date of Birth*:";
             // 
             // lblAddress
             // 
             lblAddress.AutoSize = true;
             lblAddress.Location = new Point(32, 485);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(103, 32);
+            lblAddress.Size = new Size(113, 32);
             lblAddress.TabIndex = 108;
-            lblAddress.Text = "Address:";
+            lblAddress.Text = "Address*:";
             // 
             // lblPhoneNumberMobile
             // 
             lblPhoneNumberMobile.AutoSize = true;
             lblPhoneNumberMobile.Location = new Point(32, 649);
             lblPhoneNumberMobile.Name = "lblPhoneNumberMobile";
-            lblPhoneNumberMobile.Size = new Size(264, 32);
+            lblPhoneNumberMobile.Size = new Size(274, 32);
             lblPhoneNumberMobile.TabIndex = 107;
-            lblPhoneNumberMobile.Text = "Phone Number Mobile:";
+            lblPhoneNumberMobile.Text = "Phone Number Mobile*:";
             // 
             // lblNationality
             // 
             lblNationality.AutoSize = true;
             lblNationality.Location = new Point(32, 308);
             lblNationality.Name = "lblNationality";
-            lblNationality.Size = new Size(135, 32);
+            lblNationality.Size = new Size(145, 32);
             lblNationality.TabIndex = 106;
-            lblNationality.Text = "Nationality:";
+            lblNationality.Text = "Nationality*:";
             // 
             // lblPhoneNumberBusiness
             // 
@@ -533,63 +533,63 @@
             lblEmail.AutoSize = true;
             lblEmail.Location = new Point(32, 789);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(156, 32);
+            lblEmail.Size = new Size(166, 32);
             lblEmail.TabIndex = 112;
-            lblEmail.Text = "Mail Address:";
+            lblEmail.Text = "Mail Address*:";
             // 
             // lblPhoneNumberPrivate
             // 
             lblPhoneNumberPrivate.AutoSize = true;
             lblPhoneNumberPrivate.Location = new Point(32, 695);
             lblPhoneNumberPrivate.Name = "lblPhoneNumberPrivate";
-            lblPhoneNumberPrivate.Size = new Size(261, 32);
+            lblPhoneNumberPrivate.Size = new Size(271, 32);
             lblPhoneNumberPrivate.TabIndex = 111;
-            lblPhoneNumberPrivate.Text = "Phone Number Private:";
+            lblPhoneNumberPrivate.Text = "Phone Number Private:*";
             // 
             // lblRole
             // 
             lblRole.AutoSize = true;
             lblRole.Location = new Point(32, 1011);
             lblRole.Name = "lblRole";
-            lblRole.Size = new Size(65, 32);
+            lblRole.Size = new Size(75, 32);
             lblRole.TabIndex = 118;
-            lblRole.Text = "Role:";
+            lblRole.Text = "Role*:";
             // 
             // lblCadreLevel
             // 
             lblCadreLevel.AutoSize = true;
             lblCadreLevel.Location = new Point(32, 1058);
             lblCadreLevel.Name = "lblCadreLevel";
-            lblCadreLevel.Size = new Size(136, 32);
+            lblCadreLevel.Size = new Size(146, 32);
             lblCadreLevel.TabIndex = 117;
-            lblCadreLevel.Text = "CadreLevel:";
+            lblCadreLevel.Text = "CadreLevel*:";
             // 
             // lblDepartement
             // 
             lblDepartement.AutoSize = true;
             lblDepartement.Location = new Point(32, 964);
             lblDepartement.Name = "lblDepartement";
-            lblDepartement.Size = new Size(160, 32);
+            lblDepartement.Size = new Size(170, 32);
             lblDepartement.TabIndex = 116;
-            lblDepartement.Text = "Departement:";
+            lblDepartement.Text = "Departement*:";
             // 
             // lblStartEndDate
             // 
             lblStartEndDate.AutoSize = true;
             lblStartEndDate.Location = new Point(32, 866);
             lblStartEndDate.Name = "lblStartEndDate";
-            lblStartEndDate.Size = new Size(173, 32);
+            lblStartEndDate.Size = new Size(183, 32);
             lblStartEndDate.TabIndex = 115;
-            lblStartEndDate.Text = "Start/End Date:";
+            lblStartEndDate.Text = "Start*/End Date:";
             // 
             // lblEmploymentType
             // 
             lblEmploymentType.AutoSize = true;
             lblEmploymentType.Location = new Point(32, 915);
             lblEmploymentType.Name = "lblEmploymentType";
-            lblEmploymentType.Size = new Size(208, 32);
+            lblEmploymentType.Size = new Size(218, 32);
             lblEmploymentType.TabIndex = 114;
-            lblEmploymentType.Text = "Employment type:";
+            lblEmploymentType.Text = "Employment type*:";
             // 
             // lblTraineeYears
             // 

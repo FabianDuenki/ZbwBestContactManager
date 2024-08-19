@@ -13,7 +13,7 @@ namespace ZbW_P_Contact_Manager.UI
             InitializeComponent();
         }
 
-       
+
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             frmCreateEmployee frmCreateEmployee = new frmCreateEmployee();
@@ -54,6 +54,50 @@ namespace ZbW_P_Contact_Manager.UI
 
                 // Add the employee to your system, e.g., to a list or database
                 // Example: AddEmployeeToList(employeeName, employeeId);
+            }
+        }
+
+        private void btnCreateNewCustomer_Click(object sender, EventArgs e)
+        {
+            frmCreateCustomer frmCreateCustomer = new frmCreateCustomer();
+
+            // Show the frmCreatecustomer as a modal dialog
+            if (frmCreateCustomer.ShowDialog() == DialogResult.OK)
+            {
+                /* Retrieve the new customer data if needed
+                string customerStatus = frmCreatecustomer.customerStatus;
+                string customerSalutation = frmCreatecustomer.customerSalutation;
+                string customerTitle = frmCreatecustomer.customerTitle;
+                string customerFistName = frmCreatecustomer.customerFirstName;
+                string customerLastName = frmCreatecustomer.customerLastName;
+
+                string customerGender = frmCreatecustomer.customerGender;
+                string customerDateOfBirth = frmCreatecustomer.customerDateOfBirth;
+                string customerNationality = frmCreatecustomer.customerNationality;
+
+                string customerStreet = frmCreatecustomer.customerStreet;
+                string customerStreetNumber = frmCreatecustomer.customerStreetNumber;
+                string customerZipCode = frmCreatecustomer.customerZipCode;
+                string customerPlace = frmCreatecustomer.customerPlace;
+
+                string customerSocialSecurityNumber = frmCreatecustomer.customerSocialSecurityNumber;
+                string customerEmail = frmCreatecustomer.customerEmail;
+
+                string customerPhoneNumberPrivate = frmCreatecustomer.customerPhoneNumberPrivate;
+                string customerPhoneNumberMobile = frmCreatecustomer.customerPhoneNumberMobile;
+                string customerPhoneNumberBusiness = frmCreatecustomer.customerPhoneNumberBusiness;
+
+                string customerDepartement = frmCreatecustomer.customerDepartment;
+                string customerStartDate = frmCreatecustomer.customerStartDate;
+                string customerEndDate = frmCreatecustomer.customerEndDate;
+                string customerEmployment = frmCreatecustomer.customerEmployment;
+                string customerRole = frmCreatecustomer.customerRole;
+                string customerCadreLevel = frmCreatecustomer.customerCadreLevel;
+                */
+
+
+                // Add the customer to your system, e.g., to a list or database
+                // Example: AddcustomerToList(customerName, customerId);
             }
         }
     }

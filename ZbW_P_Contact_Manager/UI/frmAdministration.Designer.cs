@@ -65,6 +65,7 @@
             btnAddEmployee = new Button();
             lblAdminlTitle = new Label();
             panel2 = new Panel();
+            btnCreateNewCustomer = new Button();
             pnlAdminFormLoader.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -246,6 +247,7 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(41, 49, 51);
+            panel3.Controls.Add(btnCreateNewCustomer);
             panel3.Controls.Add(btnRefresh);
             panel3.Controls.Add(btnFilter);
             panel3.Controls.Add(btnAddEmployee);
@@ -263,7 +265,7 @@
             btnRefresh.FlatStyle = FlatStyle.Flat;
             btnRefresh.ForeColor = Color.Transparent;
             btnRefresh.Image = Properties.Resources.refresh;
-            btnRefresh.Location = new Point(778, 23);
+            btnRefresh.Location = new Point(1273, 25);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(60, 60);
             btnRefresh.TabIndex = 2;
@@ -276,7 +278,7 @@
             btnFilter.FlatStyle = FlatStyle.Flat;
             btnFilter.ForeColor = Color.Transparent;
             btnFilter.Image = Properties.Resources.filter;
-            btnFilter.Location = new Point(650, 23);
+            btnFilter.Location = new Point(1191, 23);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(60, 60);
             btnFilter.TabIndex = 1;
@@ -284,15 +286,20 @@
             // 
             // btnAddEmployee
             // 
-            btnAddEmployee.BackColor = Color.Transparent;
+            btnAddEmployee.BackColor = Color.FromArgb(81, 102, 105);
             btnAddEmployee.FlatAppearance.BorderSize = 0;
             btnAddEmployee.FlatStyle = FlatStyle.Flat;
+            btnAddEmployee.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnAddEmployee.ForeColor = Color.Transparent;
             btnAddEmployee.Image = Properties.Resources.add;
+            btnAddEmployee.ImageAlign = ContentAlignment.MiddleLeft;
             btnAddEmployee.Location = new Point(21, 25);
             btnAddEmployee.Name = "btnAddEmployee";
-            btnAddEmployee.Size = new Size(60, 60);
+            btnAddEmployee.Size = new Size(334, 58);
             btnAddEmployee.TabIndex = 0;
+            btnAddEmployee.Text = "Create new Employee";
+            btnAddEmployee.TextAlign = ContentAlignment.MiddleLeft;
+            btnAddEmployee.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddEmployee.UseVisualStyleBackColor = false;
             btnAddEmployee.Click += btnAddEmployee_Click;
             // 
@@ -317,6 +324,25 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1361, 90);
             panel2.TabIndex = 4;
+            // 
+            // btnCreateNewCustomer
+            // 
+            btnCreateNewCustomer.BackColor = Color.FromArgb(81, 102, 105);
+            btnCreateNewCustomer.FlatAppearance.BorderSize = 0;
+            btnCreateNewCustomer.FlatStyle = FlatStyle.Flat;
+            btnCreateNewCustomer.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnCreateNewCustomer.ForeColor = Color.Transparent;
+            btnCreateNewCustomer.Image = Properties.Resources.add;
+            btnCreateNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCreateNewCustomer.Location = new Point(361, 25);
+            btnCreateNewCustomer.Name = "btnCreateNewCustomer";
+            btnCreateNewCustomer.Size = new Size(327, 58);
+            btnCreateNewCustomer.TabIndex = 3;
+            btnCreateNewCustomer.Text = "Create new Customer";
+            btnCreateNewCustomer.TextAlign = ContentAlignment.MiddleLeft;
+            btnCreateNewCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCreateNewCustomer.UseVisualStyleBackColor = false;
+            btnCreateNewCustomer.Click += btnCreateNewCustomer_Click;
             // 
             // frmAdministration
             // 
@@ -376,5 +402,6 @@
         private ColumnHeader lstCompanyContact;
         private Button btnFilter;
         private Button btnRefresh;
+        private Button btnCreateNewCustomer;
     }
 }
