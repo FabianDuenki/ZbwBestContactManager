@@ -53,5 +53,21 @@ namespace Model
                 $"{this.UpdatedAt.ToString()}," +
                 $"{this.UpdatedBy}";
         }
+        public Note FromCsvString(string csvString)
+        {
+            string[] propertyValues = csvString.Split(',');
+
+            Note note = new Note
+            {
+                Id = Guid.Parse(propertyValues[0]),
+                Comment = propertyValues[1],
+                PersonId = Guid.Parse(propertyValues[2]),
+                CreatedAt = DateTime.Parse(propertyValues[3]),
+                CreatedBy = propertyValues[4],
+                UpdatedAt = DateTime.Parse(propertyValues[5]),
+                UpdatedBy = propertyValues[6]
+            };
+            return note;
+        }
     }
 }

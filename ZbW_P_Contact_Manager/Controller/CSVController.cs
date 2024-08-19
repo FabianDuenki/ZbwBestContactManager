@@ -158,31 +158,39 @@ namespace Controller
             return $"{Environment.CurrentDirectory}\\{fileName}";
         }
 
-        public List<Person> ReadUsers(Type user)
+        public List<Person> ReadUsers(Person user)
         {
-            //string filePath = GetPathByModelType(user.GetType());
+            string filePath = GetPathByModelType(user.GetType());
+            List<Person> userList = new();
+            string[] csvUsers = File.ReadAllLines(filePath);
 
-            //if (!Path.Exists(filePath))
-            //{
-            //    return new List<Person>();
-            //}
+            if (!Path.Exists(filePath)) return userList;
 
-            //return user.FromCsvString(File.ReadAllLines(filePath));
-            return new List<Person>();
+            foreach (string csvUser in csvUsers)
+            {
+                if(csvUser == user.ToCsvHeader() || string.IsNullOrEmpty(csvUser)) continue;
+                userList.Add(user.FromCsvString(csvUser));
+            }
+
+            return userList;
         }
 
         public List<Note> ReadNotes(Guid personId)
         {
-            //Note note = new Note();
-            //string filePath = GetPathByModelType(note.GetType());
+            Note note = new Note();
+            string filePath = GetPathByModelType(note.GetType());
+            List<Note> noteList = new();
+            string[] csvNotes = File.ReadAllLines(filePath);
 
-            //if (!Path.Exists(filePath))
-            //{
-            //    return new List<Note>();
-            //}
+            if (!Path.Exists(filePath)) return noteList;
 
-            //return note.FromCsvString(File.ReadAllLines(filePath));
-            return new List<Note>();
+            foreach (string csvNote in csvNotes)
+            {
+                if (csvNote == note.ToCsvHeader()) continue;
+                noteList.Add(note.FromCsvString(csvNote));
+            }
+
+            return noteList;
         }
         //public List<dynamic> ConvertCsvStringToUsers(ModelType modelType, string[] csvLines)
         //{

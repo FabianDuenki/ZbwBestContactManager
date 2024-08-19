@@ -30,13 +30,6 @@ namespace Controller
 
         public List<Note> LoadNotes(Guid personId)
         {
-            //if (!Path.Exists(_filePath))
-            //{
-            //    return new List<Note>();
-            //}
-            //string[] csvLines = File.ReadAllLines(_filePath);
-
-            //return _csvController.ConvertCsvStringToUsers(_modelType, csvLines);
             return _crudController.Read(personId);
         }
 

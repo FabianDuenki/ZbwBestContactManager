@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Reflection;
@@ -85,6 +86,56 @@ namespace Model
                 "StreetNumber," +
                 "ZipCode," +
                 "Place";
+        }
+        public bool Contains(Person other)
+        {
+            if (other.Id != Guid.Empty && other.Id != this.Id) return false;
+            if (other.Salutation != null && other.Salutation != this.Salutation) return false;
+            if (other.FirstName != null && other.FirstName != this.FirstName) return false;
+            if (other.LastName != null && other.LastName != this.LastName) return false;
+            if (other.DateOfBirth != null && other.DateOfBirth != this.DateOfBirth) return false;
+            if (other.Gender != null && other.Gender != this.Gender) return false;
+            if (other.Title != null && other.Title != this.Title) return false;
+            if (other.SocialSecurityNumber != null && other.SocialSecurityNumber != this.SocialSecurityNumber) return false;
+            if (other.PhoneNumberPrivate != null && other.PhoneNumberPrivate != this.PhoneNumberPrivate) return false;
+            if (other.PhoneNumberMobile != null && other.PhoneNumberMobile != this.PhoneNumberMobile) return false;
+            if (other.PhoneNumberBusiness != null && other.PhoneNumberBusiness != this.PhoneNumberBusiness) return false;
+            if (other.Email != null && other.Email != this.Email) return false;
+            if (other.Status != null && other.Status != this.Status) return false;
+            if (other.Nationality != null && other.Nationality != this.Nationality) return false;
+            if (other.Street != null && other.Street != this.Street) return false;
+            if (other.StreetNumber != null && other.StreetNumber != this.StreetNumber) return false;
+            if (other.ZipCode != null && other.ZipCode != this.ZipCode) return false;
+            if (other.Place != null && other.Place != this.Place) return false;
+            return true;
+        }
+        public virtual Person FromCsvString(string csvString)
+        {
+            string[] propertyValues = csvString.Split(',');
+
+            Person user = new Person
+            {
+                Id = Guid.Parse(propertyValues[0]),
+                Salutation = propertyValues[1],
+                FirstName = propertyValues[2],
+                LastName = propertyValues[3],
+                DateOfBirth = DateTime.Parse(propertyValues[4]),
+                Gender = propertyValues[5],
+                Title = propertyValues[6],
+                SocialSecurityNumber = propertyValues[7],
+                PhoneNumberPrivate = propertyValues[8],
+                PhoneNumberMobile = propertyValues[9],
+                PhoneNumberBusiness = propertyValues[10],
+                Email = propertyValues[11],
+                Status = bool.Parse(propertyValues[12]),
+                Nationality = propertyValues[13],
+                Street = propertyValues[14],
+                StreetNumber = propertyValues[15],
+                ZipCode = int.Parse(propertyValues[16]),
+                Place = propertyValues[17]
+            };
+
+            return user;
         }
     }
 }
