@@ -23,34 +23,34 @@ namespace ZbW_P_Contact_Manager.UI
             if (frmCreateEmployee.ShowDialog() == DialogResult.OK)
             {
                 // Retrieve the new employee data if needed
-                string employeeStatus = frmCreateEmployee.EmployeeStatus;
-                string employeeSalutation = frmCreateEmployee.EmployeeSalutation;
-                string employeeTitle = frmCreateEmployee.EmployeeTitle;
-                string employeeFistName = frmCreateEmployee.EmployeeFirstName;
-                string employeeLastName = frmCreateEmployee.EmployeeLastName;
+                string Status = frmCreateEmployee.Status;
+                string Salutation = frmCreateEmployee.Salutation;
+                string Title = frmCreateEmployee.Title;
+                string FistName = frmCreateEmployee.FirstName;
+                string LastName = frmCreateEmployee.LastName;
 
-                string employeeGender = frmCreateEmployee.EmployeeGender;
-                string employeeDateOfBirth = frmCreateEmployee.EmployeeDateOfBirth;
-                string employeeNationality = frmCreateEmployee.EmployeeNationality;
+                string Gender = frmCreateEmployee.Gender;
+                string DateOfBirth = frmCreateEmployee.DateOfBirth;
+                string Nationality = frmCreateEmployee.Nationality;
 
-                string employeeStreet = frmCreateEmployee.EmployeeStreet;
-                string employeeStreetNumber = frmCreateEmployee.EmployeeStreetNumber;
-                string employeeZipCode = frmCreateEmployee.EmployeeZipCode;
-                string employeePlace = frmCreateEmployee.EmployeePlace;
+                string Street = frmCreateEmployee.Street;
+                string StreetNumber = frmCreateEmployee.StreetNumber;
+                string ZipCode = frmCreateEmployee.ZipCode;
+                string Place = frmCreateEmployee.Place;
 
-                string employeeSocialSecurityNumber = frmCreateEmployee.EmployeeSocialSecurityNumber;
-                string employeeEmail = frmCreateEmployee.EmployeeEmail;
+                string SocialSecurityNumber = frmCreateEmployee.SocialSecurityNumber;
+                string Email = frmCreateEmployee.Email;
 
-                string employeePhoneNumberPrivate = frmCreateEmployee.EmployeePhoneNumberPrivate;
-                string employeePhoneNumberMobile = frmCreateEmployee.EmployeePhoneNumberMobile;
-                string employeePhoneNumberBusiness = frmCreateEmployee.EmployeePhoneNumberBusiness;
+                string PhoneNumberPrivate = frmCreateEmployee.PhoneNumberPrivate;
+                string PhoneNumberMobile = frmCreateEmployee.PhoneNumberMobile;
+                string PhoneNumberBusiness = frmCreateEmployee.PhoneNumberBusiness;
 
-                string employeeDepartement = frmCreateEmployee.EmployeeDepartment;
-                string employeeStartDate = frmCreateEmployee.EmployeeStartDate;
-                string employeeEndDate = frmCreateEmployee.EmployeeEndDate;
-                string employeeEmployment = frmCreateEmployee.EmployeeEmployment;
-                string employeeRole = frmCreateEmployee.EmployeeRole;
-                string employeeCadreLevel = frmCreateEmployee.EmployeeCadreLevel;
+                string Departement = frmCreateEmployee.Department;
+                string StartDate = frmCreateEmployee.StartDate;
+                string EndDate = frmCreateEmployee.EndDate;
+                string Employment = frmCreateEmployee.Employment;
+                string Role = frmCreateEmployee.Role;
+                string CadreLevel = frmCreateEmployee.CadreLevel;
 
 
                 // Add the employee to your system, e.g., to a list or database

@@ -136,6 +136,5 @@ namespace ZbW_P_Contact_Manager.UI
         {
             Application.Exit(); // Exit the application
         }
-
     }
 }
