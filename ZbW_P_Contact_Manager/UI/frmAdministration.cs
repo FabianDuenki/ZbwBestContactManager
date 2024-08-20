@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ZbW_P_Contact_Manager.UI.AdministrationTools;
 //using ZbW_P_Contact_Manager.UI.AdministrationTools;
 
 namespace ZbW_P_Contact_Manager.UI
@@ -99,6 +100,16 @@ namespace ZbW_P_Contact_Manager.UI
                 // Add the customer to your system, e.g., to a list or database
                 // Example: AddcustomerToList(customerName, customerId);
             }
+        }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+            frmEditUser frmEditUser = new frmEditUser();
+            if (frmEditUser.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+
         }
     }
 }

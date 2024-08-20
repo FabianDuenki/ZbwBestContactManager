@@ -72,7 +72,7 @@
             // btnCreateNewCustomer
             // 
             btnCreateNewCustomer.ForeColor = Color.Black;
-            btnCreateNewCustomer.Location = new Point(759, 1171);
+            btnCreateNewCustomer.Location = new Point(697, 965);
             btnCreateNewCustomer.Margin = new Padding(6);
             btnCreateNewCustomer.Name = "btnCreateNewCustomer";
             btnCreateNewCustomer.Size = new Size(262, 49);
@@ -83,7 +83,9 @@
             // ckbStatus
             // 
             ckbStatus.AutoSize = true;
-            ckbStatus.Location = new Point(331, 28);
+            ckbStatus.Checked = true;
+            ckbStatus.CheckState = CheckState.Checked;
+            ckbStatus.Location = new Point(330, 30);
             ckbStatus.Name = "ckbStatus";
             ckbStatus.Size = new Size(108, 36);
             ckbStatus.TabIndex = 119;
@@ -93,7 +95,7 @@
             // lblCompanyContact
             // 
             lblCompanyContact.AutoSize = true;
-            lblCompanyContact.Location = new Point(29, 1019);
+            lblCompanyContact.Location = new Point(30, 870);
             lblCompanyContact.Name = "lblCompanyContact";
             lblCompanyContact.Size = new Size(220, 32);
             lblCompanyContact.TabIndex = 160;
@@ -102,7 +104,7 @@
             // lblCompanyType
             // 
             lblCompanyType.AutoSize = true;
-            lblCompanyType.Location = new Point(29, 972);
+            lblCompanyType.Location = new Point(30, 820);
             lblCompanyType.Name = "lblCompanyType";
             lblCompanyType.Size = new Size(189, 32);
             lblCompanyType.TabIndex = 158;
@@ -111,7 +113,7 @@
             // lblCompanyName
             // 
             lblCompanyName.AutoSize = true;
-            lblCompanyName.Location = new Point(29, 923);
+            lblCompanyName.Location = new Point(30, 770);
             lblCompanyName.Name = "lblCompanyName";
             lblCompanyName.Size = new Size(202, 32);
             lblCompanyName.TabIndex = 156;
@@ -120,7 +122,7 @@
             // lblPhoneNumberBusiness
             // 
             lblPhoneNumberBusiness.AutoSize = true;
-            lblPhoneNumberBusiness.Location = new Point(29, 750);
+            lblPhoneNumberBusiness.Location = new Point(30, 660);
             lblPhoneNumberBusiness.Name = "lblPhoneNumberBusiness";
             lblPhoneNumberBusiness.Size = new Size(290, 32);
             lblPhoneNumberBusiness.TabIndex = 155;
@@ -129,7 +131,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(29, 797);
+            lblEmail.Location = new Point(30, 710);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(166, 32);
             lblEmail.TabIndex = 154;
@@ -138,7 +140,7 @@
             // lblPhoneNumberPrivate
             // 
             lblPhoneNumberPrivate.AutoSize = true;
-            lblPhoneNumberPrivate.Location = new Point(29, 703);
+            lblPhoneNumberPrivate.Location = new Point(30, 610);
             lblPhoneNumberPrivate.Name = "lblPhoneNumberPrivate";
             lblPhoneNumberPrivate.Size = new Size(261, 32);
             lblPhoneNumberPrivate.TabIndex = 153;
@@ -147,7 +149,7 @@
             // lblDateOfBirth
             // 
             lblDateOfBirth.AutoSize = true;
-            lblDateOfBirth.Location = new Point(29, 410);
+            lblDateOfBirth.Location = new Point(30, 400);
             lblDateOfBirth.Name = "lblDateOfBirth";
             lblDateOfBirth.Size = new Size(155, 32);
             lblDateOfBirth.TabIndex = 151;
@@ -156,7 +158,7 @@
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(29, 493);
+            lblAddress.Location = new Point(30, 450);
             lblAddress.Name = "lblAddress";
             lblAddress.Size = new Size(113, 32);
             lblAddress.TabIndex = 150;
@@ -165,7 +167,7 @@
             // lblPhoneNumberMobile
             // 
             lblPhoneNumberMobile.AutoSize = true;
-            lblPhoneNumberMobile.Location = new Point(29, 657);
+            lblPhoneNumberMobile.Location = new Point(30, 560);
             lblPhoneNumberMobile.Name = "lblPhoneNumberMobile";
             lblPhoneNumberMobile.Size = new Size(264, 32);
             lblPhoneNumberMobile.TabIndex = 149;
@@ -174,7 +176,7 @@
             // lblNationality
             // 
             lblNationality.AutoSize = true;
-            lblNationality.Location = new Point(29, 316);
+            lblNationality.Location = new Point(30, 330);
             lblNationality.Name = "lblNationality";
             lblNationality.Size = new Size(145, 32);
             lblNationality.TabIndex = 148;
@@ -183,7 +185,7 @@
             // lblTitle
             // 
             lblTitle.AutoSize = true;
-            lblTitle.Location = new Point(29, 121);
+            lblTitle.Location = new Point(30, 130);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(65, 32);
             lblTitle.TabIndex = 147;
@@ -192,7 +194,7 @@
             // lblFirstName
             // 
             lblFirstName.AutoSize = true;
-            lblFirstName.Location = new Point(29, 171);
+            lblFirstName.Location = new Point(30, 180);
             lblFirstName.Name = "lblFirstName";
             lblFirstName.Size = new Size(144, 32);
             lblFirstName.TabIndex = 146;
@@ -201,7 +203,7 @@
             // lblLastName
             // 
             lblLastName.AutoSize = true;
-            lblLastName.Location = new Point(29, 218);
+            lblLastName.Location = new Point(30, 230);
             lblLastName.Name = "lblLastName";
             lblLastName.Size = new Size(141, 32);
             lblLastName.TabIndex = 145;
@@ -210,7 +212,7 @@
             // lblSex
             // 
             lblSex.AutoSize = true;
-            lblSex.Location = new Point(29, 267);
+            lblSex.Location = new Point(30, 280);
             lblSex.Name = "lblSex";
             lblSex.Size = new Size(66, 32);
             lblSex.TabIndex = 144;
@@ -219,7 +221,7 @@
             // lblSalutation
             // 
             lblSalutation.AutoSize = true;
-            lblSalutation.Location = new Point(29, 73);
+            lblSalutation.Location = new Point(30, 80);
             lblSalutation.Name = "lblSalutation";
             lblSalutation.Size = new Size(136, 32);
             lblSalutation.TabIndex = 143;
@@ -228,7 +230,7 @@
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(29, 28);
+            lblStatus.Location = new Point(30, 30);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(93, 32);
             lblStatus.TabIndex = 133;
@@ -239,7 +241,7 @@
             txtStreet.BackColor = Color.FromArgb(227, 234, 234);
             txtStreet.Font = new Font("Microsoft Sans Serif", 9F);
             txtStreet.ForeColor = Color.Black;
-            txtStreet.Location = new Point(331, 493);
+            txtStreet.Location = new Point(330, 450);
             txtStreet.Margin = new Padding(7, 6, 7, 6);
             txtStreet.Name = "txtStreet";
             txtStreet.PlaceholderText = "Street";
@@ -255,7 +257,7 @@
             txtSalutation.ForeColor = Color.Black;
             txtSalutation.FormattingEnabled = true;
             txtSalutation.Items.AddRange(new object[] { "Mr.", "Ms.", "Mrs." });
-            txtSalutation.Location = new Point(331, 73);
+            txtSalutation.Location = new Point(330, 80);
             txtSalutation.Margin = new Padding(7, 6, 7, 6);
             txtSalutation.Name = "txtSalutation";
             txtSalutation.Size = new Size(334, 37);
@@ -268,7 +270,7 @@
             txtPhoneNumberBusiness.BackColor = Color.FromArgb(227, 234, 234);
             txtPhoneNumberBusiness.Font = new Font("Microsoft Sans Serif", 9F);
             txtPhoneNumberBusiness.ForeColor = Color.Black;
-            txtPhoneNumberBusiness.Location = new Point(331, 747);
+            txtPhoneNumberBusiness.Location = new Point(330, 660);
             txtPhoneNumberBusiness.Margin = new Padding(7, 6, 7, 6);
             txtPhoneNumberBusiness.Name = "txtPhoneNumberBusiness";
             txtPhoneNumberBusiness.PlaceholderText = "Phone Number Business";
@@ -281,7 +283,7 @@
             txtTitle.BackColor = Color.FromArgb(227, 234, 234);
             txtTitle.Font = new Font("Microsoft Sans Serif", 9F);
             txtTitle.ForeColor = Color.Black;
-            txtTitle.Location = new Point(331, 121);
+            txtTitle.Location = new Point(330, 130);
             txtTitle.Margin = new Padding(7, 6, 7, 6);
             txtTitle.Name = "txtTitle";
             txtTitle.PlaceholderText = "Title";
@@ -294,7 +296,7 @@
             txtPhoneNumberMobile.BackColor = Color.FromArgb(227, 234, 234);
             txtPhoneNumberMobile.Font = new Font("Microsoft Sans Serif", 9F);
             txtPhoneNumberMobile.ForeColor = Color.Black;
-            txtPhoneNumberMobile.Location = new Point(331, 657);
+            txtPhoneNumberMobile.Location = new Point(330, 560);
             txtPhoneNumberMobile.Margin = new Padding(7, 6, 7, 6);
             txtPhoneNumberMobile.Name = "txtPhoneNumberMobile";
             txtPhoneNumberMobile.PlaceholderText = "Phone Number Mobile";
@@ -307,7 +309,7 @@
             txtFirstName.BackColor = Color.FromArgb(227, 234, 234);
             txtFirstName.Font = new Font("Microsoft Sans Serif", 9F);
             txtFirstName.ForeColor = Color.Black;
-            txtFirstName.Location = new Point(331, 168);
+            txtFirstName.Location = new Point(330, 180);
             txtFirstName.Margin = new Padding(7, 6, 7, 6);
             txtFirstName.Name = "txtFirstName";
             txtFirstName.PlaceholderText = "First Name";
@@ -320,7 +322,7 @@
             txtLastName.BackColor = Color.FromArgb(227, 234, 234);
             txtLastName.Font = new Font("Microsoft Sans Serif", 9F);
             txtLastName.ForeColor = Color.Black;
-            txtLastName.Location = new Point(331, 215);
+            txtLastName.Location = new Point(330, 230);
             txtLastName.Margin = new Padding(7, 6, 7, 6);
             txtLastName.Name = "txtLastName";
             txtLastName.PlaceholderText = "Last Name";
@@ -333,7 +335,7 @@
             txtPhoneNumberPrivate.BackColor = Color.FromArgb(227, 234, 234);
             txtPhoneNumberPrivate.Font = new Font("Microsoft Sans Serif", 9F);
             txtPhoneNumberPrivate.ForeColor = Color.Black;
-            txtPhoneNumberPrivate.Location = new Point(331, 703);
+            txtPhoneNumberPrivate.Location = new Point(330, 610);
             txtPhoneNumberPrivate.Margin = new Padding(7, 6, 7, 6);
             txtPhoneNumberPrivate.Name = "txtPhoneNumberPrivate";
             txtPhoneNumberPrivate.PlaceholderText = "Phone Number Private";
@@ -349,7 +351,7 @@
             txtSex.ForeColor = Color.Black;
             txtSex.FormattingEnabled = true;
             txtSex.Items.AddRange(new object[] { "Male", "Female" });
-            txtSex.Location = new Point(331, 262);
+            txtSex.Location = new Point(330, 280);
             txtSex.Margin = new Padding(7, 6, 7, 6);
             txtSex.Name = "txtSex";
             txtSex.Size = new Size(334, 37);
@@ -365,7 +367,7 @@
             txtNationality.ForeColor = Color.Black;
             txtNationality.FormattingEnabled = true;
             txtNationality.Items.AddRange(new object[] { "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "The Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Costa Rica", "Côte d’Ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor (Timor-Leste)", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "The Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia, Federated States of", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar (Burma)", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "Sudan, South", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe" });
-            txtNationality.Location = new Point(331, 311);
+            txtNationality.Location = new Point(330, 330);
             txtNationality.Margin = new Padding(6);
             txtNationality.Name = "txtNationality";
             txtNationality.Size = new Size(334, 37);
@@ -378,7 +380,7 @@
             txtEmail.BackColor = Color.FromArgb(227, 234, 234);
             txtEmail.Font = new Font("Microsoft Sans Serif", 9F);
             txtEmail.ForeColor = Color.Black;
-            txtEmail.Location = new Point(331, 797);
+            txtEmail.Location = new Point(330, 710);
             txtEmail.Margin = new Padding(7, 6, 7, 6);
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "Email";
@@ -391,7 +393,7 @@
             txtZipCode.BackColor = Color.FromArgb(227, 234, 234);
             txtZipCode.Font = new Font("Microsoft Sans Serif", 9F);
             txtZipCode.ForeColor = Color.Black;
-            txtZipCode.Location = new Point(679, 540);
+            txtZipCode.Location = new Point(680, 500);
             txtZipCode.Margin = new Padding(7, 6, 7, 6);
             txtZipCode.Name = "txtZipCode";
             txtZipCode.PlaceholderText = "ZipCode";
@@ -403,7 +405,7 @@
             // 
             txtDateOfBirth.Font = new Font("Microsoft Sans Serif", 9F);
             txtDateOfBirth.Format = DateTimePickerFormat.Short;
-            txtDateOfBirth.Location = new Point(331, 407);
+            txtDateOfBirth.Location = new Point(330, 400);
             txtDateOfBirth.Margin = new Padding(7, 6, 7, 6);
             txtDateOfBirth.Name = "txtDateOfBirth";
             txtDateOfBirth.RightToLeft = RightToLeft.Yes;
@@ -418,7 +420,7 @@
             txtPlace.BackColor = Color.FromArgb(227, 234, 234);
             txtPlace.Font = new Font("Microsoft Sans Serif", 9F);
             txtPlace.ForeColor = Color.Black;
-            txtPlace.Location = new Point(331, 540);
+            txtPlace.Location = new Point(330, 500);
             txtPlace.Margin = new Padding(7, 6, 7, 6);
             txtPlace.Name = "txtPlace";
             txtPlace.PlaceholderText = "Place";
@@ -431,7 +433,7 @@
             txtStreetNumber.BackColor = Color.FromArgb(227, 234, 234);
             txtStreetNumber.Font = new Font("Microsoft Sans Serif", 9F);
             txtStreetNumber.ForeColor = Color.Black;
-            txtStreetNumber.Location = new Point(679, 493);
+            txtStreetNumber.Location = new Point(680, 450);
             txtStreetNumber.Margin = new Padding(7, 6, 7, 6);
             txtStreetNumber.Name = "txtStreetNumber";
             txtStreetNumber.PlaceholderText = "Street Number";
@@ -444,7 +446,7 @@
             txtCompanyName.BackColor = Color.FromArgb(227, 234, 234);
             txtCompanyName.Font = new Font("Microsoft Sans Serif", 9F);
             txtCompanyName.ForeColor = Color.Black;
-            txtCompanyName.Location = new Point(331, 923);
+            txtCompanyName.Location = new Point(330, 770);
             txtCompanyName.Margin = new Padding(7, 6, 7, 6);
             txtCompanyName.Name = "txtCompanyName";
             txtCompanyName.PlaceholderText = "Company Name";
@@ -457,7 +459,7 @@
             txtCompanyType.BackColor = Color.FromArgb(227, 234, 234);
             txtCompanyType.Font = new Font("Microsoft Sans Serif", 9F);
             txtCompanyType.ForeColor = Color.Black;
-            txtCompanyType.Location = new Point(331, 972);
+            txtCompanyType.Location = new Point(330, 820);
             txtCompanyType.Margin = new Padding(7, 6, 7, 6);
             txtCompanyType.Name = "txtCompanyType";
             txtCompanyType.PlaceholderText = "Company Type";
@@ -470,7 +472,7 @@
             txtCompanyContact.BackColor = Color.FromArgb(227, 234, 234);
             txtCompanyContact.Font = new Font("Microsoft Sans Serif", 9F);
             txtCompanyContact.ForeColor = Color.Black;
-            txtCompanyContact.Location = new Point(331, 1019);
+            txtCompanyContact.Location = new Point(330, 870);
             txtCompanyContact.Margin = new Padding(7, 6, 7, 6);
             txtCompanyContact.Name = "txtCompanyContact";
             txtCompanyContact.PlaceholderText = "Company Contact";
@@ -481,33 +483,33 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(122, 148, 150);
-            panel1.Location = new Point(20, 381);
+            panel1.Location = new Point(30, 380);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1000, 5);
+            panel1.Size = new Size(900, 5);
             panel1.TabIndex = 164;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(122, 148, 150);
-            panel2.Location = new Point(20, 606);
+            panel2.Location = new Point(30, 544);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1000, 5);
+            panel2.Size = new Size(900, 5);
             panel2.TabIndex = 165;
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(122, 148, 150);
-            panel3.Location = new Point(20, 878);
+            panel3.Location = new Point(30, 754);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1000, 5);
-            panel3.TabIndex = 165;
+            panel3.Size = new Size(900, 5);
+            panel3.TabIndex = 166;
             // 
             // frmCreateCustomer
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 49, 51);
-            ClientSize = new Size(1032, 1235);
+            ClientSize = new Size(974, 1029);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);

@@ -60,6 +60,7 @@
             lstCompanyType = new ColumnHeader();
             lstCompanyContact = new ColumnHeader();
             panel3 = new Panel();
+            btnEditUser = new Button();
             btnCreateNewCustomer = new Button();
             btnRefresh = new Button();
             btnFilter = new Button();
@@ -87,9 +88,9 @@
             // 
             panel4.Controls.Add(listView1);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(0, 107);
+            panel4.Location = new Point(0, 90);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1361, 821);
+            panel4.Size = new Size(1361, 838);
             panel4.TabIndex = 2;
             // 
             // listView1
@@ -99,7 +100,7 @@
             listView1.Dock = DockStyle.Fill;
             listView1.Location = new Point(0, 0);
             listView1.Name = "listView1";
-            listView1.Size = new Size(1361, 821);
+            listView1.Size = new Size(1361, 838);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = System.Windows.Forms.View.Details;
@@ -247,6 +248,7 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(62, 73, 76);
+            panel3.Controls.Add(btnEditUser);
             panel3.Controls.Add(btnCreateNewCustomer);
             panel3.Controls.Add(btnRefresh);
             panel3.Controls.Add(btnFilter);
@@ -255,8 +257,27 @@
             panel3.ForeColor = Color.Transparent;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1361, 107);
+            panel3.Size = new Size(1361, 90);
             panel3.TabIndex = 1;
+            // 
+            // btnEditUser
+            // 
+            btnEditUser.BackColor = Color.FromArgb(81, 102, 105);
+            btnEditUser.FlatAppearance.BorderSize = 0;
+            btnEditUser.FlatStyle = FlatStyle.Popup;
+            btnEditUser.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnEditUser.ForeColor = Color.FromArgb(167, 177, 255);
+            btnEditUser.Image = Properties.Resources.edit;
+            btnEditUser.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEditUser.Location = new Point(710, 17);
+            btnEditUser.Name = "btnEditUser";
+            btnEditUser.Size = new Size(284, 58);
+            btnEditUser.TabIndex = 4;
+            btnEditUser.Text = "Edit existing User";
+            btnEditUser.TextAlign = ContentAlignment.MiddleLeft;
+            btnEditUser.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnEditUser.UseVisualStyleBackColor = false;
+            btnEditUser.Click += btnEditUser_Click;
             // 
             // btnCreateNewCustomer
             // 
@@ -267,7 +288,7 @@
             btnCreateNewCustomer.ForeColor = Color.FromArgb(167, 177, 255);
             btnCreateNewCustomer.Image = Properties.Resources.add;
             btnCreateNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCreateNewCustomer.Location = new Point(370, 25);
+            btnCreateNewCustomer.Location = new Point(365, 17);
             btnCreateNewCustomer.Name = "btnCreateNewCustomer";
             btnCreateNewCustomer.Size = new Size(327, 58);
             btnCreateNewCustomer.TabIndex = 3;
@@ -284,7 +305,7 @@
             btnRefresh.FlatStyle = FlatStyle.Flat;
             btnRefresh.ForeColor = Color.Transparent;
             btnRefresh.Image = Properties.Resources.refresh;
-            btnRefresh.Location = new Point(1273, 25);
+            btnRefresh.Location = new Point(1289, 16);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(60, 60);
             btnRefresh.TabIndex = 2;
@@ -297,7 +318,7 @@
             btnFilter.FlatStyle = FlatStyle.Flat;
             btnFilter.ForeColor = Color.Transparent;
             btnFilter.Image = Properties.Resources.filter;
-            btnFilter.Location = new Point(1191, 23);
+            btnFilter.Location = new Point(1194, 16);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(60, 60);
             btnFilter.TabIndex = 1;
@@ -312,7 +333,7 @@
             btnAddEmployee.ForeColor = Color.FromArgb(167, 177, 255);
             btnAddEmployee.Image = Properties.Resources.add;
             btnAddEmployee.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddEmployee.Location = new Point(21, 25);
+            btnAddEmployee.Location = new Point(12, 17);
             btnAddEmployee.Name = "btnAddEmployee";
             btnAddEmployee.Size = new Size(334, 58);
             btnAddEmployee.TabIndex = 0;
@@ -403,5 +424,6 @@
         private Button btnFilter;
         private Button btnRefresh;
         private Button btnCreateNewCustomer;
+        private Button btnEditUser;
     }
 }

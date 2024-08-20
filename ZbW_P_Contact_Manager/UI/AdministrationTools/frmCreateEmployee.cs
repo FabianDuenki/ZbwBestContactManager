@@ -162,5 +162,15 @@ namespace ZbW_P_Contact_Manager.UI
         {
 
         }
+
+        private void ckbTrainee_CheckedChanged(object sender, EventArgs e)
+        {
+            // Check if the checkbox is checked
+            bool isChecked = ckbTrainee.Checked;
+
+            // Enable or disable the NumericUpDown controls based on the checkbox state
+            numActualTraineeYear.Enabled = isChecked;
+            numTraineeYears.Enabled = isChecked;
+        }
     }
 }
