@@ -35,9 +35,11 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(226, 142);
+            pictureBox1.Image = Properties.Resources.settings;
+            pictureBox1.Location = new Point(420, 303);
+            pictureBox1.Margin = new Padding(6, 6, 6, 6);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(281, 242);
+            pictureBox1.Size = new Size(522, 516);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -47,21 +49,23 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(243, 92);
+            label1.Location = new Point(451, 196);
+            label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new Size(112, 37);
+            label1.Size = new Size(222, 72);
             label1.TabIndex = 2;
             label1.Text = "Settings";
             // 
             // frmSettings
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(733, 477);
+            ClientSize = new Size(1361, 1018);
             Controls.Add(pictureBox1);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(6, 6, 6, 6);
             Name = "frmSettings";
             Text = "frmSettings";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
