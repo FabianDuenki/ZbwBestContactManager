@@ -5,14 +5,14 @@ namespace Controller
 {
     public class NotesController
     {
-        CRUDController _crudController;
+        CSVController _csvController;
         
         public NotesController()
         {
-            _crudController = new();
+            _csvController = new();
         }
 
-        public void CreateNote(Guid personId, string comment, string createdBy)
+        public void Create(Guid personId, string comment, string createdBy)
         {
             var note = new Note()
             {
@@ -25,58 +25,41 @@ namespace Controller
                 UpdatedAt = DateTime.Now,
             };
 
-            _crudController.Create(note);
+            _csvController.AddNote(note);
         }
 
-        public List<Note> LoadNotes(Guid personId)
+        public List<Note> Read(Guid personId)
         {
-            return _crudController.Read(personId);
+            List<Note> notes = _csvController.ReadNotes();
+            List<Note> filteredNotes = new();
+
+            foreach (Note note in notes)
+            {
+                if (note.PersonId == personId)
+                {
+                    filteredNotes.Add(note);
+                }
+            }
+
+            return filteredNotes;
         }
 
-        public void UpdateNote(Guid personId, Guid noteId, string newComment, string updatedBy)
+        public void Update(Guid personId, Guid noteId, string newComment, string updatedBy)
         {
-            //var notes = LoadNotes(personId);
-            //var noteToUpdate = notes.First(n => n.PersonId == personId && n.Id == noteId);
+            Note note = new Note
+            {
+                Id = noteId,
+                Comment = newComment,
+                UpdatedBy = updatedBy,
+                UpdatedAt = DateTime.Now
+            };
 
-            //var newNote = new Note()
-            //{
-            //    Id = noteId,
-            //    Comment = newComment,
-            //    CreatedAt = noteToUpdate.CreatedAt,
-            //    CreatedBy = noteToUpdate.CreatedBy,
-            //    UpdatedBy = updatedBy,
-            //    UpdatedAt = DateTime.Now,
-            //    PersonId = personId,
-            //};
-
-            //File.Delete(_filePath);
-
-            //foreach (dynamic note in notes)
-            //{
-            //    if (note.Id == noteId && note.PersonId == personId)
-            //    {
-            //        SaveNote(newNote);
-            //    }
-            //    else
-            //    {
-            //        SaveNote(note);
-            //    }
-            //}
+            _csvController.UpdateNote(note);
         }
 
-        public void DeleteNote(Guid personId, Guid noteId)
+        public void Delete(Note note)
         {
-            //var notes = LoadNotes(personId);
-
-            //File.Delete(_filePath);
-
-            //foreach (dynamic note in notes)
-            //{
-            //    if (!(note.Id == noteId && note.PersonId == personId))
-            //    {
-            //        SaveNote(note);
-            //    }
-            //}
+            _csvController.DeleteNote(note);
         }
     }
 }

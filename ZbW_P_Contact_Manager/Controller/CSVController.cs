@@ -7,6 +7,7 @@ using Model.Typing;
 using System.Collections;
 using System.Reflection;
 using System.Text;
+using ZbW_P_Contact_Manager;
 
 namespace Controller
 {
@@ -114,11 +115,20 @@ namespace Controller
             string filePath = Path.Combine(SystemFolders.GetPath(SystemFolders.Folder.Downloads), fileName);
             CreateFile(filePath, content);
         }
+        public string GetPathByModelType(Type userType)
+        {
+            string fileName = $"{userType.Name}.csv";
+            return $"{Environment.CurrentDirectory}\\{fileName}";
+        }
         public void CreateFile(string filePath, string csvHeader)
         {
             File.AppendAllText(filePath, csvHeader);
         }
-
+        public void AddLine(string filePath, string line)
+        {
+            File.AppendAllText(filePath, Environment.NewLine);
+            File.AppendAllText(filePath, line);
+        }
         public void DeleteFile(string path)
         {
             File.Delete(path);
@@ -145,20 +155,6 @@ namespace Controller
             }
             AddLine(filePath, note.ToCsvString());
         }
-
-        public void AddLine(string filePath, string line)
-        {
-            File.AppendAllText(filePath, Environment.NewLine);
-            File.AppendAllText(filePath, line);
-        }
-
-        public string GetPathByModelType(Type userType)
-        {
-            string fileName = $"{userType.Name}.csv";
-            return $"{Environment.CurrentDirectory}\\{fileName}";
-        }
-
-        //get all users from specific model
         public List<Person> ReadUsers(Person user)
         {
             string filePath = GetPathByModelType(user.GetType());
@@ -172,11 +168,9 @@ namespace Controller
                 if(csvUser == user.ToCsvHeader() || string.IsNullOrEmpty(csvUser)) continue;
                 userList.Add(user.FromCsvString(csvUser));
             }
-
             return userList;
         }
-
-        public List<Note> ReadNotes(Guid personId)
+        public List<Note> ReadNotes()
         {
             Note note = new Note();
             string filePath = GetPathByModelType(note.GetType());
@@ -190,7 +184,6 @@ namespace Controller
                 if (csvNote == note.ToCsvHeader()) continue;
                 noteList.Add(note.FromCsvString(csvNote));
             }
-
             return noteList;
         }
         public void UpdateUser(Person newUser)
@@ -202,14 +195,26 @@ namespace Controller
 
             foreach (Person user in users)
             {
-                if (user.Id == newUser.Id)
+                if (user.Id == newUser.Id) AddUser(newUser);
+                else AddUser(user);
+            }
+        }
+        public void UpdateNote(Note newNote)
+        {
+            string filePath = GetPathByModelType(newNote.GetType());
+            List<Note> notes = ReadNotes();
+
+            File.Delete(filePath);
+
+            foreach (Note note in notes)
+            {
+                if (note.Id == newNote.Id)
                 {
-                    AddUser(newUser);
+                    note.Comment = newNote.Comment;
+                    note.UpdatedBy = newNote.UpdatedBy;
+                    note.UpdatedAt = newNote.UpdatedAt;
                 }
-                else
-                {
-                    AddUser(user);
-                }
+                AddNote(note);
             }
         }
         public void DeleteUser(Person deletionUser)
@@ -222,6 +227,18 @@ namespace Controller
             foreach (Person user in users)
             {
                 if (user.Id != deletionUser.Id) AddUser(user);
+            }
+        }
+        public void DeleteNote(Note deletionNote)
+        {
+            string filePath = GetPathByModelType(deletionNote.GetType());
+            List<Note> notes = ReadNotes();
+
+            File.Delete(filePath);
+
+            foreach (Note note in notes)
+            {
+                if (note.Id != deletionNote.Id) AddNote(note);
             }
         }
     }
