@@ -158,6 +158,7 @@ namespace Controller
             return $"{Environment.CurrentDirectory}\\{fileName}";
         }
 
+        //get all users from specific model
         public List<Person> ReadUsers(Person user)
         {
             string filePath = GetPathByModelType(user.GetType());
@@ -192,68 +193,36 @@ namespace Controller
 
             return noteList;
         }
-        //public List<dynamic> ConvertCsvStringToUsers(ModelType modelType, string[] csvLines)
-        //{
-        //    List<dynamic> users = new List<dynamic>();
-
-        //    string[] csvHeaders = (csvLines.First()).Split(',');
-        //    string[] csvUsers = csvLines.Skip(1).ToArray();
-
-        //    foreach (string csvUser in csvUsers)
-        //    {
-        //        string[] csvUserValues = csvUser.Split(',');
-        //        Hashtable userProperties = new Hashtable();
-
-        //        foreach (string property in csvHeaders)
-        //        {
-        //            userProperties.Add(property, csvUserValues[Array.IndexOf(csvHeaders, property)]);
-        //        }
-        //        dynamic user = GetModelByType(modelType);
-        //        user = user.GetInstanceFromHashtable(userProperties);
-
-
-        //        users.Add(user);
-        //    }
-        //    return users;
-        //}
         public void UpdateUser(Person newUser)
         {
-            //string filePath = GetPathByModelType(modelType);
-            //List<dynamic> users = ReadUsers(modelType);
+            string filePath = GetPathByModelType(newUser.GetType());
+            List<Person> users = ReadUsers(newUser);
 
-            //File.Delete(filePath);
+            File.Delete(filePath);
 
-            //foreach (dynamic user in users)
-            //{
-            //    if (user.Id == userId)
-            //    {
-            //        AddUser(modelType, newUser);
-            //        userChanged = true;
-            //    }
-            //    else
-            //    {
-            //        AddUser(modelType, user);
-            //    }
-            //}
+            foreach (Person user in users)
+            {
+                if (user.Id == newUser.Id)
+                {
+                    AddUser(newUser);
+                }
+                else
+                {
+                    AddUser(user);
+                }
+            }
         }
-        public void DeleteUser(Person user)
+        public void DeleteUser(Person deletionUser)
         {
-            //string filePath = GetPathByModelType(modelType);
-            //List<dynamic> users = ReadUsers(modelType);
+            string filePath = GetPathByModelType(deletionUser.GetType());
+            List<Person> users = ReadUsers(deletionUser);
 
-            //File.Delete(filePath);
+            File.Delete(filePath);
 
-            //foreach (dynamic user in users)
-            //{
-            //    if (user.Id == userId)
-            //    {
-            //        userDeleted = true;
-            //    }
-            //    else
-            //    {
-            //        AddUser(modelType, user);
-            //    }
-            //}
+            foreach (Person user in users)
+            {
+                if (user.Id != deletionUser.Id) AddUser(user);
+            }
         }
     }
 }

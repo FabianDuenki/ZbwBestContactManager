@@ -59,8 +59,6 @@ namespace Controller
         {
             newUser.Id = oldUser.Id;
 
-            // check if mandatory fields are filled
-
             _csvController.UpdateUser(newUser);
         }
         public void Delete(Person user)
