@@ -33,17 +33,15 @@
             LblCustomerCount = new Label();
             FlowLayoutPanel = new FlowLayoutPanel();
             Panel2 = new Panel();
-            Panel3 = new Panel();
-            LblDashboard3 = new Label();
-            Panel4 = new Panel();
-            LblDashboard4 = new Label();
-            LblPersonTypeCount = new Label();
             FormsPlotPersonTypes = new ScottPlot.WinForms.FormsPlot();
+            LblPersonTypeCount = new Label();
+            Panel3 = new Panel();
+            FormsPlotResidence = new ScottPlot.WinForms.FormsPlot();
+            LblDashboard3 = new Label();
             Panel1.SuspendLayout();
             FlowLayoutPanel.SuspendLayout();
             Panel2.SuspendLayout();
             Panel3.SuspendLayout();
-            Panel4.SuspendLayout();
             SuspendLayout();
             // 
             // Panel1
@@ -81,7 +79,6 @@
             FlowLayoutPanel.Controls.Add(Panel1);
             FlowLayoutPanel.Controls.Add(Panel2);
             FlowLayoutPanel.Controls.Add(Panel3);
-            FlowLayoutPanel.Controls.Add(Panel4);
             FlowLayoutPanel.Dock = DockStyle.Fill;
             FlowLayoutPanel.Location = new Point(0, 0);
             FlowLayoutPanel.Margin = new Padding(2, 1, 2, 1);
@@ -99,14 +96,42 @@
             Panel2.Size = new Size(356, 229);
             Panel2.TabIndex = 6;
             // 
+            // FormsPlotPersonTypes
+            // 
+            FormsPlotPersonTypes.DisplayScale = 1F;
+            FormsPlotPersonTypes.Location = new Point(28, 59);
+            FormsPlotPersonTypes.Name = "FormsPlotPersonTypes";
+            FormsPlotPersonTypes.Size = new Size(300, 150);
+            FormsPlotPersonTypes.TabIndex = 2;
+            // 
+            // LblPersonTypeCount
+            // 
+            LblPersonTypeCount.AutoSize = true;
+            LblPersonTypeCount.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblPersonTypeCount.ForeColor = Color.White;
+            LblPersonTypeCount.Location = new Point(28, 20);
+            LblPersonTypeCount.Name = "LblPersonTypeCount";
+            LblPersonTypeCount.Size = new Size(212, 25);
+            LblPersonTypeCount.TabIndex = 2;
+            LblPersonTypeCount.Text = "Abgrenzung Personen";
+            // 
             // Panel3
             // 
             Panel3.BackColor = Color.FromArgb(37, 42, 64);
+            Panel3.Controls.Add(FormsPlotResidence);
             Panel3.Controls.Add(LblDashboard3);
             Panel3.Location = new Point(3, 238);
             Panel3.Name = "Panel3";
-            Panel3.Size = new Size(356, 229);
+            Panel3.Size = new Size(473, 229);
             Panel3.TabIndex = 5;
+            // 
+            // FormsPlotResidence
+            // 
+            FormsPlotResidence.DisplayScale = 1F;
+            FormsPlotResidence.Location = new Point(27, 57);
+            FormsPlotResidence.Name = "FormsPlotResidence";
+            FormsPlotResidence.Size = new Size(418, 153);
+            FormsPlotResidence.TabIndex = 1;
             // 
             // LblDashboard3
             // 
@@ -118,45 +143,6 @@
             LblDashboard3.Size = new Size(221, 25);
             LblDashboard3.TabIndex = 0;
             LblDashboard3.Text = "Wohnort von Personen";
-            // 
-            // Panel4
-            // 
-            Panel4.BackColor = Color.FromArgb(37, 42, 64);
-            Panel4.Controls.Add(LblDashboard4);
-            Panel4.Location = new Point(365, 238);
-            Panel4.Name = "Panel4";
-            Panel4.Size = new Size(356, 229);
-            Panel4.TabIndex = 6;
-            // 
-            // LblDashboard4
-            // 
-            LblDashboard4.AutoSize = true;
-            LblDashboard4.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblDashboard4.ForeColor = Color.White;
-            LblDashboard4.Location = new Point(28, 20);
-            LblDashboard4.Name = "LblDashboard4";
-            LblDashboard4.Size = new Size(46, 25);
-            LblDashboard4.TabIndex = 0;
-            LblDashboard4.Text = "Test";
-            // 
-            // LblPersonTypeCount
-            // 
-            LblPersonTypeCount.AutoSize = true;
-            LblPersonTypeCount.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblPersonTypeCount.ForeColor = Color.White;
-            LblPersonTypeCount.Location = new Point(28, 20);
-            LblPersonTypeCount.Name = "LblPersonTypeCount";
-            LblPersonTypeCount.Size = new Size(210, 25);
-            LblPersonTypeCount.TabIndex = 2;
-            LblPersonTypeCount.Text = "Auswertung Personen";
-            // 
-            // FormsPlotPersonTypes
-            // 
-            FormsPlotPersonTypes.DisplayScale = 1F;
-            FormsPlotPersonTypes.Location = new Point(28, 59);
-            FormsPlotPersonTypes.Name = "FormsPlotPersonTypes";
-            FormsPlotPersonTypes.Size = new Size(300, 150);
-            FormsPlotPersonTypes.TabIndex = 2;
             // 
             // FrmDashboard
             // 
@@ -175,8 +161,6 @@
             Panel2.PerformLayout();
             Panel3.ResumeLayout(false);
             Panel3.PerformLayout();
-            Panel4.ResumeLayout(false);
-            Panel4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -188,10 +172,9 @@
         private Panel Panel2;
         private Panel Panel3;
         private Label LblDashboard3;
-        private Panel Panel4;
-        private Label LblDashboard4;
         private ScottPlot.WinForms.FormsPlot FormsPlotCustomerCount;
         private ScottPlot.WinForms.FormsPlot FormsPlotPersonTypes;
         private Label LblPersonTypeCount;
+        private ScottPlot.WinForms.FormsPlot FormsPlotResidence;
     }
 }
