@@ -1,7 +1,6 @@
 ﻿using ScottPlot;
 using ScottPlot.Palettes;
 using ZbW_P_Contact_Manager.Models;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace ZbW_P_Contact_Manager.UI
 {
