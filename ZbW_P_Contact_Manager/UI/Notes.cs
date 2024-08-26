@@ -1,4 +1,5 @@
 ﻿using Controller;
+using Model;
 
 namespace ZbW_P_Contact_Manager
 {
@@ -18,7 +19,7 @@ namespace ZbW_P_Contact_Manager
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            _notesController.CreateNote(_personId, TxtBoxComment.Text, "PersonXY"); // TODO: get person name from logged in user => function yet missing
+            _notesController.Create(_personId, TxtBoxComment.Text, "PersonXY"); // TODO: get person name from logged in user => function yet missing
 
             LoadNotesInListView();
         }
@@ -52,7 +53,7 @@ namespace ZbW_P_Contact_Manager
             ListViewHistory.Items.Clear();
             TxtBoxComment.Clear();
 
-            var notes = _notesController.LoadNotes(_personId);
+            var notes = _notesController.Read(_personId);
 
             foreach (var note in notes)
             {
@@ -75,7 +76,13 @@ namespace ZbW_P_Contact_Manager
             if(ListViewHistory.SelectedItems.Count == 1)
             {
                 string noteId = ListViewHistory.SelectedItems[0].SubItems[0].Text;
-                _notesController.DeleteNote(_personId, Guid.Parse(noteId));
+                Note note = new Note()
+                {
+                    Id = Guid.Parse(noteId),
+                    PersonId = _personId
+                };
+
+                _notesController.Delete(note);
 
                 LoadNotesInListView();
             }
@@ -84,7 +91,7 @@ namespace ZbW_P_Contact_Manager
         private void BtnEditCommand_Click(object sender, EventArgs e)
         {
             var noteId = ListViewHistory.SelectedItems[0].SubItems[0].Text;
-            _notesController.UpdateNote(_personId, Guid.Parse(noteId), TxtBoxComment.Text, "NewPersonXY"); // TODO: get logged in edit person
+            _notesController.Update(_personId, Guid.Parse(noteId), TxtBoxComment.Text, "NewPersonXY"); // TODO: get logged in edit person
 
             LoadNotesInListView();
             ChangeButtonStates(true, true, true, false);

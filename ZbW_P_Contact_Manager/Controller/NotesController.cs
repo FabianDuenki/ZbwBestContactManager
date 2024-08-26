@@ -6,17 +6,13 @@ namespace Controller
     public class NotesController
     {
         CSVController _csvController;
-        ModelType _modelType;
-        string _filePath;
         
         public NotesController()
         {
-            _csvController = new CSVController();
-            _modelType = ModelType.Note;
-            _filePath = _csvController.GetPathByModelType(_modelType);
+            _csvController = new();
         }
 
-        public void CreateNote(Guid personId, string comment, string createdBy)
+        public void Create(Guid personId, string comment, string createdBy)
         {
             var note = new Note()
             {
@@ -29,78 +25,41 @@ namespace Controller
                 UpdatedAt = DateTime.Now,
             };
 
-            SaveNote(note);
+            _csvController.AddNote(note);
         }
 
-        public void SaveNote(Note note)
+        public List<Note> Read(Guid personId)
         {
-            string csvUser = _csvController.ConvertUserToCsvString(note);
-            string filePath = _csvController.GetPathByModelType(_modelType);
+            List<Note> notes = _csvController.ReadNotes();
+            List<Note> filteredNotes = new();
 
-            if (!Path.Exists(filePath))
+            foreach (Note note in notes)
             {
-                _csvController.CreateFile(filePath, note);
+                if (note.PersonId == personId)
+                {
+                    filteredNotes.Add(note);
+                }
             }
 
-            File.AppendAllText(filePath, Environment.NewLine);
-            File.AppendAllText(filePath, csvUser);
+            return filteredNotes;
         }
 
-        public List<dynamic> LoadNotes(Guid personId)
+        public void Update(Guid personId, Guid noteId, string newComment, string updatedBy)
         {
-            if (!Path.Exists(_filePath))
-            {
-                return new List<dynamic>();
-            }
-            string[] csvLines = File.ReadAllLines(_filePath);
-
-            return _csvController.ConvertCsvStringToUsers(_modelType, csvLines);
-        }
-
-        public void UpdateNote(Guid personId, Guid noteId, string newComment, string updatedBy)
-        {
-            var notes = LoadNotes(personId);
-            var noteToUpdate = notes.First(n => n.PersonId == personId && n.Id == noteId);
-
-            var newNote = new Note()
+            Note note = new Note
             {
                 Id = noteId,
                 Comment = newComment,
-                CreatedAt = noteToUpdate.CreatedAt,
-                CreatedBy = noteToUpdate.CreatedBy,
                 UpdatedBy = updatedBy,
-                UpdatedAt = DateTime.Now,
-                PersonId = personId,
+                UpdatedAt = DateTime.Now
             };
 
-            File.Delete(_filePath);
-
-            foreach (dynamic note in notes)
-            {
-                if (note.Id == noteId && note.PersonId == personId)
-                {
-                    SaveNote(newNote);
-                }
-                else
-                {
-                    SaveNote(note);
-                }
-            }
+            _csvController.UpdateNote(note);
         }
 
-        public void DeleteNote(Guid personId, Guid noteId)
+        public void Delete(Note note)
         {
-            var notes = LoadNotes(personId);
-
-            File.Delete(_filePath);
-
-            foreach (dynamic note in notes)
-            {
-                if (!(note.Id == noteId && note.PersonId == personId))
-                {
-                    SaveNote(note);
-                }
-            }
+            _csvController.DeleteNote(note);
         }
     }
 }
