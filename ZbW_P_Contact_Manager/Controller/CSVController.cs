@@ -36,8 +36,8 @@ namespace Controller
 
         public object[] Import(ModelType model, string csvString)
         {
+            string[] header = GetFileHeader(csvString);
             string[] lines = csvString.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
-            string[] header = lines.First().Split(',', StringSplitOptions.None);
             string[] content = lines.Skip(1).ToArray();
             return content.Select(line => ImportModel(model, header, line.Split(','))).ToArray();
         }
@@ -48,6 +48,22 @@ namespace Controller
             PropertyInfo[] properties = model.GetType().GetProperties();
             Array.ForEach(properties, property => property.SetValue(model, ConvertStringToType(values[Array.IndexOf(header, property.Name)], property.PropertyType)));
             return model;
+        }
+
+        private string[] GetFileHeader(string csvString)
+        {
+            return csvString.Split(
+                new[] { "\r\n", "\r", "\n" },
+                StringSplitOptions.None)
+                .First()
+                .Split(',', StringSplitOptions.None);
+        }
+
+        public bool IsHeaderEqual(string header1, string header2)
+        {
+            return GetFileHeader(header1)
+                .All(field => GetFileHeader(header2)
+                .Contains(field));
         }
 
         private object? ConvertStringToType(string value, Type type)

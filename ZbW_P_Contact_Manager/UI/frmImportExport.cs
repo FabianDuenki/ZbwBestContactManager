@@ -1,6 +1,8 @@
 ﻿using External;
 using Controller;
 using Model.Typing;
+using Model;
+using UI.Localization;
 
 namespace ZbW_P_Contact_Manager.UI
 {
@@ -14,10 +16,26 @@ namespace ZbW_P_Contact_Manager.UI
             _csvController = new CSVController();
         }
 
+        private void ImportModel(ModelType modelType)
+        {
+            Person modal = (Person)ModelController.GetModelByType(modelType);
+            string header = modal.ToCsvHeader();
+            string text = FileHandler.GetTextFromFilePath(FileHandler.GetFilePathFromPicker());
+            bool isHeaderEqual = _csvController.IsHeaderEqual(header, text);
+
+            if (isHeaderEqual)
+            {
+                object[] models = _csvController.Import(modelType, text);
+            }
+            else
+            {
+                MessageBox.Show(SystemMessage.GetMessage(Error.ModelMismatch));
+            }
+        }
+
         private void btnImportEmployee_Click(object sender, EventArgs e)
         {
-            string text = FileHandler.GetTextFromFilePath(FileHandler.GetFilePathFromPicker());
-            object[] employees = _csvController.Import(ModelType.Employee, text);
+            ImportModel(ModelType.Employee);
         }
 
         private void btnExportEmployee_Click(object sender, EventArgs e)
@@ -27,8 +45,7 @@ namespace ZbW_P_Contact_Manager.UI
 
         private void btnImportCustomer_Click(object sender, EventArgs e)
         {
-            string text = FileHandler.GetTextFromFilePath(FileHandler.GetFilePathFromPicker());
-            object[] customers = _csvController.Import(ModelType.Customer, text);
+            ImportModel(ModelType.Customer);
         }
 
         private void btnExportCustomer_Click(object sender, EventArgs e)
