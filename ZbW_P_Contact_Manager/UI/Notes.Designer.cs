@@ -107,7 +107,6 @@
             BtnClose.TabIndex = 28;
             BtnClose.Text = "Schliessen";
             BtnClose.UseVisualStyleBackColor = true;
-            BtnClose.Click += BtnClose_Click;
             // 
             // LblNotesHistory
             // 

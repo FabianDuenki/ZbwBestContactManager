@@ -25,7 +25,6 @@ namespace ZbW_P_Contact_Manager
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
         }
 
         private void InitializeListView()
