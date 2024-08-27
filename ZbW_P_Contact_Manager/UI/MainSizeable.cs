@@ -88,15 +88,10 @@ namespace ZbW_P_Contact_Manager.UI
         // Event handler for Customer Contact button click
         private void btnCustomerContact_Click(object sender, EventArgs e)
         {
-            SetNavigationStyle(btnCustomerContact); // Set navigation style for Customer Contact button
-            lblTitle.Text = "Customer Contact Tool"; // Set the title label text
-            pnlFormLoader.Controls.Clear(); // Clear any existing controls
+            SetNavigationStyle(btnCustomerContact); // Set navigation style for Administration button
+            lblTitle.Text = "CustomerContact Tool"; // Set the title label text
             Guid testuser = Guid.NewGuid();
-            Notes Notes = new Notes(testuser);
-            if (Notes.ShowDialog() == DialogResult.OK)
-            {
-
-            }
+            LoadForm(new Notes(testuser)); // Load the administration form
         }
 
         // Event handler for Search button click

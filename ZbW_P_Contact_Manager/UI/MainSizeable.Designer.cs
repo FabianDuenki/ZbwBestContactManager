@@ -62,7 +62,7 @@
             pnlMain.Dock = DockStyle.Fill;
             pnlMain.Location = new Point(0, 0);
             pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(1724, 1329);
+            pnlMain.Size = new Size(1874, 1479);
             pnlMain.TabIndex = 0;
             // 
             // pnlMainPanel
@@ -72,7 +72,7 @@
             pnlMainPanel.Dock = DockStyle.Fill;
             pnlMainPanel.Location = new Point(350, 0);
             pnlMainPanel.Name = "pnlMainPanel";
-            pnlMainPanel.Size = new Size(1374, 1329);
+            pnlMainPanel.Size = new Size(1524, 1479);
             pnlMainPanel.TabIndex = 1;
             // 
             // pnlFormLoader
@@ -80,7 +80,7 @@
             pnlFormLoader.Dock = DockStyle.Fill;
             pnlFormLoader.Location = new Point(0, 300);
             pnlFormLoader.Name = "pnlFormLoader";
-            pnlFormLoader.Size = new Size(1374, 1029);
+            pnlFormLoader.Size = new Size(1524, 1179);
             pnlFormLoader.TabIndex = 1;
             // 
             // pnlMainPanelTop
@@ -89,7 +89,7 @@
             pnlMainPanelTop.Dock = DockStyle.Top;
             pnlMainPanelTop.Location = new Point(0, 0);
             pnlMainPanelTop.Name = "pnlMainPanelTop";
-            pnlMainPanelTop.Size = new Size(1374, 300);
+            pnlMainPanelTop.Size = new Size(1524, 300);
             pnlMainPanelTop.TabIndex = 0;
             // 
             // lblTitle
@@ -110,7 +110,7 @@
             pnlLeftMenu.Dock = DockStyle.Left;
             pnlLeftMenu.Location = new Point(0, 0);
             pnlLeftMenu.Name = "pnlLeftMenu";
-            pnlLeftMenu.Size = new Size(350, 1329);
+            pnlLeftMenu.Size = new Size(350, 1479);
             pnlLeftMenu.TabIndex = 0;
             // 
             // pnlMenuButtons
@@ -127,7 +127,7 @@
             pnlMenuButtons.Dock = DockStyle.Fill;
             pnlMenuButtons.Location = new Point(0, 300);
             pnlMenuButtons.Name = "pnlMenuButtons";
-            pnlMenuButtons.Size = new Size(350, 1029);
+            pnlMenuButtons.Size = new Size(350, 1179);
             pnlMenuButtons.TabIndex = 1;
             // 
             // pnlNav
@@ -147,7 +147,7 @@
             btnSettings.ForeColor = Color.FromArgb(167, 177, 255);
             btnSettings.Image = Properties.Resources.settings;
             btnSettings.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSettings.Location = new Point(0, 959);
+            btnSettings.Location = new Point(0, 1109);
             btnSettings.Name = "btnSettings";
             btnSettings.Size = new Size(350, 70);
             btnSettings.TabIndex = 6;
@@ -308,9 +308,9 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 52, 57);
-            ClientSize = new Size(1724, 1329);
+            ClientSize = new Size(1874, 1479);
             Controls.Add(pnlMain);
-            MinimumSize = new Size(1750, 1400);
+            MinimumSize = new Size(1900, 1550);
             Name = "MainSizeable";
             Text = "Customer Contact Tool";
             WindowState = FormWindowState.Maximized;

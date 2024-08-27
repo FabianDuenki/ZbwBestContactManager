@@ -198,7 +198,7 @@
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(1527, 1158);
             Controls.Add(FlowLayoutPanel);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(6);
             Name = "Notes";
             StartPosition = FormStartPosition.CenterScreen;
