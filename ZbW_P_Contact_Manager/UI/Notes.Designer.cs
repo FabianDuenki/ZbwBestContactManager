@@ -28,102 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            LblNoteTitle = new Label();
-            TxtBoxComment = new TextBox();
-            FlowLayoutPanel = new FlowLayoutPanel();
-            PanelTop = new Panel();
-            BtnEditComment = new Button();
-            BtnSave = new Button();
             PanelBottom = new Panel();
             BtnEdit = new Button();
             BtnDelete = new Button();
             ListViewHistory = new ListView();
             BtnClose = new Button();
             LblNotesHistory = new Label();
-            FlowLayoutPanel.SuspendLayout();
-            PanelTop.SuspendLayout();
+            PanelTop = new Panel();
+            BtnEditComment = new Button();
+            LblNoteTitle = new Label();
+            BtnSave = new Button();
+            TxtBoxComment = new TextBox();
+            FlowLayoutPanel = new FlowLayoutPanel();
             PanelBottom.SuspendLayout();
+            PanelTop.SuspendLayout();
+            FlowLayoutPanel.SuspendLayout();
             SuspendLayout();
-            // 
-            // LblNoteTitle
-            // 
-            LblNoteTitle.AutoSize = true;
-            LblNoteTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblNoteTitle.Location = new Point(69, 49);
-            LblNoteTitle.Margin = new Padding(6, 0, 6, 0);
-            LblNoteTitle.Name = "LblNoteTitle";
-            LblNoteTitle.Size = new Size(420, 65);
-            LblNoteTitle.TabIndex = 10;
-            LblNoteTitle.Text = "Notiz hinzufügen";
-            // 
-            // TxtBoxComment
-            // 
-            TxtBoxComment.BackColor = Color.FromArgb(122, 148, 150);
-            TxtBoxComment.BorderStyle = BorderStyle.None;
-            TxtBoxComment.Location = new Point(85, 147);
-            TxtBoxComment.Margin = new Padding(6);
-            TxtBoxComment.Multiline = true;
-            TxtBoxComment.Name = "TxtBoxComment";
-            TxtBoxComment.Size = new Size(1335, 160);
-            TxtBoxComment.TabIndex = 9;
-            // 
-            // FlowLayoutPanel
-            // 
-            FlowLayoutPanel.BackColor = Color.FromArgb(41, 49, 51);
-            FlowLayoutPanel.Controls.Add(PanelTop);
-            FlowLayoutPanel.Controls.Add(PanelBottom);
-            FlowLayoutPanel.Location = new Point(0, -2);
-            FlowLayoutPanel.Margin = new Padding(6, 4, 6, 4);
-            FlowLayoutPanel.Name = "FlowLayoutPanel";
-            FlowLayoutPanel.Size = new Size(1528, 1161);
-            FlowLayoutPanel.TabIndex = 19;
-            // 
-            // PanelTop
-            // 
-            PanelTop.Controls.Add(BtnEditComment);
-            PanelTop.Controls.Add(LblNoteTitle);
-            PanelTop.Controls.Add(BtnSave);
-            PanelTop.Controls.Add(TxtBoxComment);
-            PanelTop.Location = new Point(6, 4);
-            PanelTop.Margin = new Padding(6, 4, 6, 4);
-            PanelTop.Name = "PanelTop";
-            PanelTop.Size = new Size(1525, 420);
-            PanelTop.TabIndex = 27;
-            // 
-            // BtnEditComment
-            // 
-            BtnEditComment.Location = new Point(1281, 320);
-            BtnEditComment.Margin = new Padding(6);
-            BtnEditComment.Name = "BtnEditComment";
-            BtnEditComment.Size = new Size(139, 60);
-            BtnEditComment.TabIndex = 11;
-            BtnEditComment.Text = "Bearbeiten";
-            BtnEditComment.UseVisualStyleBackColor = true;
-            BtnEditComment.Click += BtnEditCommand_Click;
-            // 
-            // BtnSave
-            // 
-            BtnSave.Location = new Point(1281, 320);
-            BtnSave.Margin = new Padding(6);
-            BtnSave.Name = "BtnSave";
-            BtnSave.Size = new Size(139, 60);
-            BtnSave.TabIndex = 10;
-            BtnSave.Text = "Speichern";
-            BtnSave.UseVisualStyleBackColor = true;
-            BtnSave.Click += BtnSave_Click;
             // 
             // PanelBottom
             // 
+            PanelBottom.AutoSize = true;
+            PanelBottom.BackColor = Color.FromArgb(62, 73, 76);
             PanelBottom.Controls.Add(BtnEdit);
             PanelBottom.Controls.Add(BtnDelete);
             PanelBottom.Controls.Add(ListViewHistory);
             PanelBottom.Controls.Add(BtnClose);
             PanelBottom.Controls.Add(LblNotesHistory);
-            PanelBottom.Dock = DockStyle.Bottom;
+            PanelBottom.Dock = DockStyle.Fill;
             PanelBottom.Location = new Point(6, 432);
             PanelBottom.Margin = new Padding(6, 4, 6, 4);
             PanelBottom.Name = "PanelBottom";
-            PanelBottom.Size = new Size(1519, 725);
+            PanelBottom.Size = new Size(1426, 710);
             PanelBottom.TabIndex = 28;
             // 
             // BtnEdit
@@ -172,7 +107,6 @@
             BtnClose.TabIndex = 28;
             BtnClose.Text = "Schliessen";
             BtnClose.UseVisualStyleBackColor = true;
-            BtnClose.Click += BtnClose_Click;
             // 
             // LblNotesHistory
             // 
@@ -185,39 +119,111 @@
             LblNotesHistory.TabIndex = 24;
             LblNotesHistory.Text = "Notizen";
             // 
+            // PanelTop
+            // 
+            PanelTop.BackColor = Color.FromArgb(62, 73, 76);
+            PanelTop.Controls.Add(BtnEditComment);
+            PanelTop.Controls.Add(LblNoteTitle);
+            PanelTop.Controls.Add(BtnSave);
+            PanelTop.Controls.Add(TxtBoxComment);
+            PanelTop.Dock = DockStyle.Top;
+            PanelTop.Location = new Point(6, 4);
+            PanelTop.Margin = new Padding(6, 4, 6, 4);
+            PanelTop.Name = "PanelTop";
+            PanelTop.Size = new Size(1525, 420);
+            PanelTop.TabIndex = 27;
+            // 
+            // BtnEditComment
+            // 
+            BtnEditComment.Location = new Point(1281, 320);
+            BtnEditComment.Margin = new Padding(6);
+            BtnEditComment.Name = "BtnEditComment";
+            BtnEditComment.Size = new Size(139, 60);
+            BtnEditComment.TabIndex = 11;
+            BtnEditComment.Text = "Bearbeiten";
+            BtnEditComment.UseVisualStyleBackColor = true;
+            BtnEditComment.Click += BtnEditCommand_Click;
+            // 
+            // LblNoteTitle
+            // 
+            LblNoteTitle.AutoSize = true;
+            LblNoteTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblNoteTitle.Location = new Point(69, 49);
+            LblNoteTitle.Margin = new Padding(6, 0, 6, 0);
+            LblNoteTitle.Name = "LblNoteTitle";
+            LblNoteTitle.Size = new Size(420, 65);
+            LblNoteTitle.TabIndex = 10;
+            LblNoteTitle.Text = "Notiz hinzufügen";
+            // 
+            // BtnSave
+            // 
+            BtnSave.Location = new Point(1281, 320);
+            BtnSave.Margin = new Padding(6);
+            BtnSave.Name = "BtnSave";
+            BtnSave.Size = new Size(139, 60);
+            BtnSave.TabIndex = 10;
+            BtnSave.Text = "Speichern";
+            BtnSave.UseVisualStyleBackColor = true;
+            BtnSave.Click += BtnSave_Click;
+            // 
+            // TxtBoxComment
+            // 
+            TxtBoxComment.BackColor = Color.FromArgb(122, 148, 150);
+            TxtBoxComment.BorderStyle = BorderStyle.None;
+            TxtBoxComment.Location = new Point(85, 147);
+            TxtBoxComment.Margin = new Padding(6);
+            TxtBoxComment.Multiline = true;
+            TxtBoxComment.Name = "TxtBoxComment";
+            TxtBoxComment.Size = new Size(1335, 160);
+            TxtBoxComment.TabIndex = 9;
+            // 
+            // FlowLayoutPanel
+            // 
+            FlowLayoutPanel.BackColor = Color.FromArgb(62, 73, 76);
+            FlowLayoutPanel.Controls.Add(PanelTop);
+            FlowLayoutPanel.Controls.Add(PanelBottom);
+            FlowLayoutPanel.Dock = DockStyle.Fill;
+            FlowLayoutPanel.Location = new Point(0, 0);
+            FlowLayoutPanel.Margin = new Padding(6, 4, 6, 4);
+            FlowLayoutPanel.Name = "FlowLayoutPanel";
+            FlowLayoutPanel.Size = new Size(1527, 1158);
+            FlowLayoutPanel.TabIndex = 19;
+            // 
             // Notes
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
+            BackColor = Color.FromArgb(62, 73, 76);
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(1527, 1158);
             Controls.Add(FlowLayoutPanel);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(6);
             Name = "Notes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Notes";
-            FlowLayoutPanel.ResumeLayout(false);
-            PanelTop.ResumeLayout(false);
-            PanelTop.PerformLayout();
             PanelBottom.ResumeLayout(false);
             PanelBottom.PerformLayout();
+            PanelTop.ResumeLayout(false);
+            PanelTop.PerformLayout();
+            FlowLayoutPanel.ResumeLayout(false);
+            FlowLayoutPanel.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-        private Label LblNoteTitle;
-        private TextBox TxtBoxComment;
-        private FlowLayoutPanel FlowLayoutPanel;
-        private Label LblNotesHistory;
-        private Panel PanelTop;
+
         private Panel PanelBottom;
-        private ListView ListViewHistory;
-        private Button BtnSave;
-        private Button BtnClose;
         private Button BtnEdit;
         private Button BtnDelete;
+        private ListView ListViewHistory;
+        private Button BtnClose;
+        private Label LblNotesHistory;
+        private Panel PanelTop;
         private Button BtnEditComment;
+        private Label LblNoteTitle;
+        private Button BtnSave;
+        private TextBox TxtBoxComment;
+        private FlowLayoutPanel FlowLayoutPanel;
     }
 }

@@ -26,7 +26,7 @@ namespace ZbW_P_Contact_Manager.UI
         private void LoadDashboard()
         {
             lblTitle.Text = "Dashboard"; // Set the title label text
-            LoadForm(new frmDashboard()); // Load the dashboard form
+            LoadForm(new FrmDashboard()); // Load the dashboard form
         }
 
         // General method to load any form into the pnlFormLoader panel
@@ -74,7 +74,7 @@ namespace ZbW_P_Contact_Manager.UI
         {
             SetNavigationStyle(BtnDashboard); // Set navigation style for Dashboard button
             lblTitle.Text = "Dashboard"; // Set the title label text
-            LoadForm(new frmDashboard()); // Load the dashboard form
+            LoadForm(new FrmDashboard()); // Load the dashboard form
         }
 
         // Event handler for Administration button click
@@ -88,11 +88,10 @@ namespace ZbW_P_Contact_Manager.UI
         // Event handler for Customer Contact button click
         private void btnCustomerContact_Click(object sender, EventArgs e)
         {
-            SetNavigationStyle(btnCustomerContact); // Set navigation style for Customer Contact button
-            lblTitle.Text = "Customer Contact Tool"; // Set the title label text
+            SetNavigationStyle(btnCustomerContact); // Set navigation style for Administration button
+            lblTitle.Text = "CustomerContact Tool"; // Set the title label text
             Guid testuser = Guid.NewGuid();
-            LoadForm(new Notes(testuser));
-            //LoadForm(new frmCustomerContact()); // Load the customer contact form
+            LoadForm(new Notes(testuser)); // Load the administration form
         }
 
         // Event handler for Search button click
@@ -132,6 +131,5 @@ namespace ZbW_P_Contact_Manager.UI
         {
             Application.Exit(); // Exit the application
         }
-
     }
 }

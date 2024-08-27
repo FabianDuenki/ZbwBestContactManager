@@ -62,7 +62,7 @@
             pnlMain.Dock = DockStyle.Fill;
             pnlMain.Location = new Point(0, 0);
             pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(1574, 1029);
+            pnlMain.Size = new Size(1874, 1479);
             pnlMain.TabIndex = 0;
             // 
             // pnlMainPanel
@@ -72,7 +72,7 @@
             pnlMainPanel.Dock = DockStyle.Fill;
             pnlMainPanel.Location = new Point(350, 0);
             pnlMainPanel.Name = "pnlMainPanel";
-            pnlMainPanel.Size = new Size(1224, 1029);
+            pnlMainPanel.Size = new Size(1524, 1479);
             pnlMainPanel.TabIndex = 1;
             // 
             // pnlFormLoader
@@ -80,7 +80,7 @@
             pnlFormLoader.Dock = DockStyle.Fill;
             pnlFormLoader.Location = new Point(0, 300);
             pnlFormLoader.Name = "pnlFormLoader";
-            pnlFormLoader.Size = new Size(1224, 729);
+            pnlFormLoader.Size = new Size(1524, 1179);
             pnlFormLoader.TabIndex = 1;
             // 
             // pnlMainPanelTop
@@ -89,14 +89,14 @@
             pnlMainPanelTop.Dock = DockStyle.Top;
             pnlMainPanelTop.Location = new Point(0, 0);
             pnlMainPanelTop.Name = "pnlMainPanelTop";
-            pnlMainPanelTop.Size = new Size(1224, 300);
+            pnlMainPanelTop.Size = new Size(1524, 300);
             pnlMainPanelTop.TabIndex = 0;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.ForeColor = Color.FromArgb(167, 177, 255);
+            lblTitle.ForeColor = Color.FromArgb(206, 213, 255);
             lblTitle.Location = new Point(22, 28);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(100, 50);
@@ -110,7 +110,7 @@
             pnlLeftMenu.Dock = DockStyle.Left;
             pnlLeftMenu.Location = new Point(0, 0);
             pnlLeftMenu.Name = "pnlLeftMenu";
-            pnlLeftMenu.Size = new Size(350, 1029);
+            pnlLeftMenu.Size = new Size(350, 1479);
             pnlLeftMenu.TabIndex = 0;
             // 
             // pnlMenuButtons
@@ -127,7 +127,7 @@
             pnlMenuButtons.Dock = DockStyle.Fill;
             pnlMenuButtons.Location = new Point(0, 300);
             pnlMenuButtons.Name = "pnlMenuButtons";
-            pnlMenuButtons.Size = new Size(350, 729);
+            pnlMenuButtons.Size = new Size(350, 1179);
             pnlMenuButtons.TabIndex = 1;
             // 
             // pnlNav
@@ -146,13 +146,14 @@
             btnSettings.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold);
             btnSettings.ForeColor = Color.FromArgb(167, 177, 255);
             btnSettings.Image = Properties.Resources.settings;
-            btnSettings.Location = new Point(0, 659);
+            btnSettings.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSettings.Location = new Point(0, 1109);
             btnSettings.Name = "btnSettings";
             btnSettings.Size = new Size(350, 70);
             btnSettings.TabIndex = 6;
             btnSettings.Text = "Settings";
             btnSettings.TextAlign = ContentAlignment.MiddleLeft;
-            btnSettings.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnSettings.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSettings.UseVisualStyleBackColor = true;
             btnSettings.Click += btnSettings_Click;
             // 
@@ -164,13 +165,14 @@
             btnHistory.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold);
             btnHistory.ForeColor = Color.FromArgb(167, 177, 255);
             btnHistory.Image = Properties.Resources.dashboard;
+            btnHistory.ImageAlign = ContentAlignment.MiddleLeft;
             btnHistory.Location = new Point(0, 350);
             btnHistory.Name = "btnHistory";
             btnHistory.Size = new Size(350, 70);
             btnHistory.TabIndex = 5;
             btnHistory.Text = "History";
             btnHistory.TextAlign = ContentAlignment.MiddleLeft;
-            btnHistory.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnHistory.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnHistory.UseVisualStyleBackColor = true;
             btnHistory.Click += btnHistory_Click;
             // 
@@ -182,13 +184,14 @@
             btnImportExport.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold);
             btnImportExport.ForeColor = Color.FromArgb(167, 177, 255);
             btnImportExport.Image = Properties.Resources.import;
+            btnImportExport.ImageAlign = ContentAlignment.MiddleLeft;
             btnImportExport.Location = new Point(0, 280);
             btnImportExport.Name = "btnImportExport";
             btnImportExport.Size = new Size(350, 70);
             btnImportExport.TabIndex = 4;
             btnImportExport.Text = "Import/Export";
             btnImportExport.TextAlign = ContentAlignment.MiddleLeft;
-            btnImportExport.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnImportExport.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnImportExport.UseVisualStyleBackColor = true;
             btnImportExport.Click += btnImportExport_Click;
             // 
@@ -200,13 +203,14 @@
             btnSearch.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold);
             btnSearch.ForeColor = Color.FromArgb(167, 177, 255);
             btnSearch.Image = Properties.Resources.search;
+            btnSearch.ImageAlign = ContentAlignment.MiddleLeft;
             btnSearch.Location = new Point(0, 210);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(350, 70);
             btnSearch.TabIndex = 3;
             btnSearch.Text = "Search";
             btnSearch.TextAlign = ContentAlignment.MiddleLeft;
-            btnSearch.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnSearch.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
             // 
@@ -218,13 +222,14 @@
             btnCustomerContact.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold);
             btnCustomerContact.ForeColor = Color.FromArgb(167, 177, 255);
             btnCustomerContact.Image = Properties.Resources.address_book;
+            btnCustomerContact.ImageAlign = ContentAlignment.MiddleLeft;
             btnCustomerContact.Location = new Point(0, 140);
             btnCustomerContact.Name = "btnCustomerContact";
             btnCustomerContact.Size = new Size(350, 70);
             btnCustomerContact.TabIndex = 2;
             btnCustomerContact.Text = "CustomerContact";
             btnCustomerContact.TextAlign = ContentAlignment.MiddleLeft;
-            btnCustomerContact.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnCustomerContact.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCustomerContact.UseVisualStyleBackColor = true;
             btnCustomerContact.Click += btnCustomerContact_Click;
             // 
@@ -236,13 +241,14 @@
             btnAdministration.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold);
             btnAdministration.ForeColor = Color.FromArgb(167, 177, 255);
             btnAdministration.Image = Properties.Resources.user_menu;
+            btnAdministration.ImageAlign = ContentAlignment.MiddleLeft;
             btnAdministration.Location = new Point(0, 70);
             btnAdministration.Name = "btnAdministration";
             btnAdministration.Size = new Size(350, 70);
             btnAdministration.TabIndex = 1;
             btnAdministration.Text = "Administration";
             btnAdministration.TextAlign = ContentAlignment.MiddleLeft;
-            btnAdministration.TextImageRelation = TextImageRelation.TextBeforeImage;
+            btnAdministration.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAdministration.UseVisualStyleBackColor = true;
             btnAdministration.Click += btnAdministration_Click;
             // 
@@ -254,13 +260,14 @@
             BtnDashboard.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold);
             BtnDashboard.ForeColor = Color.FromArgb(167, 177, 255);
             BtnDashboard.Image = Properties.Resources.dashboard;
+            BtnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
             BtnDashboard.Location = new Point(0, 0);
             BtnDashboard.Name = "BtnDashboard";
             BtnDashboard.Size = new Size(350, 70);
             BtnDashboard.TabIndex = 0;
             BtnDashboard.Text = "Dashboard";
             BtnDashboard.TextAlign = ContentAlignment.MiddleLeft;
-            BtnDashboard.TextImageRelation = TextImageRelation.TextBeforeImage;
+            BtnDashboard.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtnDashboard.UseVisualStyleBackColor = true;
             BtnDashboard.Click += BtnDashboard_Click;
             // 
@@ -301,10 +308,11 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 52, 57);
-            ClientSize = new Size(1574, 1029);
+            ClientSize = new Size(1874, 1479);
             Controls.Add(pnlMain);
+            MinimumSize = new Size(1900, 1550);
             Name = "MainSizeable";
-            Text = "MainSizeable";
+            Text = "Customer Contact Tool";
             WindowState = FormWindowState.Maximized;
             pnlMain.ResumeLayout(false);
             pnlMainPanel.ResumeLayout(false);
