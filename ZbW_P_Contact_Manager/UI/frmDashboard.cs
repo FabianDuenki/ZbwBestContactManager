@@ -20,11 +20,14 @@ namespace ZbW_P_Contact_Manager.UI
                 { "Lausanne", 34 },
             };
 
-            _dashboardData = new DashboardData(10, 20, 30, 40, residence);
+            var age = new List<int>() { 32, 45, 76, 34, 28, 26 };
+
+            _dashboardData = new DashboardData(10, 20, 30, 40, residence, age);
 
             InitFormsPlotCustomerCount();
             InitFormsPlotPersonTypes();
             InitFormsPlotResidence();
+            InitFormsPlotAge();
         }
 
         private void InitFormsPlotCustomerCount()
@@ -114,6 +117,35 @@ namespace ZbW_P_Contact_Manager.UI
             plot.HideAxesAndGrid();
 
             FormsPlotResidence.Refresh();
+        }
+
+        private void InitFormsPlotAge()
+        {
+            // dataX change to count people
+            double[] dataX = { 1, 2, 3, 4, 5, 6 };
+
+            int[] x = _dashboardData.Age.ToArray();
+            double[] y = x.Select(i => (double)i).ToArray();
+
+            var plot = FormsPlotAge.Plot;
+            plot.Add.Scatter(dataX, y);
+
+            Tick[] ticks =
+            {
+                new(1, $"({x[0]})"),
+                new(2, $"({x[1]})"),
+                new(3, $"({x[2]})"),
+                new(4, $"({x[3]})"),
+                new(5, $"({x[4]})"),
+                new(6, $"({x[5]})")
+            };
+
+            LblAverage.Text = "Durchschnitt: " + Queryable.Average(x.AsQueryable()).ToString();
+
+            SetColorsForPlot(plot);
+            SetFormsPlotSettings(plot, ticks);
+
+            FormsPlotAge.Refresh();
         }
 
         private void SetColorsForPlot(Plot plot)
