@@ -1,6 +1,10 @@
-﻿using ScottPlot;
+﻿using Controller;
+using ScottPlot;
 using ScottPlot.Palettes;
 using ZbW_P_Contact_Manager.Models;
+using Model.Typing;
+using Model;
+using Model.Detail;
 
 namespace ZbW_P_Contact_Manager.UI
 {
@@ -12,17 +16,57 @@ namespace ZbW_P_Contact_Manager.UI
         {
             InitializeComponent();
 
-            // TODO: get data from csv controller
-            var residence = new Dictionary<string, int>()
+            CSVController csvController = new CSVController(this);
+            var customerList = csvController.ReadUsers(ModelType.Customer);
+            var employeeList = csvController.ReadUsers(ModelType.Employee);
+            var traineeList = csvController.ReadUsers(ModelType.Trainee);
+
+            var people = customerList.Concat(employeeList).Concat(traineeList).ToList();
+
+            var residence = new Dictionary<string, int>();
+            var agePeople = new List<int>();
+
+            var activeCustomerCount = 0;
+            var passiveCustomerCount = 0;
+            var employeeCount = 0;
+            var traineeCount = 0;
+
+            foreach (var person in people)
             {
-                { "Bern", 57 },
-                { "Basel", 100 },
-                { "Lausanne", 34 },
-            };
+                int age = (int)((DateTime.Now - person.DateOfBirth.Date).TotalDays / 365.242199);                
+                agePeople.Add(age);
 
-            var age = new List<int>() { 32, 45, 76, 34, 28, 26 };
+                if(residence.ContainsKey(person.Place))
+                {
+                    residence[person.Place] += 1;
+                }
+                else
+                {
+                    residence.Add(person.Place, 1);
+                }
 
-            _dashboardData = new DashboardData(10, 20, 30, 40, residence, age);
+                if (person is Customer cust)
+                {
+                    if (cust.Status == true)
+                    {
+                        activeCustomerCount++;
+                    }
+                    else
+                    {
+                        passiveCustomerCount++;
+                    }
+                }
+                else if (person is Trainee trainee)
+                {
+                    traineeCount++;
+                }
+                else if (person is Employee employee)
+                {
+                    employeeCount++;
+                }
+            }
+
+            _dashboardData = new DashboardData(activeCustomerCount, passiveCustomerCount, employeeCount, traineeCount, residence, agePeople);
 
             InitFormsPlotCustomerCount();
             InitFormsPlotPersonTypes();
@@ -100,14 +144,15 @@ namespace ZbW_P_Contact_Manager.UI
             var cityKeys = _dashboardData.CustomerTypeStatistics.Keys.ToArray();
 
             Penumbra palette = new Penumbra();
+            List<PieSlice> slices = new();
+            var color = 2;
 
-            List<PieSlice> slices = new()
+            for (int i = 0;i< cityKeys.Length; i++)
             {
-                new PieSlice() { Value = cityValues[0], FillColor = palette.GetColor(2), Label = $"{cityKeys[0]} ({cityValues[0]})" },
-                new PieSlice() { Value = cityValues[1], FillColor = palette.GetColor(3), Label = $"{cityKeys[1]} ({cityValues[1]})" },
-                new PieSlice() { Value = cityValues[2], FillColor = palette.GetColor(4), Label = $"{cityKeys[2]} ({cityValues[2]})" },
-            };
-
+                slices.Add(new PieSlice() { Value = cityValues[i], FillColor = palette.GetColor(color), Label = $"{cityKeys[i]} ({cityValues[i]})" });
+                color++;
+            }
+            
             var pie = plot.Add.Pie(slices);
             pie.ExplodeFraction = .1;
 
@@ -121,8 +166,15 @@ namespace ZbW_P_Contact_Manager.UI
 
         private void InitFormsPlotAge()
         {
-            // dataX change to count people
-            double[] dataX = { 1, 2, 3, 4, 5, 6 };
+            double[] dataX = new double[_dashboardData.Age.Count()];
+            var count = 1;
+
+            for(int i = 0; i < _dashboardData.Age.Count(); i++)
+            {
+                dataX[i] = count++;
+            }
+
+            var numbPeople = _dashboardData.Age.Count();
 
             int[] x = _dashboardData.Age.ToArray();
             double[] y = x.Select(i => (double)i).ToArray();
@@ -130,16 +182,13 @@ namespace ZbW_P_Contact_Manager.UI
             var plot = FormsPlotAge.Plot;
             plot.Add.Scatter(dataX, y);
 
-            Tick[] ticks =
-            {
-                new(1, $"({x[0]})"),
-                new(2, $"({x[1]})"),
-                new(3, $"({x[2]})"),
-                new(4, $"({x[3]})"),
-                new(5, $"({x[4]})"),
-                new(6, $"({x[5]})")
-            };
+            Tick[] ticks = { };
 
+            for (int i = 0; i < numbPeople; i++)
+            {
+                ticks = ticks.Append(new Tick(i + 1, x[i].ToString())).ToArray();
+            }
+            
             LblAverage.Text = "Durchschnitt: " + Queryable.Average(x.AsQueryable()).ToString();
 
             SetColorsForPlot(plot);

@@ -54,19 +54,17 @@
             Panel1.BackColor = Color.FromArgb(37, 42, 64);
             Panel1.Controls.Add(FormsPlotCustomerCount);
             Panel1.Controls.Add(LblCustomerCount);
-            Panel1.Location = new Point(3, 4);
-            Panel1.Margin = new Padding(3, 4, 3, 4);
+            Panel1.Location = new Point(3, 3);
             Panel1.Name = "Panel1";
-            Panel1.Size = new Size(407, 305);
+            Panel1.Size = new Size(356, 229);
             Panel1.TabIndex = 4;
             // 
             // FormsPlotCustomerCount
             // 
             FormsPlotCustomerCount.DisplayScale = 1F;
-            FormsPlotCustomerCount.Location = new Point(31, 79);
-            FormsPlotCustomerCount.Margin = new Padding(3, 4, 3, 4);
+            FormsPlotCustomerCount.Location = new Point(27, 59);
             FormsPlotCustomerCount.Name = "FormsPlotCustomerCount";
-            FormsPlotCustomerCount.Size = new Size(343, 200);
+            FormsPlotCustomerCount.Size = new Size(300, 150);
             FormsPlotCustomerCount.TabIndex = 1;
             // 
             // LblCustomerCount
@@ -74,9 +72,9 @@
             LblCustomerCount.AutoSize = true;
             LblCustomerCount.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LblCustomerCount.ForeColor = Color.White;
-            LblCustomerCount.Location = new Point(31, 27);
+            LblCustomerCount.Location = new Point(27, 20);
             LblCustomerCount.Name = "LblCustomerCount";
-            LblCustomerCount.Size = new Size(188, 32);
+            LblCustomerCount.Size = new Size(147, 25);
             LblCustomerCount.TabIndex = 0;
             LblCustomerCount.Text = "Anzahl Kunden";
             // 
@@ -91,7 +89,7 @@
             FlowLayoutPanel.Location = new Point(0, 0);
             FlowLayoutPanel.Margin = new Padding(2, 1, 2, 1);
             FlowLayoutPanel.Name = "FlowLayoutPanel";
-            FlowLayoutPanel.Size = new Size(838, 636);
+            FlowLayoutPanel.Size = new Size(733, 477);
             FlowLayoutPanel.TabIndex = 5;
             // 
             // Panel2
@@ -99,19 +97,17 @@
             Panel2.BackColor = Color.FromArgb(37, 42, 64);
             Panel2.Controls.Add(FormsPlotPersonTypes);
             Panel2.Controls.Add(LblPersonTypeCount);
-            Panel2.Location = new Point(416, 4);
-            Panel2.Margin = new Padding(3, 4, 3, 4);
+            Panel2.Location = new Point(365, 3);
             Panel2.Name = "Panel2";
-            Panel2.Size = new Size(407, 305);
+            Panel2.Size = new Size(356, 229);
             Panel2.TabIndex = 6;
             // 
             // FormsPlotPersonTypes
             // 
             FormsPlotPersonTypes.DisplayScale = 1F;
-            FormsPlotPersonTypes.Location = new Point(32, 79);
-            FormsPlotPersonTypes.Margin = new Padding(3, 4, 3, 4);
+            FormsPlotPersonTypes.Location = new Point(28, 59);
             FormsPlotPersonTypes.Name = "FormsPlotPersonTypes";
-            FormsPlotPersonTypes.Size = new Size(343, 200);
+            FormsPlotPersonTypes.Size = new Size(300, 150);
             FormsPlotPersonTypes.TabIndex = 2;
             // 
             // LblPersonTypeCount
@@ -119,9 +115,9 @@
             LblPersonTypeCount.AutoSize = true;
             LblPersonTypeCount.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LblPersonTypeCount.ForeColor = Color.White;
-            LblPersonTypeCount.Location = new Point(32, 27);
+            LblPersonTypeCount.Location = new Point(28, 20);
             LblPersonTypeCount.Name = "LblPersonTypeCount";
-            LblPersonTypeCount.Size = new Size(269, 32);
+            LblPersonTypeCount.Size = new Size(212, 25);
             LblPersonTypeCount.TabIndex = 2;
             LblPersonTypeCount.Text = "Abgrenzung Personen";
             // 
@@ -130,19 +126,17 @@
             Panel3.BackColor = Color.FromArgb(37, 42, 64);
             Panel3.Controls.Add(FormsPlotResidence);
             Panel3.Controls.Add(LblResidence);
-            Panel3.Location = new Point(3, 317);
-            Panel3.Margin = new Padding(3, 4, 3, 4);
+            Panel3.Location = new Point(3, 238);
             Panel3.Name = "Panel3";
-            Panel3.Size = new Size(481, 305);
+            Panel3.Size = new Size(421, 229);
             Panel3.TabIndex = 5;
             // 
             // FormsPlotResidence
             // 
             FormsPlotResidence.DisplayScale = 1F;
-            FormsPlotResidence.Location = new Point(31, 76);
-            FormsPlotResidence.Margin = new Padding(3, 4, 3, 4);
+            FormsPlotResidence.Location = new Point(27, 57);
             FormsPlotResidence.Name = "FormsPlotResidence";
-            FormsPlotResidence.Size = new Size(417, 204);
+            FormsPlotResidence.Size = new Size(365, 153);
             FormsPlotResidence.TabIndex = 1;
             // 
             // LblResidence
@@ -150,11 +144,11 @@
             LblResidence.AutoSize = true;
             LblResidence.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LblResidence.ForeColor = Color.White;
-            LblResidence.Location = new Point(31, 27);
+            LblResidence.Location = new Point(27, 20);
             LblResidence.Name = "LblResidence";
-            LblResidence.Size = new Size(279, 32);
+            LblResidence.Size = new Size(182, 25);
             LblResidence.TabIndex = 0;
-            LblResidence.Text = "Wohnort von Personen";
+            LblResidence.Text = "Wohnort Personen";
             // 
             // Panel4
             // 
@@ -162,28 +156,26 @@
             Panel4.Controls.Add(LblAverage);
             Panel4.Controls.Add(FormsPlotAge);
             Panel4.Controls.Add(LblAge);
-            Panel4.Location = new Point(490, 317);
-            Panel4.Margin = new Padding(3, 4, 3, 4);
+            Panel4.Location = new Point(430, 238);
             Panel4.Name = "Panel4";
-            Panel4.Size = new Size(333, 305);
+            Panel4.Size = new Size(291, 229);
             Panel4.TabIndex = 6;
             // 
             // LblAverage
             // 
             LblAverage.AutoSize = true;
             LblAverage.ForeColor = SystemColors.Window;
-            LblAverage.Location = new Point(31, 60);
+            LblAverage.Location = new Point(27, 45);
             LblAverage.Name = "LblAverage";
-            LblAverage.Size = new Size(0, 20);
+            LblAverage.Size = new Size(0, 15);
             LblAverage.TabIndex = 2;
             // 
             // FormsPlotAge
             // 
             FormsPlotAge.DisplayScale = 1F;
-            FormsPlotAge.Location = new Point(31, 76);
-            FormsPlotAge.Margin = new Padding(3, 4, 3, 4);
+            FormsPlotAge.Location = new Point(27, 57);
             FormsPlotAge.Name = "FormsPlotAge";
-            FormsPlotAge.Size = new Size(270, 204);
+            FormsPlotAge.Size = new Size(236, 153);
             FormsPlotAge.TabIndex = 1;
             // 
             // LblAge
@@ -191,21 +183,20 @@
             LblAge.AutoSize = true;
             LblAge.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LblAge.ForeColor = Color.White;
-            LblAge.Location = new Point(31, 27);
+            LblAge.Location = new Point(27, 20);
             LblAge.Name = "LblAge";
-            LblAge.Size = new Size(70, 32);
+            LblAge.Size = new Size(55, 25);
             LblAge.TabIndex = 0;
             LblAge.Text = "Alter";
             // 
             // FrmDashboard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(838, 636);
+            ClientSize = new Size(733, 477);
             Controls.Add(FlowLayoutPanel);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmDashboard";
             Text = " ";
             Panel1.ResumeLayout(false);
