@@ -93,7 +93,7 @@
             btnImportEmployee.FlatStyle = FlatStyle.Flat;
             btnImportEmployee.Image = Properties.Resources.import;
             btnImportEmployee.Location = new Point(165, 160);
-            btnImportEmployee.Margin = new Padding(6, 6, 6, 6);
+            btnImportEmployee.Margin = new Padding(6);
             btnImportEmployee.Name = "btnImportEmployee";
             btnImportEmployee.Size = new Size(392, 294);
             btnImportEmployee.TabIndex = 12;
@@ -105,7 +105,7 @@
             btnImportCustomer.FlatStyle = FlatStyle.Flat;
             btnImportCustomer.Image = Properties.Resources.import;
             btnImportCustomer.Location = new Point(165, 580);
-            btnImportCustomer.Margin = new Padding(6, 6, 6, 6);
+            btnImportCustomer.Margin = new Padding(6);
             btnImportCustomer.Name = "btnImportCustomer";
             btnImportCustomer.Size = new Size(392, 294);
             btnImportCustomer.TabIndex = 13;
@@ -117,7 +117,7 @@
             btnExportEmployee.FlatStyle = FlatStyle.Flat;
             btnExportEmployee.Image = Properties.Resources.export;
             btnExportEmployee.Location = new Point(808, 160);
-            btnExportEmployee.Margin = new Padding(6, 6, 6, 6);
+            btnExportEmployee.Margin = new Padding(6);
             btnExportEmployee.Name = "btnExportEmployee";
             btnExportEmployee.Size = new Size(392, 294);
             btnExportEmployee.TabIndex = 14;
@@ -129,7 +129,7 @@
             btnExportCustomer.FlatStyle = FlatStyle.Flat;
             btnExportCustomer.Image = Properties.Resources.export;
             btnExportCustomer.Location = new Point(808, 580);
-            btnExportCustomer.Margin = new Padding(6, 6, 6, 6);
+            btnExportCustomer.Margin = new Padding(6);
             btnExportCustomer.Name = "btnExportCustomer";
             btnExportCustomer.Size = new Size(392, 294);
             btnExportCustomer.TabIndex = 15;
@@ -139,7 +139,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(46, 51, 73);
+            BackColor = Color.FromArgb(62, 73, 76);
             ClientSize = new Size(1361, 1018);
             Controls.Add(btnExportCustomer);
             Controls.Add(btnExportEmployee);
@@ -151,7 +151,7 @@
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(6, 6, 6, 6);
+            Margin = new Padding(6);
             Name = "frmImportExport";
             Text = "frmImportExport";
             ResumeLayout(false);

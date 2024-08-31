@@ -37,7 +37,7 @@ namespace ZbW_P_Contact_Manager.UI
         private void LoadDashboard()
         {
             lblTitle.Text = "Dashboard"; // Set the title label text
-            LoadForm(new frmDashboard()); // Load the dashboard form
+            LoadForm(new FrmDashboard()); // Load the dashboard form
         }
 
         // General method to load any form into the pnlFormLoader panel
@@ -85,7 +85,7 @@ namespace ZbW_P_Contact_Manager.UI
         {
             SetNavigationStyle(BtnDashboard); // Set navigation style for Dashboard button
             lblTitle.Text = "Dashboard"; // Set the title label text
-            LoadForm(new frmDashboard()); // Load the dashboard form
+            LoadForm(new FrmDashboard()); // Load the dashboard form
         }
 
         // Event handler for Administration button click

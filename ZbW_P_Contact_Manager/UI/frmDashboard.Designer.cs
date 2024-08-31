@@ -1,6 +1,6 @@
 ﻿namespace ZbW_P_Contact_Manager.UI
 {
-    partial class frmDashboard
+    partial class FrmDashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,62 +28,163 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel4 = new Panel();
-            label5 = new Label();
-            label4 = new Label();
-            panel4.SuspendLayout();
+            Panel1 = new Panel();
+            FormsPlotCustomerCount = new ScottPlot.WinForms.FormsPlot();
+            LblCustomerCount = new Label();
+            FlowLayoutPanel = new FlowLayoutPanel();
+            Panel2 = new Panel();
+            FormsPlotPersonTypes = new ScottPlot.WinForms.FormsPlot();
+            LblPersonTypeCount = new Label();
+            Panel3 = new Panel();
+            FormsPlotResidence = new ScottPlot.WinForms.FormsPlot();
+            LblDashboard3 = new Label();
+            Panel1.SuspendLayout();
+            FlowLayoutPanel.SuspendLayout();
+            Panel2.SuspendLayout();
+            Panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // panel4
+            // Panel1
             // 
-            panel4.BackColor = Color.FromArgb(37, 42, 64);
-            panel4.Controls.Add(label5);
-            panel4.Controls.Add(label4);
-            panel4.Location = new Point(31, 39);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(258, 130);
-            panel4.TabIndex = 4;
+            Panel1.BackColor = Color.FromArgb(37, 42, 64);
+            Panel1.Controls.Add(FormsPlotCustomerCount);
+            Panel1.Controls.Add(LblCustomerCount);
+            Panel1.Location = new Point(6, 6);
+            Panel1.Margin = new Padding(6, 6, 6, 6);
+            Panel1.Name = "Panel1";
+            Panel1.Size = new Size(670, 489);
+            Panel1.TabIndex = 4;
             // 
-            // label5
+            // FormsPlotCustomerCount
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(64, 88);
-            label5.Name = "label5";
-            label5.Size = new Size(38, 15);
-            label5.TabIndex = 1;
-            label5.Text = "label5";
+            FormsPlotCustomerCount.DisplayScale = 1F;
+            FormsPlotCustomerCount.Location = new Point(50, 126);
+            FormsPlotCustomerCount.Margin = new Padding(6, 6, 6, 6);
+            FormsPlotCustomerCount.Name = "FormsPlotCustomerCount";
+            FormsPlotCustomerCount.Size = new Size(557, 320);
+            FormsPlotCustomerCount.TabIndex = 1;
             // 
-            // label4
+            // LblCustomerCount
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(75, 46);
-            label4.Name = "label4";
-            label4.Size = new Size(46, 25);
-            label4.TabIndex = 0;
-            label4.Text = "Test";
-            label4.Click += label4_Click;
+            LblCustomerCount.AutoSize = true;
+            LblCustomerCount.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblCustomerCount.ForeColor = Color.White;
+            LblCustomerCount.Location = new Point(50, 43);
+            LblCustomerCount.Margin = new Padding(6, 0, 6, 0);
+            LblCustomerCount.Name = "LblCustomerCount";
+            LblCustomerCount.Size = new Size(293, 51);
+            LblCustomerCount.TabIndex = 0;
+            LblCustomerCount.Text = "Anzahl Kunden";
             // 
-            // frmDashboard
+            // FlowLayoutPanel
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            FlowLayoutPanel.BackColor = Color.FromArgb(62, 73, 76);
+            FlowLayoutPanel.Controls.Add(Panel1);
+            FlowLayoutPanel.Controls.Add(Panel2);
+            FlowLayoutPanel.Controls.Add(Panel3);
+            FlowLayoutPanel.Dock = DockStyle.Fill;
+            FlowLayoutPanel.Location = new Point(0, 0);
+            FlowLayoutPanel.Margin = new Padding(4, 2, 4, 2);
+            FlowLayoutPanel.Name = "FlowLayoutPanel";
+            FlowLayoutPanel.Size = new Size(1374, 1029);
+            FlowLayoutPanel.TabIndex = 5;
+            // 
+            // Panel2
+            // 
+            Panel2.BackColor = Color.FromArgb(37, 42, 64);
+            Panel2.Controls.Add(FormsPlotPersonTypes);
+            Panel2.Controls.Add(LblPersonTypeCount);
+            Panel2.Location = new Point(688, 6);
+            Panel2.Margin = new Padding(6, 6, 6, 6);
+            Panel2.Name = "Panel2";
+            Panel2.Size = new Size(670, 489);
+            Panel2.TabIndex = 6;
+            // 
+            // FormsPlotPersonTypes
+            // 
+            FormsPlotPersonTypes.DisplayScale = 1F;
+            FormsPlotPersonTypes.Location = new Point(52, 126);
+            FormsPlotPersonTypes.Margin = new Padding(6, 6, 6, 6);
+            FormsPlotPersonTypes.Name = "FormsPlotPersonTypes";
+            FormsPlotPersonTypes.Size = new Size(557, 320);
+            FormsPlotPersonTypes.TabIndex = 2;
+            // 
+            // LblPersonTypeCount
+            // 
+            LblPersonTypeCount.AutoSize = true;
+            LblPersonTypeCount.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblPersonTypeCount.ForeColor = Color.White;
+            LblPersonTypeCount.Location = new Point(52, 43);
+            LblPersonTypeCount.Margin = new Padding(6, 0, 6, 0);
+            LblPersonTypeCount.Name = "LblPersonTypeCount";
+            LblPersonTypeCount.Size = new Size(418, 51);
+            LblPersonTypeCount.TabIndex = 2;
+            LblPersonTypeCount.Text = "Abgrenzung Personen";
+            // 
+            // Panel3
+            // 
+            Panel3.BackColor = Color.FromArgb(37, 42, 64);
+            Panel3.Controls.Add(FormsPlotResidence);
+            Panel3.Controls.Add(LblDashboard3);
+            Panel3.Location = new Point(6, 507);
+            Panel3.Margin = new Padding(6, 6, 6, 6);
+            Panel3.Name = "Panel3";
+            Panel3.Size = new Size(878, 489);
+            Panel3.TabIndex = 5;
+            // 
+            // FormsPlotResidence
+            // 
+            FormsPlotResidence.DisplayScale = 1F;
+            FormsPlotResidence.Location = new Point(50, 122);
+            FormsPlotResidence.Margin = new Padding(6, 6, 6, 6);
+            FormsPlotResidence.Name = "FormsPlotResidence";
+            FormsPlotResidence.Size = new Size(776, 326);
+            FormsPlotResidence.TabIndex = 1;
+            // 
+            // LblDashboard3
+            // 
+            LblDashboard3.AutoSize = true;
+            LblDashboard3.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblDashboard3.ForeColor = Color.White;
+            LblDashboard3.Location = new Point(50, 43);
+            LblDashboard3.Margin = new Padding(6, 0, 6, 0);
+            LblDashboard3.Name = "LblDashboard3";
+            LblDashboard3.Size = new Size(434, 51);
+            LblDashboard3.TabIndex = 0;
+            LblDashboard3.Text = "Wohnort von Personen";
+            // 
+            // FrmDashboard
+            // 
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(733, 477);
-            Controls.Add(panel4);
+            ClientSize = new Size(1374, 1029);
+            Controls.Add(FlowLayoutPanel);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "frmDashboard";
+            Margin = new Padding(6, 6, 6, 6);
+            Name = "FrmDashboard";
             Text = " ";
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
+            Panel1.ResumeLayout(false);
+            Panel1.PerformLayout();
+            FlowLayoutPanel.ResumeLayout(false);
+            Panel2.ResumeLayout(false);
+            Panel2.PerformLayout();
+            Panel3.ResumeLayout(false);
+            Panel3.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel4;
-        private Label label5;
-        private Label label4;
+        private Panel Panel1;
+        private Label LblCustomerCount;
+        private FlowLayoutPanel FlowLayoutPanel;
+        private Panel Panel2;
+        private Panel Panel3;
+        private Label LblDashboard3;
+        private ScottPlot.WinForms.FormsPlot FormsPlotCustomerCount;
+        private ScottPlot.WinForms.FormsPlot FormsPlotPersonTypes;
+        private Label LblPersonTypeCount;
+        private ScottPlot.WinForms.FormsPlot FormsPlotResidence;
     }
 }
