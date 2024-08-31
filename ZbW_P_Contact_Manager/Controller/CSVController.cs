@@ -5,6 +5,7 @@ using Model.Detail;
 using Model.Operation;
 using Model.Typing;
 using System.Collections;
+using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 using ZbW_P_Contact_Manager;
@@ -36,8 +37,8 @@ namespace Controller
 
         public object[] Import(ModelType model, string csvString)
         {
+            string[] header = GetFileHeader(csvString);
             string[] lines = csvString.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
-            string[] header = lines.First().Split(',', StringSplitOptions.None);
             string[] content = lines.Skip(1).ToArray();
             return content.Select(line => ImportModel(model, header, line.Split(','))).ToArray();
         }
@@ -50,15 +51,31 @@ namespace Controller
             return model;
         }
 
+        private string[] GetFileHeader(string csvString)
+        {
+            return csvString.Split(
+                new[] { "\r\n", "\r", "\n" },
+                StringSplitOptions.None)
+                .First()
+                .Split(',', StringSplitOptions.None);
+        }
+
+        public bool IsHeaderEqual(string header1, string header2)
+        {
+            return GetFileHeader(header1)
+                .All(field => GetFileHeader(header2)
+                .Contains(field));
+        }
+
         private object? ConvertStringToType(string value, Type type)
         {
             if (value.Length <= 0) return null;
 
-            if (type == typeof(int))
+            if (type == typeof(int?))
             {
                 return int.Parse(value);
             }
-            else if (type == typeof(bool))
+            else if (type == typeof(bool?))
             {
                 return bool.Parse(value);
             }
@@ -66,11 +83,11 @@ namespace Controller
             {
                 return char.Parse(value);
             }
-            else if (type == typeof(Guid))
+            else if (type == typeof(Guid) || type == typeof(Guid?))
             {
                 return Guid.Parse(value);
-            } 
-            else if (type == typeof(System.DateTime))
+            }
+            else if (type == typeof(DateTime?))
             {
                 return DateTime.Parse(value);
             }
