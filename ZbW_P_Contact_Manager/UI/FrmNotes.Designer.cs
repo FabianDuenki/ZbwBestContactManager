@@ -1,6 +1,6 @@
 ﻿namespace ZbW_P_Contact_Manager
 {
-    partial class Notes
+    partial class FrmNotes
     {
         /// <summary>
         /// Required designer variable.

@@ -3,12 +3,12 @@ using Model;
 
 namespace ZbW_P_Contact_Manager
 {
-    public partial class Notes : Form
+    public partial class FrmNotes : Form
     {
         Guid _personId;
         NotesController _notesController = new NotesController();
 
-        public Notes(Guid personId)
+        public FrmNotes(Guid personId)
         {
             _personId = personId;
 

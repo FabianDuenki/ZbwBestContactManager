@@ -91,7 +91,7 @@ namespace ZbW_P_Contact_Manager.UI
             SetNavigationStyle(btnCustomerContact); // Set navigation style for Administration button
             lblTitle.Text = "CustomerContact Tool"; // Set the title label text
             Guid testuser = Guid.NewGuid();
-            LoadForm(new Notes(testuser)); // Load the administration form
+            LoadForm(new FrmNotes(testuser)); // Load the administration form
         }
 
         // Event handler for Search button click
