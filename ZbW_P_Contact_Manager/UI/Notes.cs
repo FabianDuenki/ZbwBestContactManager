@@ -19,7 +19,8 @@ namespace ZbW_P_Contact_Manager
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            _notesController.Create(_personId, TxtBoxComment.Text, "PersonXY"); // TODO: get person name from logged in user => function yet missing
+            // TODO: get person name from logged in user => function yet missing
+            _notesController.Create(_personId, TxtBoxComment.Text, "PersonXY");
 
             LoadNotesInListView();
         }
@@ -70,37 +71,9 @@ namespace ZbW_P_Contact_Manager
             }
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e)
-        {
-            if(ListViewHistory.SelectedItems.Count == 1)
-            {
-                string noteId = ListViewHistory.SelectedItems[0].SubItems[0].Text;
-                Note note = new Note()
-                {
-                    Id = Guid.Parse(noteId),
-                    PersonId = _personId
-                };
-
-                _notesController.Delete(note);
-
-                LoadNotesInListView();
-            }
-        }
-
-        private void BtnEditCommand_Click(object sender, EventArgs e)
-        {
-            var noteId = ListViewHistory.SelectedItems[0].SubItems[0].Text;
-            _notesController.Update(_personId, Guid.Parse(noteId), TxtBoxComment.Text, "NewPersonXY"); // TODO: get logged in edit person
-
-            LoadNotesInListView();
-            ChangeButtonStates(true, true, true, false);
-        }
-
         private void ChangeButtonStates(bool btnSave, bool btnEdit, bool btnDelete, bool btnEditComment)
         {
             BtnSave.Visible = btnSave;
-            BtnEdit.Enabled = btnEdit;
-            BtnDelete.Enabled = btnDelete;
             BtnEditComment.Visible = btnEditComment;
         }
     }

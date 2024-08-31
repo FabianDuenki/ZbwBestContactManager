@@ -1,5 +1,4 @@
 ﻿using Model;
-using Model.Typing;
 
 namespace Controller
 {
@@ -20,9 +19,7 @@ namespace Controller
                 Comment = comment,
                 PersonId = personId,
                 CreatedBy = createdBy,
-                CreatedAt = DateTime.Now,
-                UpdatedBy = createdBy,
-                UpdatedAt = DateTime.Now,
+                CreatedAt = DateTime.Now
             };
 
             _csvController.AddNote(note);
@@ -42,24 +39,6 @@ namespace Controller
             }
 
             return filteredNotes;
-        }
-
-        public void Update(Guid personId, Guid noteId, string newComment, string updatedBy)
-        {
-            Note note = new Note
-            {
-                Id = noteId,
-                Comment = newComment,
-                UpdatedBy = updatedBy,
-                UpdatedAt = DateTime.Now
-            };
-
-            _csvController.UpdateNote(note);
-        }
-
-        public void Delete(Note note)
-        {
-            _csvController.DeleteNote(note);
         }
     }
 }
