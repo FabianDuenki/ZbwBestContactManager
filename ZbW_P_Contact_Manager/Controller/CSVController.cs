@@ -5,6 +5,7 @@ using Model.Detail;
 using Model.Operation;
 using Model.Typing;
 using System.Collections;
+using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 using ZbW_P_Contact_Manager;
@@ -70,11 +71,11 @@ namespace Controller
         {
             if (value.Length <= 0) return null;
 
-            if (type == typeof(int))
+            if (type == typeof(int?))
             {
                 return int.Parse(value);
             }
-            else if (type == typeof(bool))
+            else if (type == typeof(bool?))
             {
                 return bool.Parse(value);
             }
@@ -82,11 +83,11 @@ namespace Controller
             {
                 return char.Parse(value);
             }
-            else if (type == typeof(Guid))
+            else if (type == typeof(Guid) || type == typeof(Guid?))
             {
                 return Guid.Parse(value);
-            } 
-            else if (type == typeof(System.DateTime))
+            }
+            else if (type == typeof(DateTime?))
             {
                 return DateTime.Parse(value);
             }
