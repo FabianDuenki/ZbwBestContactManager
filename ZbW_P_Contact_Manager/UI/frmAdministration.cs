@@ -1,8 +1,5 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using Model;
 using ZbW_P_Contact_Manager.UI.AdministrationTools;
-//using ZbW_P_Contact_Manager.UI.AdministrationTools;
 
 namespace ZbW_P_Contact_Manager.UI
 {
@@ -22,39 +19,9 @@ namespace ZbW_P_Contact_Manager.UI
             // Show the frmCreateEmployee as a modal dialog
             if (frmCreateEmployee.ShowDialog() == DialogResult.OK)
             {
-                // Retrieve the new employee data if needed
-                string Status = frmCreateEmployee.Status;
-                string Salutation = frmCreateEmployee.Salutation;
-                string Title = frmCreateEmployee.Title;
-                string FistName = frmCreateEmployee.FirstName;
-                string LastName = frmCreateEmployee.LastName;
+                Employee employee = (Employee)frmCreateEmployee.model!;
 
-                string Gender = frmCreateEmployee.Gender;
-                string DateOfBirth = frmCreateEmployee.DateOfBirth;
-                string Nationality = frmCreateEmployee.Nationality;
-
-                string Street = frmCreateEmployee.Street;
-                string StreetNumber = frmCreateEmployee.StreetNumber;
-                string ZipCode = frmCreateEmployee.ZipCode;
-                string Place = frmCreateEmployee.Place;
-
-                string SocialSecurityNumber = frmCreateEmployee.SocialSecurityNumber;
-                string Email = frmCreateEmployee.Email;
-
-                string PhoneNumberPrivate = frmCreateEmployee.PhoneNumberPrivate;
-                string PhoneNumberMobile = frmCreateEmployee.PhoneNumberMobile;
-                string PhoneNumberBusiness = frmCreateEmployee.PhoneNumberBusiness;
-
-                string Departement = frmCreateEmployee.Department;
-                string StartDate = frmCreateEmployee.StartDate;
-                string EndDate = frmCreateEmployee.EndDate;
-                string Employment = frmCreateEmployee.Employment;
-                string Role = frmCreateEmployee.Role;
-                string CadreLevel = frmCreateEmployee.CadreLevel;
-
-
-                // Add the employee to your system, e.g., to a list or database
-                // Example: AddEmployeeToList(employeeName, employeeId);
+                // Upload employee to a db or save internally
             }
         }
 
@@ -65,40 +32,9 @@ namespace ZbW_P_Contact_Manager.UI
             // Show the frmCreatecustomer as a modal dialog
             if (frmCreateCustomer.ShowDialog() == DialogResult.OK)
             {
-                /* Retrieve the new customer data if needed
-                string customerStatus = frmCreatecustomer.customerStatus;
-                string customerSalutation = frmCreatecustomer.customerSalutation;
-                string customerTitle = frmCreatecustomer.customerTitle;
-                string customerFistName = frmCreatecustomer.customerFirstName;
-                string customerLastName = frmCreatecustomer.customerLastName;
+                Customer customer = (Customer)frmCreateCustomer.model!;
 
-                string customerGender = frmCreatecustomer.customerGender;
-                string customerDateOfBirth = frmCreatecustomer.customerDateOfBirth;
-                string customerNationality = frmCreatecustomer.customerNationality;
-
-                string customerStreet = frmCreatecustomer.customerStreet;
-                string customerStreetNumber = frmCreatecustomer.customerStreetNumber;
-                string customerZipCode = frmCreatecustomer.customerZipCode;
-                string customerPlace = frmCreatecustomer.customerPlace;
-
-                string customerSocialSecurityNumber = frmCreatecustomer.customerSocialSecurityNumber;
-                string customerEmail = frmCreatecustomer.customerEmail;
-
-                string customerPhoneNumberPrivate = frmCreatecustomer.customerPhoneNumberPrivate;
-                string customerPhoneNumberMobile = frmCreatecustomer.customerPhoneNumberMobile;
-                string customerPhoneNumberBusiness = frmCreatecustomer.customerPhoneNumberBusiness;
-
-                string customerDepartement = frmCreatecustomer.customerDepartment;
-                string customerStartDate = frmCreatecustomer.customerStartDate;
-                string customerEndDate = frmCreatecustomer.customerEndDate;
-                string customerEmployment = frmCreatecustomer.customerEmployment;
-                string customerRole = frmCreatecustomer.customerRole;
-                string customerCadreLevel = frmCreatecustomer.customerCadreLevel;
-                */
-
-
-                // Add the customer to your system, e.g., to a list or database
-                // Example: AddcustomerToList(customerName, customerId);
+                // Upload customer to a db or save internally
             }
         }
 
