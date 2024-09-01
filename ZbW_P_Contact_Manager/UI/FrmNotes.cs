@@ -33,7 +33,6 @@ namespace ZbW_P_Contact_Manager
         {
             ListViewHistory.Columns.Clear();
             ListViewHistory.Items.Clear();
-            BtnEditComment.Visible = false;
 
             var columnNames = new List<string>() { "Id", "Notiz", "Erstellt am", "Erstellt von" };
 
@@ -74,7 +73,6 @@ namespace ZbW_P_Contact_Manager
         private void ChangeButtonStates(bool btnSave, bool btnEdit, bool btnDelete, bool btnEditComment)
         {
             BtnSave.Visible = btnSave;
-            BtnEditComment.Visible = btnEditComment;
         }
     }
 }
