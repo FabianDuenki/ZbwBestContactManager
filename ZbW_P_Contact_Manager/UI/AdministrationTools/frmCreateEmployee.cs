@@ -1,71 +1,83 @@
 ﻿using Model;
-using System;
-using System.Drawing;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
+using UI.AdministrationTools.Classes;
+using UI.Helpers;
 
 namespace ZbW_P_Contact_Manager.UI
 {
-    public partial class frmCreateEmployee : Form
+    public partial class frmCreateEmployee : CreateForm
     {
-        public string Status { get; private set; }
-        public string Salutation { get; private set; }
-        public string Title { get; private set; }
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public string Gender { get; private set; }
-        public string DateOfBirth { get; private set; }
-        public string Nationality { get; private set; }
-        public string Street { get; private set; }
-        public string StreetNumber { get; private set; }
-        public string ZipCode { get; private set; }
-        public string Place { get; private set; }
-        public string SocialSecurityNumber { get; private set; }
-        public string Email { get; private set; }
-        public string PhoneNumberPrivate { get; private set; }
-        public string PhoneNumberMobile { get; private set; }
-        public string PhoneNumberBusiness { get; private set; }
-        public string Department { get; private set; }
-        public string StartDate { get; private set; }
-        public string EndDate { get; private set; }
-        public string Employment { get; private set; }
-        public string Role { get; private set; }
-        public string CadreLevel { get; private set; }
-
         public frmCreateEmployee()
         {
             InitializeComponent();
+            AddRequiredControls([
+                ckbStatus,
+                txtSalutation,
+                txtFirstName,
+                txtLastName,
+                txtSex,
+                txtNationality,
+                txtSocialSecurityNumber,
+                txtStreet,
+                txtPlace,
+                txtZipCode,
+                txtPhoneNumberMobile,
+                txtPhoneNumberPrivate,
+                txtEmail,
+                txtEmployment,
+                txtDepartment,
+                txtRole,
+                txtCadreLevel
+            ]);
         }
 
         private void btnCreateNewEmployee_Click(object sender, EventArgs e)
         {
-            // Collect data from text boxes
-            Salutation = txtSalutation.Text;
-            Title = txtTitle.Text;
-            FirstName = txtFirstName.Text;
-            LastName = txtLastName.Text;
-            Gender = txtSex.Text;
-            DateOfBirth = txtDateOfBirth.Text;
-            Nationality = txtNationality.Text;
-            Street = txtStreet.Text;
-            StreetNumber = txtStreetNumber.Text;
-            ZipCode = txtZipCode.Text;
-            Place = txtPlace.Text;
-            SocialSecurityNumber = txtSocialSecurityNumber.Text;
-            Email = txtEmail.Text;
-            PhoneNumberPrivate = txtPhoneNumberPrivate.Text;
-            PhoneNumberMobile = txtPhoneNumberMobile.Text;
-            PhoneNumberBusiness = txtPhoneNumberBusiness.Text;
-            Department = txtDepartment.Text;
-            StartDate = txtStartDate.Text;
-            EndDate = txtEndDate.Text;
-            Employment = txtEmployment.Text;
-            Role = txtRole.Text;
-            CadreLevel = txtCadreLevel.Text;
+            if (!IsFormValid()) return;
 
-            // Optionally validate the data here
+            Employee employee = new()
+            {
+                Status = ckbStatus.Checked,
+                Salutation = txtSalutation.Text,
+                Title = txtTitle.Text,
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Gender = txtSex.Text,
+                Nationality = txtNationality.Text,
+                SocialSecurityNumber = txtSocialSecurityNumber.Text,
+                DateOfBirth = DateTime.Parse(txtDateOfBirth.Text),
+                Street = txtStreet.Text,
+                StreetNumber = txtStreetNumber.Text,
+                Place = txtPlace.Text,
+                ZipCode = DataParser.StringToSafeInt(txtZipCode.Text),
+                PhoneNumberMobile = txtPhoneNumberMobile.Text,
+                PhoneNumberPrivate = txtPhoneNumberPrivate.Text,
+                PhoneNumberBusiness = txtPhoneNumberBusiness.Text,
+                Email = txtEmail.Text,
+                StartDate = DateTime.Parse(txtStartDate.Text),
+                EndDate = DateTime.Parse(txtEndDate.Text),
+                Employment = DataParser.StringToSafeInt(txtEmployment.Text),
+                Departement = txtDepartment.Text,
+                Role = txtRole.Text,
+                CadreLevel = DataParser.StringToSafeInt(txtCadreLevel.Text),
+            };
 
-            // Indicate success and close the form
+            if (ckbTrainee.Checked)
+            {
+                Trainee trainee = new();
+                Array.ForEach(employee.GetType().GetProperties(), property =>
+                    trainee.GetType().GetProperty(property.Name)
+                    !.SetValue(trainee, property.GetValue(employee)
+                ));
+                trainee.TraineeYears = DataParser.StringToSafeInt(txtTraineeYears.Text);
+                trainee.ActualTraineeYear = DataParser.StringToSafeInt(txtActualTraineeYears.Text);
+                model = trainee;
+            } 
+            else
+            {
+                model = employee;
+            }
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -85,8 +97,8 @@ namespace ZbW_P_Contact_Manager.UI
         private void ckbTrainee_CheckedChanged(object sender, EventArgs e)
         {
             bool isChecked = ckbTrainee.Checked;
-            numActualTraineeYear.Enabled = isChecked;
-            numTraineeYears.Enabled = isChecked;
+            txtTraineeYears.Enabled = isChecked;
+            txtActualTraineeYears.Enabled = isChecked;
         }
 
         private void txtSocialSecurityNumber_KeyPress(object sender, KeyPressEventArgs e)

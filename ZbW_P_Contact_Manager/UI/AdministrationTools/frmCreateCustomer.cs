@@ -1,16 +1,33 @@
-﻿using System;
-using System.Drawing;
+﻿using Model;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
+using UI.AdministrationTools.Classes;
+using UI.Helpers;
 
 namespace ZbW_P_Contact_Manager.UI
 {
-    public partial class frmCreateCustomer : Form
+    public partial class frmCreateCustomer : CreateForm
     {
         // Constructor for the Create Customer form
         public frmCreateCustomer()
         {
-            InitializeComponent(); // Initialize the form components
+            InitializeComponent();
+            AddRequiredControls([
+                ckbStatus,
+                txtSalutation,
+                txtFirstName,
+                txtLastName,
+                txtSex,
+                txtNationality,
+                txtStreet,
+                txtStreetNumber,
+                txtPlace,
+                txtZipCode,
+                txtPhoneNumberBusiness,
+                txtEmail,
+                txtCompanyName,
+                txtCompanyType,
+                txtCompanyContact
+            ]);
         }
 
         // Event handler for key press event on Social Security Number text box
@@ -73,6 +90,37 @@ namespace ZbW_P_Contact_Manager.UI
 
             // Set the calendar foreground color
             dateTimePicker.CalendarForeColor = SystemColors.ScrollBar;
+        }
+
+        private void btnCreateNewCustomer_Click(object sender, EventArgs e)
+        {
+            if (!IsFormValid()) return;
+
+            model = new Customer()
+            {
+                Status = ckbStatus.Checked,
+                Salutation = txtSalutation.Text,
+                Title  = txtTitle.Text,
+                FirstName = txtFirstName.Text,
+                LastName = txtLastName.Text,
+                Gender = txtSex.Text,
+                Nationality = txtNationality.Text,
+                DateOfBirth = DateTime.Parse(txtDateOfBirth.Text),
+                Street = txtStreet.Text,
+                StreetNumber = txtStreetNumber.Text,
+                Place = txtPlace.Text,
+                ZipCode = DataParser.StringToSafeInt(txtZipCode.Text),
+                PhoneNumberMobile = txtPhoneNumberMobile.Text,
+                PhoneNumberBusiness = txtPhoneNumberBusiness.Text,
+                PhoneNumberPrivate = txtPhoneNumberPrivate.Text,
+                Email = txtEmail.Text,
+                CompanyName = txtCompanyName.Text,
+                CompanyType = txtCompanyType.Text,
+                CompanyContact = txtCompanyContact.Text,
+            };
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }
