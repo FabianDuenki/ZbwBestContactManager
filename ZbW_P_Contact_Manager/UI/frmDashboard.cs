@@ -4,7 +4,6 @@ using ScottPlot.Palettes;
 using ZbW_P_Contact_Manager.Models;
 using Model.Typing;
 using Model;
-using Model.Detail;
 
 namespace ZbW_P_Contact_Manager.UI
 {
@@ -189,7 +188,10 @@ namespace ZbW_P_Contact_Manager.UI
                 ticks = ticks.Append(new Tick(i + 1, x[i].ToString())).ToArray();
             }
             
-            LblAverage.Text = "Durchschnitt: " + Queryable.Average(x.AsQueryable()).ToString();
+            if(x.Length > 0)
+            {
+                LblAverage.Text = "Durchschnitt: " + Queryable.Average(x.AsQueryable()).ToString();
+            }
 
             SetColorsForPlot(plot);
             SetFormsPlotSettings(plot, ticks);
