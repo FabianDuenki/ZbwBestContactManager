@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using Model;
 
 namespace ZbW_P_Contact_Manager.Controller
 {
@@ -7,10 +7,30 @@ namespace ZbW_P_Contact_Manager.Controller
         /// <summary>
         /// Fake table of users to log into the application
         /// </summary>
-        private readonly Hashtable hashtable = new()
+        private readonly List<User> users = new()
         {
-            { "root", "admin" }
+            new ("fabian", "admin"),
+            new ("jana", "admin"),
+            new ("gianluca", "admin"),
+            new ("pedro", "admin")
         };
+
+        /// <summary>
+        /// Current logged in user
+        /// </summary>
+        private User? user;
+        
+        /// <summary>
+        /// Property to set user information only once
+        /// </summary>
+        public User? User
+        {
+            get { return user; }
+            set
+            {
+                if (user == null) user = value;
+            }
+        }
 
         /// <summary>
         /// Checks whether a user exists within the "fake" internal storage
@@ -20,7 +40,8 @@ namespace ZbW_P_Contact_Manager.Controller
         /// <returns>Whether the user exists</returns>
         public bool IsUserValid(string username, string password)
         {
-            return hashtable.Contains(username) && hashtable[username] as string == password;
+            user = users.Find(user => user.GetFullName() == username && user.IsPasswordCorrect(password));
+            return user != null;
         }
     }
 }

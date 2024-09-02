@@ -39,5 +39,11 @@ namespace ZbW_P_Contact_Manager.UI
             TextBox? textBox = sender as TextBox;
             textBox!.Text = textBox!.Text.Replace(System.Environment.NewLine, "");
         }
+
+        private void OnClose(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
     }
 }

@@ -70,11 +70,8 @@ namespace ZbW_P_Contact_Manager.UI
         private void OpenLoginMenu()
         {
             frmLogin frmLogin = new frmLogin();
-
-            if (frmLogin.ShowDialog() == DialogResult.OK)
-            {
-                // User has logged in
-            }
+            if (frmLogin.ShowDialog() == DialogResult.OK) return;
+            Environment.Exit(0);
         }
 
         // Event handler for form load event

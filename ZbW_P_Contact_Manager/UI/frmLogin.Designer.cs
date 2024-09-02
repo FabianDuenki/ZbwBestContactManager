@@ -38,7 +38,9 @@
             label1 = new Label();
             label2 = new Label();
             panel1 = new Panel();
+            pBoxClose = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pBoxClose).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -150,12 +152,24 @@
             panel1.Size = new Size(314, 1);
             panel1.TabIndex = 10;
             // 
+            // pBoxClose
+            // 
+            pBoxClose.Image = Properties.Resources.close;
+            pBoxClose.Location = new Point(12, 12);
+            pBoxClose.Name = "pBoxClose";
+            pBoxClose.Size = new Size(30, 30);
+            pBoxClose.SizeMode = PictureBoxSizeMode.StretchImage;
+            pBoxClose.TabIndex = 11;
+            pBoxClose.TabStop = false;
+            pBoxClose.Click += OnClose;
+            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(62, 73, 76);
             ClientSize = new Size(800, 450);
+            Controls.Add(pBoxClose);
             Controls.Add(panel1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -172,6 +186,7 @@
             TopMost = true;
             MouseDown += OnMouseDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pBoxClose).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -188,5 +203,6 @@
         private Label label1;
         private Label label2;
         private Panel panel1;
+        private PictureBox pBoxClose;
     }
 }
