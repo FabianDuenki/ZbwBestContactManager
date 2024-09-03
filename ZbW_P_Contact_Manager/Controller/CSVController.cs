@@ -192,9 +192,10 @@ namespace Controller
             Note note = new Note();
             string filePath = GetPathByModelType(note.GetType());
             List<Note> noteList = new();
-            string[] csvNotes = File.ReadAllLines(filePath);
 
             if (!Path.Exists(filePath)) return noteList;
+
+            string[] csvNotes = File.ReadAllLines(filePath);
 
             foreach (string csvNote in csvNotes)
             {
@@ -228,8 +229,6 @@ namespace Controller
                 if (note.Id == newNote.Id)
                 {
                     note.Comment = newNote.Comment;
-                    note.UpdatedBy = newNote.UpdatedBy;
-                    note.UpdatedAt = newNote.UpdatedAt;
                 }
                 AddNote(note);
             }

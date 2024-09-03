@@ -16,10 +16,6 @@ namespace Model
                
         public string? CreatedBy { get; set; }
 
-        public DateTime? UpdatedAt { get; set; }
-
-        public string? UpdatedBy { get; set; }
-
         public object GetInstanceFromHashtable(Hashtable hashtable)
         {
             object instance = Activator.CreateInstance(GetType())!;
@@ -38,9 +34,7 @@ namespace Model
                 "Comment," +
                 "PersonId," +
                 "CreatedAt," +
-                "CreatedBy," +
-                "UpdatedAt," +
-                "UpdatedBy";
+                "CreatedBy";
         }
         public string ToCsvString()
         {
@@ -49,9 +43,7 @@ namespace Model
                 $"{this.Comment}," +
                 $"{this.PersonId.ToString()}," +
                 $"{this.CreatedAt.ToString()}," +
-                $"{this.CreatedBy}," +
-                $"{this.UpdatedAt.ToString()}," +
-                $"{this.UpdatedBy}";
+                $"{this.CreatedBy}";
         }
         public Note FromCsvString(string csvString)
         {
@@ -63,9 +55,7 @@ namespace Model
                 Comment = propertyValues[1],
                 PersonId = Guid.Parse(propertyValues[2]),
                 CreatedAt = DateTime.Parse(propertyValues[3]),
-                CreatedBy = propertyValues[4],
-                UpdatedAt = DateTime.Parse(propertyValues[5]),
-                UpdatedBy = propertyValues[6]
+                CreatedBy = propertyValues[4]
             };
             return note;
         }
