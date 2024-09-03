@@ -20,7 +20,7 @@ namespace Controller
 
         public List<Person> Read(Person searchUser)
         {
-            List<Person> allUsers = this.Read(searchUser.GetType().Name);
+            List<Person> allUsers = _csvController.ReadUsers(searchUser);
 
             List<Person> foundUsers = new List<Person>();
 
@@ -33,18 +33,9 @@ namespace Controller
             }
             return foundUsers;
         }
-        public List<Person> Read(string userType)
+        public List<Person> Read(ModelType userType)
         {
-            switch(userType)            {
-                case "Employee":
-                    return _csvController.ReadUsers(new Employee());
-                case "Customer":
-                    return _csvController.ReadUsers(new Customer());
-                case "Trainee":
-                    return _csvController.ReadUsers(new Trainee());
-                default:
-                    return new List<Person>();
-            }
+            return _csvController.ReadUsers(GetModelByType(userType));
         }
         public void Update(Person oldUser, Person newUser)
         {
