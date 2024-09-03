@@ -14,6 +14,7 @@ namespace ZbW_P_Contact_Manager.UI
             InitializeComponent();
             ApplyInitialStyles(); // Apply initial styles to the form
             LoadDashboard(); // Load the dashboard form on startup
+            OpenLoginMenu(); // Open Login Menu
         }
         // Method to apply initial styles to the form
         private void ApplyInitialStyles()
@@ -61,6 +62,16 @@ namespace ZbW_P_Contact_Manager.UI
             btnImportExport.BackColor = Color.FromArgb(0, 0, 77);
             btnHistory.BackColor = Color.FromArgb(0, 0, 77);
             btnSettings.BackColor = Color.FromArgb(0, 0, 77);
+        }
+
+        /// <summary>
+        /// Opens the Login menu
+        /// </summary>
+        private void OpenLoginMenu()
+        {
+            frmLogin frmLogin = new frmLogin();
+            if (frmLogin.ShowDialog() == DialogResult.OK) return;
+            Environment.Exit(0);
         }
 
         // Event handler for form load event
