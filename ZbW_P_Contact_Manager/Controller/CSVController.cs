@@ -176,9 +176,10 @@ namespace Controller
         {
             string filePath = GetPathByModelType(user.GetType());
             List<Person> userList = new();
-            string[] csvUsers = File.ReadAllLines(filePath);
 
             if (!Path.Exists(filePath)) return userList;
+
+            string[] csvUsers = File.ReadAllLines(filePath);
 
             foreach (string csvUser in csvUsers)
             {

@@ -17,9 +17,9 @@ namespace ZbW_P_Contact_Manager.UI
 
             var userController = new UserController();
 
-            var customerList = userController.Read(ModelType.Customer.ToString());
-            var employeeList = userController.Read(ModelType.Employee.ToString());
-            var traineeList = userController.Read(ModelType.Trainee.ToString());
+            var customerList = userController.Read(ModelType.Customer);
+            var employeeList = userController.Read(ModelType.Employee);
+            var traineeList = userController.Read(ModelType.Trainee);
 
             var people = customerList.Concat(employeeList).Concat(traineeList).ToList();
 
