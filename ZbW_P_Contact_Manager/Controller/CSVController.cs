@@ -5,8 +5,10 @@ using Model.Detail;
 using Model.Operation;
 using Model.Typing;
 using System.Collections;
+using System.Diagnostics;
 using System.Reflection;
 using System.Text;
+using ZbW_P_Contact_Manager;
 
 namespace Controller
 {
@@ -27,17 +29,16 @@ namespace Controller
             Instances = instances;
         }
 
-        public FormatStatus Export(FileFormat type)
+        public void Export(FileFormat type)
         {
-            if (Instances != null) return MultipleExport(type, Instances);
-            if (Instance != null) return SingleExport(type, Instance);
-            return FormatStatus.Error;
+            if (Instances != null) MultipleExport(type, Instances);
+            if (Instance != null) SingleExport(type, Instance);
         }
 
         public object[] Import(ModelType model, string csvString)
         {
+            string[] header = GetFileHeader(csvString);
             string[] lines = csvString.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
-            string[] header = lines.First().Split(',', StringSplitOptions.None);
             string[] content = lines.Skip(1).ToArray();
             return content.Select(line => ImportModel(model, header, line.Split(','))).ToArray();
         }
@@ -50,15 +51,31 @@ namespace Controller
             return model;
         }
 
+        private string[] GetFileHeader(string csvString)
+        {
+            return csvString.Split(
+                new[] { "\r\n", "\r", "\n" },
+                StringSplitOptions.None)
+                .First()
+                .Split(',', StringSplitOptions.None);
+        }
+
+        public bool IsHeaderEqual(string header1, string header2)
+        {
+            return GetFileHeader(header1)
+                .All(field => GetFileHeader(header2)
+                .Contains(field));
+        }
+
         private object? ConvertStringToType(string value, Type type)
         {
             if (value.Length <= 0) return null;
 
-            if (type == typeof(int))
+            if (type == typeof(int?))
             {
                 return int.Parse(value);
             }
-            else if (type == typeof(bool))
+            else if (type == typeof(bool?))
             {
                 return bool.Parse(value);
             }
@@ -66,11 +83,11 @@ namespace Controller
             {
                 return char.Parse(value);
             }
-            else if (type == typeof(Guid))
+            else if (type == typeof(Guid) || type == typeof(Guid?))
             {
                 return Guid.Parse(value);
-            } 
-            else if (type == typeof(System.DateTime))
+            }
+            else if (type == typeof(DateTime?))
             {
                 return DateTime.Parse(value);
             }
@@ -78,16 +95,16 @@ namespace Controller
             return value;
         }
 
-        private FormatStatus SingleExport(FileFormat type, object instance)
+        private void SingleExport(FileFormat type, object instance)
         {
-            return SaveFileByType(type, string.Join(",", instance.GetType()
+            SaveFileByType(type, string.Join(",", instance.GetType()
                 .GetProperties()
                 .Select(propertyInfo => propertyInfo.Name)) + $"\n{GetFormattedData(type, instance)}");
         }
 
-        private FormatStatus MultipleExport(FileFormat type, object[] instances)
+        private void MultipleExport(FileFormat type, object[] instances)
         {
-            return SaveFileByType(type, GetFormattedHeaders(type, instances.First()) + "\n" + string.Join("\n", instances
+            SaveFileByType(type, GetFormattedHeaders(type, instances.First()) + "\n" + string.Join("\n", instances
                 .Select(instance => GetFormattedData(type, instance))));
         }
 
@@ -109,163 +126,137 @@ namespace Controller
             };
         }
 
-        private FormatStatus SaveFileByType(FileFormat type, string content)
+        private void SaveFileByType(FileFormat type, string content)
         {
             string fileName = $"{new DateTimeOffset(DateTime.UtcNow).ToUnixTimeSeconds()}.{type.ToString().ToLower()}";
             string filePath = Path.Combine(SystemFolders.GetPath(SystemFolders.Folder.Downloads), fileName);
-            return CreateFile(content, filePath) == FileStatus.Success ? FormatStatus.Success : FormatStatus.Error;
+            CreateFile(filePath, content);
         }
-
-        public FileStatus CreateFile(string content, string path)
+        public string GetPathByModelType(Type userType)
         {
-            try
-            {
-                using (FileStream fileStream = new FileStream(path, FileMode.Create))
-                {
-                    byte[] info = new UTF8Encoding(true).GetBytes(content);
-                    fileStream.Write(info, 0, info.Length);
-                }
-
-                return FileStatus.Success;
-            }
-            catch { return FileStatus.Error; }
-        }
-
-        public FileStatus DeleteFile(string path)
-        {
-            try
-            {
-                File.Delete(path);
-                return FileStatus.Success;
-            }
-            catch { return FileStatus.Error; }
-        }
-
-        public bool AddUser(ModelType modelType, object user)
-        {
-            string csvUser = ConvertUserToCsvString(user);
-            string filePath = GetPathByModelType(modelType);
-
-            if (!Path.Exists(filePath))
-            {
-                CreateFile(filePath, user);
-            }
-            File.AppendAllText(filePath, Environment.NewLine);
-            File.AppendAllText(filePath, csvUser);
-
-            return true;
-
-        }
-
-        public string GetPathByModelType(ModelType modelType)
-        {
-            string fileName = $"{modelType.ToString()}.csv";
+            string fileName = $"{userType.Name}.csv";
             return $"{Environment.CurrentDirectory}\\{fileName}";
         }
-
-        public string ConvertUserToCsvString(object user)
+        public void CreateFile(string filePath, string csvHeader)
         {
-            string csvString = string.Empty;
-            foreach(PropertyInfo property in user.GetType().GetProperties())
-            {
-                csvString += $"{property.GetValue(user)},";
-            }
-            return csvString;
-        }
-
-        public bool CreateFile(string filePath, object user)
-        {
-            string csvHeader = string.Empty;
-
-            foreach (PropertyInfo property in user.GetType().GetProperties())
-            {
-                csvHeader += $"{property.Name},";
-            }
-            csvHeader = csvHeader.Remove(csvHeader.LastIndexOf(','));
             File.AppendAllText(filePath, csvHeader);
-
-            return true;
+        }
+        public void AddLine(string filePath, string line)
+        {
+            File.AppendAllText(filePath, Environment.NewLine);
+            File.AppendAllText(filePath, line);
+        }
+        public void DeleteFile(string path)
+        {
+            File.Delete(path);
         }
 
-        public List<dynamic> ReadUsers(ModelType modelType)
+        public void AddUser(Person user)
         {
-            string filePath = GetPathByModelType(modelType);
+            string filePath = GetPathByModelType(user.GetType());
 
             if (!Path.Exists(filePath))
             {
-                return new List<dynamic>();
+                CreateFile(filePath, user.ToCsvHeader());
             }
-            string[] csvLines = File.ReadAllLines(filePath); 
-
-            return ConvertCsvStringToUsers(modelType, csvLines);
+            AddLine(filePath, user.ToCsvString());
         }
-        public List<dynamic> ConvertCsvStringToUsers(ModelType modelType, string[] csvLines)
-        {
-            List<dynamic> users = new List<dynamic>();
 
-            string[] csvHeaders = (csvLines.First()).Split(',');
-            string[] csvUsers = csvLines.Skip(1).ToArray();
+        public void AddNote(Note note)
+        {
+            string filePath = GetPathByModelType(note.GetType());
+
+            if (!Path.Exists(filePath))
+            {
+                CreateFile(filePath, note.ToCsvHeader());
+            }
+            AddLine(filePath, note.ToCsvString());
+        }
+        public List<Person> ReadUsers(Person user)
+        {
+            string filePath = GetPathByModelType(user.GetType());
+            List<Person> userList = new();
+
+            if (!Path.Exists(filePath)) return userList;
+
+            string[] csvUsers = File.ReadAllLines(filePath);
 
             foreach (string csvUser in csvUsers)
             {
-                string[] csvUserValues = csvUser.Split(',');
-                Hashtable userProperties = new Hashtable();
-
-                foreach (string property in csvHeaders)
-                {
-                    userProperties.Add(property, csvUserValues[Array.IndexOf(csvHeaders, property)]);
-                }
-                dynamic user = GetModelByType(modelType);
-                user = user.GetInstanceFromHashtable(userProperties);
-
-
-                users.Add(user);
+                if(csvUser == user.ToCsvHeader() || string.IsNullOrEmpty(csvUser)) continue;
+                userList.Add(user.FromCsvString(csvUser));
             }
-            return users;
+            return userList;
         }
-        public bool UpdateUser(ModelType modelType, Guid userId, object newUser)
+        public List<Note> ReadNotes()
         {
-            bool userChanged = false;
-            string filePath = GetPathByModelType(modelType);
-            List<dynamic> users = ReadUsers(modelType);
+            Note note = new Note();
+            string filePath = GetPathByModelType(note.GetType());
+            List<Note> noteList = new();
+
+            if (!Path.Exists(filePath)) return noteList;
+
+            string[] csvNotes = File.ReadAllLines(filePath);
+
+            foreach (string csvNote in csvNotes)
+            {
+                if (csvNote == note.ToCsvHeader()) continue;
+                noteList.Add(note.FromCsvString(csvNote));
+            }
+            return noteList;
+        }
+        public void UpdateUser(Person newUser)
+        {
+            string filePath = GetPathByModelType(newUser.GetType());
+            List<Person> users = ReadUsers(newUser);
 
             File.Delete(filePath);
 
-            foreach (dynamic user in users)
+            foreach (Person user in users)
             {
-                if (user.Id == userId)
-                {
-                    AddUser(modelType, newUser);
-                    userChanged = true;
-                }
-                else
-                {
-                    AddUser(modelType, user);
-                }
+                if (user.Id == newUser.Id) AddUser(newUser);
+                else AddUser(user);
             }
-
-            return userChanged;
         }
-        public bool DeleteUser(ModelType modelType, Guid userId)
+        public void UpdateNote(Note newNote)
         {
-            bool userDeleted = false;
-            string filePath = GetPathByModelType(modelType);
-            List<dynamic> users = ReadUsers(modelType);
+            string filePath = GetPathByModelType(newNote.GetType());
+            List<Note> notes = ReadNotes();
 
             File.Delete(filePath);
 
-            foreach (dynamic user in users)
+            foreach (Note note in notes)
             {
-                if (user.Id == userId)
+                if (note.Id == newNote.Id)
                 {
-                    userDeleted = true;
+                    note.Comment = newNote.Comment;
                 }
-                else
-                {
-                    AddUser(modelType, user);
-                }
+                AddNote(note);
             }
-            return userDeleted;
+        }
+        public void DeleteUser(Person deletionUser)
+        {
+            string filePath = GetPathByModelType(deletionUser.GetType());
+            List<Person> users = ReadUsers(deletionUser);
+
+            File.Delete(filePath);
+
+            foreach (Person user in users)
+            {
+                if (user.Id != deletionUser.Id) AddUser(user);
+            }
+        }
+        public void DeleteNote(Note deletionNote)
+        {
+            string filePath = GetPathByModelType(deletionNote.GetType());
+            List<Note> notes = ReadNotes();
+
+            File.Delete(filePath);
+
+            foreach (Note note in notes)
+            {
+                if (note.Id != deletionNote.Id) AddNote(note);
+            }
         }
     }
 }

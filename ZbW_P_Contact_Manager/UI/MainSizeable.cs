@@ -14,6 +14,7 @@ namespace ZbW_P_Contact_Manager.UI
             InitializeComponent();
             ApplyInitialStyles(); // Apply initial styles to the form
             LoadDashboard(); // Load the dashboard form on startup
+            OpenLoginMenu(); // Open Login Menu
         }
         // Method to apply initial styles to the form
         private void ApplyInitialStyles()
@@ -63,6 +64,16 @@ namespace ZbW_P_Contact_Manager.UI
             btnSettings.BackColor = Color.FromArgb(0, 0, 77);
         }
 
+        /// <summary>
+        /// Opens the Login menu
+        /// </summary>
+        private void OpenLoginMenu()
+        {
+            frmLogin frmLogin = new frmLogin();
+            if (frmLogin.ShowDialog() == DialogResult.OK) return;
+            Environment.Exit(0);
+        }
+
         // Event handler for form load event
         private void Main_Load(object sender, EventArgs e)
         {
@@ -91,7 +102,7 @@ namespace ZbW_P_Contact_Manager.UI
             SetNavigationStyle(btnCustomerContact); // Set navigation style for Administration button
             lblTitle.Text = "CustomerContact Tool"; // Set the title label text
             Guid testuser = Guid.NewGuid();
-            LoadForm(new Notes(testuser)); // Load the administration form
+            LoadForm(new FrmNotes(testuser)); // Load the administration form
         }
 
         // Event handler for Search button click

@@ -5,7 +5,6 @@
         Person,
         Trainee,
         Customer,
-        Employee,
-        Note
+        Employee
     }
 }

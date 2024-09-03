@@ -15,10 +15,11 @@ namespace ZbW_P_Contact_Manager.UI
         {
             InitializeComponent();
 
-            CSVController csvController = new CSVController(this);
-            var customerList = csvController.ReadUsers(ModelType.Customer);
-            var employeeList = csvController.ReadUsers(ModelType.Employee);
-            var traineeList = csvController.ReadUsers(ModelType.Trainee);
+            var userController = new UserController();
+
+            var customerList = userController.Read(ModelType.Customer);
+            var employeeList = userController.Read(ModelType.Employee);
+            var traineeList = userController.Read(ModelType.Trainee);
 
             var people = customerList.Concat(employeeList).Concat(traineeList).ToList();
 
@@ -32,7 +33,7 @@ namespace ZbW_P_Contact_Manager.UI
 
             foreach (var person in people)
             {
-                int age = (int)((DateTime.Now - person.DateOfBirth.Date).TotalDays / 365.242199);                
+                int age = (int)((DateTime.Now - person.DateOfBirth.Value).TotalDays / 365.242199);                
                 agePeople.Add(age);
 
                 if(residence.ContainsKey(person.Place))

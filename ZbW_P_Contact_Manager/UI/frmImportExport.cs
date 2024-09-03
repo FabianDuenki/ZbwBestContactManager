@@ -1,25 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using External;
+using Controller;
+using Model.Typing;
+using Model;
+using UI.Localization;
 
 namespace ZbW_P_Contact_Manager.UI
 {
     public partial class frmImportExport : Form
     {
+        CSVController _csvController;
+
         public frmImportExport()
         {
             InitializeComponent();
+            _csvController = new CSVController();
+        }
+
+        private void ImportModel(ModelType modelType)
+        {
+            Person modal = (Person)ModelController.GetModelByType(modelType);
+            string header = modal.ToCsvHeader();
+            string text = FileHandler.GetTextFromFilePath(FileHandler.GetFilePathFromPicker());
+            bool isHeaderEqual = _csvController.IsHeaderEqual(header, text);
+
+            if (isHeaderEqual)
+            {
+                object[] models = _csvController.Import(modelType, text);
+            }
+            else
+            {
+                MessageBox.Show(SystemMessage.GetMessage(Error.ModelMismatch));
+            }
         }
 
         private void btnImportEmployee_Click(object sender, EventArgs e)
         {
-
+            ImportModel(ModelType.Employee);
         }
 
         private void btnExportEmployee_Click(object sender, EventArgs e)
@@ -29,12 +45,12 @@ namespace ZbW_P_Contact_Manager.UI
 
         private void btnImportCustomer_Click(object sender, EventArgs e)
         {
-
+            ImportModel(ModelType.Customer);
         }
 
         private void btnExportCustomer_Click(object sender, EventArgs e)
         {
-
+               
         }
     }
 }
