@@ -1,41 +1,37 @@
-﻿using Model;
+﻿using Controller;
+using Model;
+using Model.Typing;
 using ZbW_P_Contact_Manager.UI.AdministrationTools;
 
 namespace ZbW_P_Contact_Manager.UI
 {
     public partial class frmAdministration : Form
     {
+        private UserController _userController;
+
         // Constructor for the Administration form
         public frmAdministration()
         {
+            _userController = new UserController();
             InitializeComponent();
         }
-
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             frmCreateEmployee frmCreateEmployee = new frmCreateEmployee();
-
-            // Show the frmCreateEmployee as a modal dialog
             if (frmCreateEmployee.ShowDialog() == DialogResult.OK)
-            {
-                Employee employee = (Employee)frmCreateEmployee.model!;
-
-                // Upload employee to a db or save internally
-            }
+                _userController.Create(
+                    frmCreateEmployee.model!.GetType().Name == "Employee" 
+                    ? (Employee)frmCreateEmployee.model! 
+                    : (Trainee)frmCreateEmployee.model!
+                );
         }
 
         private void btnCreateNewCustomer_Click(object sender, EventArgs e)
         {
             frmCreateCustomer frmCreateCustomer = new frmCreateCustomer();
-
-            // Show the frmCreatecustomer as a modal dialog
             if (frmCreateCustomer.ShowDialog() == DialogResult.OK)
-            {
-                Customer customer = (Customer)frmCreateCustomer.model!;
-
-                // Upload customer to a db or save internally
-            }
+                _userController.Create((Customer)frmCreateCustomer.model!);
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)

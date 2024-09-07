@@ -1,14 +1,12 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using System.Collections;
+﻿using System.Collections;
 using System.ComponentModel;
-using System.Data;
 using System.Reflection;
 
 namespace Model
 {
     public class Person
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string? Salutation { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
