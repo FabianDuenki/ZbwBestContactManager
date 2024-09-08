@@ -8,27 +8,28 @@ namespace ZbW_P_Contact_Manager.UI
 {
     public partial class frmAdministration : Form
     {
-        // Constructor initializes the form and ListView and subscribes to the load event
+        private UserController _userController;
+
         public frmAdministration()
         {
             InitializeComponent();
-            InitializeListView(); // Set up the ListView with appropriate columns
-            Load += frmAdministration_Load; // Subscribe to form load event
+            _userController = new UserController(); // Initialize the UserController
+            InitializeListView();
+            Load += frmAdministration_Load;
         }
 
-        // Event handler for form load event - Shows a message and loads users into ListView
         private void frmAdministration_Load(object? sender, EventArgs e)
         {
             MessageBox.Show("Loading users...");
-            LoadUsersIntoListView(); // Load data into ListView on form load
+            LoadUsersIntoListView();  // Load users when the form loads
+            LoadTestEmployee();
         }
 
-        // Sets up the ListView with appropriate columns for displaying user information
         private void InitializeListView()
         {
             listView1.View = System.Windows.Forms.View.Details;
 
-            // Adding columns to ListView for user data
+            // Add columns for Person properties
             listView1.Columns.Add("Id", 100);
             listView1.Columns.Add("Salutation", 100);
             listView1.Columns.Add("First Name", 100);
@@ -48,7 +49,7 @@ namespace ZbW_P_Contact_Manager.UI
             listView1.Columns.Add("Zip Code", 100);
             listView1.Columns.Add("Place", 100);
 
-            // Employee specific columns
+            // Add columns for Employee properties
             listView1.Columns.Add("Employee Number", 100);
             listView1.Columns.Add("Department", 100);
             listView1.Columns.Add("Start Date", 100);
@@ -57,159 +58,115 @@ namespace ZbW_P_Contact_Manager.UI
             listView1.Columns.Add("Role", 100);
             listView1.Columns.Add("Cadre Level", 100);
 
-            // Trainee specific columns
+            // Add columns for Trainee properties
             listView1.Columns.Add("Trainee Years", 100);
             listView1.Columns.Add("Actual Trainee Year", 100);
 
-            // Customer specific columns
+            // Add columns for Customer properties
             listView1.Columns.Add("Company Name", 150);
             listView1.Columns.Add("Company Type", 150);
             listView1.Columns.Add("Company Contact", 150);
 
-            listView1.FullRowSelect = true; // Allows selecting full rows instead of individual cells
+            listView1.FullRowSelect = true;
         }
 
-        // Event handler for selecting an item in the ListView
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listView1.SelectedItems.Count > 0)
-            {
-                // Retrieve the selected item and cast its Tag to a Person object
-                ListViewItem selectedItem = listView1.SelectedItems[0];
-                Person selectedUser = (Person)selectedItem.Tag;
-                // Further actions with the selected user could be done here
-            }
-        }
-
-        // Loads the users from the controller into the ListView
         private void LoadUsersIntoListView()
         {
-            UserController userController = new UserController(); // Controller for fetching user data
-            listView1.Items.Clear(); // Clear the existing items in the ListView
+            listView1.Items.Clear();
 
-            // Load different types of users
-            List<Person> employees = userController.Read(ModelType.Employee);
-            List<Person> trainees = userController.Read(ModelType.Trainee);
-            List<Person> customers = userController.Read(ModelType.Customer);
+            // Load all employees, trainees, and customers
+            List<Person> employees = _userController.Read(ModelType.Employee);
+            List<Person> trainees = _userController.Read(ModelType.Trainee);
+            List<Person> customers = _userController.Read(ModelType.Customer);
 
-            // Add Employee entries
-            foreach (var employee in employees.OfType<Employee>())
+            // Add employees
+            foreach (Employee employee in employees.OfType<Employee>())
             {
-                ListViewItem item = CreateListViewItemForEmployee(employee);
-                listView1.Items.Add(item);
+                AddUserToListView(employee);
             }
 
-            // Add Trainee entries
-            foreach (var trainee in trainees.OfType<Trainee>())
+            // Add trainees
+            foreach (Trainee trainee in trainees.OfType<Trainee>())
             {
-                ListViewItem item = CreateListViewItemForTrainee(trainee);
-                listView1.Items.Add(item);
+                AddUserToListView(trainee);
             }
 
-            // Add Customer entries
-            foreach (var customer in customers.OfType<Customer>())
+            // Add customers
+            foreach (Customer customer in customers.OfType<Customer>())
             {
-                ListViewItem item = CreateListViewItemForCustomer(customer);
-                listView1.Items.Add(item);
+                AddUserToListView(customer);
             }
         }
 
-        // Helper method to create ListViewItem for Employee
-        private ListViewItem CreateListViewItemForEmployee(Employee employee)
+        // Helper method to add users to the ListView
+        private void AddUserToListView(Person person)
         {
-            ListViewItem item = new ListViewItem(employee.Id.ToString());
-            item.SubItems.Add(employee.Salutation);
-            item.SubItems.Add(employee.FirstName);
-            item.SubItems.Add(employee.LastName);
-            item.SubItems.Add(employee.DateOfBirth?.ToString("yyyy-MM-dd"));
-            item.SubItems.Add(employee.Gender);
-            item.SubItems.Add(employee.Title);
-            item.SubItems.Add(employee.SocialSecurityNumber);
-            item.SubItems.Add(employee.PhoneNumberPrivate);
-            item.SubItems.Add(employee.PhoneNumberMobile);
-            item.SubItems.Add(employee.PhoneNumberBusiness);
-            item.SubItems.Add(employee.Email);
-            item.SubItems.Add(employee.Status?.ToString());
-            item.SubItems.Add(employee.Nationality);
-            item.SubItems.Add(employee.Street);
-            item.SubItems.Add(employee.StreetNumber);
-            item.SubItems.Add(employee.ZipCode?.ToString());
-            item.SubItems.Add(employee.Place);
-            item.SubItems.Add(employee.EmployeeNumber?.ToString());
-            item.SubItems.Add(employee.Departement);
-            item.SubItems.Add(employee.StartDate?.ToString("yyyy-MM-dd"));
-            item.SubItems.Add(employee.EndDate?.ToString("yyyy-MM-dd"));
-            item.SubItems.Add(employee.Employment?.ToString());
-            item.SubItems.Add(employee.Role);
-            item.SubItems.Add(employee.CadreLevel?.ToString());
-            return item;
+            ListViewItem item = new ListViewItem(person.Id.ToString());
+            item.SubItems.Add(person.Salutation);
+            item.SubItems.Add(person.FirstName);
+            item.SubItems.Add(person.LastName);
+            item.SubItems.Add(person.DateOfBirth?.ToString("yyyy-MM-dd"));
+            item.SubItems.Add(person.Gender);
+            item.SubItems.Add(person.Title);
+            item.SubItems.Add(person.SocialSecurityNumber);
+            item.SubItems.Add(person.PhoneNumberPrivate);
+            item.SubItems.Add(person.PhoneNumberMobile);
+            item.SubItems.Add(person.PhoneNumberBusiness);
+            item.SubItems.Add(person.Email);
+            item.SubItems.Add(person.Status?.ToString());
+            item.SubItems.Add(person.Nationality);
+            item.SubItems.Add(person.Street);
+            item.SubItems.Add(person.StreetNumber);
+            item.SubItems.Add(person.ZipCode?.ToString());
+            item.SubItems.Add(person.Place);
+
+            if (person is Employee employee)
+            {
+                item.SubItems.Add(employee.EmployeeNumber?.ToString());
+                item.SubItems.Add(employee.Departement);
+                item.SubItems.Add(employee.StartDate?.ToString("yyyy-MM-dd"));
+                item.SubItems.Add(employee.EndDate?.ToString("yyyy-MM-dd"));
+                item.SubItems.Add(employee.Employment?.ToString());
+                item.SubItems.Add(employee.Role);
+                item.SubItems.Add(employee.CadreLevel?.ToString());
+            }
+            else
+            {
+                item.SubItems.Add(""); // Placeholder for Employee-specific fields
+                item.SubItems.Add("");
+                item.SubItems.Add("");
+                item.SubItems.Add("");
+                item.SubItems.Add("");
+                item.SubItems.Add("");
+            }
+
+            if (person is Trainee trainee)
+            {
+                item.SubItems.Add(trainee.TraineeYears?.ToString());
+                item.SubItems.Add(trainee.ActualTraineeYear?.ToString());
+            }
+            else
+            {
+                item.SubItems.Add(""); // Placeholder for Trainee-specific fields
+                item.SubItems.Add("");
+            }
+
+            if (person is Customer customer)
+            {
+                item.SubItems.Add(customer.CompanyName);
+                item.SubItems.Add(customer.CompanyType);
+                item.SubItems.Add(customer.CompanyContact);
+            }
+            else
+            {
+                item.SubItems.Add(""); // Placeholder for Customer-specific fields
+                item.SubItems.Add("");
+                item.SubItems.Add("");
+            }
+
+            listView1.Items.Add(item);
         }
 
-        // Helper method to create ListViewItem for Trainee
-        private ListViewItem CreateListViewItemForTrainee(Trainee trainee)
-        {
-            ListViewItem item = new ListViewItem(trainee.Id.ToString());
-            item.SubItems.Add(trainee.Salutation);
-            item.SubItems.Add(trainee.FirstName);
-            item.SubItems.Add(trainee.LastName);
-            item.SubItems.Add(trainee.DateOfBirth?.ToString("yyyy-MM-dd"));
-            item.SubItems.Add(trainee.Gender);
-            item.SubItems.Add(trainee.Title);
-            item.SubItems.Add(trainee.SocialSecurityNumber);
-            item.SubItems.Add(trainee.PhoneNumberPrivate);
-            item.SubItems.Add(trainee.PhoneNumberMobile);
-            item.SubItems.Add(trainee.PhoneNumberBusiness);
-            item.SubItems.Add(trainee.Email);
-            item.SubItems.Add(trainee.Status?.ToString());
-            item.SubItems.Add(trainee.Nationality);
-            item.SubItems.Add(trainee.Street);
-            item.SubItems.Add(trainee.StreetNumber);
-            item.SubItems.Add(trainee.ZipCode?.ToString());
-            item.SubItems.Add(trainee.Place);
-            item.SubItems.Add(trainee.EmployeeNumber?.ToString());
-            item.SubItems.Add(trainee.Departement);
-            item.SubItems.Add(trainee.StartDate?.ToString("yyyy-MM-dd"));
-            item.SubItems.Add(trainee.EndDate?.ToString("yyyy-MM-dd"));
-            item.SubItems.Add(trainee.Employment?.ToString());
-            item.SubItems.Add(trainee.Role);
-            item.SubItems.Add(trainee.CadreLevel?.ToString());
-            item.SubItems.Add(trainee.TraineeYears?.ToString());
-            item.SubItems.Add(trainee.ActualTraineeYear?.ToString());
-            return item;
-        }
-
-        // Helper method to create ListViewItem for Customer
-        private ListViewItem CreateListViewItemForCustomer(Customer customer)
-        {
-            ListViewItem item = new ListViewItem(customer.Id.ToString());
-            item.SubItems.Add(customer.Salutation);
-            item.SubItems.Add(customer.FirstName);
-            item.SubItems.Add(customer.LastName);
-            item.SubItems.Add(customer.DateOfBirth?.ToString("yyyy-MM-dd"));
-            item.SubItems.Add(customer.Gender);
-            item.SubItems.Add(customer.Title);
-            item.SubItems.Add(customer.SocialSecurityNumber);
-            item.SubItems.Add(customer.PhoneNumberPrivate);
-            item.SubItems.Add(customer.PhoneNumberMobile);
-            item.SubItems.Add(customer.PhoneNumberBusiness);
-            item.SubItems.Add(customer.Email);
-            item.SubItems.Add(customer.Status?.ToString());
-            item.SubItems.Add(customer.Nationality);
-            item.SubItems.Add(customer.Street);
-            item.SubItems.Add(customer.StreetNumber);
-            item.SubItems.Add(customer.ZipCode?.ToString());
-            item.SubItems.Add(customer.Place);
-            item.SubItems.Add(""); // Placeholder for Employee specific fields
-            item.SubItems.Add(""); // Placeholder for Employee specific fields
-            item.SubItems.Add(""); // Placeholder for Employee specific fields
-            item.SubItems.Add(""); // Placeholder for Employee specific fields
-            item.SubItems.Add(customer.CompanyName);
-            item.SubItems.Add(customer.CompanyType);
-            item.SubItems.Add(customer.CompanyContact);
-            return item;
-        }
-
-        // Event handler for adding a new employee
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             frmCreateEmployee frmCreateEmployee = new frmCreateEmployee();
@@ -217,11 +174,11 @@ namespace ZbW_P_Contact_Manager.UI
             if (frmCreateEmployee.ShowDialog() == DialogResult.OK)
             {
                 Employee employee = (Employee)frmCreateEmployee.model!;
-                // Further logic for adding employee to the database can be added here
+                _userController.Create(employee);
+                LoadUsersIntoListView();  // Refresh the list
             }
         }
 
-        // Event handler for creating a new customer
         private void btnCreateNewCustomer_Click(object sender, EventArgs e)
         {
             frmCreateCustomer frmCreateCustomer = new frmCreateCustomer();
@@ -229,18 +186,65 @@ namespace ZbW_P_Contact_Manager.UI
             if (frmCreateCustomer.ShowDialog() == DialogResult.OK)
             {
                 Customer customer = (Customer)frmCreateCustomer.model!;
-                // Further logic for adding customer to the database can be added here
+                _userController.Create(customer);
+                LoadUsersIntoListView();  // Refresh the list
             }
         }
 
-        // Event handler for editing a user
         private void btnEditUser_Click(object sender, EventArgs e)
         {
             frmEditUser frmEditUser = new frmEditUser();
             if (frmEditUser.ShowDialog() == DialogResult.OK)
             {
-                // Logic for editing the user can be implemented here
+                // Handle the edit functionality here if required
+                LoadUsersIntoListView();  // Refresh the list
             }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listView1.SelectedItems[0];
+                Person selectedUser = (Person)selectedItem.Tag;
+                // Do something with the selected user
+            }
+        }
+
+        private void LoadTestEmployee()
+        {
+            // Create the test Employee
+            Employee testEmployee = new Employee
+            {
+                Id = Guid.Parse("701f94bf-e771-4d86-ac3c-6543497d2228"),
+                Salutation = "Herr",
+                FirstName = "Max",
+                LastName = "Alt",
+                DateOfBirth = new DateTime(1969, 5, 8),
+                Gender = "Male",
+                Title = "Hr.",
+                SocialSecurityNumber = "123-456-789",
+                PhoneNumberPrivate = "0041 71 123 45 67",
+                PhoneNumberMobile = "0041 79 123 45 67",
+                PhoneNumberBusiness = "0041 71 445 45 01",
+                Email = "max.alt@employee.ch",
+                Status = true,
+                Nationality = "Swiss",
+                Street = "Musterstrasse",
+                StreetNumber = "12",
+                ZipCode = 9000,
+                Place = "St. Gallen",
+                EmployeeNumber = Guid.Parse("6981c825-7caa-456d-b47e-6ac080eddd47"),
+                Departement = "Sales",
+                StartDate = new DateTime(2010, 1, 1),
+                EndDate = null,
+                Employment = 100,
+                Role = "Sales Manager",
+                CadreLevel = 4
+            };
+
+            // Add the test Employee to the ListView
+            AddUserToListView(testEmployee);
         }
     }
 }
