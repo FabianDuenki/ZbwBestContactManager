@@ -28,37 +28,35 @@
         public override Trainee FromCsvString(string csvString)
         {
             string[] propertyValues = csvString.Split(',');
+            Trainee user = new Trainee();
 
-            Trainee user = new Trainee
-            {
-                Id = Guid.Parse(propertyValues[0]),
-                Salutation = propertyValues[1],
-                FirstName = propertyValues[2],
-                LastName = propertyValues[3],
-                DateOfBirth = DateTime.Parse(propertyValues[4]),
-                Gender = propertyValues[5],
-                Title = propertyValues[6],
-                SocialSecurityNumber = propertyValues[7],
-                PhoneNumberPrivate = propertyValues[8],
-                PhoneNumberMobile = propertyValues[9],
-                PhoneNumberBusiness = propertyValues[10],
-                Email = propertyValues[11],
-                Status = bool.Parse(propertyValues[12]),
-                Nationality = propertyValues[13],
-                Street = propertyValues[14],
-                StreetNumber = propertyValues[15],
-                ZipCode = int.Parse(propertyValues[16]),
-                Place = propertyValues[17],
-                EmployeeNumber = Guid.Parse(propertyValues[18]),
-                Departement = propertyValues[19],
-                StartDate = DateTime.Parse(propertyValues[20]),
-                EndDate = DateTime.Parse(propertyValues[21]),
-                Employment = int.Parse(propertyValues[22]),
-                Role = propertyValues[23],
-                CadreLevel = int.Parse(propertyValues[24]),
-                TraineeYears = int.Parse(propertyValues[25]),
-                ActualTraineeYear = int.Parse(propertyValues[26])
-            };
+            user.Id = Guid.Parse(propertyValues[0]);
+            user.Salutation = propertyValues[1];
+            user.FirstName = propertyValues[2];
+            user.LastName = propertyValues[3];
+            user.DateOfBirth = DateTime.Parse(propertyValues[4]);
+            user.Gender = propertyValues[5];
+            user.Title = propertyValues[6];
+            user.SocialSecurityNumber = propertyValues[7];
+            user.PhoneNumberPrivate = propertyValues[8];
+            user.PhoneNumberMobile = propertyValues[9];
+            user.PhoneNumberBusiness = propertyValues[10];
+            user.Email = propertyValues[11];
+            user.Status = bool.Parse(propertyValues[12]);
+            user.Nationality = propertyValues[13];
+            user.Street = propertyValues[14];
+            user.StreetNumber = propertyValues[15];
+            user.ZipCode = int.Parse(propertyValues[16]);
+            user.Place = propertyValues[17];
+            user.EmployeeNumber = Guid.Parse(propertyValues[18]);
+            user.Departement = propertyValues[19];
+            if (!String.IsNullOrEmpty(propertyValues[20])) user.StartDate = DateTime.Parse(propertyValues[20]);
+            if (!String.IsNullOrEmpty(propertyValues[21])) user.EndDate = DateTime.Parse(propertyValues[21]);
+            user.Employment = int.Parse(propertyValues[22]);
+            user.Role = propertyValues[23];
+            user.CadreLevel = int.Parse(propertyValues[24]);
+            user.TraineeYears = int.Parse(propertyValues[25]);
+            user.ActualTraineeYear = int.Parse(propertyValues[26]);
 
             return user;
         }
