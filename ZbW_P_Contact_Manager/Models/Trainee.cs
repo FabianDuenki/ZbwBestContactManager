@@ -28,8 +28,8 @@
         public override Trainee FromCsvString(string csvString)
         {
             string[] propertyValues = csvString.Split(',');
-
             Trainee user = new Trainee();
+
             user.Id = Guid.Parse(propertyValues[0]);
             user.Salutation = propertyValues[1];
             user.FirstName = propertyValues[2];

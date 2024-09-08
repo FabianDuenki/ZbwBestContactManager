@@ -49,13 +49,13 @@
         public override Employee FromCsvString(string csvString)
         {
             string[] propertyValues = csvString.Split(',');
-
             Employee user = new Employee();
+
             user.Id = Guid.Parse(propertyValues[0]);
             user.Salutation = propertyValues[1];
             user.FirstName = propertyValues[2];
             user.LastName = propertyValues[3];
-            user.DateOfBirth = DateTime.Parse(propertyValues[4]);
+            if (!String.IsNullOrEmpty(propertyValues[4])) user.DateOfBirth = DateTime.Parse(propertyValues[4]);
             user.Gender = propertyValues[5];
             user.Title = propertyValues[6];
             user.SocialSecurityNumber = propertyValues[7];
