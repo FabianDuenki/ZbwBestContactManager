@@ -38,6 +38,11 @@ namespace ZbW_P_Contact_Manager.UI
         {
             TextBox? textBox = sender as TextBox;
             textBox!.Text = textBox!.Text.Replace(System.Environment.NewLine, "");
+            if (e.KeyCode == Keys.Enter)
+            {
+                OnLoginClick(sender, e);
+                return;
+            }
         }
 
         private void OnClose(object sender, EventArgs e)
