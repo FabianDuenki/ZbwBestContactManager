@@ -1,6 +1,6 @@
 ﻿namespace Model
 {
-    class User(string username, string password)
+    public class User(string username, string password)
     {
         /// <summary>
         /// Checks whether the password matches that of the instance

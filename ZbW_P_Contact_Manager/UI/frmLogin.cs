@@ -5,17 +5,14 @@ namespace ZbW_P_Contact_Manager.UI
 {
     public partial class frmLogin : Form
     {
-        private AuthController _authController;
-
         public frmLogin()
         {
             InitializeComponent();
-            _authController = new AuthController();
         }
 
         private void OnLoginClick(object sender, EventArgs e)
         {
-            if (!_authController.IsUserValid(txtUsername.Text, txtPassword.Text))
+            if (!AuthController.IsUserValid(txtUsername.Text, txtPassword.Text))
             {
                 lblError.Visible = true;
                 return;
