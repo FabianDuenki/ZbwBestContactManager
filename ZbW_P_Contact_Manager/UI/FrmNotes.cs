@@ -1,5 +1,6 @@
 ﻿using Controller;
 using Model;
+using ZbW_P_Contact_Manager.Controller;
 
 namespace ZbW_P_Contact_Manager
 {
@@ -19,9 +20,14 @@ namespace ZbW_P_Contact_Manager
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            // TODO: get person name from logged in user => function yet missing
-            _notesController.Create(_personId, TxtBoxComment.Text, "PersonXY");
+            var currentUser = "undefined";
 
+            if (AuthController.User != null)
+            {
+                currentUser = AuthController.User.GetFullName();
+            }
+
+            _notesController.Create(_personId, TxtBoxComment.Text, currentUser);
             LoadNotesInListView();
         }
 
