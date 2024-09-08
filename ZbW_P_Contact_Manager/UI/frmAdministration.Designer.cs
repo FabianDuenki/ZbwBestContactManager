@@ -145,6 +145,7 @@
             btnRefresh.Size = new Size(32, 28);
             btnRefresh.TabIndex = 2;
             btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // btnFilter
             // 

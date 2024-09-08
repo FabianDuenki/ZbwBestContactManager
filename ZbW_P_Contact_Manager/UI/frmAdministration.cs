@@ -20,9 +20,8 @@ namespace ZbW_P_Contact_Manager.UI
 
         private void frmAdministration_Load(object? sender, EventArgs e)
         {
-            MessageBox.Show("Loading users...");
             LoadUsersIntoListView();  // Load users when the form loads
-            LoadTestEmployee();
+            //LoadTestEmployee();
         }
 
         private void InitializeListView()
@@ -72,6 +71,7 @@ namespace ZbW_P_Contact_Manager.UI
 
         private void LoadUsersIntoListView()
         {
+            MessageBox.Show("Loading users...");
             listView1.Items.Clear();
 
             // Load all employees, trainees, and customers
@@ -245,6 +245,11 @@ namespace ZbW_P_Contact_Manager.UI
 
             // Add the test Employee to the ListView
             AddUserToListView(testEmployee);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadUsersIntoListView();
         }
     }
 }
