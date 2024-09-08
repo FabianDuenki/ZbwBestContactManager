@@ -13,8 +13,8 @@ namespace ZbW_P_Contact_Manager.UI
         {
             InitializeComponent();
             ApplyInitialStyles(); // Apply initial styles to the form
-            LoadDashboard(); // Load the dashboard form on startup
             OpenLoginMenu(); // Open Login Menu
+            LoadDashboard(); // Load the dashboard form on startup
         }
         // Method to apply initial styles to the form
         private void ApplyInitialStyles()
