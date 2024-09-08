@@ -74,7 +74,7 @@
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = System.Windows.Forms.View.Details;
-            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
+            listView1.SelectedIndexChanged += ListView1_SelectedIndexChanged;
             // 
             // panel3
             // 
