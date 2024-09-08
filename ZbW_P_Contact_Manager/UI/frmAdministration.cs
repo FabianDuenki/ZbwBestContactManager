@@ -84,19 +84,19 @@ namespace ZbW_P_Contact_Manager.UI
             List<Person> customers = _userController.Read(ModelType.Customer);
 
             // Add employees
-            foreach (Employee employee in employees.OfType<Employee>())
+            foreach (Employee employee in employees)
             {
                 AddUserToListView(employee);
             }
 
             // Add trainees
-            foreach (Trainee trainee in trainees.OfType<Trainee>())
+            foreach (Trainee trainee in trainees)
             {
                 AddUserToListView(trainee);
             }
 
             // Add customers
-            foreach (Customer customer in customers.OfType<Customer>())
+            foreach (Customer customer in customers)
             {
                 AddUserToListView(customer);
             }
