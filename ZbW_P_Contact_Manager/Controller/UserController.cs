@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using Model;
 using Model.Detail;
 using Model.Typing;
 using System.Reflection;
@@ -15,6 +16,21 @@ namespace Controller
         }
         public void Create(Person user)
         {
+            user.Id = Guid.NewGuid();
+            if (user.GetType() == typeof(Trainee))
+            {
+                Trainee trainee = (Trainee)user;
+                trainee.EmployeeNumber = Guid.NewGuid();
+                _csvController.AddUser(trainee);
+                return;
+            }
+            if (user.GetType() == typeof(Employee))
+            {
+                Employee employee = (Employee)user;
+                employee.EmployeeNumber = Guid.NewGuid();
+                _csvController.AddUser(employee);
+                return;
+            }
             _csvController.AddUser(user);
         }
 
@@ -40,7 +56,22 @@ namespace Controller
         public void Update(Person oldUser, Person newUser)
         {
             newUser.Id = oldUser.Id;
-
+            if (newUser.GetType() == typeof(Trainee))
+            {
+                Trainee newTrainee = (Trainee)newUser;
+                Trainee oldTrainee = (Trainee)oldUser;
+                newTrainee.EmployeeNumber = oldTrainee.EmployeeNumber;
+                _csvController.UpdateUser(newTrainee);
+                return;
+            }
+            if (newUser.GetType() == typeof(Employee))
+            {
+                Employee newEmployee = (Employee)newUser;
+                Employee oldEmployee = (Employee)oldUser;
+                newEmployee.EmployeeNumber = oldEmployee.EmployeeNumber;
+                _csvController.UpdateUser(newEmployee);
+                return;
+            }
             _csvController.UpdateUser(newUser);
         }
         public void Delete(Person user)
