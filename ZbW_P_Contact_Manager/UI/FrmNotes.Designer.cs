@@ -31,6 +31,7 @@
             PanelBottom = new Panel();
             ListViewHistory = new ListView();
             PanelTop = new Panel();
+            LblPersonId = new Label();
             LblNoteTitle = new Label();
             BtnSave = new Button();
             TxtBoxComment = new TextBox();
@@ -71,6 +72,7 @@
             // PanelTop
             // 
             PanelTop.BackColor = Color.FromArgb(62, 73, 76);
+            PanelTop.Controls.Add(LblPersonId);
             PanelTop.Controls.Add(LblNoteTitle);
             PanelTop.Controls.Add(BtnSave);
             PanelTop.Controls.Add(TxtBoxComment);
@@ -80,6 +82,14 @@
             PanelTop.Name = "PanelTop";
             PanelTop.Size = new Size(821, 237);
             PanelTop.TabIndex = 27;
+            // 
+            // LblPersonId
+            // 
+            LblPersonId.AutoSize = true;
+            LblPersonId.Location = new Point(266, 34);
+            LblPersonId.Name = "LblPersonId";
+            LblPersonId.Size = new Size(0, 15);
+            LblPersonId.TabIndex = 11;
             // 
             // LblNoteTitle
             // 
@@ -133,7 +143,7 @@
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(822, 516);
             Controls.Add(FlowLayoutPanel);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "FrmNotes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Notes";
@@ -154,5 +164,6 @@
         private Button BtnSave;
         private TextBox TxtBoxComment;
         private FlowLayoutPanel FlowLayoutPanel;
+        private Label LblPersonId;
     }
 }

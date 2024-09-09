@@ -9,6 +9,7 @@ namespace ZbW_P_Contact_Manager.UI
     public partial class frmAdministration : Form
     {
         private UserController _userController;
+        private ListViewItem _selectedItem;
 
         public frmAdministration()
         {
@@ -204,9 +205,8 @@ namespace ZbW_P_Contact_Manager.UI
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                ListViewItem selectedItem = listView1.SelectedItems[0];
-                Person selectedUser = (Person)selectedItem.Tag;
-                // Do something with the selected user
+                _selectedItem = listView1.SelectedItems[0];
+                BtnAddNote.Enabled = true;
             }
         }
 
@@ -249,6 +249,24 @@ namespace ZbW_P_Contact_Manager.UI
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadUsersIntoListView();
+        }
+
+        private void BtnAddNote_Click(object sender, EventArgs e)
+        {
+            if(_selectedItem == null)
+            {
+                BtnAddNote.Enabled = false;
+            }
+            else
+            {
+                FrmNotes frmNotes = new FrmNotes(new Guid(_selectedItem.Text));
+
+                if (frmNotes.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+            
         }
     }
 }

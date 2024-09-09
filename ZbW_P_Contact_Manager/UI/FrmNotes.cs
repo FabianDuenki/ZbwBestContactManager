@@ -11,7 +11,6 @@ namespace ZbW_P_Contact_Manager
 
         public FrmNotes(Guid personId)
         {
-            // _personId = new Guid(LblPersonId.Text);
             _personId = personId;
 
             InitializeComponent();
@@ -30,10 +29,6 @@ namespace ZbW_P_Contact_Manager
 
             _notesController.Create(_personId, TxtBoxComment.Text, currentUser);
             LoadNotesInListView();
-        }
-
-        private void BtnClose_Click(object sender, EventArgs e)
-        {
         }
 
         private void InitializeListView()
