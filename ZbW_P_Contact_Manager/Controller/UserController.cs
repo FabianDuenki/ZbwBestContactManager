@@ -15,7 +15,14 @@ namespace Controller
         }
         public void Create(Person user)
         {
-            _csvController.AddUser(user);
+            if (user.GetType() != typeof(Employee))
+            {
+                _csvController.AddUser(user);
+                return;
+            }
+            Employee employee = (Employee)user;
+            employee.EmployeeNumber = Guid.NewGuid();
+            _csvController.AddUser(employee);
         }
 
         public List<Person> Read(Person searchUser)
