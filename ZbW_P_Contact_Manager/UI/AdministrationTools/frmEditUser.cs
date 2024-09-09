@@ -80,7 +80,7 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
         }
         private void FillTextFields()
         {
-            if (_currentUser.Status == true) checkBox1.Checked = true;
+            btnStatus.Checked = (_currentUser.Status == true) ? true : false;
             txtSalutation.Text = _currentUser.Salutation;
             txtTitle.Text = _currentUser.Title;
             txtFirstName.Text = _currentUser.FirstName;
@@ -161,7 +161,7 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
                     CompanyContact = txtCompanyContact.Text
                 };
             }
-            _updatedUser.Status = checkBox1.Checked;
+            _updatedUser.Status = btnStatus.Checked;
             _updatedUser.Salutation = txtSalutation.Text;
             _updatedUser.Title = txtTitle.Text;
             _updatedUser.FirstName = txtFirstName.Text;
