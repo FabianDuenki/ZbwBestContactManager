@@ -32,6 +32,7 @@
             panel4 = new Panel();
             listView1 = new ListView();
             panel3 = new Panel();
+            BtnAddNote = new Button();
             btnEditUser = new Button();
             btnCreateNewCustomer = new Button();
             btnRefresh = new Button();
@@ -81,6 +82,7 @@
             // 
             panel3.BackColor = Color.FromArgb(62, 73, 76);
             panel3.Controls.Add(btnTrash);
+            panel3.Controls.Add(BtnAddNote);
             panel3.Controls.Add(btnEditUser);
             panel3.Controls.Add(btnCreateNewCustomer);
             panel3.Controls.Add(btnRefresh);
@@ -94,6 +96,27 @@
             panel3.Size = new Size(733, 42);
             panel3.TabIndex = 1;
             // 
+            // BtnAddNote
+            // 
+            BtnAddNote.BackColor = Color.FromArgb(81, 102, 105);
+            BtnAddNote.Enabled = false;
+            BtnAddNote.FlatAppearance.BorderSize = 0;
+            BtnAddNote.FlatStyle = FlatStyle.Popup;
+            BtnAddNote.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            BtnAddNote.ForeColor = Color.FromArgb(167, 177, 255);
+            BtnAddNote.Image = Properties.Resources.add;
+            BtnAddNote.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnAddNote.Location = new Point(462, 8);
+            BtnAddNote.Margin = new Padding(2, 1, 2, 1);
+            BtnAddNote.Name = "BtnAddNote";
+            BtnAddNote.Size = new Size(148, 27);
+            BtnAddNote.TabIndex = 4;
+            BtnAddNote.Text = "Add note";
+            BtnAddNote.TextAlign = ContentAlignment.MiddleLeft;
+            BtnAddNote.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BtnAddNote.UseVisualStyleBackColor = false;
+            BtnAddNote.Click += BtnAddNote_Click;
+            // 
             // btnEditUser
             // 
             btnEditUser.BackColor = Color.FromArgb(81, 102, 105);
@@ -103,10 +126,10 @@
             btnEditUser.ForeColor = Color.FromArgb(167, 177, 255);
             btnEditUser.Image = Properties.Resources.edit;
             btnEditUser.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditUser.Location = new Point(382, 8);
+            btnEditUser.Location = new Point(310, 8);
             btnEditUser.Margin = new Padding(2, 1, 2, 1);
             btnEditUser.Name = "btnEditUser";
-            btnEditUser.Size = new Size(153, 27);
+            btnEditUser.Size = new Size(148, 27);
             btnEditUser.TabIndex = 4;
             btnEditUser.Text = "Edit existing User";
             btnEditUser.TextAlign = ContentAlignment.MiddleLeft;
@@ -123,10 +146,10 @@
             btnCreateNewCustomer.ForeColor = Color.FromArgb(167, 177, 255);
             btnCreateNewCustomer.Image = Properties.Resources.add;
             btnCreateNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCreateNewCustomer.Location = new Point(197, 8);
+            btnCreateNewCustomer.Location = new Point(158, 9);
             btnCreateNewCustomer.Margin = new Padding(2, 1, 2, 1);
             btnCreateNewCustomer.Name = "btnCreateNewCustomer";
-            btnCreateNewCustomer.Size = new Size(176, 27);
+            btnCreateNewCustomer.Size = new Size(148, 27);
             btnCreateNewCustomer.TabIndex = 3;
             btnCreateNewCustomer.Text = "Create new Customer";
             btnCreateNewCustomer.TextAlign = ContentAlignment.MiddleLeft;
@@ -175,7 +198,7 @@
             btnAddEmployee.Location = new Point(6, 8);
             btnAddEmployee.Margin = new Padding(2, 1, 2, 1);
             btnAddEmployee.Name = "btnAddEmployee";
-            btnAddEmployee.Size = new Size(180, 27);
+            btnAddEmployee.Size = new Size(148, 27);
             btnAddEmployee.TabIndex = 0;
             btnAddEmployee.Text = "Create new Employee";
             btnAddEmployee.TextAlign = ContentAlignment.MiddleLeft;
@@ -250,5 +273,6 @@
         private Button btnEditUser;
         private ListView listView1;
         private Button btnTrash;
+        private Button BtnAddNote;
     }
 }

@@ -179,7 +179,6 @@
             btnCustomerContact.TextAlign = ContentAlignment.MiddleLeft;
             btnCustomerContact.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCustomerContact.UseVisualStyleBackColor = true;
-            btnCustomerContact.Click += btnCustomerContact_Click;
             // 
             // btnAdministration
             // 

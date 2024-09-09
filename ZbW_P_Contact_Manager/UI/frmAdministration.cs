@@ -217,6 +217,7 @@ namespace ZbW_P_Contact_Manager.UI
                 string selectedItem = listView1.SelectedItems[0].Text;
                 _selectedUser = _loadedUsers.Find(user => user.Id.ToString() == selectedItem);
                 btnEditUser.Enabled = true;
+                BtnAddNote.Enabled = true;
                 return;
             }
             btnEditUser.Enabled = false;
@@ -267,6 +268,12 @@ namespace ZbW_P_Contact_Manager.UI
         {
             _userController.Delete(_selectedUser);
             LoadUsersIntoListView();  // Refresh the list
+        }
+
+        private void BtnAddNote_Click(object sender, EventArgs e)
+        {
+            FrmNotes frmNotes = new FrmNotes(_selectedUser.Id);
+            frmNotes.ShowDialog();
         }
     }
 }

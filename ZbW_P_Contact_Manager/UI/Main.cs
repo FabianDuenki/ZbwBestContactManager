@@ -96,14 +96,6 @@ namespace ZbW_P_Contact_Manager.UI
             LoadForm(new frmAdministration()); // Load the administration form
         }
 
-        // Event handler for Customer Contact button click
-        private void btnCustomerContact_Click(object sender, EventArgs e)
-        {
-            SetNavigationStyle(btnCustomerContact); // Set navigation style for Customer Contact button
-            lblTitle.Text = "Customer Contact Tool"; // Set the title label text
-            LoadForm(new frmCustomerContact()); // Load the customer contact form
-        }
-
         // Event handler for Search button click
         private void btnSearch_Click(object sender, EventArgs e)
         {

@@ -40,7 +40,6 @@
             btnHistory = new Button();
             btnImportExport = new Button();
             btnSearch = new Button();
-            btnCustomerContact = new Button();
             btnAdministration = new Button();
             BtnDashboard = new Button();
             pnlUserDetails = new Panel();
@@ -61,8 +60,9 @@
             pnlMain.Controls.Add(pnlLeftMenu);
             pnlMain.Dock = DockStyle.Fill;
             pnlMain.Location = new Point(0, 0);
+            pnlMain.Margin = new Padding(2, 1, 2, 1);
             pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(1874, 1479);
+            pnlMain.Size = new Size(1014, 497);
             pnlMain.TabIndex = 0;
             // 
             // pnlMainPanel
@@ -70,17 +70,19 @@
             pnlMainPanel.Controls.Add(pnlFormLoader);
             pnlMainPanel.Controls.Add(pnlMainPanelTop);
             pnlMainPanel.Dock = DockStyle.Fill;
-            pnlMainPanel.Location = new Point(350, 0);
+            pnlMainPanel.Location = new Point(188, 0);
+            pnlMainPanel.Margin = new Padding(2, 1, 2, 1);
             pnlMainPanel.Name = "pnlMainPanel";
-            pnlMainPanel.Size = new Size(1524, 1479);
+            pnlMainPanel.Size = new Size(826, 497);
             pnlMainPanel.TabIndex = 1;
             // 
             // pnlFormLoader
             // 
             pnlFormLoader.Dock = DockStyle.Fill;
-            pnlFormLoader.Location = new Point(0, 300);
+            pnlFormLoader.Location = new Point(0, 141);
+            pnlFormLoader.Margin = new Padding(2, 1, 2, 1);
             pnlFormLoader.Name = "pnlFormLoader";
-            pnlFormLoader.Size = new Size(1524, 1179);
+            pnlFormLoader.Size = new Size(826, 356);
             pnlFormLoader.TabIndex = 1;
             // 
             // pnlMainPanelTop
@@ -88,8 +90,9 @@
             pnlMainPanelTop.Controls.Add(lblTitle);
             pnlMainPanelTop.Dock = DockStyle.Top;
             pnlMainPanelTop.Location = new Point(0, 0);
+            pnlMainPanelTop.Margin = new Padding(2, 1, 2, 1);
             pnlMainPanelTop.Name = "pnlMainPanelTop";
-            pnlMainPanelTop.Size = new Size(1524, 300);
+            pnlMainPanelTop.Size = new Size(826, 141);
             pnlMainPanelTop.TabIndex = 0;
             // 
             // lblTitle
@@ -97,9 +100,10 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.ForeColor = Color.FromArgb(206, 213, 255);
-            lblTitle.Location = new Point(22, 28);
+            lblTitle.Location = new Point(12, 13);
+            lblTitle.Margin = new Padding(2, 0, 2, 0);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(100, 50);
+            lblTitle.Size = new Size(50, 25);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Title";
             // 
@@ -109,8 +113,9 @@
             pnlLeftMenu.Controls.Add(pnlUserDetails);
             pnlLeftMenu.Dock = DockStyle.Left;
             pnlLeftMenu.Location = new Point(0, 0);
+            pnlLeftMenu.Margin = new Padding(2, 1, 2, 1);
             pnlLeftMenu.Name = "pnlLeftMenu";
-            pnlLeftMenu.Size = new Size(350, 1479);
+            pnlLeftMenu.Size = new Size(188, 497);
             pnlLeftMenu.TabIndex = 0;
             // 
             // pnlMenuButtons
@@ -121,21 +126,22 @@
             pnlMenuButtons.Controls.Add(btnHistory);
             pnlMenuButtons.Controls.Add(btnImportExport);
             pnlMenuButtons.Controls.Add(btnSearch);
-            pnlMenuButtons.Controls.Add(btnCustomerContact);
             pnlMenuButtons.Controls.Add(btnAdministration);
             pnlMenuButtons.Controls.Add(BtnDashboard);
             pnlMenuButtons.Dock = DockStyle.Fill;
-            pnlMenuButtons.Location = new Point(0, 300);
+            pnlMenuButtons.Location = new Point(0, 141);
+            pnlMenuButtons.Margin = new Padding(2, 1, 2, 1);
             pnlMenuButtons.Name = "pnlMenuButtons";
-            pnlMenuButtons.Size = new Size(350, 1179);
+            pnlMenuButtons.Size = new Size(188, 356);
             pnlMenuButtons.TabIndex = 1;
             // 
             // pnlNav
             // 
             pnlNav.BackColor = Color.FromArgb(167, 177, 255);
-            pnlNav.Location = new Point(0, 193);
+            pnlNav.Location = new Point(0, 90);
+            pnlNav.Margin = new Padding(2, 1, 2, 1);
             pnlNav.Name = "pnlNav";
-            pnlNav.Size = new Size(3, 100);
+            pnlNav.Size = new Size(2, 47);
             pnlNav.TabIndex = 7;
             // 
             // btnSettings
@@ -147,9 +153,10 @@
             btnSettings.ForeColor = Color.FromArgb(167, 177, 255);
             btnSettings.Image = Properties.Resources.settings;
             btnSettings.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSettings.Location = new Point(0, 1109);
+            btnSettings.Location = new Point(0, 323);
+            btnSettings.Margin = new Padding(2, 1, 2, 1);
             btnSettings.Name = "btnSettings";
-            btnSettings.Size = new Size(350, 70);
+            btnSettings.Size = new Size(188, 33);
             btnSettings.TabIndex = 6;
             btnSettings.Text = "Settings";
             btnSettings.TextAlign = ContentAlignment.MiddleLeft;
@@ -166,9 +173,10 @@
             btnHistory.ForeColor = Color.FromArgb(167, 177, 255);
             btnHistory.Image = Properties.Resources.dashboard;
             btnHistory.ImageAlign = ContentAlignment.MiddleLeft;
-            btnHistory.Location = new Point(0, 350);
+            btnHistory.Location = new Point(0, 132);
+            btnHistory.Margin = new Padding(2, 1, 2, 1);
             btnHistory.Name = "btnHistory";
-            btnHistory.Size = new Size(350, 70);
+            btnHistory.Size = new Size(188, 33);
             btnHistory.TabIndex = 5;
             btnHistory.Text = "History";
             btnHistory.TextAlign = ContentAlignment.MiddleLeft;
@@ -185,9 +193,10 @@
             btnImportExport.ForeColor = Color.FromArgb(167, 177, 255);
             btnImportExport.Image = Properties.Resources.import;
             btnImportExport.ImageAlign = ContentAlignment.MiddleLeft;
-            btnImportExport.Location = new Point(0, 280);
+            btnImportExport.Location = new Point(0, 99);
+            btnImportExport.Margin = new Padding(2, 1, 2, 1);
             btnImportExport.Name = "btnImportExport";
-            btnImportExport.Size = new Size(350, 70);
+            btnImportExport.Size = new Size(188, 33);
             btnImportExport.TabIndex = 4;
             btnImportExport.Text = "Import/Export";
             btnImportExport.TextAlign = ContentAlignment.MiddleLeft;
@@ -204,34 +213,16 @@
             btnSearch.ForeColor = Color.FromArgb(167, 177, 255);
             btnSearch.Image = Properties.Resources.search;
             btnSearch.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSearch.Location = new Point(0, 210);
+            btnSearch.Location = new Point(0, 66);
+            btnSearch.Margin = new Padding(2, 1, 2, 1);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(350, 70);
+            btnSearch.Size = new Size(188, 33);
             btnSearch.TabIndex = 3;
             btnSearch.Text = "Search";
             btnSearch.TextAlign = ContentAlignment.MiddleLeft;
             btnSearch.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
-            // 
-            // btnCustomerContact
-            // 
-            btnCustomerContact.Dock = DockStyle.Top;
-            btnCustomerContact.FlatAppearance.BorderSize = 0;
-            btnCustomerContact.FlatStyle = FlatStyle.Flat;
-            btnCustomerContact.Font = new Font("Segoe UI", 10.125F, FontStyle.Bold);
-            btnCustomerContact.ForeColor = Color.FromArgb(167, 177, 255);
-            btnCustomerContact.Image = Properties.Resources.address_book;
-            btnCustomerContact.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCustomerContact.Location = new Point(0, 140);
-            btnCustomerContact.Name = "btnCustomerContact";
-            btnCustomerContact.Size = new Size(350, 70);
-            btnCustomerContact.TabIndex = 2;
-            btnCustomerContact.Text = "CustomerContact";
-            btnCustomerContact.TextAlign = ContentAlignment.MiddleLeft;
-            btnCustomerContact.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnCustomerContact.UseVisualStyleBackColor = true;
-            btnCustomerContact.Click += btnCustomerContact_Click;
             // 
             // btnAdministration
             // 
@@ -242,9 +233,10 @@
             btnAdministration.ForeColor = Color.FromArgb(167, 177, 255);
             btnAdministration.Image = Properties.Resources.user_menu;
             btnAdministration.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAdministration.Location = new Point(0, 70);
+            btnAdministration.Location = new Point(0, 33);
+            btnAdministration.Margin = new Padding(2, 1, 2, 1);
             btnAdministration.Name = "btnAdministration";
-            btnAdministration.Size = new Size(350, 70);
+            btnAdministration.Size = new Size(188, 33);
             btnAdministration.TabIndex = 1;
             btnAdministration.Text = "Administration";
             btnAdministration.TextAlign = ContentAlignment.MiddleLeft;
@@ -262,8 +254,9 @@
             BtnDashboard.Image = Properties.Resources.dashboard;
             BtnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
             BtnDashboard.Location = new Point(0, 0);
+            BtnDashboard.Margin = new Padding(2, 1, 2, 1);
             BtnDashboard.Name = "BtnDashboard";
-            BtnDashboard.Size = new Size(350, 70);
+            BtnDashboard.Size = new Size(188, 33);
             BtnDashboard.TabIndex = 0;
             BtnDashboard.Text = "Dashboard";
             BtnDashboard.TextAlign = ContentAlignment.MiddleLeft;
@@ -278,8 +271,9 @@
             pnlUserDetails.Controls.Add(lblUserIcon);
             pnlUserDetails.Dock = DockStyle.Top;
             pnlUserDetails.Location = new Point(0, 0);
+            pnlUserDetails.Margin = new Padding(2, 1, 2, 1);
             pnlUserDetails.Name = "pnlUserDetails";
-            pnlUserDetails.Size = new Size(350, 300);
+            pnlUserDetails.Size = new Size(188, 141);
             pnlUserDetails.TabIndex = 0;
             // 
             // lblUserName
@@ -287,30 +281,33 @@
             lblUserName.AutoSize = true;
             lblUserName.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblUserName.ForeColor = Color.FromArgb(167, 177, 255);
-            lblUserName.Location = new Point(90, 165);
+            lblUserName.Location = new Point(48, 77);
+            lblUserName.Margin = new Padding(2, 0, 2, 0);
             lblUserName.Name = "lblUserName";
-            lblUserName.Size = new Size(139, 32);
+            lblUserName.Size = new Size(69, 15);
             lblUserName.TabIndex = 1;
             lblUserName.Text = "User Name";
             // 
             // lblUserIcon
             // 
             lblUserIcon.Image = Properties.Resources.test_account;
-            lblUserIcon.Location = new Point(110, 50);
+            lblUserIcon.Location = new Point(59, 23);
+            lblUserIcon.Margin = new Padding(2, 1, 2, 1);
             lblUserIcon.Name = "lblUserIcon";
-            lblUserIcon.Size = new Size(100, 100);
+            lblUserIcon.Size = new Size(54, 47);
             lblUserIcon.SizeMode = PictureBoxSizeMode.Zoom;
             lblUserIcon.TabIndex = 0;
             lblUserIcon.TabStop = false;
             // 
             // MainSizeable
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(42, 52, 57);
-            ClientSize = new Size(1874, 1479);
+            ClientSize = new Size(1014, 497);
             Controls.Add(pnlMain);
-            MinimumSize = new Size(1900, 1550);
+            Margin = new Padding(2, 1, 2, 1);
+            MinimumSize = new Size(1030, 507);
             Name = "MainSizeable";
             Text = "Customer Contact Tool";
             WindowState = FormWindowState.Maximized;
@@ -339,7 +336,6 @@
         private Button btnHistory;
         private Button btnImportExport;
         private Button btnSearch;
-        private Button btnCustomerContact;
         private Button btnAdministration;
         private Button btnSettings;
         private PictureBox lblUserIcon;
