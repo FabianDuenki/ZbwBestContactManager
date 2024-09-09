@@ -11,6 +11,7 @@ namespace ZbW_P_Contact_Manager
 
         public FrmNotes(Guid personId)
         {
+            // _personId = new Guid(LblPersonId.Text);
             _personId = personId;
 
             InitializeComponent();
