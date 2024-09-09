@@ -57,7 +57,6 @@ namespace ZbW_P_Contact_Manager.UI
         {
             BtnDashboard.BackColor = Color.FromArgb(0, 0, 77);
             btnAdministration.BackColor = Color.FromArgb(0, 0, 77);
-            btnCustomerContact.BackColor = Color.FromArgb(0, 0, 77);
             btnSearch.BackColor = Color.FromArgb(0, 0, 77);
             btnImportExport.BackColor = Color.FromArgb(0, 0, 77);
             btnHistory.BackColor = Color.FromArgb(0, 0, 77);
@@ -94,14 +93,6 @@ namespace ZbW_P_Contact_Manager.UI
             SetNavigationStyle(btnAdministration); // Set navigation style for Administration button
             lblTitle.Text = "Administration Tool"; // Set the title label text
             LoadForm(new frmAdministration()); // Load the administration form
-        }
-
-        // Event handler for Customer Contact button click
-        private void btnCustomerContact_Click(object sender, EventArgs e)
-        {
-            SetNavigationStyle(btnCustomerContact); // Set navigation style for Administration button
-            lblTitle.Text = "CustomerContact Tool"; // Set the title label text
-            // LoadForm(new FrmNotes()); // Load the administration form
         }
 
         // Event handler for Search button click
