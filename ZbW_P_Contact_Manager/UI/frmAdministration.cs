@@ -9,6 +9,8 @@ namespace ZbW_P_Contact_Manager.UI
     public partial class frmAdministration : Form
     {
         private UserController _userController;
+        private List<Person> _loadedUsers;
+        private Person _selectedUser;
         private ListViewItem _selectedItem;
 
         public frmAdministration()
@@ -73,6 +75,9 @@ namespace ZbW_P_Contact_Manager.UI
         private void LoadUsersIntoListView()
         {
             listView1.Items.Clear();
+            btnEditUser.Enabled = false;
+            _loadedUsers = new List<Person>();
+            _selectedUser = new Person();
 
             // Load all employees, trainees, and customers
             List<Person> employees = _userController.Read(ModelType.Employee);
@@ -96,6 +101,7 @@ namespace ZbW_P_Contact_Manager.UI
             {
                 AddUserToListView(customer);
             }
+            //btnEditUser.Enabled = false;
         }
 
         // Helper method to add users to the ListView
@@ -164,6 +170,7 @@ namespace ZbW_P_Contact_Manager.UI
                 item.SubItems.Add("");
             }
 
+            _loadedUsers.Add(person);
             listView1.Items.Add(item);
         }
 
@@ -193,21 +200,29 @@ namespace ZbW_P_Contact_Manager.UI
 
         private void btnEditUser_Click(object sender, EventArgs e)
         {
-            frmEditUser frmEditUser = new frmEditUser();
-            if (frmEditUser.ShowDialog() == DialogResult.OK)
+            if (_selectedUser.Id != Guid.Empty)
             {
-                // Handle the edit functionality here if required
-                LoadUsersIntoListView();  // Refresh the list
+                frmEditUser frmEditUser = new frmEditUser(_selectedUser);
+                if (frmEditUser.ShowDialog() == DialogResult.OK)
+                {
+                    // Handle the edit functionality here if required
+                    LoadUsersIntoListView();  // Refresh the list
+                }
             }
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
+                string selectedItem = listView1.SelectedItems[0].Text;
+                _selectedUser = _loadedUsers.Find(user => user.Id.ToString() == selectedItem);
+                btnEditUser.Enabled = true;
+                return;
                 _selectedItem = listView1.SelectedItems[0];
                 BtnAddNote.Enabled = true;
             }
+            btnEditUser.Enabled = false;
         }
 
         private void LoadTestEmployee()
@@ -249,6 +264,12 @@ namespace ZbW_P_Contact_Manager.UI
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadUsersIntoListView();
+        }
+
+        private void btnTrash_Click(object sender, EventArgs e)
+        {
+            _userController.Delete(_selectedUser);
+            LoadUsersIntoListView();  // Refresh the list
         }
 
         private void BtnAddNote_Click(object sender, EventArgs e)

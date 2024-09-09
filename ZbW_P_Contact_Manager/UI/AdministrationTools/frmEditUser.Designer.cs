@@ -32,8 +32,6 @@
             panel3 = new Panel();
             panel2 = new Panel();
             panel1 = new Panel();
-            btnTrainee = new CheckBox();
-            lblTrainee = new Label();
             btnStatus = new CheckBox();
             lblActualTraineeYear = new Label();
             numActualTraineeYear = new NumericUpDown();
@@ -73,12 +71,9 @@
             txtNationality = new ComboBox();
             txtEmail = new TextBox();
             txtSocialSecurityNumber = new TextBox();
-            txtZipCode = new TextBox();
             txtDateOfBirth = new DateTimePicker();
             txtDepartment = new ComboBox();
             txtPlace = new TextBox();
-            txtStreetNumber = new TextBox();
-            txtEmployment = new ComboBox();
             btnEditUser = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             txtStartDate = new DateTimePicker();
@@ -103,7 +98,6 @@
             btnCadreLevelEdit = new CheckBox();
             btnActualTraineeYearEdit = new CheckBox();
             btnTraineeYearsEdit = new CheckBox();
-            btnTraineeEdit = new CheckBox();
             panel5 = new Panel();
             txtCompanyContact = new TextBox();
             txtCompanyType = new TextBox();
@@ -114,15 +108,23 @@
             btnCompanyContactEdit = new CheckBox();
             btnCompanyTypeEdit = new CheckBox();
             btnCompanyNameEdit = new CheckBox();
+            numZipCode = new NumericUpDown();
+            txtStreetNumber = new TextBox();
+            lblStreetNumber = new Label();
+            lblPlace = new Label();
+            lblZipCode = new Label();
+            numEmployment = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)numActualTraineeYear).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numTraineeYears).BeginInit();
             ((System.ComponentModel.ISupportInitialize)txtCadreLevel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numZipCode).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numEmployment).BeginInit();
             SuspendLayout();
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(122, 148, 150);
-            panel4.Location = new Point(41, 505);
+            panel4.Location = new Point(41, 523);
             panel4.Margin = new Padding(2, 1, 2, 1);
             panel4.Name = "panel4";
             panel4.Size = new Size(485, 2);
@@ -131,7 +133,7 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(122, 148, 150);
-            panel3.Location = new Point(41, 381);
+            panel3.Location = new Point(41, 399);
             panel3.Margin = new Padding(2, 1, 2, 1);
             panel3.Name = "panel3";
             panel3.Size = new Size(485, 2);
@@ -140,7 +142,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(122, 148, 150);
-            panel2.Location = new Point(40, 283);
+            panel2.Location = new Point(40, 301);
             panel2.Margin = new Padding(2, 1, 2, 1);
             panel2.Name = "panel2";
             panel2.Size = new Size(485, 2);
@@ -154,28 +156,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(485, 2);
             panel1.TabIndex = 219;
-            // 
-            // btnTrainee
-            // 
-            btnTrainee.AutoSize = true;
-            btnTrainee.Location = new Point(203, 515);
-            btnTrainee.Margin = new Padding(2, 1, 2, 1);
-            btnTrainee.Name = "btnTrainee";
-            btnTrainee.Size = new Size(63, 19);
-            btnTrainee.TabIndex = 194;
-            btnTrainee.Text = "Trainee";
-            btnTrainee.UseVisualStyleBackColor = true;
-            btnTrainee.CheckedChanged += btnTrainee_CheckedChanged;
-            // 
-            // lblTrainee
-            // 
-            lblTrainee.AutoSize = true;
-            lblTrainee.Location = new Point(41, 515);
-            lblTrainee.Margin = new Padding(2, 0, 2, 0);
-            lblTrainee.Name = "lblTrainee";
-            lblTrainee.Size = new Size(47, 15);
-            lblTrainee.TabIndex = 218;
-            lblTrainee.Text = "Trainee:";
             // 
             // btnStatus
             // 
@@ -193,7 +173,7 @@
             // lblActualTraineeYear
             // 
             lblActualTraineeYear.AutoSize = true;
-            lblActualTraineeYear.Location = new Point(41, 562);
+            lblActualTraineeYear.Location = new Point(41, 557);
             lblActualTraineeYear.Margin = new Padding(2, 0, 2, 0);
             lblActualTraineeYear.Name = "lblActualTraineeYear";
             lblActualTraineeYear.Size = new Size(109, 15);
@@ -203,7 +183,7 @@
             // numActualTraineeYear
             // 
             numActualTraineeYear.Enabled = false;
-            numActualTraineeYear.Location = new Point(203, 562);
+            numActualTraineeYear.Location = new Point(203, 557);
             numActualTraineeYear.Name = "numActualTraineeYear";
             numActualTraineeYear.Size = new Size(180, 23);
             numActualTraineeYear.TabIndex = 196;
@@ -212,7 +192,7 @@
             // lblTraineeYears
             // 
             lblTraineeYears.AutoSize = true;
-            lblTraineeYears.Location = new Point(41, 539);
+            lblTraineeYears.Location = new Point(41, 534);
             lblTraineeYears.Margin = new Padding(2, 0, 2, 0);
             lblTraineeYears.Name = "lblTraineeYears";
             lblTraineeYears.Size = new Size(77, 15);
@@ -222,7 +202,7 @@
             // numTraineeYears
             // 
             numTraineeYears.Enabled = false;
-            numTraineeYears.Location = new Point(203, 539);
+            numTraineeYears.Location = new Point(203, 534);
             numTraineeYears.Name = "numTraineeYears";
             numTraineeYears.Size = new Size(180, 23);
             numTraineeYears.TabIndex = 195;
@@ -231,7 +211,7 @@
             // lblRole
             // 
             lblRole.AutoSize = true;
-            lblRole.Location = new Point(41, 459);
+            lblRole.Location = new Point(41, 477);
             lblRole.Margin = new Padding(2, 0, 2, 0);
             lblRole.Name = "lblRole";
             lblRole.Size = new Size(38, 15);
@@ -241,7 +221,7 @@
             // lblCadreLevel
             // 
             lblCadreLevel.AutoSize = true;
-            lblCadreLevel.Location = new Point(41, 482);
+            lblCadreLevel.Location = new Point(41, 500);
             lblCadreLevel.Margin = new Padding(2, 0, 2, 0);
             lblCadreLevel.Name = "lblCadreLevel";
             lblCadreLevel.Size = new Size(73, 15);
@@ -251,7 +231,7 @@
             // lblDepartement
             // 
             lblDepartement.AutoSize = true;
-            lblDepartement.Location = new Point(41, 436);
+            lblDepartement.Location = new Point(41, 454);
             lblDepartement.Margin = new Padding(2, 0, 2, 0);
             lblDepartement.Name = "lblDepartement";
             lblDepartement.Size = new Size(84, 15);
@@ -261,7 +241,7 @@
             // lblStartEndDate
             // 
             lblStartEndDate.AutoSize = true;
-            lblStartEndDate.Location = new Point(41, 389);
+            lblStartEndDate.Location = new Point(41, 407);
             lblStartEndDate.Margin = new Padding(2, 0, 2, 0);
             lblStartEndDate.Name = "lblStartEndDate";
             lblStartEndDate.Size = new Size(91, 15);
@@ -271,7 +251,7 @@
             // lblEmploymentType
             // 
             lblEmploymentType.AutoSize = true;
-            lblEmploymentType.Location = new Point(41, 412);
+            lblEmploymentType.Location = new Point(41, 430);
             lblEmploymentType.Margin = new Padding(2, 0, 2, 0);
             lblEmploymentType.Name = "lblEmploymentType";
             lblEmploymentType.Size = new Size(109, 15);
@@ -281,7 +261,7 @@
             // lblPhoneNumberBusiness
             // 
             lblPhoneNumberBusiness.AutoSize = true;
-            lblPhoneNumberBusiness.Location = new Point(41, 337);
+            lblPhoneNumberBusiness.Location = new Point(41, 355);
             lblPhoneNumberBusiness.Margin = new Padding(2, 0, 2, 0);
             lblPhoneNumberBusiness.Name = "lblPhoneNumberBusiness";
             lblPhoneNumberBusiness.Size = new Size(139, 15);
@@ -291,7 +271,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(41, 361);
+            lblEmail.Location = new Point(41, 379);
             lblEmail.Margin = new Padding(2, 0, 2, 0);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(83, 15);
@@ -301,7 +281,7 @@
             // lblPhoneNumberPrivate
             // 
             lblPhoneNumberPrivate.AutoSize = true;
-            lblPhoneNumberPrivate.Location = new Point(41, 314);
+            lblPhoneNumberPrivate.Location = new Point(41, 332);
             lblPhoneNumberPrivate.Margin = new Padding(2, 0, 2, 0);
             lblPhoneNumberPrivate.Name = "lblPhoneNumberPrivate";
             lblPhoneNumberPrivate.Size = new Size(135, 15);
@@ -331,17 +311,17 @@
             // lblAddress
             // 
             lblAddress.AutoSize = true;
-            lblAddress.Location = new Point(41, 239);
+            lblAddress.Location = new Point(41, 240);
             lblAddress.Margin = new Padding(2, 0, 2, 0);
             lblAddress.Name = "lblAddress";
-            lblAddress.Size = new Size(57, 15);
+            lblAddress.Size = new Size(45, 15);
             lblAddress.TabIndex = 205;
-            lblAddress.Text = "Address*:";
+            lblAddress.Text = "Street*:";
             // 
             // lblPhoneNumberMobile
             // 
             lblPhoneNumberMobile.AutoSize = true;
-            lblPhoneNumberMobile.Location = new Point(41, 290);
+            lblPhoneNumberMobile.Location = new Point(41, 308);
             lblPhoneNumberMobile.Margin = new Padding(2, 0, 2, 0);
             lblPhoneNumberMobile.Name = "lblPhoneNumberMobile";
             lblPhoneNumberMobile.Size = new Size(136, 15);
@@ -435,7 +415,7 @@
             // 
             txtEndDate.Font = new Font("Microsoft Sans Serif", 9F);
             txtEndDate.Format = DateTimePickerFormat.Short;
-            txtEndDate.Location = new Point(294, 389);
+            txtEndDate.Location = new Point(294, 402);
             txtEndDate.Margin = new Padding(4, 3, 4, 3);
             txtEndDate.Name = "txtEndDate";
             txtEndDate.RightToLeft = RightToLeft.Yes;
@@ -466,7 +446,7 @@
             txtPhoneNumberBusiness.BackColor = Color.FromArgb(227, 234, 234);
             txtPhoneNumberBusiness.Font = new Font("Microsoft Sans Serif", 9F);
             txtPhoneNumberBusiness.ForeColor = Color.Black;
-            txtPhoneNumberBusiness.Location = new Point(203, 337);
+            txtPhoneNumberBusiness.Location = new Point(203, 355);
             txtPhoneNumberBusiness.Margin = new Padding(4, 3, 4, 3);
             txtPhoneNumberBusiness.Name = "txtPhoneNumberBusiness";
             txtPhoneNumberBusiness.PlaceholderText = "Phone Number Business";
@@ -492,7 +472,7 @@
             txtPhoneNumberMobile.BackColor = Color.FromArgb(227, 234, 234);
             txtPhoneNumberMobile.Font = new Font("Microsoft Sans Serif", 9F);
             txtPhoneNumberMobile.ForeColor = Color.Black;
-            txtPhoneNumberMobile.Location = new Point(203, 290);
+            txtPhoneNumberMobile.Location = new Point(203, 308);
             txtPhoneNumberMobile.Margin = new Padding(4, 3, 4, 3);
             txtPhoneNumberMobile.Name = "txtPhoneNumberMobile";
             txtPhoneNumberMobile.PlaceholderText = "Phone Number Mobile";
@@ -515,7 +495,7 @@
             // 
             // txtCadreLevel
             // 
-            txtCadreLevel.Location = new Point(203, 482);
+            txtCadreLevel.Location = new Point(203, 500);
             txtCadreLevel.Name = "txtCadreLevel";
             txtCadreLevel.Size = new Size(180, 23);
             txtCadreLevel.TabIndex = 193;
@@ -539,7 +519,7 @@
             txtPhoneNumberPrivate.BackColor = Color.FromArgb(227, 234, 234);
             txtPhoneNumberPrivate.Font = new Font("Microsoft Sans Serif", 9F);
             txtPhoneNumberPrivate.ForeColor = Color.Black;
-            txtPhoneNumberPrivate.Location = new Point(203, 314);
+            txtPhoneNumberPrivate.Location = new Point(203, 332);
             txtPhoneNumberPrivate.Margin = new Padding(4, 3, 4, 3);
             txtPhoneNumberPrivate.Name = "txtPhoneNumberPrivate";
             txtPhoneNumberPrivate.PlaceholderText = "Phone Number Private";
@@ -571,7 +551,7 @@
             txtRole.ForeColor = Color.Black;
             txtRole.FormattingEnabled = true;
             txtRole.Items.AddRange(new object[] { "Chief Executive Officer", "Chief Operating Officer", "Chief Financial Officer", "Chief Marketing Officer", "Chief Technology Officer", "Executive Assistant", "President", "Vice President", "Product Manager", "Purchasing Manager", "Project Manager", "Finance Manager", "Marketing Manager", "Office Manager", "Regional Manager", "Human Resources Manager", "Quality Control/Safety Manager", "Sales Representative", "Customer Service Representative", "Administrative Assistant", "Business Analyst", "Marketing Specialist", "Human Resource Personnel", "Accountant", "IT Technician", "Production-Team" });
-            txtRole.Location = new Point(203, 459);
+            txtRole.Location = new Point(203, 477);
             txtRole.Name = "txtRole";
             txtRole.Size = new Size(182, 23);
             txtRole.TabIndex = 192;
@@ -598,7 +578,7 @@
             txtEmail.BackColor = Color.FromArgb(227, 234, 234);
             txtEmail.Font = new Font("Microsoft Sans Serif", 9F);
             txtEmail.ForeColor = Color.Black;
-            txtEmail.Location = new Point(203, 361);
+            txtEmail.Location = new Point(203, 379);
             txtEmail.Margin = new Padding(4, 3, 4, 3);
             txtEmail.Name = "txtEmail";
             txtEmail.PlaceholderText = "Email";
@@ -618,19 +598,6 @@
             txtSocialSecurityNumber.Size = new Size(182, 21);
             txtSocialSecurityNumber.TabIndex = 177;
             txtSocialSecurityNumber.Tag = "Social Security Number";
-            // 
-            // txtZipCode
-            // 
-            txtZipCode.BackColor = Color.FromArgb(227, 234, 234);
-            txtZipCode.Font = new Font("Microsoft Sans Serif", 9F);
-            txtZipCode.ForeColor = Color.Black;
-            txtZipCode.Location = new Point(391, 262);
-            txtZipCode.Margin = new Padding(4, 3, 4, 3);
-            txtZipCode.Name = "txtZipCode";
-            txtZipCode.PlaceholderText = "ZipCode";
-            txtZipCode.Size = new Size(83, 21);
-            txtZipCode.TabIndex = 182;
-            txtZipCode.Tag = "ZipCode";
             // 
             // txtDateOfBirth
             // 
@@ -654,7 +621,7 @@
             txtDepartment.ForeColor = Color.Black;
             txtDepartment.FormattingEnabled = true;
             txtDepartment.Items.AddRange(new object[] { "Human Resources", "IT", "Accounting and Finance", "Marketing", "Research and Development", "Production" });
-            txtDepartment.Location = new Point(203, 436);
+            txtDepartment.Location = new Point(203, 454);
             txtDepartment.Name = "txtDepartment";
             txtDepartment.Size = new Size(182, 23);
             txtDepartment.TabIndex = 191;
@@ -666,41 +633,13 @@
             txtPlace.BackColor = Color.FromArgb(227, 234, 234);
             txtPlace.Font = new Font("Microsoft Sans Serif", 9F);
             txtPlace.ForeColor = Color.Black;
-            txtPlace.Location = new Point(203, 262);
+            txtPlace.Location = new Point(203, 268);
             txtPlace.Margin = new Padding(4, 3, 4, 3);
             txtPlace.Name = "txtPlace";
             txtPlace.PlaceholderText = "Place";
             txtPlace.Size = new Size(182, 21);
             txtPlace.TabIndex = 181;
             txtPlace.Tag = "Place";
-            // 
-            // txtStreetNumber
-            // 
-            txtStreetNumber.BackColor = Color.FromArgb(227, 234, 234);
-            txtStreetNumber.Font = new Font("Microsoft Sans Serif", 9F);
-            txtStreetNumber.ForeColor = Color.Black;
-            txtStreetNumber.Location = new Point(391, 239);
-            txtStreetNumber.Margin = new Padding(4, 3, 4, 3);
-            txtStreetNumber.Name = "txtStreetNumber";
-            txtStreetNumber.PlaceholderText = "Street Number";
-            txtStreetNumber.Size = new Size(83, 21);
-            txtStreetNumber.TabIndex = 180;
-            txtStreetNumber.Tag = "Street Number";
-            // 
-            // txtEmployment
-            // 
-            txtEmployment.BackColor = Color.FromArgb(227, 234, 234);
-            txtEmployment.FlatStyle = FlatStyle.Flat;
-            txtEmployment.Font = new Font("Microsoft Sans Serif", 9F);
-            txtEmployment.ForeColor = Color.Black;
-            txtEmployment.FormattingEnabled = true;
-            txtEmployment.Items.AddRange(new object[] { "Full-time employment", "Part-time employment", "Apprenticeship", "Traineeship", "Internship", "Casual employment", "Employment on commission", "Contract employment", "Probation", "Seasonal employment", "Leased employment", "Contingent employment" });
-            txtEmployment.Location = new Point(203, 412);
-            txtEmployment.Name = "txtEmployment";
-            txtEmployment.Size = new Size(182, 23);
-            txtEmployment.TabIndex = 190;
-            txtEmployment.Tag = "Employment type";
-            txtEmployment.Text = "Employment type";
             // 
             // btnEditUser
             // 
@@ -712,12 +651,13 @@
             btnEditUser.TabIndex = 197;
             btnEditUser.Text = "Edit User";
             btnEditUser.UseVisualStyleBackColor = true;
+            btnEditUser.Click += btnEditUser_Click;
             // 
             // txtStartDate
             // 
             txtStartDate.Font = new Font("Microsoft Sans Serif", 9F);
             txtStartDate.Format = DateTimePickerFormat.Short;
-            txtStartDate.Location = new Point(203, 389);
+            txtStartDate.Location = new Point(203, 402);
             txtStartDate.Margin = new Padding(4, 3, 4, 3);
             txtStartDate.Name = "txtStartDate";
             txtStartDate.RightToLeft = RightToLeft.Yes;
@@ -830,7 +770,7 @@
             // btnEmailEdit
             // 
             btnEmailEdit.AutoSize = true;
-            btnEmailEdit.Location = new Point(22, 360);
+            btnEmailEdit.Location = new Point(22, 378);
             btnEmailEdit.Margin = new Padding(2, 1, 2, 1);
             btnEmailEdit.Name = "btnEmailEdit";
             btnEmailEdit.Size = new Size(15, 14);
@@ -840,7 +780,7 @@
             // btnPhoneNumberBusinessEdit
             // 
             btnPhoneNumberBusinessEdit.AutoSize = true;
-            btnPhoneNumberBusinessEdit.Location = new Point(22, 337);
+            btnPhoneNumberBusinessEdit.Location = new Point(22, 355);
             btnPhoneNumberBusinessEdit.Margin = new Padding(2, 1, 2, 1);
             btnPhoneNumberBusinessEdit.Name = "btnPhoneNumberBusinessEdit";
             btnPhoneNumberBusinessEdit.Size = new Size(15, 14);
@@ -850,7 +790,7 @@
             // btnPhoneNumberPrivateEdit
             // 
             btnPhoneNumberPrivateEdit.AutoSize = true;
-            btnPhoneNumberPrivateEdit.Location = new Point(22, 314);
+            btnPhoneNumberPrivateEdit.Location = new Point(22, 332);
             btnPhoneNumberPrivateEdit.Margin = new Padding(2, 1, 2, 1);
             btnPhoneNumberPrivateEdit.Name = "btnPhoneNumberPrivateEdit";
             btnPhoneNumberPrivateEdit.Size = new Size(15, 14);
@@ -860,7 +800,7 @@
             // btnPhoneNumberMobileEdit
             // 
             btnPhoneNumberMobileEdit.AutoSize = true;
-            btnPhoneNumberMobileEdit.Location = new Point(22, 291);
+            btnPhoneNumberMobileEdit.Location = new Point(22, 309);
             btnPhoneNumberMobileEdit.Margin = new Padding(2, 1, 2, 1);
             btnPhoneNumberMobileEdit.Name = "btnPhoneNumberMobileEdit";
             btnPhoneNumberMobileEdit.Size = new Size(15, 14);
@@ -870,7 +810,7 @@
             // btnRoleEdit
             // 
             btnRoleEdit.AutoSize = true;
-            btnRoleEdit.Location = new Point(22, 459);
+            btnRoleEdit.Location = new Point(22, 477);
             btnRoleEdit.Margin = new Padding(2, 1, 2, 1);
             btnRoleEdit.Name = "btnRoleEdit";
             btnRoleEdit.Size = new Size(15, 14);
@@ -880,7 +820,7 @@
             // btnDepartementEdit
             // 
             btnDepartementEdit.AutoSize = true;
-            btnDepartementEdit.Location = new Point(22, 436);
+            btnDepartementEdit.Location = new Point(22, 454);
             btnDepartementEdit.Margin = new Padding(2, 1, 2, 1);
             btnDepartementEdit.Name = "btnDepartementEdit";
             btnDepartementEdit.Size = new Size(15, 14);
@@ -890,7 +830,7 @@
             // btnEmplyomentTypeEdit
             // 
             btnEmplyomentTypeEdit.AutoSize = true;
-            btnEmplyomentTypeEdit.Location = new Point(22, 413);
+            btnEmplyomentTypeEdit.Location = new Point(22, 431);
             btnEmplyomentTypeEdit.Margin = new Padding(2, 1, 2, 1);
             btnEmplyomentTypeEdit.Name = "btnEmplyomentTypeEdit";
             btnEmplyomentTypeEdit.Size = new Size(15, 14);
@@ -900,7 +840,7 @@
             // btnStartEndDateEdit
             // 
             btnStartEndDateEdit.AutoSize = true;
-            btnStartEndDateEdit.Location = new Point(22, 390);
+            btnStartEndDateEdit.Location = new Point(22, 408);
             btnStartEndDateEdit.Margin = new Padding(2, 1, 2, 1);
             btnStartEndDateEdit.Name = "btnStartEndDateEdit";
             btnStartEndDateEdit.Size = new Size(15, 14);
@@ -910,7 +850,7 @@
             // btnCadreLevelEdit
             // 
             btnCadreLevelEdit.AutoSize = true;
-            btnCadreLevelEdit.Location = new Point(22, 483);
+            btnCadreLevelEdit.Location = new Point(22, 501);
             btnCadreLevelEdit.Margin = new Padding(2, 1, 2, 1);
             btnCadreLevelEdit.Name = "btnCadreLevelEdit";
             btnCadreLevelEdit.Size = new Size(15, 14);
@@ -920,7 +860,7 @@
             // btnActualTraineeYearEdit
             // 
             btnActualTraineeYearEdit.AutoSize = true;
-            btnActualTraineeYearEdit.Location = new Point(22, 563);
+            btnActualTraineeYearEdit.Location = new Point(22, 558);
             btnActualTraineeYearEdit.Margin = new Padding(2, 1, 2, 1);
             btnActualTraineeYearEdit.Name = "btnActualTraineeYearEdit";
             btnActualTraineeYearEdit.Size = new Size(15, 14);
@@ -930,27 +870,17 @@
             // btnTraineeYearsEdit
             // 
             btnTraineeYearsEdit.AutoSize = true;
-            btnTraineeYearsEdit.Location = new Point(22, 540);
+            btnTraineeYearsEdit.Location = new Point(22, 535);
             btnTraineeYearsEdit.Margin = new Padding(2, 1, 2, 1);
             btnTraineeYearsEdit.Name = "btnTraineeYearsEdit";
             btnTraineeYearsEdit.Size = new Size(15, 14);
             btnTraineeYearsEdit.TabIndex = 243;
             btnTraineeYearsEdit.UseVisualStyleBackColor = true;
             // 
-            // btnTraineeEdit
-            // 
-            btnTraineeEdit.AutoSize = true;
-            btnTraineeEdit.Location = new Point(22, 517);
-            btnTraineeEdit.Margin = new Padding(2, 1, 2, 1);
-            btnTraineeEdit.Name = "btnTraineeEdit";
-            btnTraineeEdit.Size = new Size(15, 14);
-            btnTraineeEdit.TabIndex = 242;
-            btnTraineeEdit.UseVisualStyleBackColor = true;
-            // 
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(122, 148, 150);
-            panel5.Location = new Point(40, 590);
+            panel5.Location = new Point(40, 585);
             panel5.Margin = new Padding(2, 1, 2, 1);
             panel5.Name = "panel5";
             panel5.Size = new Size(485, 2);
@@ -961,7 +891,7 @@
             txtCompanyContact.BackColor = Color.FromArgb(227, 234, 234);
             txtCompanyContact.Font = new Font("Microsoft Sans Serif", 9F);
             txtCompanyContact.ForeColor = Color.Black;
-            txtCompanyContact.Location = new Point(202, 645);
+            txtCompanyContact.Location = new Point(202, 640);
             txtCompanyContact.Margin = new Padding(4, 3, 4, 3);
             txtCompanyContact.Name = "txtCompanyContact";
             txtCompanyContact.PlaceholderText = "Company Contact";
@@ -974,7 +904,7 @@
             txtCompanyType.BackColor = Color.FromArgb(227, 234, 234);
             txtCompanyType.Font = new Font("Microsoft Sans Serif", 9F);
             txtCompanyType.ForeColor = Color.Black;
-            txtCompanyType.Location = new Point(202, 621);
+            txtCompanyType.Location = new Point(202, 616);
             txtCompanyType.Margin = new Padding(4, 3, 4, 3);
             txtCompanyType.Name = "txtCompanyType";
             txtCompanyType.PlaceholderText = "Company Type";
@@ -987,7 +917,7 @@
             txtCompanyName.BackColor = Color.FromArgb(227, 234, 234);
             txtCompanyName.Font = new Font("Microsoft Sans Serif", 9F);
             txtCompanyName.ForeColor = Color.Black;
-            txtCompanyName.Location = new Point(202, 598);
+            txtCompanyName.Location = new Point(202, 593);
             txtCompanyName.Margin = new Padding(4, 3, 4, 3);
             txtCompanyName.Name = "txtCompanyName";
             txtCompanyName.PlaceholderText = "Company Name";
@@ -998,7 +928,7 @@
             // lblCompanyContact
             // 
             lblCompanyContact.AutoSize = true;
-            lblCompanyContact.Location = new Point(40, 645);
+            lblCompanyContact.Location = new Point(40, 640);
             lblCompanyContact.Margin = new Padding(2, 0, 2, 0);
             lblCompanyContact.Name = "lblCompanyContact";
             lblCompanyContact.Size = new Size(112, 15);
@@ -1008,7 +938,7 @@
             // lblCompanyType
             // 
             lblCompanyType.AutoSize = true;
-            lblCompanyType.Location = new Point(40, 621);
+            lblCompanyType.Location = new Point(40, 616);
             lblCompanyType.Margin = new Padding(2, 0, 2, 0);
             lblCompanyType.Name = "lblCompanyType";
             lblCompanyType.Size = new Size(94, 15);
@@ -1018,7 +948,7 @@
             // lblCompanyName
             // 
             lblCompanyName.AutoSize = true;
-            lblCompanyName.Location = new Point(40, 598);
+            lblCompanyName.Location = new Point(40, 593);
             lblCompanyName.Margin = new Padding(2, 0, 2, 0);
             lblCompanyName.Name = "lblCompanyName";
             lblCompanyName.Size = new Size(102, 15);
@@ -1028,7 +958,7 @@
             // btnCompanyContactEdit
             // 
             btnCompanyContactEdit.AutoSize = true;
-            btnCompanyContactEdit.Location = new Point(22, 645);
+            btnCompanyContactEdit.Location = new Point(22, 640);
             btnCompanyContactEdit.Margin = new Padding(2, 1, 2, 1);
             btnCompanyContactEdit.Name = "btnCompanyContactEdit";
             btnCompanyContactEdit.Size = new Size(15, 14);
@@ -1038,7 +968,7 @@
             // btnCompanyTypeEdit
             // 
             btnCompanyTypeEdit.AutoSize = true;
-            btnCompanyTypeEdit.Location = new Point(22, 622);
+            btnCompanyTypeEdit.Location = new Point(22, 617);
             btnCompanyTypeEdit.Margin = new Padding(2, 1, 2, 1);
             btnCompanyTypeEdit.Name = "btnCompanyTypeEdit";
             btnCompanyTypeEdit.Size = new Size(15, 14);
@@ -1048,12 +978,71 @@
             // btnCompanyNameEdit
             // 
             btnCompanyNameEdit.AutoSize = true;
-            btnCompanyNameEdit.Location = new Point(22, 599);
+            btnCompanyNameEdit.Location = new Point(22, 594);
             btnCompanyNameEdit.Margin = new Padding(2, 1, 2, 1);
             btnCompanyNameEdit.Name = "btnCompanyNameEdit";
             btnCompanyNameEdit.Size = new Size(15, 14);
             btnCompanyNameEdit.TabIndex = 252;
             btnCompanyNameEdit.UseVisualStyleBackColor = true;
+            // 
+            // numZipCode
+            // 
+            numZipCode.Location = new Point(392, 268);
+            numZipCode.Maximum = new decimal(new int[] { 50000, 0, 0, 0 });
+            numZipCode.Name = "numZipCode";
+            numZipCode.Size = new Size(104, 23);
+            numZipCode.TabIndex = 255;
+            // 
+            // txtStreetNumber
+            // 
+            txtStreetNumber.BackColor = Color.FromArgb(227, 234, 234);
+            txtStreetNumber.Font = new Font("Microsoft Sans Serif", 9F);
+            txtStreetNumber.ForeColor = Color.Black;
+            txtStreetNumber.Location = new Point(392, 240);
+            txtStreetNumber.Margin = new Padding(4, 3, 4, 3);
+            txtStreetNumber.Name = "txtStreetNumber";
+            txtStreetNumber.PlaceholderText = "Street Number";
+            txtStreetNumber.Size = new Size(104, 21);
+            txtStreetNumber.TabIndex = 256;
+            txtStreetNumber.Tag = "Street";
+            // 
+            // lblStreetNumber
+            // 
+            lblStreetNumber.AutoSize = true;
+            lblStreetNumber.Location = new Point(105, 240);
+            lblStreetNumber.Margin = new Padding(2, 0, 2, 0);
+            lblStreetNumber.Name = "lblStreetNumber";
+            lblStreetNumber.Size = new Size(92, 15);
+            lblStreetNumber.TabIndex = 257;
+            lblStreetNumber.Text = "Street Number*:";
+            // 
+            // lblPlace
+            // 
+            lblPlace.AutoSize = true;
+            lblPlace.Location = new Point(41, 268);
+            lblPlace.Margin = new Padding(2, 0, 2, 0);
+            lblPlace.Name = "lblPlace";
+            lblPlace.Size = new Size(43, 15);
+            lblPlace.TabIndex = 258;
+            lblPlace.Text = "Place*:";
+            // 
+            // lblZipCode
+            // 
+            lblZipCode.AutoSize = true;
+            lblZipCode.Location = new Point(105, 268);
+            lblZipCode.Margin = new Padding(2, 0, 2, 0);
+            lblZipCode.Name = "lblZipCode";
+            lblZipCode.Size = new Size(63, 15);
+            lblZipCode.TabIndex = 259;
+            lblZipCode.Text = "Zip Code*:";
+            // 
+            // numEmployment
+            // 
+            numEmployment.Location = new Point(203, 428);
+            numEmployment.Maximum = new decimal(new int[] { 25, 0, 0, 0 });
+            numEmployment.Name = "numEmployment";
+            numEmployment.Size = new Size(182, 23);
+            numEmployment.TabIndex = 260;
             // 
             // frmEditUser
             // 
@@ -1061,6 +1050,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 49, 51);
             ClientSize = new Size(564, 757);
+            Controls.Add(numEmployment);
+            Controls.Add(lblZipCode);
+            Controls.Add(lblPlace);
+            Controls.Add(lblStreetNumber);
+            Controls.Add(txtStreetNumber);
+            Controls.Add(numZipCode);
             Controls.Add(btnCompanyContactEdit);
             Controls.Add(btnCompanyTypeEdit);
             Controls.Add(btnCompanyNameEdit);
@@ -1073,7 +1068,6 @@
             Controls.Add(lblCompanyName);
             Controls.Add(btnActualTraineeYearEdit);
             Controls.Add(btnTraineeYearsEdit);
-            Controls.Add(btnTraineeEdit);
             Controls.Add(btnCadreLevelEdit);
             Controls.Add(btnRoleEdit);
             Controls.Add(btnDepartementEdit);
@@ -1097,8 +1091,6 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(btnTrainee);
-            Controls.Add(lblTrainee);
             Controls.Add(btnStatus);
             Controls.Add(lblActualTraineeYear);
             Controls.Add(numActualTraineeYear);
@@ -1138,12 +1130,9 @@
             Controls.Add(txtNationality);
             Controls.Add(txtEmail);
             Controls.Add(txtSocialSecurityNumber);
-            Controls.Add(txtZipCode);
             Controls.Add(txtDateOfBirth);
             Controls.Add(txtDepartment);
             Controls.Add(txtPlace);
-            Controls.Add(txtStreetNumber);
-            Controls.Add(txtEmployment);
             Controls.Add(btnEditUser);
             Controls.Add(txtStartDate);
             ForeColor = Color.White;
@@ -1154,6 +1143,8 @@
             ((System.ComponentModel.ISupportInitialize)numActualTraineeYear).EndInit();
             ((System.ComponentModel.ISupportInitialize)numTraineeYears).EndInit();
             ((System.ComponentModel.ISupportInitialize)txtCadreLevel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numZipCode).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numEmployment).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1164,8 +1155,6 @@
         private Panel panel3;
         private Panel panel2;
         private Panel panel1;
-        private CheckBox btnTrainee;
-        private Label lblTrainee;
         private CheckBox btnStatus;
         private Label lblActualTraineeYear;
         private NumericUpDown numActualTraineeYear;
@@ -1205,12 +1194,9 @@
         private ComboBox txtNationality;
         private TextBox txtEmail;
         private TextBox txtSocialSecurityNumber;
-        private TextBox txtZipCode;
         private DateTimePicker txtDateOfBirth;
         private ComboBox txtDepartment;
         private TextBox txtPlace;
-        private TextBox txtStreetNumber;
-        private ComboBox txtEmployment;
         private Button btnEditUser;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private DateTimePicker txtStartDate;
@@ -1235,7 +1221,6 @@
         private CheckBox btnCadreLevelEdit;
         private CheckBox btnActualTraineeYearEdit;
         private CheckBox btnTraineeYearsEdit;
-        private CheckBox btnTraineeEdit;
         private Panel panel5;
         private TextBox txtCompanyContact;
         private TextBox txtCompanyType;
@@ -1246,5 +1231,11 @@
         private CheckBox btnCompanyContactEdit;
         private CheckBox btnCompanyTypeEdit;
         private CheckBox btnCompanyNameEdit;
+        private NumericUpDown numZipCode;
+        private TextBox txtStreetNumber;
+        private Label lblStreetNumber;
+        private Label lblPlace;
+        private Label lblZipCode;
+        private NumericUpDown numEmployment;
     }
 }

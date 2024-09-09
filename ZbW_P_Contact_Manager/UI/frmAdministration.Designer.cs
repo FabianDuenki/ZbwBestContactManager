@@ -40,6 +40,7 @@
             btnAddEmployee = new Button();
             lblAdminlTitle = new Label();
             panel2 = new Panel();
+            btnTrash = new Button();
             pnlAdminFormLoader.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -75,11 +76,12 @@
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = System.Windows.Forms.View.Details;
-            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
+            listView1.SelectedIndexChanged += ListView1_SelectedIndexChanged;
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(62, 73, 76);
+            panel3.Controls.Add(btnTrash);
             panel3.Controls.Add(BtnAddNote);
             panel3.Controls.Add(btnEditUser);
             panel3.Controls.Add(btnCreateNewCustomer);
@@ -224,6 +226,21 @@
             panel2.Size = new Size(733, 42);
             panel2.TabIndex = 4;
             // 
+            // btnTrash
+            // 
+            btnTrash.BackColor = Color.Transparent;
+            btnTrash.FlatAppearance.BorderSize = 0;
+            btnTrash.FlatStyle = FlatStyle.Flat;
+            btnTrash.ForeColor = Color.Transparent;
+            btnTrash.Image = Properties.Resources.trash_can;
+            btnTrash.Location = new Point(605, 7);
+            btnTrash.Margin = new Padding(2, 1, 2, 1);
+            btnTrash.Name = "btnTrash";
+            btnTrash.Size = new Size(20, 28);
+            btnTrash.TabIndex = 5;
+            btnTrash.UseVisualStyleBackColor = false;
+            btnTrash.Click += btnTrash_Click;
+            // 
             // frmAdministration
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -255,6 +272,7 @@
         private Button btnCreateNewCustomer;
         private Button btnEditUser;
         private ListView listView1;
+        private Button btnTrash;
         private Button BtnAddNote;
     }
 }
