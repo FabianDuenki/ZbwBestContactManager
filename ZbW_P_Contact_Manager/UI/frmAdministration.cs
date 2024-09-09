@@ -11,7 +11,6 @@ namespace ZbW_P_Contact_Manager.UI
         private UserController _userController;
         private List<Person> _loadedUsers;
         private Person _selectedUser;
-        private ListViewItem _selectedItem;
 
         public frmAdministration()
         {
@@ -218,9 +217,8 @@ namespace ZbW_P_Contact_Manager.UI
                 string selectedItem = listView1.SelectedItems[0].Text;
                 _selectedUser = _loadedUsers.Find(user => user.Id.ToString() == selectedItem);
                 btnEditUser.Enabled = true;
-                return;
-                _selectedItem = listView1.SelectedItems[0];
                 BtnAddNote.Enabled = true;
+                return;
             }
             btnEditUser.Enabled = false;
         }
@@ -274,20 +272,8 @@ namespace ZbW_P_Contact_Manager.UI
 
         private void BtnAddNote_Click(object sender, EventArgs e)
         {
-            if(_selectedItem == null)
-            {
-                BtnAddNote.Enabled = false;
-            }
-            else
-            {
-                FrmNotes frmNotes = new FrmNotes(new Guid(_selectedItem.Text));
-
-                if (frmNotes.ShowDialog() == DialogResult.OK)
-                {
-
-                }
-            }
-            
+            FrmNotes frmNotes = new FrmNotes(_selectedUser.Id);
+            frmNotes.ShowDialog();
         }
     }
 }
