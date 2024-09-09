@@ -27,7 +27,7 @@ namespace ZbW_P_Contact_Manager.UI
                 );
         }
 
-        private void btnCreateNewCustomer_Click(object sender, EventArgs e)
+        private void btnAddCustomer_Click(object sender, EventArgs e)
         {
             frmCreateCustomer frmCreateCustomer = new frmCreateCustomer();
             if (frmCreateCustomer.ShowDialog() == DialogResult.OK)

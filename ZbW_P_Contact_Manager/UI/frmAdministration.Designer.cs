@@ -62,15 +62,6 @@
             lstCompanyType = new ColumnHeader();
             lstCompanyContact = new ColumnHeader();
             tabPage2 = new TabPage();
-            panel3 = new Panel();
-            btnEditUser = new Button();
-            btnCreateNewCustomer = new Button();
-            btnRefresh = new Button();
-            btnFilter = new Button();
-            btnAddEmployee = new Button();
-            lblAdminlTitle = new Label();
-            panel2 = new Panel();
-            tabPage3 = new TabPage();
             listView2 = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
@@ -100,6 +91,15 @@
             columnHeader26 = new ColumnHeader();
             columnHeader27 = new ColumnHeader();
             columnHeader28 = new ColumnHeader();
+            tabPage3 = new TabPage();
+            panel3 = new Panel();
+            btnEditUser = new Button();
+            btnAddCustomer = new Button();
+            btnRefresh = new Button();
+            btnFilter = new Button();
+            btnAddEmployee = new Button();
+            lblAdminlTitle = new Label();
+            panel2 = new Panel();
             pnlAdminFormLoader.SuspendLayout();
             panel4.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -114,19 +114,19 @@
             pnlAdminFormLoader.Controls.Add(panel4);
             pnlAdminFormLoader.Controls.Add(panel3);
             pnlAdminFormLoader.Dock = DockStyle.Fill;
-            pnlAdminFormLoader.Location = new Point(0, 90);
-            pnlAdminFormLoader.Margin = new Padding(6);
+            pnlAdminFormLoader.Location = new Point(0, 42);
             pnlAdminFormLoader.Name = "pnlAdminFormLoader";
-            pnlAdminFormLoader.Size = new Size(1361, 928);
+            pnlAdminFormLoader.Size = new Size(733, 435);
             pnlAdminFormLoader.TabIndex = 3;
             // 
             // panel4
             // 
             panel4.Controls.Add(tabControl1);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(0, 90);
+            panel4.Location = new Point(0, 42);
+            panel4.Margin = new Padding(2, 1, 2, 1);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1361, 838);
+            panel4.Size = new Size(733, 393);
             panel4.TabIndex = 2;
             // 
             // tabControl1
@@ -136,18 +136,20 @@
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
+            tabControl1.Margin = new Padding(2, 1, 2, 1);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1361, 838);
+            tabControl1.Size = new Size(733, 393);
             tabControl1.TabIndex = 3;
             // 
             // tabPage1
             // 
             tabPage1.Controls.Add(listView1);
-            tabPage1.Location = new Point(8, 46);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Margin = new Padding(2, 1, 2, 1);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1345, 784);
+            tabPage1.Padding = new Padding(2, 1, 2, 1);
+            tabPage1.Size = new Size(725, 365);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Employee";
             tabPage1.UseVisualStyleBackColor = true;
@@ -157,9 +159,10 @@
             listView1.BackColor = Color.FromArgb(122, 148, 150);
             listView1.Columns.AddRange(new ColumnHeader[] { lstStatus, lstEmployeeNumber, lstTitle, lstFirstName, lstLastName, lstGender, lstDateOfBirth, lstNationality, lstStreet, lstStreetNumber, lstZipCode, lstPlace, lstSocialSecurityNumber, lstEmail, lstPhoneNumberPrivate, lstPhoneNumberMobile, lstPhoneNumberBusiness, lstDepartement, lstStartDate, lstEndDate, lstEmployment, lstRole, lstCadreLevel, lstTraineeYears, lstActualTraineeYear, lstCompanyName, lstCompanyType, lstCompanyContact });
             listView1.Dock = DockStyle.Fill;
-            listView1.Location = new Point(3, 3);
+            listView1.Location = new Point(2, 1);
+            listView1.Margin = new Padding(2, 1, 2, 1);
             listView1.Name = "listView1";
-            listView1.Size = new Size(1339, 778);
+            listView1.Size = new Size(721, 363);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = System.Windows.Forms.View.Details;
@@ -307,152 +310,24 @@
             // tabPage2
             // 
             tabPage2.Controls.Add(listView2);
-            tabPage2.Location = new Point(8, 46);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Margin = new Padding(2, 1, 2, 1);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1345, 784);
+            tabPage2.Padding = new Padding(2, 1, 2, 1);
+            tabPage2.Size = new Size(725, 365);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Customer";
             tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(62, 73, 76);
-            panel3.Controls.Add(btnEditUser);
-            panel3.Controls.Add(btnCreateNewCustomer);
-            panel3.Controls.Add(btnRefresh);
-            panel3.Controls.Add(btnFilter);
-            panel3.Controls.Add(btnAddEmployee);
-            panel3.Dock = DockStyle.Top;
-            panel3.ForeColor = Color.Transparent;
-            panel3.Location = new Point(0, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1361, 90);
-            panel3.TabIndex = 1;
-            // 
-            // btnEditUser
-            // 
-            btnEditUser.BackColor = Color.FromArgb(81, 102, 105);
-            btnEditUser.FlatAppearance.BorderSize = 0;
-            btnEditUser.FlatStyle = FlatStyle.Popup;
-            btnEditUser.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnEditUser.ForeColor = Color.FromArgb(167, 177, 255);
-            btnEditUser.Image = Properties.Resources.edit;
-            btnEditUser.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditUser.Location = new Point(710, 17);
-            btnEditUser.Name = "btnEditUser";
-            btnEditUser.Size = new Size(284, 58);
-            btnEditUser.TabIndex = 4;
-            btnEditUser.Text = "Edit existing User";
-            btnEditUser.TextAlign = ContentAlignment.MiddleLeft;
-            btnEditUser.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnEditUser.UseVisualStyleBackColor = false;
-            btnEditUser.Click += btnEditUser_Click;
-            // 
-            // btnCreateNewCustomer
-            // 
-            btnCreateNewCustomer.BackColor = Color.FromArgb(81, 102, 105);
-            btnCreateNewCustomer.FlatAppearance.BorderSize = 0;
-            btnCreateNewCustomer.FlatStyle = FlatStyle.Popup;
-            btnCreateNewCustomer.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnCreateNewCustomer.ForeColor = Color.FromArgb(167, 177, 255);
-            btnCreateNewCustomer.Image = Properties.Resources.add;
-            btnCreateNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCreateNewCustomer.Location = new Point(365, 17);
-            btnCreateNewCustomer.Name = "btnCreateNewCustomer";
-            btnCreateNewCustomer.Size = new Size(327, 58);
-            btnCreateNewCustomer.TabIndex = 3;
-            btnCreateNewCustomer.Text = "Create new Customer";
-            btnCreateNewCustomer.TextAlign = ContentAlignment.MiddleLeft;
-            btnCreateNewCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnCreateNewCustomer.UseVisualStyleBackColor = false;
-            btnCreateNewCustomer.Click += btnCreateNewCustomer_Click;
-            // 
-            // btnRefresh
-            // 
-            btnRefresh.BackColor = Color.Transparent;
-            btnRefresh.FlatAppearance.BorderSize = 0;
-            btnRefresh.FlatStyle = FlatStyle.Flat;
-            btnRefresh.ForeColor = Color.Transparent;
-            btnRefresh.Image = Properties.Resources.refresh;
-            btnRefresh.Location = new Point(1289, 16);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(60, 60);
-            btnRefresh.TabIndex = 2;
-            btnRefresh.UseVisualStyleBackColor = false;
-            // 
-            // btnFilter
-            // 
-            btnFilter.BackColor = Color.Transparent;
-            btnFilter.FlatAppearance.BorderSize = 0;
-            btnFilter.FlatStyle = FlatStyle.Flat;
-            btnFilter.ForeColor = Color.Transparent;
-            btnFilter.Image = Properties.Resources.filter;
-            btnFilter.Location = new Point(1194, 16);
-            btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(60, 60);
-            btnFilter.TabIndex = 1;
-            btnFilter.UseVisualStyleBackColor = false;
-            // 
-            // btnAddEmployee
-            // 
-            btnAddEmployee.BackColor = Color.FromArgb(81, 102, 105);
-            btnAddEmployee.FlatAppearance.BorderSize = 0;
-            btnAddEmployee.FlatStyle = FlatStyle.Popup;
-            btnAddEmployee.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnAddEmployee.ForeColor = Color.FromArgb(167, 177, 255);
-            btnAddEmployee.Image = Properties.Resources.add;
-            btnAddEmployee.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddEmployee.Location = new Point(12, 17);
-            btnAddEmployee.Name = "btnAddEmployee";
-            btnAddEmployee.Size = new Size(334, 58);
-            btnAddEmployee.TabIndex = 0;
-            btnAddEmployee.Text = "Create new Employee";
-            btnAddEmployee.TextAlign = ContentAlignment.MiddleLeft;
-            btnAddEmployee.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnAddEmployee.UseVisualStyleBackColor = false;
-            btnAddEmployee.Click += btnAddEmployee_Click;
-            // 
-            // lblAdminlTitle
-            // 
-            lblAdminlTitle.AutoSize = true;
-            lblAdminlTitle.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold);
-            lblAdminlTitle.Location = new Point(11, 19);
-            lblAdminlTitle.Margin = new Padding(6, 0, 6, 0);
-            lblAdminlTitle.Name = "lblAdminlTitle";
-            lblAdminlTitle.Size = new Size(366, 44);
-            lblAdminlTitle.TabIndex = 1;
-            lblAdminlTitle.Text = "Administration Tool";
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(41, 49, 51);
-            panel2.Controls.Add(lblAdminlTitle);
-            panel2.Dock = DockStyle.Top;
-            panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(6);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1361, 90);
-            panel2.TabIndex = 4;
-            // 
-            // tabPage3
-            // 
-            tabPage3.Location = new Point(8, 46);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(1345, 784);
-            tabPage3.TabIndex = 2;
-            tabPage3.Text = "tabPage3";
-            tabPage3.UseVisualStyleBackColor = true;
             // 
             // listView2
             // 
             listView2.BackColor = Color.FromArgb(122, 148, 150);
             listView2.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7, columnHeader8, columnHeader9, columnHeader10, columnHeader11, columnHeader12, columnHeader13, columnHeader14, columnHeader15, columnHeader16, columnHeader17, columnHeader18, columnHeader19, columnHeader20, columnHeader21, columnHeader22, columnHeader23, columnHeader24, columnHeader25, columnHeader26, columnHeader27, columnHeader28 });
             listView2.Dock = DockStyle.Fill;
-            listView2.Location = new Point(3, 3);
+            listView2.Location = new Point(2, 1);
+            listView2.Margin = new Padding(2, 1, 2, 1);
             listView2.Name = "listView2";
-            listView2.Size = new Size(1339, 778);
+            listView2.Size = new Size(721, 363);
             listView2.TabIndex = 1;
             listView2.UseCompatibleStateImageBehavior = false;
             listView2.View = System.Windows.Forms.View.Details;
@@ -597,16 +472,150 @@
             columnHeader28.Text = "Company Contact";
             columnHeader28.Width = 150;
             // 
+            // tabPage3
+            // 
+            tabPage3.Location = new Point(4, 24);
+            tabPage3.Margin = new Padding(2, 1, 2, 1);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(2, 1, 2, 1);
+            tabPage3.Size = new Size(725, 365);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "tabPage3";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(62, 73, 76);
+            panel3.Controls.Add(btnEditUser);
+            panel3.Controls.Add(btnAddCustomer);
+            panel3.Controls.Add(btnRefresh);
+            panel3.Controls.Add(btnFilter);
+            panel3.Controls.Add(btnAddEmployee);
+            panel3.Dock = DockStyle.Top;
+            panel3.ForeColor = Color.Transparent;
+            panel3.Location = new Point(0, 0);
+            panel3.Margin = new Padding(2, 1, 2, 1);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(733, 42);
+            panel3.TabIndex = 1;
+            // 
+            // btnEditUser
+            // 
+            btnEditUser.BackColor = Color.FromArgb(81, 102, 105);
+            btnEditUser.FlatAppearance.BorderSize = 0;
+            btnEditUser.FlatStyle = FlatStyle.Popup;
+            btnEditUser.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnEditUser.ForeColor = Color.FromArgb(167, 177, 255);
+            btnEditUser.Image = Properties.Resources.edit;
+            btnEditUser.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEditUser.Location = new Point(382, 8);
+            btnEditUser.Margin = new Padding(2, 1, 2, 1);
+            btnEditUser.Name = "btnEditUser";
+            btnEditUser.Size = new Size(153, 27);
+            btnEditUser.TabIndex = 4;
+            btnEditUser.Text = "Edit existing User";
+            btnEditUser.TextAlign = ContentAlignment.MiddleLeft;
+            btnEditUser.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnEditUser.UseVisualStyleBackColor = false;
+            btnEditUser.Click += btnEditUser_Click;
+            // 
+            // btnAddCustomer
+            // 
+            btnAddCustomer.BackColor = Color.FromArgb(81, 102, 105);
+            btnAddCustomer.FlatAppearance.BorderSize = 0;
+            btnAddCustomer.FlatStyle = FlatStyle.Popup;
+            btnAddCustomer.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnAddCustomer.ForeColor = Color.FromArgb(167, 177, 255);
+            btnAddCustomer.Image = Properties.Resources.add;
+            btnAddCustomer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddCustomer.Location = new Point(197, 8);
+            btnAddCustomer.Margin = new Padding(2, 1, 2, 1);
+            btnAddCustomer.Name = "btnAddCustomer";
+            btnAddCustomer.Size = new Size(176, 27);
+            btnAddCustomer.TabIndex = 3;
+            btnAddCustomer.Text = "Create new Customer";
+            btnAddCustomer.TextAlign = ContentAlignment.MiddleLeft;
+            btnAddCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAddCustomer.UseVisualStyleBackColor = false;
+            btnAddCustomer.Click += btnAddCustomer_Click;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = Color.Transparent;
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.ForeColor = Color.Transparent;
+            btnRefresh.Image = Properties.Resources.refresh;
+            btnRefresh.Location = new Point(694, 8);
+            btnRefresh.Margin = new Padding(2, 1, 2, 1);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(32, 28);
+            btnRefresh.TabIndex = 2;
+            btnRefresh.UseVisualStyleBackColor = false;
+            // 
+            // btnFilter
+            // 
+            btnFilter.BackColor = Color.Transparent;
+            btnFilter.FlatAppearance.BorderSize = 0;
+            btnFilter.FlatStyle = FlatStyle.Flat;
+            btnFilter.ForeColor = Color.Transparent;
+            btnFilter.Image = Properties.Resources.filter;
+            btnFilter.Location = new Point(643, 8);
+            btnFilter.Margin = new Padding(2, 1, 2, 1);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(32, 28);
+            btnFilter.TabIndex = 1;
+            btnFilter.UseVisualStyleBackColor = false;
+            // 
+            // btnAddEmployee
+            // 
+            btnAddEmployee.BackColor = Color.FromArgb(81, 102, 105);
+            btnAddEmployee.FlatAppearance.BorderSize = 0;
+            btnAddEmployee.FlatStyle = FlatStyle.Popup;
+            btnAddEmployee.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnAddEmployee.ForeColor = Color.FromArgb(167, 177, 255);
+            btnAddEmployee.Image = Properties.Resources.add;
+            btnAddEmployee.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddEmployee.Location = new Point(6, 8);
+            btnAddEmployee.Margin = new Padding(2, 1, 2, 1);
+            btnAddEmployee.Name = "btnAddEmployee";
+            btnAddEmployee.Size = new Size(180, 27);
+            btnAddEmployee.TabIndex = 0;
+            btnAddEmployee.Text = "Create new Employee";
+            btnAddEmployee.TextAlign = ContentAlignment.MiddleLeft;
+            btnAddEmployee.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAddEmployee.UseVisualStyleBackColor = false;
+            btnAddEmployee.Click += btnAddEmployee_Click;
+            // 
+            // lblAdminlTitle
+            // 
+            lblAdminlTitle.AutoSize = true;
+            lblAdminlTitle.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold);
+            lblAdminlTitle.Location = new Point(6, 9);
+            lblAdminlTitle.Name = "lblAdminlTitle";
+            lblAdminlTitle.Size = new Size(190, 24);
+            lblAdminlTitle.TabIndex = 1;
+            lblAdminlTitle.Text = "Administration Tool";
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(41, 49, 51);
+            panel2.Controls.Add(lblAdminlTitle);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(733, 42);
+            panel2.TabIndex = 4;
+            // 
             // frmAdministration
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(1361, 1018);
+            ClientSize = new Size(733, 477);
             Controls.Add(pnlAdminFormLoader);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(6);
             Name = "frmAdministration";
             Text = "frmAdministration";
             pnlAdminFormLoader.ResumeLayout(false);
@@ -658,7 +667,7 @@
         private ColumnHeader lstCompanyContact;
         private Button btnFilter;
         private Button btnRefresh;
-        private Button btnCreateNewCustomer;
+        private Button btnAddCustomer;
         private Button btnEditUser;
         private TabControl tabControl1;
         private TabPage tabPage1;
