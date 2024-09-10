@@ -199,7 +199,7 @@ namespace ZbW_P_Contact_Manager.UI
 
         private void btnEditUser_Click(object sender, EventArgs e)
         {
-            if(_selectedUser.Id != Guid.Empty)
+            if (_selectedUser.Id != Guid.Empty)
             {
                 frmEditUser frmEditUser = new frmEditUser(_selectedUser);
                 if (frmEditUser.ShowDialog() == DialogResult.OK)
@@ -261,6 +261,12 @@ namespace ZbW_P_Contact_Manager.UI
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadUsersIntoListView();
+        }
+
+        private void btnTrash_Click(object sender, EventArgs e)
+        {
+            _userController.Delete(_selectedUser);
+            LoadUsersIntoListView();  // Refresh the list
         }
     }
 }
