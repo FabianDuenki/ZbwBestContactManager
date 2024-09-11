@@ -3,12 +3,12 @@
     /// <summary>
     /// Form for the history of the contact manager
     /// </summary>
-    public partial class frmHistory : Form
+    public partial class FrmHistory : Form
     {
         /// <summary>
         /// Form for the history of the contact manager
         /// </summary>
-        public frmHistory()
+        public FrmHistory()
         {
             InitializeComponent();
         }

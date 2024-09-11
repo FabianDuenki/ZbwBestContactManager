@@ -8,12 +8,12 @@ namespace ZbW_P_Contact_Manager.UI
     /// <summary>
     /// Form to create a new customer
     /// </summary>
-    public partial class frmCreateCustomer : CreateForm
+    public partial class FrmCreateCustomer : CreateForm
     {
         /// <summary>
         /// Constructor for the Create Customer form
         /// </summary>
-        public frmCreateCustomer()
+        public FrmCreateCustomer()
         {
             InitializeComponent();
             AddRequiredControls([

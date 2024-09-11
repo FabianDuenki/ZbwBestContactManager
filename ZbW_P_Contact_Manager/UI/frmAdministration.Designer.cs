@@ -1,6 +1,6 @@
 ﻿namespace ZbW_P_Contact_Manager.UI
 {
-    partial class frmAdministration
+    partial class FrmAdministration
     {
         /// <summary>
         /// Required designer variable.

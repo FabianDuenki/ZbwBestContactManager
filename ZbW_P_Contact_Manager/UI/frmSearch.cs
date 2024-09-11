@@ -3,12 +3,12 @@
     /// <summary>
     /// Form for searching contacts
     /// </summary>
-    public partial class frmSearch : Form
+    public partial class FrmSearch : Form
     {
         /// <summary>
         /// Form for searching contacts
         /// </summary>
-        public frmSearch()
+        public FrmSearch()
         {
             InitializeComponent();
         }

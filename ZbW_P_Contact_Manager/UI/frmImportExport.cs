@@ -9,14 +9,14 @@ namespace ZbW_P_Contact_Manager.UI
     /// <summary>
     /// Form for importing and exporting data
     /// </summary>
-    public partial class frmImportExport : Form
+    public partial class FrmImportExport : Form
     {
         CSVController _csvController;
 
         /// <summary>
         /// Form for importing and exporting data
         /// </summary>
-        public frmImportExport()
+        public FrmImportExport()
         {
             InitializeComponent();
             _csvController = new CSVController();

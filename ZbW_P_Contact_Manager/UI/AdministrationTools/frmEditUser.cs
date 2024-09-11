@@ -6,7 +6,7 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
     /// <summary>
     /// Class for the Edit User form
     /// </summary>
-    public partial class frmEditUser : Form
+    public partial class FrmEditUser : Form
     {
         Person _currentUser;
         Person _updatedUser;
@@ -17,7 +17,7 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
         /// Form constructor for editing a user
         /// </summary>
         /// <param name="user"></param>
-        public frmEditUser(Person user)
+        public FrmEditUser(Person user)
         {
             _currentUser = user;
 

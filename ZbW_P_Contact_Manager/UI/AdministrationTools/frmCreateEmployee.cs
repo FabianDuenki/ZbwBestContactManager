@@ -8,12 +8,12 @@ namespace ZbW_P_Contact_Manager.UI
     /// <summary>
     /// Form for creating a new employee
     /// </summary>
-    public partial class frmCreateEmployee : CreateForm
+    public partial class FrmCreateEmployee : CreateForm
     {
         /// <summary>
         /// Constructor for the Create Employee form
         /// </summary>
-        public frmCreateEmployee()
+        public FrmCreateEmployee()
         {
             InitializeComponent();
             AddRequiredControls([

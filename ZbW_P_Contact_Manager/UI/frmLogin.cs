@@ -6,13 +6,13 @@ namespace ZbW_P_Contact_Manager.UI
     /// <summary>
     /// Form for the login screen
     /// </summary>
-    public partial class frmLogin : Form
+    public partial class FrmLogin : Form
     {
 
         /// <summary>
         /// Login form constructor
         /// </summary>
-        public frmLogin()
+        public FrmLogin()
         {
             InitializeComponent();
         }

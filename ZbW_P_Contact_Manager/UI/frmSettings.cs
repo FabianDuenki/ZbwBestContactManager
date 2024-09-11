@@ -4,12 +4,12 @@
     /// <summary>
     /// Form for the settings page
     /// </summary>
-    public partial class frmSettings : Form
+    public partial class FrmSettings : Form
     {
         /// <summary>
         /// Settings form constructor
         /// </summary>
-        public frmSettings()
+        public FrmSettings()
         {
             InitializeComponent();
         }

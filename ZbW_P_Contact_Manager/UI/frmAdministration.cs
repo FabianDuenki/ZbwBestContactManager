@@ -8,7 +8,7 @@ namespace ZbW_P_Contact_Manager.UI
     /// <summary>
     /// Form for the administration of users
     /// </summary>
-    public partial class frmAdministration : Form
+    public partial class FrmAdministration : Form
     {
         private UserController _userController;
         private List<Person> _loadedUsers;
@@ -17,7 +17,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// <summary>
         /// Form constructor
         /// </summary>
-        public frmAdministration()
+        public FrmAdministration()
         {
             InitializeComponent();
             _userController = new UserController(); // Initialize the UserController
@@ -199,7 +199,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// <param name="e"></param>
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            frmCreateEmployee frmCreateEmployee = new frmCreateEmployee();
+            FrmCreateEmployee frmCreateEmployee = new FrmCreateEmployee();
 
             if (frmCreateEmployee.ShowDialog() == DialogResult.OK)
             {
@@ -216,7 +216,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// <param name="e"></param>
         private void btnCreateNewCustomer_Click(object sender, EventArgs e)
         {
-            frmCreateCustomer frmCreateCustomer = new frmCreateCustomer();
+            FrmCreateCustomer frmCreateCustomer = new FrmCreateCustomer();
 
             if (frmCreateCustomer.ShowDialog() == DialogResult.OK)
             {
@@ -235,7 +235,7 @@ namespace ZbW_P_Contact_Manager.UI
         {
             if (_selectedUser.Id != Guid.Empty)
             {
-                frmEditUser frmEditUser = new frmEditUser(_selectedUser);
+                FrmEditUser frmEditUser = new FrmEditUser(_selectedUser);
                 if (frmEditUser.ShowDialog() == DialogResult.OK)
                 {
                     // Handle the edit functionality here if required

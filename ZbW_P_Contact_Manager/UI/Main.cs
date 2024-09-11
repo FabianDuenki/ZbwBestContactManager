@@ -128,7 +128,7 @@ namespace ZbW_P_Contact_Manager.UI
         {
             SetNavigationStyle(btnAdministration); // Set navigation style for Administration button
             lblTitle.Text = "Administration Tool"; // Set the title label text
-            LoadForm(new frmAdministration()); // Load the administration form
+            LoadForm(new FrmAdministration()); // Load the administration form
         }
 
         /// <summary>
@@ -140,7 +140,7 @@ namespace ZbW_P_Contact_Manager.UI
         {
             SetNavigationStyle(btnSearch); // Set navigation style for Search button
             lblTitle.Text = "Search Tool"; // Set the title label text
-            LoadForm(new frmSearch()); // Load the search form
+            LoadForm(new FrmSearch()); // Load the search form
         }
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace ZbW_P_Contact_Manager.UI
         {
             SetNavigationStyle(btnImportExport); // Set navigation style for Import/Export button
             lblTitle.Text = "Import/Export Tool"; // Set the title label text
-            LoadForm(new frmImportExport()); // Load the import/export form
+            LoadForm(new FrmImportExport()); // Load the import/export form
         }
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace ZbW_P_Contact_Manager.UI
         {
             SetNavigationStyle(btnHistory); // Set navigation style for History button
             lblTitle.Text = "History"; // Set the title label text
-            LoadForm(new frmHistory()); // Load the history form
+            LoadForm(new FrmHistory()); // Load the history form
         }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace ZbW_P_Contact_Manager.UI
         {
             SetNavigationStyle(btnSettings); // Set navigation style for Settings button
             lblTitle.Text = "Settings"; // Set the title label text
-            LoadForm(new frmSettings()); // Load the settings form
+            LoadForm(new FrmSettings()); // Load the settings form
         }
 
         /// <summary>
