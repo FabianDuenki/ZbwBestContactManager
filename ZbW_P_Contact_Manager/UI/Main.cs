@@ -94,7 +94,6 @@ namespace ZbW_P_Contact_Manager.UI
             btnSearch.BackColor = Color.FromArgb(24, 30, 54);
             btnImportExport.BackColor = Color.FromArgb(24, 30, 54);
             btnHistory.BackColor = Color.FromArgb(24, 30, 54);
-            btnSettings.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         /// <summary>
@@ -165,18 +164,6 @@ namespace ZbW_P_Contact_Manager.UI
             SetNavigationStyle(btnHistory); // Set navigation style for History button
             lblTitle.Text = "History"; // Set the title label text
             LoadForm(new FrmHistory()); // Load the history form
-        }
-
-        /// <summary>
-        /// Event handler for Settings button click
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            SetNavigationStyle(btnSettings); // Set navigation style for Settings button
-            lblTitle.Text = "Settings"; // Set the title label text
-            LoadForm(new FrmSettings()); // Load the settings form
         }
 
         /// <summary>

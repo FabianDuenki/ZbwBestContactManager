@@ -72,7 +72,6 @@
             btnSearch.BackColor = Color.FromArgb(0, 0, 77);
             btnImportExport.BackColor = Color.FromArgb(0, 0, 77);
             btnHistory.BackColor = Color.FromArgb(0, 0, 77);
-            btnSettings.BackColor = Color.FromArgb(0, 0, 77);
         }
 
         /// <summary>
@@ -153,18 +152,6 @@
             SetNavigationStyle(btnHistory); // Set navigation style for History button
             lblTitle.Text = "History"; // Set the title label text
             LoadForm(new FrmHistory()); // Load the history form
-        }
-
-        /// <summary>
-        /// Event handler for Settings button click
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnSettings_Click(object sender, EventArgs e)
-        {
-            SetNavigationStyle(btnSettings); // Set navigation style for Settings button
-            lblTitle.Text = "Settings"; // Set the title label text
-            LoadForm(new FrmSettings()); // Load the settings form
         }
 
         /// <summary>
