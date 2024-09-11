@@ -1,5 +1,8 @@
 ﻿namespace UI.AdministrationTools.Classes
 {
+    /// <summary>
+    /// Class for creating a form
+    /// </summary>
     public class CreateForm : Form
     {
         /// <summary>

@@ -3,6 +3,9 @@ using Model;
 
 namespace ZbW_P_Contact_Manager.UI.AdministrationTools
 {
+    /// <summary>
+    /// Class for the Edit User form
+    /// </summary>
     public partial class frmEditUser : Form
     {
         Person _currentUser;
@@ -10,6 +13,10 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
         UserController _userController = new UserController();
         ModelController _modelController = new ModelController();
 
+        /// <summary>
+        /// Form constructor for editing a user
+        /// </summary>
+        /// <param name="user"></param>
         public frmEditUser(Person user)
         {
             _currentUser = user;
@@ -18,6 +25,10 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
             ActivateTextFields();
             FillTextFields();
         }
+
+        /// <summary>
+        /// Activates the text fields for editing
+        /// </summary>
         private void ActivateTextFields()
         {
             btnTraineeYearsEdit.Enabled = false;
@@ -71,6 +82,10 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
                 txtCompanyContact.Text = "";
             }
         }
+
+        /// <summary>
+        /// Fills the text fields with the user data
+        /// </summary>
         private void FillTextFields()
         {
             btnStatus.Checked = (_currentUser.Status == true) ? true : false;
@@ -116,6 +131,11 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
             }
         }
 
+        /// <summary>
+        /// Edit Trainee Years button click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditUser_Click(object sender, EventArgs e)
         {
 

@@ -7,10 +7,16 @@ using ZbW_P_Contact_Manager.Models;
 
 namespace ZbW_P_Contact_Manager.UI
 {
+    /// <summary>
+    /// Form for the dashboard.
+    /// </summary>
     public partial class FrmDashboard : Form
     {
         DashboardData _dashboardData;
 
+        /// <summary>
+        /// Default constructor dashboard.
+        /// </summary>
         public FrmDashboard()
         {
             InitializeComponent();
@@ -74,6 +80,9 @@ namespace ZbW_P_Contact_Manager.UI
             InitFormsPlotAge();
         }
 
+        /// <summary>
+        /// Initializes the forms plot for the customer count.
+        /// </summary>
         private void InitFormsPlotCustomerCount()
         {
             FormsPlotCustomerCount.Plot.Clear();
@@ -102,6 +111,9 @@ namespace ZbW_P_Contact_Manager.UI
             FormsPlotCustomerCount.Refresh();
         }
 
+        /// <summary>
+        /// Initializes the forms plot for the person types.
+        /// </summary>
         private void InitFormsPlotPersonTypes()
         {
             FormsPlotPersonTypes.Plot.Clear();
@@ -135,6 +147,9 @@ namespace ZbW_P_Contact_Manager.UI
             FormsPlotPersonTypes.Refresh();
         }
 
+        /// <summary>
+        /// Initializes the forms plot for the residence.
+        /// </summary>
         private void InitFormsPlotResidence()
         {
             FormsPlotResidence.Plot.Clear();
@@ -164,6 +179,9 @@ namespace ZbW_P_Contact_Manager.UI
             FormsPlotResidence.Refresh();
         }
 
+        /// <summary>
+        /// Initializes the forms plot for the age.
+        /// </summary>
         private void InitFormsPlotAge()
         {
             double[] dataX = new double[_dashboardData.Age.Count()];
@@ -200,6 +218,10 @@ namespace ZbW_P_Contact_Manager.UI
             FormsPlotAge.Refresh();
         }
 
+        /// <summary>
+        /// Sets the colors for the plot.
+        /// </summary>
+        /// <param name="plot"></param>
         private void SetColorsForPlot(Plot plot)
         {
             // change figure colors
@@ -216,6 +238,11 @@ namespace ZbW_P_Contact_Manager.UI
             plot.Legend.OutlineColor = ScottPlot.Color.FromHex("#d7d7d7");
         }
 
+        /// <summary>
+        /// Sets the forms plot settings.
+        /// </summary>
+        /// <param name="plot"></param>
+        /// <param name="ticks"></param>
         private void SetFormsPlotSettings(Plot plot, Tick[] ticks)
         {
             plot.Axes.Bottom.TickGenerator = new ScottPlot.TickGenerators.NumericManual(ticks);

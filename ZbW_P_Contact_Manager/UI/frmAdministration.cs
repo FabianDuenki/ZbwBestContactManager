@@ -5,12 +5,18 @@ using ZbW_P_Contact_Manager.UI.AdministrationTools;
 
 namespace ZbW_P_Contact_Manager.UI
 {
+    /// <summary>
+    /// Form for the administration of users
+    /// </summary>
     public partial class frmAdministration : Form
     {
         private UserController _userController;
         private List<Person> _loadedUsers;
         private Person _selectedUser;
 
+        /// <summary>
+        /// Form constructor
+        /// </summary>
         public frmAdministration()
         {
             InitializeComponent();
@@ -19,12 +25,20 @@ namespace ZbW_P_Contact_Manager.UI
             Load += frmAdministration_Load;
         }
 
+        /// <summary>
+        /// Add event handler for the form load event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmAdministration_Load(object? sender, EventArgs e)
         {
             LoadUsersIntoListView();  // Load users when the form loads
             //LoadTestEmployee();
         }
 
+        /// <summary>
+        /// Initialize the ListView
+        /// </summary>
         private void InitializeListView()
         {
             listView1.View = System.Windows.Forms.View.Details;
@@ -70,6 +84,9 @@ namespace ZbW_P_Contact_Manager.UI
             listView1.FullRowSelect = true;
         }
 
+        /// <summary>
+        /// Load all users into the ListView
+        /// </summary>
         private void LoadUsersIntoListView()
         {
             listView1.Items.Clear();
@@ -102,7 +119,10 @@ namespace ZbW_P_Contact_Manager.UI
             //btnEditUser.Enabled = false;
         }
 
-        // Helper method to add users to the ListView
+        /// <summary>
+        /// Helper method to add users to the ListView
+        /// </summary>
+        /// <param name="person"></param>
         private void AddUserToListView(Person person)
         {
             ListViewItem item = new ListViewItem(person.Id.ToString());
@@ -172,6 +192,11 @@ namespace ZbW_P_Contact_Manager.UI
             listView1.Items.Add(item);
         }
 
+        /// <summary>
+        /// Button click event handler for adding an Employee
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             frmCreateEmployee frmCreateEmployee = new frmCreateEmployee();
@@ -184,6 +209,11 @@ namespace ZbW_P_Contact_Manager.UI
             }
         }
 
+        /// <summary>
+        /// Button click event handler for adding a Trainee
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreateNewCustomer_Click(object sender, EventArgs e)
         {
             frmCreateCustomer frmCreateCustomer = new frmCreateCustomer();
@@ -196,6 +226,11 @@ namespace ZbW_P_Contact_Manager.UI
             }
         }
 
+        /// <summary>
+        /// Button click event handler for adding a Customer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEditUser_Click(object sender, EventArgs e)
         {
             if (_selectedUser.Id != Guid.Empty)
@@ -209,6 +244,11 @@ namespace ZbW_P_Contact_Manager.UI
             }
         }
 
+        /// <summary>
+        /// SelectedIndexChanged event handler for the ListView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
@@ -222,6 +262,9 @@ namespace ZbW_P_Contact_Manager.UI
             btnEditUser.Enabled = false;
         }
 
+        /// <summary>
+        /// Load test employees just in case
+        /// </summary>
         private void LoadTestEmployee()
         {
             // Create the test Employee
@@ -258,17 +301,32 @@ namespace ZbW_P_Contact_Manager.UI
             AddUserToListView(testEmployee);
         }
 
+        /// <summary>
+        /// Button for refreshing users
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadUsersIntoListView();
         }
 
+        /// <summary>
+        /// Button Trash Event trigger
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTrash_Click(object sender, EventArgs e)
         {
             _userController.Delete(_selectedUser);
             LoadUsersIntoListView();  // Refresh the list
         }
 
+        /// <summary>
+        /// Button Add Note
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnAddNote_Click(object sender, EventArgs e)
         {
             FrmNotes frmNotes = new FrmNotes(_selectedUser.Id);

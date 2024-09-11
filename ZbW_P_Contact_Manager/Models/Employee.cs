@@ -1,15 +1,49 @@
 ﻿namespace Model
 {
+    /// <summary>
+    /// Employee class that extends the Person class with additional properties
+    /// </summary>
     public class Employee : Person
     {
+        /// <summary>
+        /// Employee number
+        /// </summary>
         public Guid? EmployeeNumber { get; set; }
+
+        /// <summary>
+        /// Departement
+        /// </summary>
         public string? Departement { get; set; }
+
+        /// <summary>
+        /// Start date of employment
+        /// </summary>
         public DateTime? StartDate { get; set; }
+
+        /// <summary>
+        /// End date of employment
+        /// </summary>
         public DateTime? EndDate { get; set; }
+
+        /// <summary>
+        /// Employment percentage
+        /// </summary>
         public int? Employment { get; set; }
+
+        /// <summary>
+        /// Role
+        /// </summary>
         public string? Role { get; set; }
+
+        /// <summary>
+        /// Cadre level
+        /// </summary>
         public int? CadreLevel { get; set; }
 
+        /// <summary>
+        /// The CSV string representation of the object
+        /// </summary>
+        /// <returns>CSV string</returns>
         public override string ToCsvString()
         {
             return base.ToCsvString() +
@@ -22,6 +56,11 @@
                 $"{this.Role}," +
                 $"{this.CadreLevel.ToString()}";
         }
+
+        /// <summary>
+        /// Transforms the object into a CSV header
+        /// </summary>
+        /// <returns>CSV header</returns>
         public override string ToCsvHeader()
         {
             return base.ToCsvHeader() +
@@ -34,6 +73,12 @@
                 "Role," +
                 "CadreLevel";
         }
+
+        /// <summary>
+        /// Checks if the object contains the other object
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns>Boolean</returns>
         public bool Contains(Employee other)
         {
             if (!base.Contains(other)) return false;
@@ -46,6 +91,12 @@
             if (other.CadreLevel != null && other.CadreLevel != this.CadreLevel) return false;
             return true;
         }
+
+        /// <summary>
+        /// Transforms a CSV string into an object
+        /// </summary>
+        /// <param name="csvString"></param>
+        /// <returns>Employee object</returns>
         public override Employee FromCsvString(string csvString)
         {
             string[] propertyValues = csvString.Split(',');

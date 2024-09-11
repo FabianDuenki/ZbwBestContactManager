@@ -1,5 +1,10 @@
 ﻿namespace Model
 {
+    /// <summary>
+    /// User class representing a user with a username and password
+    /// </summary>
+    /// <param name="username"></param>
+    /// <param name="password"></param>
     public class User(string username, string password)
     {
         /// <summary>

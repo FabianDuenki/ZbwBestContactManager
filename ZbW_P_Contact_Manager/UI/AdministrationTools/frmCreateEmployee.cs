@@ -5,8 +5,14 @@ using UI.Helpers;
 
 namespace ZbW_P_Contact_Manager.UI
 {
+    /// <summary>
+    /// Form for creating a new employee
+    /// </summary>
     public partial class frmCreateEmployee : CreateForm
     {
+        /// <summary>
+        /// Constructor for the Create Employee form
+        /// </summary>
         public frmCreateEmployee()
         {
             InitializeComponent();
@@ -31,6 +37,11 @@ namespace ZbW_P_Contact_Manager.UI
             ]);
         }
 
+        /// <summary>
+        /// Create a new employee when the button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCreateNewEmployee_Click(object sender, EventArgs e)
         {
             if (!IsFormValid()) return;
@@ -82,18 +93,32 @@ namespace ZbW_P_Contact_Manager.UI
             this.Close();
         }
 
+        /// <summary>
+        /// Validate the input against a regular expression pattern
+        /// </summary>
+        /// <param name="textBox"></param>
+        /// <param name="pattern"></param>
         private void ValidateInput(TextBox textBox, string pattern)
         {
             Regex regex = new Regex(pattern);
             textBox.BackColor = regex.IsMatch(textBox.Text) ? Color.White : Color.Red;
         }
 
+        /// <summary>
+        /// Set the style of a DateTimePicker control
+        /// </summary>
+        /// <param name="dateTimePicker"></param>
         private void SetDatePickerStyle(DateTimePicker dateTimePicker)
         {
             dateTimePicker.CalendarMonthBackground = Color.FromArgb(74, 79, 99);
             dateTimePicker.CalendarForeColor = SystemColors.ScrollBar;
         }
 
+        /// <summary>
+        /// Enable or disable the trainee year text boxes based on the checkbox state
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ckbTrainee_CheckedChanged(object sender, EventArgs e)
         {
             bool isChecked = ckbTrainee.Checked;
@@ -101,36 +126,71 @@ namespace ZbW_P_Contact_Manager.UI
             txtActualTraineeYears.Enabled = isChecked;
         }
 
+        /// <summary>
+        /// Validate the social security number input
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtSocialSecurityNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar);
         }
 
+        /// <summary>
+        /// Validate the social security number input when the text changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtSocialSecurityNumber_TextChanged(object sender, EventArgs e)
         {
             ValidateInput(txtSocialSecurityNumber, @"^\d{3}\.\d{4}\.\d{4}\.\d{2}$");
         }
 
+        /// <summary>
+        /// Validate the phone number input when a key is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '+';
         }
 
+        /// <summary>
+        /// Validate the phone number input when the text changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
         {
             ValidateInput(sender as TextBox, @"^\+?\d{0,15}$");
         }
 
+        /// <summary>
+        /// Validate the email input when the text changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EmailTextBox_TextChanged(object sender, EventArgs e)
         {
             ValidateInput(sender as TextBox, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
         }
 
+        /// <summary>
+        /// Validate the number input when a key is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
+        /// <summary>
+        /// Validate the number input when the text changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NumberTextBox_TextChanged(object sender, EventArgs e)
         {
             ValidateInput(sender as TextBox, @"^\d+$");
