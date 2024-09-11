@@ -786,7 +786,6 @@
 
         #endregion
 
-        private TextBox txtSalutationEmployee;
         private TextBox txtFirstName;
         private TextBox txtLastName;
         private TextBox txtTitle;

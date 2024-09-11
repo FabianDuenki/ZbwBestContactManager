@@ -1,7 +1,7 @@
-﻿using External;
-using Controller;
-using Model.Typing;
+﻿using Controller;
+using External;
 using Model;
+using Model.Typing;
 using UI.Localization;
 
 namespace ZbW_P_Contact_Manager.UI
@@ -50,7 +50,7 @@ namespace ZbW_P_Contact_Manager.UI
 
         private void btnExportCustomer_Click(object sender, EventArgs e)
         {
-               
+
         }
     }
 }

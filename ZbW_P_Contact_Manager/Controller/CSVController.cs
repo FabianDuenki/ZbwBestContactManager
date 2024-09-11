@@ -1,14 +1,7 @@
 ﻿using External;
-using Microsoft.VisualBasic.ApplicationServices;
 using Model;
-using Model.Detail;
-using Model.Operation;
 using Model.Typing;
-using System.Collections;
-using System.Diagnostics;
 using System.Reflection;
-using System.Text;
-using ZbW_P_Contact_Manager;
 
 namespace Controller
 {
@@ -183,7 +176,7 @@ namespace Controller
 
             foreach (string csvUser in csvUsers)
             {
-                if(csvUser == user.ToCsvHeader() || string.IsNullOrEmpty(csvUser)) continue;
+                if (csvUser == user.ToCsvHeader() || string.IsNullOrEmpty(csvUser)) continue;
                 userList.Add(user.FromCsvString(csvUser));
             }
             return userList;

@@ -1,12 +1,5 @@
-﻿using Model;
-using System;
-using System.CodeDom;
-using System.Windows.Forms;
-using UI.AdministrationTools.Classes;
-using Controller;
-using Model.Typing;
-using OpenTK.Platform.Windows;
-using Microsoft.VisualBasic.ApplicationServices;
+﻿using Controller;
+using Model;
 
 namespace ZbW_P_Contact_Manager.UI.AdministrationTools
 {
@@ -88,7 +81,7 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
             txtSex.Text = _currentUser.Gender;
             txtNationality.Text = _currentUser.Nationality;
             txtSocialSecurityNumber.Text = _currentUser.SocialSecurityNumber;
-            txtDateOfBirth.Value = _currentUser.DateOfBirth ?? new DateTime(1900,1,1);
+            txtDateOfBirth.Value = _currentUser.DateOfBirth ?? new DateTime(1900, 1, 1);
             txtStreet.Text = _currentUser.Street;
             txtStreetNumber.Text = _currentUser.StreetNumber;
             txtPlace.Text = _currentUser.Place;
@@ -179,7 +172,7 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
             _updatedUser.PhoneNumberBusiness = txtPhoneNumberBusiness.Text;
             _updatedUser.Email = txtEmail.Text;
 
-            if(!_currentUser.Contains(_updatedUser))
+            if (!_currentUser.Contains(_updatedUser))
             {
                 _userController.Update(_currentUser, _updatedUser);
             }

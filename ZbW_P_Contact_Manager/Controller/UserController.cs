@@ -1,8 +1,5 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using Model;
-using Model.Detail;
+﻿using Model;
 using Model.Typing;
-using System.Reflection;
 
 namespace Controller
 {

@@ -1,15 +1,16 @@
-﻿using ZbW_P_Contact_Manager.Controller;
-using External;
+﻿using External;
+using ZbW_P_Contact_Manager.Controller;
 
 namespace ZbW_P_Contact_Manager.UI
 {
     public partial class frmLogin : Form
     {
+
         public frmLogin()
         {
             InitializeComponent();
         }
-
+        
         private void OnLoginClick(object sender, EventArgs e)
         {
             if (!AuthController.IsUserValid(txtUsername.Text, txtPassword.Text))

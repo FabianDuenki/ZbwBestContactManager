@@ -1,10 +1,4 @@
-﻿using Controller;
-using System;
-using System.Drawing;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
-
-namespace ZbW_P_Contact_Manager.UI
+﻿namespace ZbW_P_Contact_Manager.UI
 {
     public partial class MainSizeable : Form
     {

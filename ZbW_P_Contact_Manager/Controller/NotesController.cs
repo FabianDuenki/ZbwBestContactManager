@@ -5,7 +5,7 @@ namespace Controller
     public class NotesController
     {
         CSVController _csvController;
-        
+
         public NotesController()
         {
             _csvController = new();

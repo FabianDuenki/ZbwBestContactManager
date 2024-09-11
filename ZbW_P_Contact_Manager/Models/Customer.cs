@@ -23,7 +23,7 @@
         }
         public bool Contains(Customer other)
         {
-            if(!base.Contains(other)) return false;
+            if (!base.Contains(other)) return false;
             if (other.CompanyName != null && other.CompanyName != this.CompanyName) return false;
             if (other.CompanyType != null && other.CompanyType != this.CompanyType) return false;
             if (other.CompanyContact != null && other.CompanyContact != this.CompanyContact) return false;

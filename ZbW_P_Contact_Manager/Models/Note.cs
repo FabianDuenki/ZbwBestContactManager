@@ -13,7 +13,7 @@ namespace Model
         public Guid PersonId { get; set; }
 
         public DateTime? CreatedAt { get; set; }
-               
+
         public string? CreatedBy { get; set; }
 
         public object GetInstanceFromHashtable(Hashtable hashtable)

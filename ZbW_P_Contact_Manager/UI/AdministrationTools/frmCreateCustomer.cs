@@ -100,7 +100,7 @@ namespace ZbW_P_Contact_Manager.UI
             {
                 Status = ckbStatus.Checked,
                 Salutation = txtSalutation.Text,
-                Title  = txtTitle.Text,
+                Title = txtTitle.Text,
                 FirstName = txtFirstName.Text,
                 LastName = txtLastName.Text,
                 Gender = txtSex.Text,

@@ -72,7 +72,7 @@ namespace ZbW_P_Contact_Manager.UI
                 trainee.TraineeYears = DataParser.StringToSafeInt(txtTraineeYears.Text);
                 trainee.ActualTraineeYear = DataParser.StringToSafeInt(txtActualTraineeYears.Text);
                 model = trainee;
-            } 
+            }
             else
             {
                 model = employee;

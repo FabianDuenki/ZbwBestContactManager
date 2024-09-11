@@ -1,5 +1,4 @@
 ﻿using Controller;
-using Model;
 using ZbW_P_Contact_Manager.Controller;
 
 namespace ZbW_P_Contact_Manager

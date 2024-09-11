@@ -1,8 +1,7 @@
-﻿using Model;
-using Controller;
+﻿using Controller;
+using Model;
 using Model.Typing;
 using ZbW_P_Contact_Manager.UI.AdministrationTools;
-using System.Collections.Generic;
 
 namespace ZbW_P_Contact_Manager.UI
 {
