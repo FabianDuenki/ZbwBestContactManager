@@ -2,6 +2,9 @@
 
 namespace ZbW_P_Contact_Manager.Controller
 {
+    /// <summary>
+    /// Static class to manage the authentication of the user
+    /// </summary>
     public static class AuthController
     {
         /// <summary>

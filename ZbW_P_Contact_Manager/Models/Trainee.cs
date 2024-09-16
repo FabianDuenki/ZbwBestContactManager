@@ -1,9 +1,24 @@
 ﻿namespace Model
 {
+    /// <summary>
+    /// Trainee class that inherits from Employee
+    /// </summary>
     public class Trainee : Employee
     {
+        /// <summary>
+        /// TraineeYears property
+        /// </summary>
         public int? TraineeYears { get; set; }
+
+        /// <summary>
+        /// ActualTraineeYear property
+        /// </summary>
         public int? ActualTraineeYear { get; set; }
+
+        /// <summary>
+        /// Transforms the object to a csv string
+        /// </summary>
+        /// <returns>The transformed string</returns>
         public override string ToCsvString()
         {
             return base.ToCsvString() +
@@ -11,6 +26,11 @@
                 $"{this.TraineeYears.ToString()}," +
                 $"{this.ActualTraineeYear.ToString()}";
         }
+
+        /// <summary>
+        /// Transforms the object to a csv header
+        /// </summary>
+        /// <returns>The transformed string</returns>
         public override string ToCsvHeader()
         {
             return base.ToCsvHeader() +
@@ -26,6 +46,12 @@
             if (other.ActualTraineeYear != 0 && other.ActualTraineeYear != null && other.ActualTraineeYear != this.ActualTraineeYear) return false;
             return true;
         }
+
+        /// <summary>
+        /// Transforms a csv string to an object
+        /// </summary>
+        /// <param name="csvString"></param>
+        /// <returns>The transformed trainee</returns>
         public override Trainee FromCsvString(string csvString)
         {
             string[] propertyValues = csvString.Split(',');

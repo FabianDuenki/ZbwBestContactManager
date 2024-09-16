@@ -1,14 +1,20 @@
 ﻿using Controller;
-using Model;
 using ZbW_P_Contact_Manager.Controller;
 
 namespace ZbW_P_Contact_Manager
 {
+    /// <summary>
+    /// Form to display and manage notes for a person
+    /// </summary>
     public partial class FrmNotes : Form
     {
         Guid _personId;
         NotesController _notesController = new NotesController();
 
+        /// <summary>
+        /// Notes form constructor
+        /// </summary>
+        /// <param name="personId"></param>
         public FrmNotes(Guid personId)
         {
             _personId = personId;
@@ -18,6 +24,11 @@ namespace ZbW_P_Contact_Manager
             LoadNotesInListView();
         }
 
+        /// <summary>
+        /// Button to save a note
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnSave_Click(object sender, EventArgs e)
         {
             var currentUser = "undefined";
@@ -31,6 +42,9 @@ namespace ZbW_P_Contact_Manager
             LoadNotesInListView();
         }
 
+        /// <summary>
+        /// Initialize the list view
+        /// </summary>
         private void InitializeListView()
         {
             ListViewHistory.Columns.Clear();
@@ -49,6 +63,9 @@ namespace ZbW_P_Contact_Manager
             ListViewHistory.Columns[3].Width = 200;
         }
 
+        /// <summary>
+        /// Load notes in list view
+        /// </summary>
         public void LoadNotesInListView()
         {
             ListViewHistory.Items.Clear();
@@ -63,6 +80,11 @@ namespace ZbW_P_Contact_Manager
             }
         }
 
+        /// <summary>
+        /// Button to edit a note
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnEdit_Click(object sender, EventArgs e)
         {
             if (ListViewHistory.SelectedItems.Count == 1)
@@ -72,6 +94,13 @@ namespace ZbW_P_Contact_Manager
             }
         }
 
+        /// <summary>
+        /// Changes button states
+        /// </summary>
+        /// <param name="btnSave"></param>
+        /// <param name="btnEdit"></param>
+        /// <param name="btnDelete"></param>
+        /// <param name="btnEditComment"></param>
         private void ChangeButtonStates(bool btnSave, bool btnEdit, bool btnDelete, bool btnEditComment)
         {
             BtnSave.Visible = btnSave;

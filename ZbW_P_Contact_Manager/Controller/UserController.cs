@@ -1,19 +1,27 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using Model;
-using Model.Detail;
+﻿using Model;
 using Model.Typing;
-using System.Reflection;
 
 namespace Controller
 {
+    /// <summary>
+    /// User controller to manage the user data
+    /// </summary>
     internal class UserController : ModelController
     {
         CSVController _csvController;
 
+        /// <summary>
+        /// Constructor to initialize the CSV controller
+        /// </summary>
         public UserController()
         {
             _csvController = new CSVController();
         }
+
+        /// <summary>
+        /// Create a new user
+        /// </summary>
+        /// <param name="user"></param>
         public void Create(Person user)
         {
             user.Id = Guid.NewGuid();
@@ -34,6 +42,11 @@ namespace Controller
             _csvController.AddUser(user);
         }
 
+        /// <summary>
+        /// Read all users
+        /// </summary>
+        /// <param name="searchUser"></param>
+        /// <returns>List of people</returns>
         public List<Person> Read(Person searchUser)
         {
             List<Person> allUsers = _csvController.ReadUsers(searchUser);
@@ -49,10 +62,22 @@ namespace Controller
             }
             return foundUsers;
         }
+
+        /// <summary>
+        /// Read all users by type
+        /// </summary>
+        /// <param name="userType"></param>
+        /// <returns>List of people</returns>
         public List<Person> Read(ModelType userType)
         {
             return _csvController.ReadUsers(GetModelByType(userType));
         }
+
+        /// <summary>
+        /// Update a user
+        /// </summary>
+        /// <param name="oldUser"></param>
+        /// <param name="newUser"></param>
         public void Update(Person oldUser, Person newUser)
         {
             newUser.Id = oldUser.Id;
@@ -74,6 +99,11 @@ namespace Controller
             }
             _csvController.UpdateUser(newUser);
         }
+
+        /// <summary>
+        /// Delete a user
+        /// </summary>
+        /// <param name="user"></param>
         public void Delete(Person user)
         {
             _csvController.DeleteUser(user);

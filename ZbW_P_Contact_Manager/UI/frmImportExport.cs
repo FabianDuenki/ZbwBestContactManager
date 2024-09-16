@@ -1,21 +1,31 @@
-﻿using External;
-using Controller;
-using Model.Typing;
+﻿using Controller;
+using External;
 using Model;
+using Model.Typing;
 using UI.Localization;
 
 namespace ZbW_P_Contact_Manager.UI
 {
-    public partial class frmImportExport : Form
+    /// <summary>
+    /// Form for importing and exporting data
+    /// </summary>
+    public partial class FrmImportExport : Form
     {
         CSVController _csvController;
 
-        public frmImportExport()
+        /// <summary>
+        /// Form for importing and exporting data
+        /// </summary>
+        public FrmImportExport()
         {
             InitializeComponent();
             _csvController = new CSVController();
         }
 
+        /// <summary>
+        /// Import model from model type
+        /// </summary>
+        /// <param name="modelType"></param>
         private void ImportModel(ModelType modelType)
         {
             Person modal = (Person)ModelController.GetModelByType(modelType);
@@ -33,24 +43,44 @@ namespace ZbW_P_Contact_Manager.UI
             }
         }
 
+        /// <summary>
+        /// Import employee
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImportEmployee_Click(object sender, EventArgs e)
         {
             ImportModel(ModelType.Employee);
         }
 
+        /// <summary>
+        /// Export employee
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExportEmployee_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// Import customer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImportCustomer_Click(object sender, EventArgs e)
         {
             ImportModel(ModelType.Customer);
         }
 
+        /// <summary>
+        /// Export customer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExportCustomer_Click(object sender, EventArgs e)
         {
-               
+
         }
     }
 }

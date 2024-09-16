@@ -1,16 +1,22 @@
 ﻿using Controller;
+using Model;
+using Model.Typing;
 using ScottPlot;
 using ScottPlot.Palettes;
 using ZbW_P_Contact_Manager.Models;
-using Model.Typing;
-using Model;
 
 namespace ZbW_P_Contact_Manager.UI
 {
+    /// <summary>
+    /// Form for the dashboard.
+    /// </summary>
     public partial class FrmDashboard : Form
     {
         DashboardData _dashboardData;
 
+        /// <summary>
+        /// Default constructor dashboard.
+        /// </summary>
         public FrmDashboard()
         {
             InitializeComponent();
@@ -33,10 +39,10 @@ namespace ZbW_P_Contact_Manager.UI
 
             foreach (var person in people)
             {
-                int age = (int)((DateTime.Now - person.DateOfBirth.Value).TotalDays / 365.242199);                
+                int age = (int)((DateTime.Now - person.DateOfBirth.Value).TotalDays / 365.242199);
                 agePeople.Add(age);
 
-                if(residence.ContainsKey(person.Place))
+                if (residence.ContainsKey(person.Place))
                 {
                     residence[person.Place] += 1;
                 }
@@ -74,6 +80,9 @@ namespace ZbW_P_Contact_Manager.UI
             InitFormsPlotAge();
         }
 
+        /// <summary>
+        /// Initializes the forms plot for the customer count.
+        /// </summary>
         private void InitFormsPlotCustomerCount()
         {
             FormsPlotCustomerCount.Plot.Clear();
@@ -102,6 +111,9 @@ namespace ZbW_P_Contact_Manager.UI
             FormsPlotCustomerCount.Refresh();
         }
 
+        /// <summary>
+        /// Initializes the forms plot for the person types.
+        /// </summary>
         private void InitFormsPlotPersonTypes()
         {
             FormsPlotPersonTypes.Plot.Clear();
@@ -135,6 +147,9 @@ namespace ZbW_P_Contact_Manager.UI
             FormsPlotPersonTypes.Refresh();
         }
 
+        /// <summary>
+        /// Initializes the forms plot for the residence.
+        /// </summary>
         private void InitFormsPlotResidence()
         {
             FormsPlotResidence.Plot.Clear();
@@ -147,12 +162,12 @@ namespace ZbW_P_Contact_Manager.UI
             List<PieSlice> slices = new();
             var color = 2;
 
-            for (int i = 0;i< cityKeys.Length; i++)
+            for (int i = 0; i < cityKeys.Length; i++)
             {
                 slices.Add(new PieSlice() { Value = cityValues[i], FillColor = palette.GetColor(color), Label = $"{cityKeys[i]} ({cityValues[i]})" });
                 color++;
             }
-            
+
             var pie = plot.Add.Pie(slices);
             pie.ExplodeFraction = .1;
 
@@ -164,12 +179,15 @@ namespace ZbW_P_Contact_Manager.UI
             FormsPlotResidence.Refresh();
         }
 
+        /// <summary>
+        /// Initializes the forms plot for the age.
+        /// </summary>
         private void InitFormsPlotAge()
         {
             double[] dataX = new double[_dashboardData.Age.Count()];
             var count = 1;
 
-            for(int i = 0; i < _dashboardData.Age.Count(); i++)
+            for (int i = 0; i < _dashboardData.Age.Count(); i++)
             {
                 dataX[i] = count++;
             }
@@ -188,8 +206,8 @@ namespace ZbW_P_Contact_Manager.UI
             {
                 ticks = ticks.Append(new Tick(i + 1, x[i].ToString())).ToArray();
             }
-            
-            if(x.Length > 0)
+
+            if (x.Length > 0)
             {
                 LblAverage.Text = "Durchschnitt: " + Queryable.Average(x.AsQueryable()).ToString();
             }
@@ -200,6 +218,10 @@ namespace ZbW_P_Contact_Manager.UI
             FormsPlotAge.Refresh();
         }
 
+        /// <summary>
+        /// Sets the colors for the plot.
+        /// </summary>
+        /// <param name="plot"></param>
         private void SetColorsForPlot(Plot plot)
         {
             // change figure colors
@@ -216,6 +238,11 @@ namespace ZbW_P_Contact_Manager.UI
             plot.Legend.OutlineColor = ScottPlot.Color.FromHex("#d7d7d7");
         }
 
+        /// <summary>
+        /// Sets the forms plot settings.
+        /// </summary>
+        /// <param name="plot"></param>
+        /// <param name="ticks"></param>
         private void SetFormsPlotSettings(Plot plot, Tick[] ticks)
         {
             plot.Axes.Bottom.TickGenerator = new ScottPlot.TickGenerators.NumericManual(ticks);

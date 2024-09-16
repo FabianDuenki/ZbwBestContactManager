@@ -1,6 +1,6 @@
 ﻿namespace ZbW_P_Contact_Manager.UI
 {
-    partial class frmCreateEmployee
+    partial class FrmCreateEmployee
     {
         /// <summary>
         /// Required designer variable.
@@ -786,7 +786,6 @@
 
         #endregion
 
-        private TextBox txtSalutationEmployee;
         private TextBox txtFirstName;
         private TextBox txtLastName;
         private TextBox txtTitle;
