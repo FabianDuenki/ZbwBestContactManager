@@ -100,7 +100,6 @@ namespace ZbW_P_Contact_Manager.UI
             {
                 AddUserToListView(customer);
             }
-            //btnEditUser.Enabled = false;
         }
 
         // Helper method to add users to the ListView
@@ -204,8 +203,25 @@ namespace ZbW_P_Contact_Manager.UI
                 frmEditUser frmEditUser = new frmEditUser(_selectedUser);
                 if (frmEditUser.ShowDialog() == DialogResult.OK)
                 {
-                    // Handle the edit functionality here if required
-                    LoadUsersIntoListView();  // Refresh the list
+                    LoadUsersIntoListView();
+                }
+            }
+        }
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            frmSearchUser frmSearchUser = new frmSearchUser();
+            if (frmSearchUser.ShowDialog() == DialogResult.OK)
+            {
+                List<Person> users = _userController.Read(frmSearchUser.FilterUser);
+
+                listView1.Items.Clear();
+                btnEditUser.Enabled = false;
+                _loadedUsers = new List<Person>();
+                _selectedUser = new Person();
+
+                foreach (Person user in users)
+                {
+                    AddUserToListView(user);
                 }
             }
         }
@@ -275,5 +291,6 @@ namespace ZbW_P_Contact_Manager.UI
             FrmNotes frmNotes = new FrmNotes(_selectedUser.Id);
             frmNotes.ShowDialog();
         }
+
     }
 }

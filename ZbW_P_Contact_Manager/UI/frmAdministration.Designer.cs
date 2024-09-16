@@ -32,6 +32,7 @@
             panel4 = new Panel();
             listView1 = new ListView();
             panel3 = new Panel();
+            btnTrash = new Button();
             BtnAddNote = new Button();
             btnEditUser = new Button();
             btnCreateNewCustomer = new Button();
@@ -40,7 +41,6 @@
             btnAddEmployee = new Button();
             lblAdminlTitle = new Label();
             panel2 = new Panel();
-            btnTrash = new Button();
             pnlAdminFormLoader.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -95,6 +95,21 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(733, 42);
             panel3.TabIndex = 1;
+            // 
+            // btnTrash
+            // 
+            btnTrash.BackColor = Color.Transparent;
+            btnTrash.FlatAppearance.BorderSize = 0;
+            btnTrash.FlatStyle = FlatStyle.Flat;
+            btnTrash.ForeColor = Color.Transparent;
+            btnTrash.Image = Properties.Resources.trash_can;
+            btnTrash.Location = new Point(605, 7);
+            btnTrash.Margin = new Padding(2, 1, 2, 1);
+            btnTrash.Name = "btnTrash";
+            btnTrash.Size = new Size(20, 28);
+            btnTrash.TabIndex = 5;
+            btnTrash.UseVisualStyleBackColor = false;
+            btnTrash.Click += btnTrash_Click;
             // 
             // BtnAddNote
             // 
@@ -185,6 +200,7 @@
             btnFilter.Size = new Size(32, 28);
             btnFilter.TabIndex = 1;
             btnFilter.UseVisualStyleBackColor = false;
+            btnFilter.Click += btnFilter_Click;
             // 
             // btnAddEmployee
             // 
@@ -225,21 +241,6 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(733, 42);
             panel2.TabIndex = 4;
-            // 
-            // btnTrash
-            // 
-            btnTrash.BackColor = Color.Transparent;
-            btnTrash.FlatAppearance.BorderSize = 0;
-            btnTrash.FlatStyle = FlatStyle.Flat;
-            btnTrash.ForeColor = Color.Transparent;
-            btnTrash.Image = Properties.Resources.trash_can;
-            btnTrash.Location = new Point(605, 7);
-            btnTrash.Margin = new Padding(2, 1, 2, 1);
-            btnTrash.Name = "btnTrash";
-            btnTrash.Size = new Size(20, 28);
-            btnTrash.TabIndex = 5;
-            btnTrash.UseVisualStyleBackColor = false;
-            btnTrash.Click += btnTrash_Click;
             // 
             // frmAdministration
             // 

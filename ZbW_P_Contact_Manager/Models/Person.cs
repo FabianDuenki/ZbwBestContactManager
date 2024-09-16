@@ -87,26 +87,26 @@ namespace Model
                 "ZipCode," +
                 "Place";
         }
-        public bool Contains(Person other)
+        public virtual bool Contains(Person other)
         {
             if (other.Id != Guid.Empty && other.Id != this.Id) return false;
-            if (other.Salutation != null && other.Salutation != this.Salutation) return false;
-            if (other.FirstName != null && other.FirstName != this.FirstName) return false;
-            if (other.LastName != null && other.LastName != this.LastName) return false;
-            if (other.DateOfBirth != null && other.DateOfBirth != this.DateOfBirth) return false;
-            if (other.Gender != null && other.Gender != this.Gender) return false;
-            if (other.Title != null && other.Title != this.Title) return false;
-            if (other.SocialSecurityNumber != null && other.SocialSecurityNumber != this.SocialSecurityNumber) return false;
-            if (other.PhoneNumberPrivate != null && other.PhoneNumberPrivate != this.PhoneNumberPrivate) return false;
-            if (other.PhoneNumberMobile != null && other.PhoneNumberMobile != this.PhoneNumberMobile) return false;
-            if (other.PhoneNumberBusiness != null && other.PhoneNumberBusiness != this.PhoneNumberBusiness) return false;
-            if (other.Email != null && other.Email != this.Email) return false;
+            if (other.Salutation != "" && other.Salutation != null && other.Salutation != this.Salutation) return false;
+            if (other.FirstName != "" && other.FirstName != null && other.FirstName != this.FirstName) return false;
+            if (other.LastName != "" && other.LastName != null && other.LastName != this.LastName) return false;
+            if (other.DateOfBirth != new DateTime(1900, 1, 1) && other.DateOfBirth != null && other.DateOfBirth != this.DateOfBirth) return false;
+            if (other.Gender != "" && other.Gender != null && other.Gender != this.Gender) return false;
+            if (other.Title != "" && other.Title != null && other.Title != this.Title) return false;
+            if (other.SocialSecurityNumber != "" && other.SocialSecurityNumber != null && other.SocialSecurityNumber != this.SocialSecurityNumber) return false;
+            if (other.PhoneNumberPrivate != "" && other.PhoneNumberPrivate != null && other.PhoneNumberPrivate != this.PhoneNumberPrivate) return false;
+            if (other.PhoneNumberMobile != "" && other.PhoneNumberMobile != null && other.PhoneNumberMobile != this.PhoneNumberMobile) return false;
+            if (other.PhoneNumberBusiness != "" && other.PhoneNumberBusiness != null && other.PhoneNumberBusiness != this.PhoneNumberBusiness) return false;
+            if (other.Email != "" && other.Email != null && other.Email != this.Email) return false;
             if (other.Status != null && other.Status != this.Status) return false;
-            if (other.Nationality != null && other.Nationality != this.Nationality) return false;
-            if (other.Street != null && other.Street != this.Street) return false;
-            if (other.StreetNumber != null && other.StreetNumber != this.StreetNumber) return false;
-            if (other.ZipCode != null && other.ZipCode != this.ZipCode) return false;
-            if (other.Place != null && other.Place != this.Place) return false;
+            if (other.Nationality != "" && other.Nationality != null && other.Nationality != this.Nationality) return false;
+            if (other.Street != "" && other.Street != null && other.Street != this.Street) return false;
+            if (other.StreetNumber != "" && other.StreetNumber != null && other.StreetNumber != this.StreetNumber) return false;
+            if (other.ZipCode != 0 && other.ZipCode != null && other.ZipCode != this.ZipCode) return false;
+            if (other.Place != "" && other.Place != null && other.Place != this.Place) return false;
             return true;
         }
         public virtual Person FromCsvString(string csvString)

@@ -18,11 +18,12 @@
                 "TraineeYears," +
                 "ActualTraineeYear";
         }
-        public bool Contains(Trainee other)
+        public override bool Contains(Person p)
         {
+            Trainee other = p as Trainee;
             if (!base.Contains(other)) return false;
-            if (other.TraineeYears != null && other.TraineeYears != this.TraineeYears) return false;
-            if (other.ActualTraineeYear != null && other.ActualTraineeYear != this.ActualTraineeYear) return false;
+            if (other.TraineeYears != 0 && other.TraineeYears != null && other.TraineeYears != this.TraineeYears) return false;
+            if (other.ActualTraineeYear != 0 && other.ActualTraineeYear != null && other.ActualTraineeYear != this.ActualTraineeYear) return false;
             return true;
         }
         public override Trainee FromCsvString(string csvString)
