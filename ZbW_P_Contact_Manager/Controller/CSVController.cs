@@ -1,6 +1,7 @@
 ﻿using External;
 using Model;
 using Model.Typing;
+using ScottPlot;
 using System.Reflection;
 
 namespace Controller
@@ -336,8 +337,15 @@ namespace Controller
 
             foreach (Person user in users)
             {
-                if (user.Id == newUser.Id) AddUser(newUser);
-                else AddUser(user);
+                if (user.Id == newUser.Id)
+                {
+                    AddUser(newUser);
+                    SaveHistory(user.GetType(), user.ToCsvString(), newUser.ToCsvString());
+                }
+                else
+                {
+                    AddUser(user);
+                }
             }
         }
 
@@ -376,6 +384,7 @@ namespace Controller
             foreach (Person user in users)
             {
                 if (user.Id != deletionUser.Id) AddUser(user);
+                else SaveHistory(user.GetType(), user.ToCsvString());
             }
         }
 
@@ -394,6 +403,31 @@ namespace Controller
             {
                 if (note.Id != deletionNote.Id) AddNote(note);
             }
+        }
+
+        /// <summary>
+        /// Saves history to a txt file.
+        /// </summary>
+        /// <param name="oldData"></param>
+        /// <param name="newData"></param>
+        private void SaveHistory(Type userType, string oldData, string newData = "delete")
+        {
+            string operation = newData == "delete" ? "DELETE" : "UPDATE";
+            string logEntry = $"{DateTime.Now}:\t{operation} {userType.Name}\t'{oldData}'";
+            string filePath = $"{Environment.CurrentDirectory}\\history.txt";
+
+            if (operation == "DELETE")
+            {
+                logEntry += " was deleted.";
+            }
+            else
+            {
+                logEntry += $" was changed to '{newData}'";
+            }
+
+            logEntry += Environment.NewLine;
+
+            File.AppendAllText(filePath, logEntry);
         }
     }
 }
