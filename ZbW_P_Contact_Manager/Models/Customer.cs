@@ -45,6 +45,12 @@
                 "CompanyType," +
                 "CompanyContact";
         }
+
+        /// <summary>
+        /// Checks whether the other object is contained in this object
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns>Boolean</returns>
         public override bool Contains(Person p)
         {
             Customer other = p as Customer;

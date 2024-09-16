@@ -4,6 +4,9 @@ using System.Reflection;
 
 namespace Model
 {
+    /// <summary>
+    /// Class representing a person
+    /// </summary>
     public class Person
     {
         /// <summary>
@@ -166,6 +169,12 @@ namespace Model
                 "ZipCode," +
                 "Place";
         }
+
+        /// <summary>
+        /// Checks if the person contains the other person
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns>Boolean</returns>
         public virtual bool Contains(Person other)
         {
             if (other.Id != Guid.Empty && other.Id != this.Id) return false;

@@ -38,6 +38,12 @@
                 "TraineeYears," +
                 "ActualTraineeYear";
         }
+
+        /// <summary>
+        /// Checks if the object contains another object
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns>Boolean</returns>
         public override bool Contains(Person p)
         {
             Trainee other = p as Trainee;

@@ -52,29 +52,27 @@
             pnlAdminFormLoader.Controls.Add(panel4);
             pnlAdminFormLoader.Controls.Add(panel3);
             pnlAdminFormLoader.Dock = DockStyle.Fill;
-            pnlAdminFormLoader.Location = new Point(0, 56);
-            pnlAdminFormLoader.Margin = new Padding(3, 4, 3, 4);
+            pnlAdminFormLoader.Location = new Point(0, 42);
             pnlAdminFormLoader.Name = "pnlAdminFormLoader";
-            pnlAdminFormLoader.Size = new Size(838, 580);
+            pnlAdminFormLoader.Size = new Size(733, 435);
             pnlAdminFormLoader.TabIndex = 3;
             // 
             // panel4
             // 
             panel4.Controls.Add(listView1);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(0, 56);
+            panel4.Location = new Point(0, 42);
             panel4.Margin = new Padding(2, 1, 2, 1);
             panel4.Name = "panel4";
-            panel4.Size = new Size(838, 524);
+            panel4.Size = new Size(733, 393);
             panel4.TabIndex = 2;
             // 
             // listView1
             // 
             listView1.Dock = DockStyle.Fill;
             listView1.Location = new Point(0, 0);
-            listView1.Margin = new Padding(3, 4, 3, 4);
             listView1.Name = "listView1";
-            listView1.Size = new Size(838, 524);
+            listView1.Size = new Size(733, 393);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = System.Windows.Forms.View.Details;
@@ -95,7 +93,7 @@
             panel3.Location = new Point(0, 0);
             panel3.Margin = new Padding(2, 1, 2, 1);
             panel3.Name = "panel3";
-            panel3.Size = new Size(838, 56);
+            panel3.Size = new Size(733, 42);
             panel3.TabIndex = 1;
             // 
             // btnTrash
@@ -105,10 +103,10 @@
             btnTrash.FlatStyle = FlatStyle.Flat;
             btnTrash.ForeColor = Color.Transparent;
             btnTrash.Image = Properties.Resources.trash_can;
-            btnTrash.Location = new Point(605, 7);
+            btnTrash.Location = new Point(620, 8);
             btnTrash.Margin = new Padding(2, 1, 2, 1);
             btnTrash.Name = "btnTrash";
-            btnTrash.Size = new Size(20, 28);
+            btnTrash.Size = new Size(27, 30);
             btnTrash.TabIndex = 5;
             btnTrash.UseVisualStyleBackColor = false;
             btnTrash.Click += btnTrash_Click;
@@ -123,10 +121,10 @@
             BtnAddNote.ForeColor = Color.FromArgb(167, 177, 255);
             BtnAddNote.Image = Properties.Resources.add;
             BtnAddNote.ImageAlign = ContentAlignment.MiddleLeft;
-            BtnAddNote.Location = new Point(535, 0);
+            BtnAddNote.Location = new Point(468, 0);
             BtnAddNote.Margin = new Padding(2, 1, 2, 1);
             BtnAddNote.Name = "BtnAddNote";
-            BtnAddNote.Size = new Size(169, 57);
+            BtnAddNote.Size = new Size(148, 43);
             BtnAddNote.TabIndex = 4;
             BtnAddNote.Text = "Add note";
             BtnAddNote.TextAlign = ContentAlignment.MiddleLeft;
@@ -143,10 +141,10 @@
             btnEditUser.ForeColor = Color.FromArgb(167, 177, 255);
             btnEditUser.Image = Properties.Resources.edit;
             btnEditUser.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditUser.Location = new Point(361, 0);
+            btnEditUser.Location = new Point(316, 0);
             btnEditUser.Margin = new Padding(2, 1, 2, 1);
             btnEditUser.Name = "btnEditUser";
-            btnEditUser.Size = new Size(170, 57);
+            btnEditUser.Size = new Size(149, 43);
             btnEditUser.TabIndex = 4;
             btnEditUser.Text = "Edit existing User";
             btnEditUser.TextAlign = ContentAlignment.MiddleLeft;
@@ -163,10 +161,10 @@
             btnCreateNewCustomer.ForeColor = Color.FromArgb(167, 177, 255);
             btnCreateNewCustomer.Image = Properties.Resources.add;
             btnCreateNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCreateNewCustomer.Location = new Point(188, 0);
+            btnCreateNewCustomer.Location = new Point(164, 0);
             btnCreateNewCustomer.Margin = new Padding(2, 1, 2, 1);
             btnCreateNewCustomer.Name = "btnCreateNewCustomer";
-            btnCreateNewCustomer.Size = new Size(169, 56);
+            btnCreateNewCustomer.Size = new Size(148, 42);
             btnCreateNewCustomer.TabIndex = 3;
             btnCreateNewCustomer.Text = "Create new Customer";
             btnCreateNewCustomer.TextAlign = ContentAlignment.MiddleLeft;
@@ -181,10 +179,10 @@
             btnRefresh.FlatStyle = FlatStyle.Flat;
             btnRefresh.ForeColor = Color.Transparent;
             btnRefresh.Image = Properties.Resources.refresh;
-            btnRefresh.Location = new Point(793, 11);
+            btnRefresh.Location = new Point(694, 8);
             btnRefresh.Margin = new Padding(2, 1, 2, 1);
             btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(37, 37);
+            btnRefresh.Size = new Size(32, 28);
             btnRefresh.TabIndex = 2;
             btnRefresh.UseVisualStyleBackColor = false;
             btnRefresh.Click += btnRefresh_Click;
@@ -196,10 +194,10 @@
             btnFilter.FlatStyle = FlatStyle.Flat;
             btnFilter.ForeColor = Color.Transparent;
             btnFilter.Image = Properties.Resources.filter;
-            btnFilter.Location = new Point(744, 9);
+            btnFilter.Location = new Point(654, 8);
             btnFilter.Margin = new Padding(2, 1, 2, 1);
             btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(37, 37);
+            btnFilter.Size = new Size(32, 28);
             btnFilter.TabIndex = 1;
             btnFilter.UseVisualStyleBackColor = false;
             btnFilter.Click += btnFilter_Click;
@@ -213,10 +211,10 @@
             btnAddEmployee.ForeColor = Color.FromArgb(167, 177, 255);
             btnAddEmployee.Image = Properties.Resources.add;
             btnAddEmployee.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddEmployee.Location = new Point(7, 0);
+            btnAddEmployee.Location = new Point(6, 0);
             btnAddEmployee.Margin = new Padding(2, 1, 2, 1);
             btnAddEmployee.Name = "btnAddEmployee";
-            btnAddEmployee.Size = new Size(177, 56);
+            btnAddEmployee.Size = new Size(155, 42);
             btnAddEmployee.TabIndex = 0;
             btnAddEmployee.Text = "Create new Employee";
             btnAddEmployee.TextAlign = ContentAlignment.MiddleLeft;
@@ -228,9 +226,9 @@
             // 
             lblAdminlTitle.AutoSize = true;
             lblAdminlTitle.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold);
-            lblAdminlTitle.Location = new Point(7, 12);
+            lblAdminlTitle.Location = new Point(6, 9);
             lblAdminlTitle.Name = "lblAdminlTitle";
-            lblAdminlTitle.Size = new Size(240, 29);
+            lblAdminlTitle.Size = new Size(190, 24);
             lblAdminlTitle.TabIndex = 1;
             lblAdminlTitle.Text = "Administration Tool";
             // 
@@ -240,21 +238,19 @@
             panel2.Controls.Add(lblAdminlTitle);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(838, 56);
+            panel2.Size = new Size(733, 42);
             panel2.TabIndex = 4;
             // 
             // FrmAdministration
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(46, 51, 73);
-            ClientSize = new Size(838, 636);
+            ClientSize = new Size(733, 477);
             Controls.Add(pnlAdminFormLoader);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmAdministration";
             Text = "frmAdministration";
             pnlAdminFormLoader.ResumeLayout(false);
