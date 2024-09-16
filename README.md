@@ -2,15 +2,30 @@
 
 ## Groupmembers
 
-Fabian Dünki
-Gianluca Kammerer
-Jana Huwiler
+Fabian Dünki,
+Gianluca Kammerer,
+Jana Huwiler,
 Pedro Riveira Tavares de Lira Neto
 
-## Description
 
-this project ain't doin' shit yet.
+## Umgesetzte Anforderungen
 
-## Additional Information
+- Erfassung von Mitarbeitern und Kunden
+- Mutieren von Mitarbeitern und Kunden
+- Aktivieren und deaktivieren von Mitarbeitern und Kunden
+- Löschen von Mitarbeitern und Kunden
+- Automatische Vergabe von Mitarbeiternummern
+- Protokollieren von Notizen in Kundenkontakten inkl. Historie
+- Suchmöglichkeiten über gespeicherten Informationen
+- Automatisches Speichern des Datenstamms auf Festplatte
+- Mutationshistorie von Kontaktdaten
+- Login
+- Dashboard-View
+- Import von Kontakten im CSV-Format
 
-none yet
+
+## Login
+
+Existierende Benutzer: pedro, fabian, gianluca, jana
+
+Passwort: admin
