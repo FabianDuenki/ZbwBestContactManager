@@ -2,7 +2,6 @@
 using Controller;
 using Model.Typing;
 using ZbW_P_Contact_Manager.UI.AdministrationTools;
-using System.Collections.Generic;
 
 namespace ZbW_P_Contact_Manager.UI
 {
@@ -31,6 +30,7 @@ namespace ZbW_P_Contact_Manager.UI
             listView1.View = System.Windows.Forms.View.Details;
 
             // Add columns for Person properties
+            listView1.Columns.Add("Type", 100);
             listView1.Columns.Add("Id", 100);
             listView1.Columns.Add("Salutation", 100);
             listView1.Columns.Add("First Name", 100);
@@ -106,7 +106,8 @@ namespace ZbW_P_Contact_Manager.UI
         // Helper method to add users to the ListView
         private void AddUserToListView(Person person)
         {
-            ListViewItem item = new ListViewItem(person.Id.ToString());
+            ListViewItem item = new ListViewItem(person.GetType().Name);
+            item.SubItems.Add(person.Id.ToString());
             item.SubItems.Add(person.Salutation);
             item.SubItems.Add(person.FirstName);
             item.SubItems.Add(person.LastName);
@@ -214,7 +215,7 @@ namespace ZbW_P_Contact_Manager.UI
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                string selectedItem = listView1.SelectedItems[0].Text;
+                string selectedItem = listView1.SelectedItems[0].SubItems[1].Text;
                 _selectedUser = _loadedUsers.Find(user => user.Id.ToString() == selectedItem);
                 btnEditUser.Enabled = true;
                 BtnAddNote.Enabled = true;
