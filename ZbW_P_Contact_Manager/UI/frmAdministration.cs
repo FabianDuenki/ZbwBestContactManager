@@ -117,7 +117,6 @@ namespace ZbW_P_Contact_Manager.UI
             {
                 AddUserToListView(customer);
             }
-            //btnEditUser.Enabled = false;
         }
 
         /// <summary>
@@ -240,8 +239,25 @@ namespace ZbW_P_Contact_Manager.UI
                 FrmEditUser frmEditUser = new FrmEditUser(_selectedUser);
                 if (frmEditUser.ShowDialog() == DialogResult.OK)
                 {
-                    // Handle the edit functionality here if required
-                    LoadUsersIntoListView();  // Refresh the list
+                    LoadUsersIntoListView();
+                }
+            }
+        }
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            FrmSearchUser frmSearchUser = new FrmSearchUser();
+            if (frmSearchUser.ShowDialog() == DialogResult.OK)
+            {
+                List<Person> users = _userController.Read(frmSearchUser.FilterUser);
+
+                listView1.Items.Clear();
+                btnEditUser.Enabled = false;
+                _loadedUsers = new List<Person>();
+                _selectedUser = new Person();
+
+                foreach (Person user in users)
+                {
+                    AddUserToListView(user);
                 }
             }
         }
@@ -334,5 +350,6 @@ namespace ZbW_P_Contact_Manager.UI
             FrmNotes frmNotes = new FrmNotes(_selectedUser.Id);
             frmNotes.ShowDialog();
         }
+
     }
 }

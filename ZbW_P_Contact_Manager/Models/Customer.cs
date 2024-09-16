@@ -51,12 +51,13 @@
         /// </summary>
         /// <param name="other"></param>
         /// <returns>Boolean</returns>
-        public bool Contains(Customer other)
+        public override bool Contains(Person p)
         {
+            Customer other = p as Customer;
             if (!base.Contains(other)) return false;
-            if (other.CompanyName != null && other.CompanyName != this.CompanyName) return false;
-            if (other.CompanyType != null && other.CompanyType != this.CompanyType) return false;
-            if (other.CompanyContact != null && other.CompanyContact != this.CompanyContact) return false;
+            if (other.CompanyName != "" && other.CompanyName != null && other.CompanyName != this.CompanyName) return false;
+            if (other.CompanyName != "" && other.CompanyType != null && other.CompanyType != this.CompanyType) return false;
+            if (other.CompanyName != "" && other.CompanyContact != null && other.CompanyContact != this.CompanyContact) return false;
             return true;
         }
 
