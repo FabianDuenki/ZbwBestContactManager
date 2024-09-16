@@ -10,13 +10,13 @@ using Microsoft.VisualBasic.ApplicationServices;
 
 namespace ZbW_P_Contact_Manager.UI.AdministrationTools
 {
-    public partial class frmSearchUser : Form
+    public partial class FrmSearchUser : Form
     {
         private Person _searchUser;
-        UserController _userController = new UserController();
-        ModelController _modelController = new ModelController();
+        private UserController _userController = new UserController();
+        private ModelController _modelController = new ModelController();
 
-        public frmSearchUser()
+        public FrmSearchUser()
         {
             InitializeComponent();
             ActivateTextFields();

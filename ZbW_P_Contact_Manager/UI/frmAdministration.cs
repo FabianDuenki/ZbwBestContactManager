@@ -209,7 +209,7 @@ namespace ZbW_P_Contact_Manager.UI
         }
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            frmSearchUser frmSearchUser = new frmSearchUser();
+            FrmSearchUser frmSearchUser = new FrmSearchUser();
             if (frmSearchUser.ShowDialog() == DialogResult.OK)
             {
                 List<Person> users = _userController.Read(frmSearchUser.FilterUser);
