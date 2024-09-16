@@ -73,22 +73,17 @@
                 "Role," +
                 "CadreLevel";
         }
-
-        /// <summary>
-        /// Checks if the object contains the other object
-        /// </summary>
-        /// <param name="other"></param>
-        /// <returns>Boolean</returns>
-        public bool Contains(Employee other)
+        public override bool Contains(Person p)
         {
+            Employee other = p as Employee;
             if (!base.Contains(other)) return false;
             if (other.EmployeeNumber != Guid.Empty && other.EmployeeNumber != this.EmployeeNumber) return false;
-            if (other.Departement != null && other.Departement != this.Departement) return false;
-            if (other.StartDate != null && other.StartDate != this.StartDate) return false;
-            if (other.EndDate != null && other.EndDate != this.EndDate) return false;
-            if (other.Employment != null && other.Employment != this.Employment) return false;
-            if (other.Role != null && other.Role != this.Role) return false;
-            if (other.CadreLevel != null && other.CadreLevel != this.CadreLevel) return false;
+            if (other.Departement != "" && other.Departement != null && other.Departement != this.Departement) return false;
+            if (other.StartDate != new DateTime(1900, 1, 1) && other.StartDate != null && other.StartDate != this.StartDate) return false;
+            if (other.EndDate != new DateTime(1900, 1, 1) && other.EndDate != null && other.EndDate != this.EndDate) return false;
+            if (other.Employment != 0 && other.Employment != null && other.Employment != this.Employment) return false;
+            if (other.Role != "" && other.Role != null && other.Role != this.Role) return false;
+            if (other.Salutation != "" && other.CadreLevel != 0 && other.CadreLevel != null && other.CadreLevel != this.CadreLevel) return false;
             return true;
         }
 
