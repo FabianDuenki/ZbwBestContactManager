@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace ZbW_P_Contact_Manager.UI
+﻿namespace ZbW_P_Contact_Manager.UI
 {
-    public partial class frmHistory : Form
+    /// <summary>
+    /// Form for the history of the contact manager
+    /// </summary>
+    public partial class FrmHistory : Form
     {
-        public frmHistory()
+        /// <summary>
+        /// Form for the history of the contact manager
+        /// </summary>
+        public FrmHistory()
         {
             InitializeComponent();
         }

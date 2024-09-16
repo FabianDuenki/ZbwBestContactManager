@@ -1,7 +1,8 @@
-﻿using System.Collections;
-
-namespace UI.AdministrationTools.Classes
+﻿namespace UI.AdministrationTools.Classes
 {
+    /// <summary>
+    /// Class for creating a form
+    /// </summary>
     public class CreateForm : Form
     {
         /// <summary>
@@ -39,7 +40,7 @@ namespace UI.AdministrationTools.Classes
                     control is CheckBox && !(control as CheckBox)!.Checked ||
                     control is not CheckBox && control.Text.Length <= 0
                 ) return false;
-                
+
             }
             return true;
         }

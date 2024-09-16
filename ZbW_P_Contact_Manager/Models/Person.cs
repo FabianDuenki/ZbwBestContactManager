@@ -1,30 +1,102 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using System.Collections;
+﻿using System.Collections;
 using System.ComponentModel;
-using System.Data;
 using System.Reflection;
 
 namespace Model
 {
+    /// <summary>
+    /// Represents a person with all its properties
+    /// </summary>
     public class Person
     {
+        /// <summary>
+        /// Unique identifier of the person
+        /// </summary>
         public Guid Id { get; set; }
+
+        /// <summary>
+        /// Salutation
+        /// </summary>
         public string? Salutation { get; set; }
+
+        /// <summary>
+        /// First name
+        /// </summary>
         public string? FirstName { get; set; }
+
+        /// <summary>
+        /// Last name
+        /// </summary>
         public string? LastName { get; set; }
+
+        /// <summary>
+        /// Date of birth
+        /// </summary>
         public DateTime? DateOfBirth { get; set; }
+
+        /// <summary>
+        /// Gender
+        /// </summary>
         public string? Gender { get; set; }
+
+        /// <summary>
+        /// Title
+        /// </summary>
         public string? Title { get; set; }
+
+        /// <summary>
+        /// Social security number
+        /// </summary>
         public string? SocialSecurityNumber { get; set; }
+
+        /// <summary>
+        /// Phone number private
+        /// </summary>
         public string? PhoneNumberPrivate { get; set; }
+
+        /// <summary>
+        /// Phone number mobile
+        /// </summary>
         public string? PhoneNumberMobile { get; set; }
+
+        /// <summary>
+        /// Phone number business
+        /// </summary>
         public string? PhoneNumberBusiness { get; set; }
+
+        /// <summary>
+        /// Email address
+        /// </summary>
         public string? Email { get; set; }
+
+        /// <summary>
+        /// Status of the person
+        /// </summary>
         public bool? Status { get; set; }
+
+        /// <summary>
+        /// Nationality
+        /// </summary>
         public string? Nationality { get; set; }
+
+        /// <summary>
+        /// Street
+        /// </summary>
         public string? Street { get; set; }
+
+        /// <summary>
+        /// Street number
+        /// </summary>
         public string? StreetNumber { get; set; }
+
+        /// <summary>
+        /// Zip code
+        /// </summary>
         public int? ZipCode { get; set; }
+
+        /// <summary>
+        /// Place
+        /// </summary>
         public string? Place { get; set; }
 
         /// <summary>
@@ -43,6 +115,11 @@ namespace Model
             }
             return instance;
         }
+
+        /// <summary>
+        /// Converts to a Csv strin
+        /// </summary>
+        /// <returns>Csv Strin</returns>
         public virtual string ToCsvString()
         {
             return
@@ -65,6 +142,11 @@ namespace Model
                 $"{this.ZipCode}," +
                 $"{this.Place}";
         }
+
+        /// <summary>
+        /// Converts to a Csv header
+        /// </summary>
+        /// <returns>Csv header</returns>
         public virtual string ToCsvHeader()
         {
             return
@@ -87,6 +169,12 @@ namespace Model
                 "ZipCode," +
                 "Place";
         }
+
+        /// <summary>
+        /// Checks if the person contains the other person
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns>Boolean</returns>
         public bool Contains(Person other)
         {
             if (other.Id != Guid.Empty && other.Id != this.Id) return false;
@@ -109,6 +197,12 @@ namespace Model
             if (other.Place != null && other.Place != this.Place) return false;
             return true;
         }
+
+        /// <summary>
+        /// Creates a person from a csv string
+        /// </summary>
+        /// <param name="csvString"></param>
+        /// <returns>Person object</returns>
         public virtual Person FromCsvString(string csvString)
         {
             string[] propertyValues = csvString.Split(',');
