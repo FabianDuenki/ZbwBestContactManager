@@ -90,10 +90,7 @@ namespace ZbW_P_Contact_Manager.UI
         {
             BtnDashboard.BackColor = Color.FromArgb(24, 30, 54);
             btnAdministration.BackColor = Color.FromArgb(24, 30, 54);
-            btnCustomerContact.BackColor = Color.FromArgb(24, 30, 54);
-            btnSearch.BackColor = Color.FromArgb(24, 30, 54);
             btnImportExport.BackColor = Color.FromArgb(24, 30, 54);
-            btnHistory.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         /// <summary>
@@ -137,7 +134,6 @@ namespace ZbW_P_Contact_Manager.UI
         /// <param name="e"></param>
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            SetNavigationStyle(btnSearch); // Set navigation style for Search button
             lblTitle.Text = "Search Tool"; // Set the title label text
             LoadForm(new FrmSearch()); // Load the search form
         }
@@ -161,7 +157,6 @@ namespace ZbW_P_Contact_Manager.UI
         /// <param name="e"></param>
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            SetNavigationStyle(btnHistory); // Set navigation style for History button
             lblTitle.Text = "History"; // Set the title label text
             LoadForm(new FrmHistory()); // Load the history form
         }
