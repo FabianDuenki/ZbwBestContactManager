@@ -48,7 +48,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnImportEmployee_Click(object sender, EventArgs e)
+        private void BtnImportEmployee_Click(object sender, EventArgs e)
         {
             ImportModel(ModelType.Employee);
         }
@@ -58,7 +58,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnExportEmployee_Click(object sender, EventArgs e)
+        private void BtnExportEmployee_Click(object sender, EventArgs e)
         {
 
         }
@@ -68,7 +68,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnImportCustomer_Click(object sender, EventArgs e)
+        private void BtnImportCustomer_Click(object sender, EventArgs e)
         {
             ImportModel(ModelType.Customer);
         }
@@ -78,7 +78,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnExportCustomer_Click(object sender, EventArgs e)
+        private void BtnExportCustomer_Click(object sender, EventArgs e)
         {
 
         }

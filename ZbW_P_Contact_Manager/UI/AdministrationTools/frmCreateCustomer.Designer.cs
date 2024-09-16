@@ -78,7 +78,7 @@
             btnCreateNewCustomer.TabIndex = 43;
             btnCreateNewCustomer.Text = "Create New Customer";
             btnCreateNewCustomer.UseVisualStyleBackColor = true;
-            btnCreateNewCustomer.Click += btnCreateNewCustomer_Click;
+            btnCreateNewCustomer.Click += BtnCreateNewCustomer_Click;
             // 
             // ckbStatus
             // 

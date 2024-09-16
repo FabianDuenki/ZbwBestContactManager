@@ -8,7 +8,7 @@
         /// <summary>
         /// List of all required controls
         /// </summary>
-        private readonly List<Control> requiredControls = new();
+        private readonly List<Control> _requiredControls = new();
 
         /// <summary>
         /// Model of the created object
@@ -24,7 +24,7 @@
         {
             foreach (Control control in controls)
             {
-                requiredControls.Add(control);
+                _requiredControls.Add(control);
             }
         }
 
@@ -34,7 +34,7 @@
         /// <returns>Whether the required controls of the form are valid</returns>
         public bool IsFormValid()
         {
-            foreach (Control control in requiredControls)
+            foreach (Control control in _requiredControls)
             {
                 if (
                     control is CheckBox && !(control as CheckBox)!.Checked ||

@@ -136,7 +136,7 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnEditUser_Click(object sender, EventArgs e)
+        private void BtnEditUser_Click(object sender, EventArgs e)
         {
 
             if (_currentUser.GetType() == typeof(Trainee))
