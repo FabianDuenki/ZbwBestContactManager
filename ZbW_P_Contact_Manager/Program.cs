@@ -2,6 +2,9 @@ using ZbW_P_Contact_Manager.UI;
 
 namespace View
 {
+    /// <summary>
+    /// Program class to start the application
+    /// </summary>
     internal static class Program
     {
         /// <summary>

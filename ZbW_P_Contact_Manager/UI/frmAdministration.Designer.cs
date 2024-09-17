@@ -1,6 +1,6 @@
 ﻿namespace ZbW_P_Contact_Manager.UI
 {
-    partial class frmAdministration
+    partial class FrmAdministration
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,8 @@
             panel4 = new Panel();
             listView1 = new ListView();
             panel3 = new Panel();
+            btnTrash = new Button();
+            BtnAddNote = new Button();
             btnEditUser = new Button();
             btnCreateNewCustomer = new Button();
             btnRefresh = new Button();
@@ -39,7 +41,6 @@
             btnAddEmployee = new Button();
             lblAdminlTitle = new Label();
             panel2 = new Panel();
-            btnTrash = new Button();
             pnlAdminFormLoader.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -81,6 +82,7 @@
             // 
             panel3.BackColor = Color.FromArgb(62, 73, 76);
             panel3.Controls.Add(btnTrash);
+            panel3.Controls.Add(BtnAddNote);
             panel3.Controls.Add(btnEditUser);
             panel3.Controls.Add(btnCreateNewCustomer);
             panel3.Controls.Add(btnRefresh);
@@ -94,6 +96,42 @@
             panel3.Size = new Size(733, 42);
             panel3.TabIndex = 1;
             // 
+            // btnTrash
+            // 
+            btnTrash.BackColor = Color.Transparent;
+            btnTrash.FlatAppearance.BorderSize = 0;
+            btnTrash.FlatStyle = FlatStyle.Flat;
+            btnTrash.ForeColor = Color.Transparent;
+            btnTrash.Image = Properties.Resources.trash_can;
+            btnTrash.Location = new Point(620, 8);
+            btnTrash.Margin = new Padding(2, 1, 2, 1);
+            btnTrash.Name = "btnTrash";
+            btnTrash.Size = new Size(27, 30);
+            btnTrash.TabIndex = 5;
+            btnTrash.UseVisualStyleBackColor = false;
+            btnTrash.Click += btnTrash_Click;
+            // 
+            // BtnAddNote
+            // 
+            BtnAddNote.BackColor = Color.FromArgb(81, 102, 105);
+            BtnAddNote.Enabled = false;
+            BtnAddNote.FlatAppearance.BorderSize = 0;
+            BtnAddNote.FlatStyle = FlatStyle.Popup;
+            BtnAddNote.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            BtnAddNote.ForeColor = Color.FromArgb(167, 177, 255);
+            BtnAddNote.Image = Properties.Resources.add;
+            BtnAddNote.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnAddNote.Location = new Point(468, 0);
+            BtnAddNote.Margin = new Padding(2, 1, 2, 1);
+            BtnAddNote.Name = "BtnAddNote";
+            BtnAddNote.Size = new Size(148, 43);
+            BtnAddNote.TabIndex = 4;
+            BtnAddNote.Text = "Add note";
+            BtnAddNote.TextAlign = ContentAlignment.MiddleLeft;
+            BtnAddNote.TextImageRelation = TextImageRelation.ImageBeforeText;
+            BtnAddNote.UseVisualStyleBackColor = false;
+            BtnAddNote.Click += BtnAddNote_Click;
+            // 
             // btnEditUser
             // 
             btnEditUser.BackColor = Color.FromArgb(81, 102, 105);
@@ -103,10 +141,10 @@
             btnEditUser.ForeColor = Color.FromArgb(167, 177, 255);
             btnEditUser.Image = Properties.Resources.edit;
             btnEditUser.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditUser.Location = new Point(382, 8);
+            btnEditUser.Location = new Point(316, 0);
             btnEditUser.Margin = new Padding(2, 1, 2, 1);
             btnEditUser.Name = "btnEditUser";
-            btnEditUser.Size = new Size(153, 27);
+            btnEditUser.Size = new Size(149, 43);
             btnEditUser.TabIndex = 4;
             btnEditUser.Text = "Edit existing User";
             btnEditUser.TextAlign = ContentAlignment.MiddleLeft;
@@ -123,10 +161,10 @@
             btnCreateNewCustomer.ForeColor = Color.FromArgb(167, 177, 255);
             btnCreateNewCustomer.Image = Properties.Resources.add;
             btnCreateNewCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCreateNewCustomer.Location = new Point(197, 8);
+            btnCreateNewCustomer.Location = new Point(164, 0);
             btnCreateNewCustomer.Margin = new Padding(2, 1, 2, 1);
             btnCreateNewCustomer.Name = "btnCreateNewCustomer";
-            btnCreateNewCustomer.Size = new Size(176, 27);
+            btnCreateNewCustomer.Size = new Size(148, 42);
             btnCreateNewCustomer.TabIndex = 3;
             btnCreateNewCustomer.Text = "Create new Customer";
             btnCreateNewCustomer.TextAlign = ContentAlignment.MiddleLeft;
@@ -156,12 +194,13 @@
             btnFilter.FlatStyle = FlatStyle.Flat;
             btnFilter.ForeColor = Color.Transparent;
             btnFilter.Image = Properties.Resources.filter;
-            btnFilter.Location = new Point(643, 8);
+            btnFilter.Location = new Point(654, 8);
             btnFilter.Margin = new Padding(2, 1, 2, 1);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(32, 28);
             btnFilter.TabIndex = 1;
             btnFilter.UseVisualStyleBackColor = false;
+            btnFilter.Click += btnFilter_Click;
             // 
             // btnAddEmployee
             // 
@@ -172,10 +211,10 @@
             btnAddEmployee.ForeColor = Color.FromArgb(167, 177, 255);
             btnAddEmployee.Image = Properties.Resources.add;
             btnAddEmployee.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddEmployee.Location = new Point(6, 8);
+            btnAddEmployee.Location = new Point(6, 0);
             btnAddEmployee.Margin = new Padding(2, 1, 2, 1);
             btnAddEmployee.Name = "btnAddEmployee";
-            btnAddEmployee.Size = new Size(180, 27);
+            btnAddEmployee.Size = new Size(155, 42);
             btnAddEmployee.TabIndex = 0;
             btnAddEmployee.Text = "Create new Employee";
             btnAddEmployee.TextAlign = ContentAlignment.MiddleLeft;
@@ -203,22 +242,7 @@
             panel2.Size = new Size(733, 42);
             panel2.TabIndex = 4;
             // 
-            // btnTrash
-            // 
-            btnTrash.BackColor = Color.Transparent;
-            btnTrash.FlatAppearance.BorderSize = 0;
-            btnTrash.FlatStyle = FlatStyle.Flat;
-            btnTrash.ForeColor = Color.Transparent;
-            btnTrash.Image = Properties.Resources.trash_can;
-            btnTrash.Location = new Point(605, 7);
-            btnTrash.Margin = new Padding(2, 1, 2, 1);
-            btnTrash.Name = "btnTrash";
-            btnTrash.Size = new Size(20, 28);
-            btnTrash.TabIndex = 5;
-            btnTrash.UseVisualStyleBackColor = false;
-            btnTrash.Click += btnTrash_Click;
-            // 
-            // frmAdministration
+            // FrmAdministration
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -227,7 +251,7 @@
             Controls.Add(pnlAdminFormLoader);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "frmAdministration";
+            Name = "FrmAdministration";
             Text = "frmAdministration";
             pnlAdminFormLoader.ResumeLayout(false);
             panel4.ResumeLayout(false);
@@ -250,5 +274,6 @@
         private Button btnEditUser;
         private ListView listView1;
         private Button btnTrash;
+        private Button BtnAddNote;
     }
 }

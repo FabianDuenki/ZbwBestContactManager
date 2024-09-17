@@ -1,6 +1,6 @@
 ﻿namespace ZbW_P_Contact_Manager.UI
 {
-    partial class frmCreateCustomer
+    partial class FrmCreateCustomer
     {
         /// <summary>
         /// Required designer variable.

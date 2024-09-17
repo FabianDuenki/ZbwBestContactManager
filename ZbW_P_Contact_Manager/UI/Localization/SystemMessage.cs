@@ -1,5 +1,8 @@
 ﻿namespace UI.Localization
 {
+    /// <summary>
+    /// Error codes for system messages
+    /// </summary>
     public enum Error
     {
         ModelMismatch = 0,
@@ -7,6 +10,9 @@
         Generic = 2,
     }
 
+    /// <summary>
+    /// System messages for error codes
+    /// </summary>
     public class SystemMessage
     {
         public static string GetMessage(Error error)

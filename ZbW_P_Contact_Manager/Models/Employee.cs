@@ -1,15 +1,49 @@
 ﻿namespace Model
 {
+    /// <summary>
+    /// Employee class that extends the Person class with additional properties
+    /// </summary>
     public class Employee : Person
     {
+        /// <summary>
+        /// Employee number
+        /// </summary>
         public Guid? EmployeeNumber { get; set; }
+
+        /// <summary>
+        /// Departement
+        /// </summary>
         public string? Departement { get; set; }
+
+        /// <summary>
+        /// Start date of employment
+        /// </summary>
         public DateTime? StartDate { get; set; }
+
+        /// <summary>
+        /// End date of employment
+        /// </summary>
         public DateTime? EndDate { get; set; }
+
+        /// <summary>
+        /// Employment percentage
+        /// </summary>
         public int? Employment { get; set; }
+
+        /// <summary>
+        /// Role
+        /// </summary>
         public string? Role { get; set; }
+
+        /// <summary>
+        /// Cadre level
+        /// </summary>
         public int? CadreLevel { get; set; }
 
+        /// <summary>
+        /// The CSV string representation of the object
+        /// </summary>
+        /// <returns>CSV string</returns>
         public override string ToCsvString()
         {
             return base.ToCsvString() +
@@ -22,6 +56,11 @@
                 $"{this.Role}," +
                 $"{this.CadreLevel.ToString()}";
         }
+
+        /// <summary>
+        /// Transforms the object into a CSV header
+        /// </summary>
+        /// <returns>CSV header</returns>
         public override string ToCsvHeader()
         {
             return base.ToCsvHeader() +
@@ -34,18 +73,25 @@
                 "Role," +
                 "CadreLevel";
         }
-        public bool Contains(Employee other)
+        public override bool Contains(Person p)
         {
+            Employee other = p as Employee;
             if (!base.Contains(other)) return false;
             if (other.EmployeeNumber != Guid.Empty && other.EmployeeNumber != this.EmployeeNumber) return false;
-            if (other.Departement != null && other.Departement != this.Departement) return false;
-            if (other.StartDate != null && other.StartDate != this.StartDate) return false;
-            if (other.EndDate != null && other.EndDate != this.EndDate) return false;
-            if (other.Employment != null && other.Employment != this.Employment) return false;
-            if (other.Role != null && other.Role != this.Role) return false;
-            if (other.CadreLevel != null && other.CadreLevel != this.CadreLevel) return false;
+            if (other.Departement != "" && other.Departement != null && other.Departement != this.Departement) return false;
+            if (other.StartDate != new DateTime(1900, 1, 1) && other.StartDate != null && other.StartDate != this.StartDate) return false;
+            if (other.EndDate != new DateTime(1900, 1, 1) && other.EndDate != null && other.EndDate != this.EndDate) return false;
+            if (other.Employment != 0 && other.Employment != null && other.Employment != this.Employment) return false;
+            if (other.Role != "" && other.Role != null && other.Role != this.Role) return false;
+            if (other.Salutation != "" && other.CadreLevel != 0 && other.CadreLevel != null && other.CadreLevel != this.CadreLevel) return false;
             return true;
         }
+
+        /// <summary>
+        /// Transforms a CSV string into an object
+        /// </summary>
+        /// <param name="csvString"></param>
+        /// <returns>Employee object</returns>
         public override Employee FromCsvString(string csvString)
         {
             string[] propertyValues = csvString.Split(',');

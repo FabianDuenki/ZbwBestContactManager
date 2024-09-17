@@ -1,6 +1,9 @@
 ﻿namespace UI.Helpers
 {
-    class DataParser
+    /// <summary>
+    /// DataParser class for parsing data
+    /// </summary>
+    public class DataParser
     {
         /// <summary>
         /// Converts a string to an int only if conversion is possible

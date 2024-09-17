@@ -1,10 +1,29 @@
 ﻿namespace Model
 {
+    /// <summary>
+    /// Customer class that inherits from Person class and adds company related properties
+    /// </summary>
     public class Customer : Person
     {
+        /// <summary>
+        /// Company name of the customer
+        /// </summary>
         public string? CompanyName { get; set; }
+
+        /// <summary>
+        /// Company type of the customer
+        /// </summary>
         public string? CompanyType { get; set; }
+
+        /// <summary>
+        /// Company contact of the customer
+        /// </summary>
         public string? CompanyContact { get; set; }
+
+        /// <summary>
+        /// Transforms the object to a CSV string
+        /// </summary>
+        /// <returns>The transformed string</returns>
         public override string ToCsvString()
         {
             return base.ToCsvString() +
@@ -13,6 +32,11 @@
                 $"{this.CompanyName}," +
                 $"{this.CompanyContact}";
         }
+
+        /// <summary>
+        /// Transforms the object to a CSV header
+        /// </summary>
+        /// <returns>The transformed string</returns>
         public override string ToCsvHeader()
         {
             return base.ToCsvHeader() +
@@ -21,14 +45,27 @@
                 "CompanyType," +
                 "CompanyContact";
         }
-        public bool Contains(Customer other)
+
+        /// <summary>
+        /// Checks whether the other object is contained in this object
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns>Boolean</returns>
+        public override bool Contains(Person p)
         {
-            if(!base.Contains(other)) return false;
-            if (other.CompanyName != null && other.CompanyName != this.CompanyName) return false;
-            if (other.CompanyType != null && other.CompanyType != this.CompanyType) return false;
-            if (other.CompanyContact != null && other.CompanyContact != this.CompanyContact) return false;
+            Customer other = p as Customer;
+            if (!base.Contains(other)) return false;
+            if (other.CompanyName != "" && other.CompanyName != null && other.CompanyName != this.CompanyName) return false;
+            if (other.CompanyName != "" && other.CompanyType != null && other.CompanyType != this.CompanyType) return false;
+            if (other.CompanyName != "" && other.CompanyContact != null && other.CompanyContact != this.CompanyContact) return false;
             return true;
         }
+
+        /// <summary>
+        /// Creates a new object from a CSV string
+        /// </summary>
+        /// <param name="csvString"></param>
+        /// <returns>New created customer</returns>
         public override Customer FromCsvString(string csvString)
         {
             string[] propertyValues = csvString.Split(',');

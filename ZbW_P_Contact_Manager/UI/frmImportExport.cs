@@ -1,23 +1,33 @@
-﻿using External;
-using Controller;
-using Model.Typing;
+﻿using Controller;
+using External;
 using Model;
+using Model.Typing;
 using UI.Localization;
 
 namespace ZbW_P_Contact_Manager.UI
 {
-    public partial class frmImportExport : Form
+    /// <summary>
+    /// Form for importing and exporting data
+    /// </summary>
+    public partial class FrmImportExport : Form
     {
         UserController _userController;
         CSVController _csvController;
 
-        public frmImportExport()
+        /// <summary>
+        /// Form for importing and exporting data
+        /// </summary>
+        public FrmImportExport()
         {
             InitializeComponent();
             _userController = new UserController();
             _csvController = new CSVController();
         }
 
+        /// <summary>
+        /// Import model from model type
+        /// </summary>
+        /// <param name="modelType"></param>
         private void ImportModel(ModelType modelType)
         {
             Person modal = (Person)ModelController.GetModelByType(modelType);
@@ -35,6 +45,10 @@ namespace ZbW_P_Contact_Manager.UI
             }
         }
 
+        /// <summary>
+        /// Export model
+        /// </summary>
+        /// <param name="modelType">Type to export</param>
         private void ExportModel(ModelType modelType)
         {
             string filePath = GetModelPathByType(modelType);
@@ -47,6 +61,10 @@ namespace ZbW_P_Contact_Manager.UI
             }
         }
 
+        /// <summary>
+        /// Get the CSV path to an existing model by its type
+        /// </summary>
+        /// <param name="modelType">Type of the model</param>
         private string GetModelPathByType(ModelType modelType)
         {
             return modelType switch
@@ -57,6 +75,10 @@ namespace ZbW_P_Contact_Manager.UI
             };
         }
 
+        /// <summary>
+        /// Get the path to a selected folder
+        /// </summary>
+        /// <returns>The path to the folder selected</returns>
         private string GetFolderPathViaDialog()
         {
             using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
@@ -66,26 +88,51 @@ namespace ZbW_P_Contact_Manager.UI
             }
         }
 
+        /// <summary>
+        /// Import employee
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImportEmployee_Click(object sender, EventArgs e)
         {
             ImportModel(ModelType.Employee);
         }
 
+        /// <summary>
+        /// Import customer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImportCustomer_Click(object sender, EventArgs e)
         {
             ImportModel(ModelType.Customer);
         }
 
+        /// <summary>
+        /// Export employee
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExportEmployee_Click(object sender, EventArgs e)
         {
             ExportModel(ModelType.Employee);
         }
 
+        /// <summary>
+        /// Export customer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExportCustomer_Click(object sender, EventArgs e)
         {
             ExportModel(ModelType.Customer);
         }
 
+        /// <summary>
+        /// Export trainee
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExportTrainee_Click(object sender, EventArgs e)
         {
             ExportModel(ModelType.Trainee);
