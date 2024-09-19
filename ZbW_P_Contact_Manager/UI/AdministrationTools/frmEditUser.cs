@@ -8,8 +8,8 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
     /// </summary>
     public partial class FrmEditUser : Form
     {
-        Person _currentUser;
-        Person _updatedUser;
+        private Person _currentUser;
+        private Person _updatedUser;
         UserController _userController = new UserController();
         ModelController _modelController = new ModelController();
 

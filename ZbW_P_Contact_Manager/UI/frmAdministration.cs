@@ -44,6 +44,7 @@ namespace ZbW_P_Contact_Manager.UI
             listView1.View = System.Windows.Forms.View.Details;
 
             // Add columns for Person properties
+            listView1.Columns.Add("Type", 100);
             listView1.Columns.Add("Id", 100);
             listView1.Columns.Add("Salutation", 100);
             listView1.Columns.Add("First Name", 100);
@@ -116,7 +117,6 @@ namespace ZbW_P_Contact_Manager.UI
             {
                 AddUserToListView(customer);
             }
-            //btnEditUser.Enabled = false;
         }
 
         /// <summary>
@@ -125,7 +125,8 @@ namespace ZbW_P_Contact_Manager.UI
         /// <param name="person"></param>
         private void AddUserToListView(Person person)
         {
-            ListViewItem item = new ListViewItem(person.Id.ToString());
+            ListViewItem item = new ListViewItem(person.GetType().Name);
+            item.SubItems.Add(person.Id.ToString());
             item.SubItems.Add(person.Salutation);
             item.SubItems.Add(person.FirstName);
             item.SubItems.Add(person.LastName);
@@ -238,8 +239,25 @@ namespace ZbW_P_Contact_Manager.UI
                 FrmEditUser frmEditUser = new FrmEditUser(_selectedUser);
                 if (frmEditUser.ShowDialog() == DialogResult.OK)
                 {
-                    // Handle the edit functionality here if required
-                    LoadUsersIntoListView();  // Refresh the list
+                    LoadUsersIntoListView();
+                }
+            }
+        }
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            FrmSearchUser frmSearchUser = new FrmSearchUser();
+            if (frmSearchUser.ShowDialog() == DialogResult.OK)
+            {
+                List<Person> users = _userController.Read(frmSearchUser.FilterUser);
+
+                listView1.Items.Clear();
+                btnEditUser.Enabled = false;
+                _loadedUsers = new List<Person>();
+                _selectedUser = new Person();
+
+                foreach (Person user in users)
+                {
+                    AddUserToListView(user);
                 }
             }
         }
@@ -253,7 +271,7 @@ namespace ZbW_P_Contact_Manager.UI
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                string selectedItem = listView1.SelectedItems[0].Text;
+                string selectedItem = listView1.SelectedItems[0].SubItems[1].Text;
                 _selectedUser = _loadedUsers.Find(user => user.Id.ToString() == selectedItem);
                 btnEditUser.Enabled = true;
                 BtnAddNote.Enabled = true;
@@ -332,5 +350,6 @@ namespace ZbW_P_Contact_Manager.UI
             FrmNotes frmNotes = new FrmNotes(_selectedUser.Id);
             frmNotes.ShowDialog();
         }
+
     }
 }
