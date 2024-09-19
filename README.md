@@ -29,3 +29,7 @@ Pedro Riveira Tavares de Lira Neto
 Existierende Benutzer: pedro, fabian, gianluca, jana
 
 Passwort: admin
+
+## Import Dateien
+
+Beispiele befinden sich im Verzeichnis `Resources`.

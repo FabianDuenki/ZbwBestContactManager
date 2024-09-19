@@ -38,6 +38,7 @@ namespace ZbW_P_Contact_Manager.UI
             if (isHeaderEqual)
             {
                 object[] models = _csvController.Import(modelType, text);
+                Array.ForEach(models, model => _userController.Create((Person)model));
             }
             else
             {
@@ -52,6 +53,7 @@ namespace ZbW_P_Contact_Manager.UI
         private void ExportModel(ModelType modelType)
         {
             string filePath = GetModelPathByType(modelType);
+            MessageBox.Show(filePath);
             if (!File.Exists(filePath))
                 MessageBox.Show(SystemMessage.GetMessage(Error.ModelFileMissing));
             else
@@ -105,17 +107,17 @@ namespace ZbW_P_Contact_Manager.UI
         /// <param name="e"></param>
         private void BtnExportEmployee_Click(object sender, EventArgs e)
         {
-            ImportModel(ModelType.Customer);
+            ExportModel(ModelType.Employee);
         }
 
         /// <summary>
-        /// Export employee
+        /// Import Customer
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void BtnImportCustomer_Click(object sender, EventArgs e)
         {
-            ExportModel(ModelType.Employee);
+            ImportModel(ModelType.Customer);
         }
 
         /// <summary>
@@ -133,7 +135,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnExportTrainee_Click(object sender, EventArgs e)
+        private void BtnExportTrainee_Click(object sender, EventArgs e)
         {
             ExportModel(ModelType.Trainee);
         }
