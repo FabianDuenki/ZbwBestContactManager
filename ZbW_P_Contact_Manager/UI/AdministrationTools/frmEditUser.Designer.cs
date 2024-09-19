@@ -651,7 +651,7 @@
             btnEditUser.TabIndex = 197;
             btnEditUser.Text = "Edit User";
             btnEditUser.UseVisualStyleBackColor = true;
-            btnEditUser.Click += btnEditUser_Click;
+            btnEditUser.Click += BtnEditUser_Click;
             // 
             // txtStartDate
             // 

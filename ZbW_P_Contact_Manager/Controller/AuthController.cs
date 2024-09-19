@@ -10,7 +10,7 @@ namespace ZbW_P_Contact_Manager.Controller
         /// <summary>
         /// Fake table of users to log into the application
         /// </summary>
-        private static readonly List<User> users = new()
+        private static readonly List<User> _users = new()
         {
             new ("fabian", "admin"),
             new ("jana", "admin"),
@@ -21,17 +21,17 @@ namespace ZbW_P_Contact_Manager.Controller
         /// <summary>
         /// Current logged in user
         /// </summary>
-        private static User? user;
+        private static User? _user;
 
         /// <summary>
         /// Property to set user information only once
         /// </summary>
         public static User? User
         {
-            get { return user; }
+            get { return _user; }
             set
             {
-                if (user == null) user = value;
+                if (_user == null) _user = value;
             }
         }
 
@@ -43,8 +43,8 @@ namespace ZbW_P_Contact_Manager.Controller
         /// <returns>Whether the user exists</returns>
         public static bool IsUserValid(string username, string password)
         {
-            user = users.Find(user => user.GetFullName() == username && user.IsPasswordCorrect(password));
-            return user != null;
+            _user = _users.Find(user => user.GetFullName() == username && user.IsPasswordCorrect(password));
+            return _user != null;
         }
     }
 }

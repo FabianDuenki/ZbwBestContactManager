@@ -96,7 +96,7 @@
             btnImportEmployee.Size = new Size(211, 138);
             btnImportEmployee.TabIndex = 12;
             btnImportEmployee.UseVisualStyleBackColor = false;
-            btnImportEmployee.Click += btnImportEmployee_Click;
+            btnImportEmployee.Click += BtnImportEmployee_Click;
             // 
             // btnImportCustomer
             // 
@@ -108,7 +108,7 @@
             btnImportCustomer.Size = new Size(211, 138);
             btnImportCustomer.TabIndex = 13;
             btnImportCustomer.UseVisualStyleBackColor = false;
-            btnImportCustomer.Click += btnImportCustomer_Click;
+            btnImportCustomer.Click += BtnImportCustomer_Click;
             // 
             // btnExportEmployee
             // 
