@@ -5,7 +5,9 @@
     /// </summary>
     public enum Error
     {
-        ModelMismatch = 0
+        ModelMismatch = 0,
+        ModelFileMissing = 1,
+        Generic = 2,
     }
 
     /// <summary>
@@ -17,7 +19,9 @@
         {
             return error switch
             {
-                Error.ModelMismatch or _ => "Error: Models do not match!"
+                Error.ModelMismatch => "Error: Models do not match!",
+                Error.ModelFileMissing => "Error: No models exist for this type!",
+                Error.Generic or _ => "An unknown error occurred!"
             };
         }
     }
