@@ -40,7 +40,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtSocialSecurityNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtSocialSecurityNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Allow only digits, the dot character, and control characters (like backspace)
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar);
@@ -133,7 +133,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCreateNewCustomer_Click(object sender, EventArgs e)
+        private void BtnCreateNewCustomer_Click(object sender, EventArgs e)
         {
             if (!IsFormValid()) return;
 

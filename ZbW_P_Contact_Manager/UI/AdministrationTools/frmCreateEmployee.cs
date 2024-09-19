@@ -10,6 +10,7 @@ namespace ZbW_P_Contact_Manager.UI
     /// </summary>
     public partial class FrmCreateEmployee : CreateForm
     {
+
         /// <summary>
         /// Constructor for the Create Employee form
         /// </summary>
@@ -42,7 +43,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCreateNewEmployee_Click(object sender, EventArgs e)
+        private void BtnCreateNewEmployee_Click(object sender, EventArgs e)
         {
             if (!IsFormValid()) return;
 
@@ -119,7 +120,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ckbTrainee_CheckedChanged(object sender, EventArgs e)
+        private void CkbTrainee_CheckedChanged(object sender, EventArgs e)
         {
             bool isChecked = ckbTrainee.Checked;
             txtTraineeYears.Enabled = isChecked;
@@ -131,7 +132,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtSocialSecurityNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtSocialSecurityNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar);
         }
@@ -141,7 +142,7 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtSocialSecurityNumber_TextChanged(object sender, EventArgs e)
+        private void TxtSocialSecurityNumber_TextChanged(object sender, EventArgs e)
         {
             ValidateInput(txtSocialSecurityNumber, @"^\d{3}\.\d{4}\.\d{4}\.\d{2}$");
         }

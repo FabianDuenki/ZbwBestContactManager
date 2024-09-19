@@ -139,8 +139,8 @@
             txtSocialSecurityNumber.Size = new Size(182, 21);
             txtSocialSecurityNumber.TabIndex = 17;
             txtSocialSecurityNumber.Tag = "Social Security Number";
-            txtSocialSecurityNumber.TextChanged += txtSocialSecurityNumber_TextChanged;
-            txtSocialSecurityNumber.KeyPress += txtSocialSecurityNumber_KeyPress;
+            txtSocialSecurityNumber.TextChanged += TxtSocialSecurityNumber_TextChanged;
+            txtSocialSecurityNumber.KeyPress += TxtSocialSecurityNumber_KeyPress;
             // 
             // txtPhoneNumberPrivate
             // 
@@ -266,7 +266,7 @@
             btnCreateNewEmployee.TabIndex = 100;
             btnCreateNewEmployee.Text = "Create New Employee";
             btnCreateNewEmployee.UseVisualStyleBackColor = true;
-            btnCreateNewEmployee.Click += btnCreateNewEmployee_Click;
+            btnCreateNewEmployee.Click += BtnCreateNewEmployee_Click;
             // 
             // txtSalutation
             // 
@@ -650,7 +650,7 @@
             ckbTrainee.TabIndex = 50;
             ckbTrainee.Text = "Trainee";
             ckbTrainee.UseVisualStyleBackColor = true;
-            ckbTrainee.CheckedChanged += ckbTrainee_CheckedChanged;
+            ckbTrainee.CheckedChanged += CkbTrainee_CheckedChanged;
             // 
             // lblTrainee
             // 

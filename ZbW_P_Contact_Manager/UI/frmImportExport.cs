@@ -11,6 +11,7 @@ namespace ZbW_P_Contact_Manager.UI
     /// </summary>
     public partial class FrmImportExport : Form
     {
+        UserController _userController;
         CSVController _csvController;
 
         /// <summary>
@@ -19,6 +20,7 @@ namespace ZbW_P_Contact_Manager.UI
         public FrmImportExport()
         {
             InitializeComponent();
+            _userController = new UserController();
             _csvController = new CSVController();
         }
 
@@ -44,23 +46,56 @@ namespace ZbW_P_Contact_Manager.UI
         }
 
         /// <summary>
+        /// Export model
+        /// </summary>
+        /// <param name="modelType">Type to export</param>
+        private void ExportModel(ModelType modelType)
+        {
+            string filePath = GetModelPathByType(modelType);
+            if (!File.Exists(filePath))
+                MessageBox.Show(SystemMessage.GetMessage(Error.ModelFileMissing));
+            else
+            {
+                string folderPath = GetFolderPathViaDialog();
+                File.Copy(filePath, $"{folderPath}\\{modelType}.csv");
+            }
+        }
+
+        /// <summary>
+        /// Get the CSV path to an existing model by its type
+        /// </summary>
+        /// <param name="modelType">Type of the model</param>
+        private string GetModelPathByType(ModelType modelType)
+        {
+            return modelType switch
+            {
+                ModelType.Employee => _csvController.GetPathByModelType(typeof(Employee)),
+                ModelType.Trainee => _csvController.GetPathByModelType(typeof(Trainee)),
+                ModelType.Customer or _ => _csvController.GetPathByModelType(typeof(Customer)),
+            };
+        }
+
+        /// <summary>
+        /// Get the path to a selected folder
+        /// </summary>
+        /// <returns>The path to the folder selected</returns>
+        private string GetFolderPathViaDialog()
+        {
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
+            {
+                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+                return dialog.SelectedPath;
+            }
+        }
+
+        /// <summary>
         /// Import employee
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnImportEmployee_Click(object sender, EventArgs e)
+        private void BtnImportEmployee_Click(object sender, EventArgs e)
         {
             ImportModel(ModelType.Employee);
-        }
-
-        /// <summary>
-        /// Export employee
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnExportEmployee_Click(object sender, EventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -68,9 +103,19 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnImportCustomer_Click(object sender, EventArgs e)
+        private void BtnExportEmployee_Click(object sender, EventArgs e)
         {
             ImportModel(ModelType.Customer);
+        }
+
+        /// <summary>
+        /// Export employee
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnImportCustomer_Click(object sender, EventArgs e)
+        {
+            ExportModel(ModelType.Employee);
         }
 
         /// <summary>
@@ -78,9 +123,19 @@ namespace ZbW_P_Contact_Manager.UI
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnExportCustomer_Click(object sender, EventArgs e)
+        private void BtnExportCustomer_Click(object sender, EventArgs e)
         {
+            ExportModel(ModelType.Customer);
+        }
 
+        /// <summary>
+        /// Export trainee
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExportTrainee_Click(object sender, EventArgs e)
+        {
+            ExportModel(ModelType.Trainee);
         }
     }
 }
