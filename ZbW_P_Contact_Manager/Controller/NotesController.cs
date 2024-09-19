@@ -2,18 +2,28 @@
 
 namespace Controller
 {
+    /// <summary>
+    /// Notes controller to manage the notes of a person
+    /// </summary>
     public class NotesController
     {
-        List<Note> notes = new List<Note>();
+        CSVController _csvController;
 
-        public NotesController() { }
-
-        public NotesController(List<Note> notes)
+        /// <summary>
+        /// Notes controller constructor
+        /// </summary>
+        public NotesController()
         {
-            this.notes = notes;
+            _csvController = new();
         }
 
-        public void CreateNote(long personId, string comment, string createdBy)
+        /// <summary>
+        /// Note creation method
+        /// </summary>
+        /// <param name="personId"></param>
+        /// <param name="comment"></param>
+        /// <param name="createdBy"></param>
+        public void Create(Guid personId, string comment, string createdBy)
         {
             var note = new Note()
             {
@@ -23,44 +33,29 @@ namespace Controller
                 CreatedBy = createdBy,
                 CreatedAt = DateTime.Now
             };
-            notes.Add(note);
+
+            _csvController.AddNote(note);
         }
 
-        public void UpdateNote(long personId, Guid noteId, string newComment, string updatedBy)
+        /// <summary>
+        /// Read notes of a person
+        /// </summary>
+        /// <param name="personId"></param>
+        /// <returns>Note</returns>
+        public List<Note> Read(Guid personId)
         {
-            var note = notes.Find(n => n.PersonId == personId && n.Id == noteId);
+            List<Note> notes = _csvController.ReadNotes();
+            List<Note> filteredNotes = new();
 
-            if (note != null)
+            foreach (Note note in notes)
             {
-                note.Comment = newComment;
-                note.UpdatedBy = updatedBy;
-                note.UpdatedAt = DateTime.Now;
+                if (note.PersonId == personId)
+                {
+                    filteredNotes.Add(note);
+                }
             }
-        }
 
-        public void DeleteAllNotes(long personId)
-        {
-            var persNotes = notes.FindAll(n => n.PersonId == personId);
-
-            foreach (var note in persNotes)
-            {
-                notes.Remove(note);
-            }
-        }
-
-        public void DeleteNote(long personId, Guid noteId)
-        {
-            var persNote = notes.Find(n => n.PersonId == personId && n.Id == noteId);
-
-            if(persNote != null)
-            {
-                notes.Remove(persNote);
-            }
-        }
-
-        public List<Note> LoadNotes(long personId)
-        {
-            return notes.FindAll(n => n.PersonId == personId);
+            return filteredNotes;
         }
     }
 }
