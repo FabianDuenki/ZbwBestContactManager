@@ -1,0 +1,3 @@
+Id,Salutation,FirstName,LastName,DateOfBirth,Gender,Title,SocialSecurityNumber,PhoneNumberPrivate,PhoneNumberMobile,PhoneNumberBusiness,Email,Status,Nationality,Street,StreetNumber,ZipCode,Place,CompanyName,CompanyType,CompanyContact
+9bc0668b-38ad-48dc-a1f5-4517f8aa8f71,Ms.,Sophie,Da Costa,8/7/2024 12:00:00 AM,Female,Professor,,,,574837561,sophie@gmail.com,True,Switzerland,Bruhlstrasse,101,9320,Arbon,TFT,TFT,sophie@tft.ch
+0a733aaa-315d-4b83-9077-58bcb969f266,Salutation,Hans,Peter,8/7/2024 12:00:00 AM,Male,Doctor,,,,6468476171,hans.peter@yahoo.com,True,Germany,Konstanzerstrasse,305,1234,Konstanz,immosolutions,immosolutions,hans.peter@immosolutions.com
