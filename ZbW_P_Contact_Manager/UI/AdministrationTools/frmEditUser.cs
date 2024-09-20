@@ -130,7 +130,6 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
                 txtCompanyContact.Text = customer.CompanyContact;
             }
         }
-
         /// <summary>
         /// Edit Trainee Years button click event
         /// </summary>
@@ -138,7 +137,6 @@ namespace ZbW_P_Contact_Manager.UI.AdministrationTools
         /// <param name="e"></param>
         private void BtnEditUser_Click(object sender, EventArgs e)
         {
-
             if (_currentUser.GetType() == typeof(Trainee))
             {
                 _updatedUser = new Trainee()
