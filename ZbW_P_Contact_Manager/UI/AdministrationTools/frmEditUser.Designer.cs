@@ -496,6 +496,7 @@
             // txtCadreLevel
             // 
             txtCadreLevel.Location = new Point(203, 500);
+            txtCadreLevel.Maximum = new decimal(new int[] { 6, 0, 0, 0 });
             txtCadreLevel.Name = "txtCadreLevel";
             txtCadreLevel.Size = new Size(180, 23);
             txtCadreLevel.TabIndex = 193;
@@ -1039,12 +1040,11 @@
             // numEmployment
             // 
             numEmployment.Location = new Point(203, 428);
-            numEmployment.Maximum = new decimal(new int[] { 25, 0, 0, 0 });
             numEmployment.Name = "numEmployment";
             numEmployment.Size = new Size(182, 23);
             numEmployment.TabIndex = 260;
             // 
-            // frmEditUser
+            // FrmEditUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -1138,7 +1138,7 @@
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Margin = new Padding(2, 1, 2, 1);
-            Name = "frmEditUser";
+            Name = "FrmEditUser";
             Text = "Edit User";
             ((System.ComponentModel.ISupportInitialize)numActualTraineeYear).EndInit();
             ((System.ComponentModel.ISupportInitialize)numTraineeYears).EndInit();

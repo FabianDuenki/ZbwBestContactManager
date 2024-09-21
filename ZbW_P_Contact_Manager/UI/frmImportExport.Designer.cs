@@ -120,7 +120,7 @@
             btnExportEmployee.Size = new Size(211, 138);
             btnExportEmployee.TabIndex = 14;
             btnExportEmployee.UseVisualStyleBackColor = false;
-            btnExportEmployee.Click += btnExportEmployee_Click;
+            btnExportEmployee.Click += BtnExportEmployee_Click;
             // 
             // btnExportTrainee
             // 
@@ -132,7 +132,7 @@
             btnExportTrainee.Size = new Size(211, 138);
             btnExportTrainee.TabIndex = 15;
             btnExportTrainee.UseVisualStyleBackColor = false;
-            btnExportTrainee.Click += btnExportTrainee_Click;
+            btnExportTrainee.Click += BtnExportTrainee_Click;
             // 
             // btnExportCustomer
             // 
@@ -144,7 +144,7 @@
             btnExportCustomer.Size = new Size(211, 138);
             btnExportCustomer.TabIndex = 17;
             btnExportCustomer.UseVisualStyleBackColor = false;
-            btnExportCustomer.Click += btnExportCustomer_Click;
+            btnExportCustomer.Click += BtnExportCustomer_Click;
             // 
             // label5
             // 
@@ -165,7 +165,7 @@
             panel1.Size = new Size(937, 1);
             panel1.TabIndex = 18;
             // 
-            // frmImportExport
+            // FrmImportExport
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -184,7 +184,7 @@
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "frmImportExport";
+            Name = "FrmImportExport";
             Text = "frmImportExport";
             ResumeLayout(false);
             PerformLayout();
