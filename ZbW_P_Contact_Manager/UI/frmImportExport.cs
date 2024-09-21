@@ -53,7 +53,6 @@ namespace ZbW_P_Contact_Manager.UI
         private void ExportModel(ModelType modelType)
         {
             string filePath = GetModelPathByType(modelType);
-            MessageBox.Show(filePath);
             if (!File.Exists(filePath))
                 MessageBox.Show(SystemMessage.GetMessage(Error.ModelFileMissing));
             else
