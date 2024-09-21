@@ -32,4 +32,4 @@ Passwort: admin
 
 ## Import Dateien
 
-Beispiele befinden sich im Verzeichnis [Examples](ZbW_P_Contact_Manager\bin\Debug\net8.0-windows\Resources\Examples).
+Beispiele befinden sich im Verzeichnis [Examples](ZbW_P_Contact_Manager/bin/Debug/net8.0-windows/Resources/Examples).
